@@ -3,7 +3,6 @@
 module Main where
 
 import System.Exit (exitFailure, exitSuccess)
-import qualified Data.ByteString.Lazy.Char8 as BLC
 import SchemaDSL
 
 main :: IO ()
