@@ -12,6 +12,11 @@ Thumbs.db
 # Dependencies & Build
 node_modules/
 dist/
+dist-newstyle/
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
 build/
 __pycache__/
 *.pyc
