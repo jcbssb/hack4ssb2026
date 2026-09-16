@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSB Dialogue Schema Visualizer & AST Graph</title>
+  <style>
+    :root {
+      --ssb-dark: #274247;
+      --ssb-green: #00824D;
+      --altinn-blue: #0062BA;
+      --bg-canvas: #0F172A;
+      --bg-panel: #1E293B;
+      --border-color: #334155;
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --accent-purple: #8B5CF6;
+      --accent-cyan: #06B6D4;
+      --accent-amber: #F59E0B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-canvas);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      background: var(--ssb-dark);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .badge {
+      background: var(--ssb-green);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .header-links {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .main-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 320px 1fr 340px;
+      height: calc(100vh - 54px);
+    }
+
+    /* Left Sidebar: Type System & Grammar */
+    .sidebar-left {
+      background: var(--bg-panel);
+      border-right: 1px solid var(--border-color);
+      padding: 1.25rem;
+      overflow-y: auto;
+    }
+    .panel-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .type-card {
+      background: #0F172A;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.85rem;
+      margin-bottom: 0.85rem;
+    }
+    .type-header {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-cyan);
+      margin-bottom: 0.35rem;
+    }
+    .type-body {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* Center: Visual AST Flow Graph */
+    .graph-stage {
+      padding: 2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .node {
+      background: var(--bg-panel);
+      border: 1.5px solid var(--border-color);
+      border-radius: 8px;
+      width: 100%;
+      max-width: 580px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .node:hover {
+      border-color: var(--altinn-blue);
+      transform: translateY(-2px);
+    }
+    .node.active {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.4);
+    }
+    .node-header {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .node-kind {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+    .kind-dialogue { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .kind-question { background: rgba(0, 98, 186, 0.2); color: #60A5FA; border: 1px solid var(--altinn-blue); }
+    .kind-type { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border: 1px solid var(--accent-amber); }
+
+    .node-id {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+    }
+    .node-body {
+      padding: 1rem;
+    }
+    .field-row {
+      display: flex;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+    }
+    .field-key {
+      width: 110px;
+      color: var(--text-secondary);
+      font-family: Menlo, Monaco, Consolas, monospace;
+    }
+    .field-val {
+      flex: 1;
+      color: var(--text-primary);
+    }
+
+    /* Edge / Connector Line */
+    .edge-connector {
+      width: 2px;
+      height: 32px;
+      background: var(--border-color);
+      position: relative;
+    }
+    .edge-connector::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: -3px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid var(--border-color);
+    }
+
+    /* Right Sidebar: Target Mapping Inspector */
+    .sidebar-right {
+      background: var(--bg-panel);
+      border-left: 1px solid var(--border-color);
+      padding: 1.25rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .mapping-box {
+      background: #0F172A;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .mapping-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    .code-preview {
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      white-space: pre-wrap;
+      line-height: 1.4;
+      background: #090D16;
+      padding: 0.75rem;
+      border-radius: 4px;
+      border: 1px solid #1E293B;
+      max-height: 240px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Dialogue DSL Visualizer</span>
+      <span class="badge">Haskell AST</span>
+    </div>
+    <div class="header-links">SchemaDSL.Types ➔ Visual Flow ➔ Target Mappings</div>
+  </header>
+
+  <div class="main-layout">
+    <!-- Left Panel: Grammar & Types -->
+    <aside class="sidebar-left">
+      <div class="panel-title">Haskell DSL Type Hierarchy</div>
+
+      <div class="type-card">
+        <div class="type-header">data Dialogue</div>
+        <div class="type-body">Top-level container containing survey identity, contextual metadata, and ordered dialogue steps.</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">data Question</div>
+        <div class="type-body">Atomic dialog step binding a prompt, question type, required predicate, and target annotations.</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">data QuestionType</div>
+        <div class="type-body">• QText (string input)<br>• QInteger (numeric input)<br>• QChoice [String] (radio/dropdown)</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">data Prompt</div>
+        <div class="type-body">Plain language label and optional guidance text for respondents.</div>
+      </div>
+    </aside>
+
+    <!-- Center: Interactive Visual Graph -->
+    <main class="graph-stage">
+      <!-- Root Node: Dialogue -->
+      <div class="node active" id="node-root" onclick="selectNode('root')">
+        <div class="node-header">
+          <span class="node-id">hack4ssb-hello</span>
+          <span class="node-kind kind-dialogue">Dialogue</span>
+        </div>
+        <div class="node-body">
+          <div class="field-row"><span class="field-key">title:</span><span class="field-val">"SSB Hackday 2026 - Registrering"</span></div>
+          <div class="field-row"><span class="field-key">context:</span><span class="field-val">SurveyContext { code="HACK-2026", org="SSB" }</span></div>
+          <div class="field-row"><span class="field-key">steps:</span><span class="field-val">2 Question steps</span></div>
+        </div>
+      </div>
+
+      <div class="edge-connector"></div>
+
+      <!-- Step 1: teamName -->
+      <div class="node" id="node-step-1" onclick="selectNode('step-1')">
+        <div class="node-header">
+          <span class="node-id">teamName</span>
+          <span class="node-kind kind-question">Question (Step 1)</span>
+        </div>
+        <div class="node-body">
+          <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"Hva er navnet på ditt Hackday Team?"</span></div>
+          <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">QText</strong></span></div>
+          <div class="field-row"><span class="field-key">required:</span><span class="field-val"><span style="color:#F87171">True</span></span></div>
+          <div class="field-row"><span class="field-key">annotation:</span><span class="field-val">componentHint: "Input"</span></div>
+        </div>
+      </div>
+
+      <div class="edge-connector"></div>
+
+      <!-- Step 2: trackChoice -->
+      <div class="node" id="node-step-2" onclick="selectNode('step-2')">
+        <div class="node-header">
+          <span class="node-id">trackChoice</span>
+          <span class="node-kind kind-question">Question (Step 2)</span>
+        </div>
+        <div class="node-body">
+          <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"Hvilket hovedspor jobber teamet med?"</span></div>
+          <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">QChoice (4 options)</strong></span></div>
+          <div class="field-row"><span class="field-key">required:</span><span class="field-val"><span style="color:#34D399">False</span></span></div>
+          <div class="field-row"><span class="field-key">annotation:</span><span class="field-val">componentHint: "RadioButtons"</span></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Panel: Semantic Target Mappings -->
+    <aside class="sidebar-right">
+      <div class="panel-title">Target Compiler Projections</div>
+
+      <div class="mapping-box">
+        <div class="mapping-title">Haskell DSL Expression</div>
+        <div class="code-preview" id="preview-haskell">Loading...</div>
+      </div>
+
+      <div class="mapping-box">
+        <div class="mapping-title">Altinn 3 Layout Projection</div>
+        <div class="code-preview" id="preview-altinn">Loading...</div>
+      </div>
+
+      <div class="mapping-box">
+        <div class="mapping-title">Figma AutoLayout Projection</div>
+        <div class="code-preview" id="preview-figma">Loading...</div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    const nodeData = {
+      root: {
+        haskell: `Dialogue
+  { dialogueId = "hack4ssb-hello"
+  , title      = "SSB Hackday 2026 - Registrering"
+  , context    = Just (SurveyContext ...)
+  , steps      = [teamName, trackChoice]
+  }`,
+        altinn: `// App/ui/layouts/Form.json
+{
+  "layout": [
+    {
+      "id": "header-root",
+      "type": "Header",
+      "size": "L",
+      "textResourceBindings": { "title": "appName" }
+    }
+  ]
+}`,
+        figma: `// Figma Frame Root
+const pageFrame = figma.createFrame();
+pageFrame.name = "Dialogue: hack4ssb-hello";
+pageFrame.layoutMode = "VERTICAL";
+pageFrame.itemSpacing = 24;`
+      },
+      'step-1': {
+        haskell: `Question
+  { fieldId      = "teamName"
+  , prompt       = Prompt "Hva er navnet..." (Just "Oppgi et unikt...")
+  , questionType = QText
+  , required     = True
+  , annotations  = Just [("componentHint", "Input")]
+  }`,
+        altinn: `// Altinn 3 Component
+{
+  "id": "team-name-input",
+  "type": "Input",
+  "required": true,
+  "dataModelBindings": {
+    "simpleBinding": "teamName"
+  },
+  "textResourceBindings": {
+    "title": "teamNameLabel",
+    "help": "teamNameHelp"
+  }
+}`,
+        figma: `// Figma Component Instance
+const inputField = figma.createComponent();
+inputField.name = "Input: teamName";
+inputField.setPluginData("binding", "teamName");
+pageFrame.appendChild(inputField);`
+      },
+      'step-2': {
+        haskell: `Question
+  { fieldId      = "trackChoice"
+  , prompt       = Prompt "Hvilket hovedspor..." (...)
+  , questionType = QChoice
+      [ "AI & Skjemaer"
+      , "Figma Prototyping"
+      , "Altinn 3 Integrasjon"
+      , "Kombinasjon"
+      ]
+  , required     = False
+  , annotations  = Just [("componentHint", "RadioButtons")]
+  }`,
+        altinn: `// Altinn 3 Component
+{
+  "id": "track-choice-radio",
+  "type": "RadioButtons",
+  "required": false,
+  "dataModelBindings": {
+    "simpleBinding": "trackChoice"
+  },
+  "optionsId": "trackChoiceOptions"
+}`,
+        figma: `// Figma RadioGroup Instance
+const radioGroup = figma.createFrame();
+radioGroup.name = "RadioGroup: trackChoice";
+radioGroup.layoutMode = "VERTICAL";
+options.forEach(opt => appendRadio(radioGroup, opt));`
+      }
+    };
+
+    function selectNode(nodeId) {
+      document.querySelectorAll('.node').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById('node-' + nodeId);
+      if (target) target.classList.add('active');
+
+      const data = nodeData[nodeId];
+      if (data) {
+        document.getElementById('preview-haskell').textContent = data.haskell;
+        document.getElementById('preview-altinn').textContent = data.altinn;
+        document.getElementById('preview-figma').textContent = data.figma;
+      }
+    }
+
+    window.onload = () => selectNode('root');
+  </script>
+</body>
+</html>
