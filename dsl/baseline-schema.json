@@ -1,0 +1,47 @@
+{
+  "$schema": "./baseline-schema-meta.json",
+  "dialogueId": "hack4ssb-hello",
+  "title": "SSB Hackday 2026 - Registrering",
+  "context": {
+    "surveyCode": "HACK-2026",
+    "organization": "Statistisk sentralbyrå",
+    "legalNotice": "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
+  },
+  "steps": [
+    {
+      "fieldId": "teamName",
+      "prompt": {
+        "label": "Hva er navnet på ditt Hackday Team?",
+        "helpText": "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'."
+      },
+      "questionType": {
+        "type": "text"
+      },
+      "required": true,
+      "annotations": {
+        "placeholder": "F.eks. Foran Skjema",
+        "componentHint": "Input"
+      }
+    },
+    {
+      "fieldId": "trackChoice",
+      "prompt": {
+        "label": "Hvilket hovedspor jobber teamet med?",
+        "helpText": "Velg det primære fokusområdet for hack-prosjektet."
+      },
+      "questionType": {
+        "type": "choice",
+        "options": [
+          "AI & Skjemaer",
+          "Figma Prototyping",
+          "Altinn 3 Integrasjon",
+          "Kombinasjon / Helhetlig flyt"
+        ]
+      },
+      "required": false,
+      "annotations": {
+        "componentHint": "RadioButtons"
+      }
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSB Skjemasimulator - Foran Skjema</title>
+  <style>
+    :root {
+      --ssb-green: #00824D;
+      --ssb-dark: #274247;
+      --altinn-blue: #0062BA;
+      --altinn-blue-hover: #004d94;
+      --bg-page: #F4F6F8;
+      --bg-card: #FFFFFF;
+      --border-color: #D3D8DB;
+      --text-main: #1E2B3C;
+      --text-muted: #5B6571;
+      --danger: #D32F2F;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--ssb-dark);
+      color: white;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.1rem; }
+    .badge {
+      background: var(--ssb-green);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .env-tag { font-size: 0.85rem; color: #BACBD1; }
+
+    main {
+      flex: 1;
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .survey-context {
+      border-left: 4px solid var(--ssb-green);
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+      background: #F0F7F4;
+      padding: 1rem;
+      border-radius: 0 6px 6px 0;
+    }
+    .survey-context h2 { font-size: 1.25rem; color: var(--ssb-dark); margin-bottom: 0.25rem; }
+    .survey-context p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .step-indicator {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .step-pill {
+      flex: 1;
+      height: 6px;
+      background: #E0E5E8;
+      border-radius: 3px;
+      transition: background 0.2s ease;
+    }
+    .step-pill.active { background: var(--altinn-blue); }
+    .step-pill.completed { background: var(--ssb-green); }
+
+    .question-block {
+      margin-bottom: 1.75rem;
+    }
+    .question-label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+    .req-mark { color: var(--danger); margin-left: 0.25rem; }
+    .help-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .text-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    .text-input:focus {
+      outline: none;
+      border-color: var(--altinn-blue);
+      box-shadow: 0 0 0 3px rgba(0, 98, 186, 0.15);
+    }
+
+    .choice-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .choice-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border-color);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .choice-option:hover {
+      background: #F9FAFB;
+      border-color: #A0B2C6;
+    }
+    .choice-option input { cursor: pointer; transform: scale(1.15); }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s ease;
+    }
+    .btn-prev {
+      background: #E8ECEF;
+      color: var(--text-main);
+    }
+    .btn-prev:hover { background: #D9DFE3; }
+    .btn-next, .btn-submit {
+      background: var(--altinn-blue);
+      color: white;
+    }
+    .btn-next:hover, .btn-submit:hover { background: var(--altinn-blue-hover); }
+
+    .json-preview {
+      background: #1E2B3C;
+      color: #E2E8F0;
+      padding: 1.25rem;
+      border-radius: 6px;
+      font-family: Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      max-height: 250px;
+    }
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .preview-title { font-weight: 600; font-size: 0.9rem; color: #BACBD1; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Skjemasimulator</span>
+      <span class="badge">Team Foran Skjema</span>
+    </div>
+    <div class="env-tag">Baseline Dialogue DSL Runner</div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="survey-context">
+        <h2 id="survey-title">SSB Hackday 2026 - Registrering</h2>
+        <p id="survey-desc">Statistisk sentralbyrå • HACK-2026</p>
+      </div>
+
+      <div class="step-indicator" id="step-indicators"></div>
+
+      <form id="simulator-form" onsubmit="event.preventDefault();">
+        <div id="step-container"></div>
+
+        <div class="actions">
+          <button type="button" class="btn-prev" id="btn-back" onclick="navigateStep(-1)">Tilbake</button>
+          <button type="button" class="btn-next" id="btn-forward" onclick="navigateStep(1)">Neste</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="preview-header">
+        <span class="preview-title">Aktiv Datamodell (Altinn 3 Data Payload Simulation)</span>
+        <button type="button" style="padding: 0.3rem 0.6rem; font-size: 0.75rem; background: #334B5C; color: white;" onclick="resetSimulator()">Nullstill</button>
+      </div>
+      <pre class="json-preview" id="payload-preview">{}</pre>
+    </section>
+  </main>
+
+  <script>
+    const baselineSchema = {
+      dialogueId: "hack4ssb-hello",
+      title: "SSB Hackday 2026 - Registrering",
+      context: {
+        surveyCode: "HACK-2026",
+        organization: "Statistisk sentralbyrå",
+        legalNotice: "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
+      },
+      steps: [
+        {
+          fieldId: "teamName",
+          prompt: {
+            label: "Hva er navnet på ditt Hackday Team?",
+            helpText: "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'."
+          },
+          questionType: { type: "text" },
+          required: true,
+          annotations: { placeholder: "F.eks. Foran Skjema" }
+        },
+        {
+          fieldId: "trackChoice",
+          prompt: {
+            label: "Hvilket hovedspor jobber teamet med?",
+            helpText: "Velg det primære fokusområdet for hack-prosjektet."
+          },
+          questionType: {
+            type: "choice",
+            options: [
+              "AI & Skjemaer",
+              "Figma Prototyping",
+              "Altinn 3 Integrasjon",
+              "Kombinasjon / Helhetlig flyt"
+            ]
+          },
+          required: false
+        }
+      ]
+    };
+
+    let currentStepIndex = 0;
+    const formData = {};
+
+    function init() {
+      document.getElementById("survey-title").textContent = baselineSchema.title;
+      document.getElementById("survey-desc").textContent = `${baselineSchema.context.organization} • ${baselineSchema.context.surveyCode}`;
+      renderStepIndicators();
+      renderCurrentStep();
+      updatePreview();
+    }
+
+    function renderStepIndicators() {
+      const container = document.getElementById("step-indicators");
+      container.innerHTML = "";
+      baselineSchema.steps.forEach((_, idx) => {
+        const pill = document.createElement("div");
+        pill.className = `step-pill ${idx === currentStepIndex ? 'active' : (idx < currentStepIndex ? 'completed' : '')}`;
+        container.appendChild(pill);
+      });
+    }
+
+    function renderCurrentStep() {
+      const step = baselineSchema.steps[currentStepIndex];
+      const container = document.getElementById("step-container");
+      container.innerHTML = "";
+
+      const qBlock = document.createElement("div");
+      qBlock.className = "question-block";
+
+      const label = document.createElement("label");
+      label.className = "question-label";
+      label.innerHTML = `${step.prompt.label} ${step.required ? '<span class="req-mark">*</span>' : ''}`;
+      qBlock.appendChild(label);
+
+      if (step.prompt.helpText) {
+        const help = document.createElement("span");
+        help.className = "help-text";
+        help.textContent = step.prompt.helpText;
+        qBlock.appendChild(help);
+      }
+
+      if (step.questionType.type === "text") {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "text-input";
+        input.placeholder = (step.annotations && step.annotations.placeholder) || "";
+        input.value = formData[step.fieldId] || "";
+        input.oninput = (e) => {
+          formData[step.fieldId] = e.target.value;
+          updatePreview();
+        };
+        qBlock.appendChild(input);
+      } else if (step.questionType.type === "choice") {
+        const group = document.createElement("div");
+        group.className = "choice-group";
+        step.questionType.options.forEach((opt) => {
+          const optLabel = document.createElement("label");
+          optLabel.className = "choice-option";
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = step.fieldId;
+          radio.value = opt;
+          radio.checked = formData[step.fieldId] === opt;
+          radio.onchange = () => {
+            formData[step.fieldId] = opt;
+            updatePreview();
+          };
+          optLabel.appendChild(radio);
+          optLabel.appendChild(document.createTextNode(opt));
+          group.appendChild(optLabel);
+        });
+        qBlock.appendChild(group);
+      }
+
+      container.appendChild(qBlock);
+
+      document.getElementById("btn-back").style.visibility = currentStepIndex === 0 ? "hidden" : "visible";
+      const forwardBtn = document.getElementById("btn-forward");
+      if (currentStepIndex === baselineSchema.steps.length - 1) {
+        forwardBtn.textContent = "Fullfør & Send inn";
+        forwardBtn.className = "btn-submit";
+      } else {
+        forwardBtn.textContent = "Neste";
+        forwardBtn.className = "btn-next";
+      }
+    }
+
+    function navigateStep(direction) {
+      const step = baselineSchema.steps[currentStepIndex];
+      if (direction > 0 && step.required && !formData[step.fieldId]) {
+        alert("Dette feltet er påkrevd.");
+        return;
+      }
+
+      if (direction > 0 && currentStepIndex === baselineSchema.steps.length - 1) {
+        alert(`Skjema innsendt!\n\nPayload:\n${JSON.stringify(formData, null, 2)}`);
+        return;
+      }
+
+      currentStepIndex += direction;
+      renderStepIndicators();
+      renderCurrentStep();
+    }
+
+    function updatePreview() {
+      document.getElementById("payload-preview").textContent = JSON.stringify(formData, null, 2);
+    }
+
+    function resetSimulator() {
+      for (const key in formData) delete formData[key];
+      currentStepIndex = 0;
+      renderStepIndicators();
+      renderCurrentStep();
+      updatePreview();
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
