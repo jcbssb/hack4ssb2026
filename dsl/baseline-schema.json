@@ -1,47 +1,47 @@
 {
-  "$schema": "./baseline-schema-meta.json",
-  "dialogueId": "hack4ssb-hello",
-  "title": "SSB Hackday 2026 - Registrering",
-  "context": {
-    "surveyCode": "HACK-2026",
-    "organization": "Statistisk sentralbyrå",
-    "legalNotice": "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
-  },
-  "steps": [
-    {
-      "fieldId": "teamName",
-      "prompt": {
-        "label": "Hva er navnet på ditt Hackday Team?",
-        "helpText": "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'."
-      },
-      "questionType": {
-        "type": "text"
-      },
-      "required": true,
-      "annotations": {
-        "placeholder": "F.eks. Foran Skjema",
-        "componentHint": "Input"
-      }
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "Dette skjemaet samler inn teamregistreringer for Hackday 2026.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "HACK-2026"
     },
-    {
-      "fieldId": "trackChoice",
-      "prompt": {
-        "label": "Hvilket hovedspor jobber teamet med?",
-        "helpText": "Velg det primære fokusområdet for hack-prosjektet."
-      },
-      "questionType": {
-        "type": "choice",
-        "options": [
-          "AI & Skjemaer",
-          "Figma Prototyping",
-          "Altinn 3 Integrasjon",
-          "Kombinasjon / Helhetlig flyt"
-        ]
-      },
-      "required": false,
-      "annotations": {
-        "componentHint": "RadioButtons"
-      }
-    }
-  ]
+    "dialogueId": "hack4ssb-hello",
+    "steps": [
+        {
+            "annotations": {
+                "componentHint": "Input",
+                "placeholder": "F.eks. Foran Skjema"
+            },
+            "fieldId": "teamName",
+            "prompt": {
+                "helpText": "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'.",
+                "label": "Hva er navnet på ditt Hackday Team?"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "componentHint": "RadioButtons"
+            },
+            "fieldId": "trackChoice",
+            "prompt": {
+                "helpText": "Velg det primære fokusområdet for hack-prosjektet.",
+                "label": "Hvilket hovedspor jobber teamet med?"
+            },
+            "questionType": {
+                "options": [
+                    "AI & Skjemaer",
+                    "Figma Prototyping",
+                    "Altinn 3 Integrasjon",
+                    "Kombinasjon / Helhetlig flyt"
+                ],
+                "type": "choice"
+            },
+            "required": false
+        }
+    ],
+    "title": "SSB Hackday 2026 - Registrering"
 }

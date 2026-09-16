@@ -36,12 +36,14 @@ testRoundTripWithChoice = do
   let dialogueWithChoice = Dialogue
         { dialogueId = "choice-test"
         , title      = "Choice Dialogue Test"
+        , context    = Nothing
         , steps      =
             [ Question
                 { fieldId      = "category"
                 , prompt       = Prompt "Select category" (Just "Choose one")
                 , questionType = QChoice ["AI", "Figma", "Altinn"]
                 , required     = False
+                , annotations  = Nothing
                 }
             ]
         }

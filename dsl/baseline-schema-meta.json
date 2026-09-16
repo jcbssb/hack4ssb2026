@@ -1,80 +1,120 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://ssb.no/schemas/dialogue-schema-v1.json",
-  "title": "SSB Dialogue Schema Baseline Specification",
-  "description": "Single Source of Truth (SSOT) capturing semantic dialogue flow, field bindings, and design annotations decoupled from execution targets.",
-  "type": "object",
-  "properties": {
-    "dialogueId": {
-      "type": "string",
-      "pattern": "^[a-z0-9][a-z0-9-]*$",
-      "description": "Unique identifier for the dialogue/form (e.g., ssb-hackday-2026)"
-    },
-    "title": {
-      "type": "string",
-      "description": "Title of the survey or form"
-    },
-    "context": {
-      "type": "object",
-      "properties": {
-        "surveyCode": { "type": "string", "example": "RA-0666" },
-        "organization": { "type": "string", "default": "Statistisk sentralbyrå" },
-        "legalNotice": { "type": "string" }
-      }
-    },
-    "steps": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/QuestionStep"
-      }
-    }
-  },
-  "required": ["dialogueId", "title", "steps"],
-  "$defs": {
-    "QuestionStep": {
-      "type": "object",
-      "properties": {
-        "fieldId": {
-          "type": "string",
-          "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
-          "description": "Identifier used for data model bindings (Altinn simpleBinding and JSON payload key)"
-        },
-        "prompt": {
-          "type": "object",
-          "properties": {
-            "label": { "type": "string", "description": "Primary label / question text" },
-            "helpText": { "type": "string", "description": "Optional guidance or instruction text" }
-          },
-          "required": ["label"]
-        },
-        "questionType": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "type": "string",
-              "enum": ["text", "integer", "choice"]
+    "$defs": {
+        "QuestionStep": {
+            "properties": {
+                "annotations": {
+                    "description": "Optional UI/UX hints for Figma or Altinn interpreters",
+                    "properties": {
+                        "componentHint": {
+                            "enum": [
+                                "Input",
+                                "RadioButtons",
+                                "Dropdown"
+                            ],
+                            "type": "string"
+                        },
+                        "placeholder": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "fieldId": {
+                    "description": "Identifier used for data model bindings (Altinn simpleBinding and JSON payload key)",
+                    "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$",
+                    "type": "string"
+                },
+                "prompt": {
+                    "properties": {
+                        "helpText": {
+                            "description": "Optional guidance or instruction text",
+                            "type": "string"
+                        },
+                        "label": {
+                            "description": "Primary label / question text",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "label"
+                    ],
+                    "type": "object"
+                },
+                "questionType": {
+                    "properties": {
+                        "options": {
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "type": {
+                            "enum": [
+                                "text",
+                                "integer",
+                                "choice"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "type"
+                    ],
+                    "type": "object"
+                },
+                "required": {
+                    "default": false,
+                    "type": "boolean"
+                }
             },
-            "options": {
-              "type": "array",
-              "items": { "type": "string" }
-            }
-          },
-          "required": ["type"]
-        },
-        "required": {
-          "type": "boolean",
-          "default": false
-        },
-        "annotations": {
-          "type": "object",
-          "description": "Optional UI/UX hints for Figma or Altinn interpreters",
-          "properties": {
-            "placeholder": { "type": "string" },
-            "componentHint": { "type": "string", "enum": ["Input", "RadioButtons", "Dropdown"] }
-          }
+            "required": [
+                "fieldId",
+                "prompt",
+                "questionType",
+                "required"
+            ],
+            "type": "object"
         }
-      },
-      "required": ["fieldId", "prompt", "questionType", "required"]
-    }
-  }
+    },
+    "$id": "https://ssb.no/schemas/dialogue-schema-v1.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "description": "Single Source of Truth (SSOT) capturing semantic dialogue flow, field bindings, and design annotations decoupled from execution targets.",
+    "properties": {
+        "context": {
+            "properties": {
+                "legalNotice": {
+                    "type": "string"
+                },
+                "organization": {
+                    "type": "string"
+                },
+                "surveyCode": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "dialogueId": {
+            "description": "Unique identifier for the dialogue/form (e.g., ssb-hackday-2026)",
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+        },
+        "steps": {
+            "items": {
+                "$ref": "#/$defs/QuestionStep"
+            },
+            "type": "array"
+        },
+        "title": {
+            "description": "Title of the survey or form",
+            "type": "string"
+        }
+    },
+    "required": [
+        "dialogueId",
+        "title",
+        "steps"
+    ],
+    "title": "SSB Dialogue Schema Baseline Specification",
+    "type": "object"
 }

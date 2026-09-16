@@ -14,8 +14,6 @@ Expresses pure dialogue semantics (fields, question prompts, types, required fla
 
 ## Building and Running Tests
 
-Once GHCup finishes installing `ghc` and `cabal` (make sure `~/.ghcup/bin` or `~/.cabal/bin` is in your `PATH`):
-
 ```bash
 cd dsl
 
@@ -25,6 +23,10 @@ cabal build
 # Run test suite
 cabal test
 
-# Run CLI demo
-cabal run schema-dsl-cli
+# CLI commands for maintaining SSOT schemas
+cabal run schema-dsl-cli -- --update-baseline   # Updates dsl/baseline-schema.json
+cabal run schema-dsl-cli -- --emit-meta         # Updates dsl/baseline-schema-meta.json
+cabal run schema-dsl-cli -- --update-all        # Updates both meta and baseline schemas
+cabal run schema-dsl-cli -- --print-baseline    # Prints baseline schema to stdout
+cabal run schema-dsl-cli -- --print-meta        # Prints meta schema to stdout
 ```
