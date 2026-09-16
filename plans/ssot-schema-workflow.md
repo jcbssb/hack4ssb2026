@@ -24,48 +24,48 @@ Vi definerer én maskinlesbar og versjonskontrollert fil (`baseline-schema.json`
 
 ## 2. SSOT Kompilator- og Generator-arkitektur
 
+Forholdet mellom Haskell DSL og den semantiske JSON-spesifikasjonen er:
+- **Haskell DSL er forfatter- og modelleringskilden (Authoring SSOT)**: Gir sterk typesikkerhet, komponerbarhet og gjenbrukbare spørsmålsblokker.
+- **`baseline-schema.json` er det portable kompilator-artefaktet (Portable IR SSOT)**: Genereres deterministisk fra Haskell DSL og konsumeres av eksterne verktøy.
+
 ```
-                 ┌──────────────────────────────────────────────┐
-                 │          Single Source of Truth (SSOT)       │
-                 │      dsl/baseline-schema.json (eller DSL)    │
-                 └──────────────────────┬───────────────────────┘
-                                        │
-             ┌──────────────────────────┼──────────────────────────┐
-             ▼                          ▼                          ▼
-   ┌───────────────────┐      ┌───────────────────┐      ┌───────────────────┐
-   │   Figma Tolker    │      │ Altinn 3 Tolker   │      │  Simulator Tolker │
-   │  (Plugin Script)  │      │  (CLI / Node/Py)  │      │   (Web Canvas)    │
-   └─────────┬─────────┘      └─────────┬─────────┘      └─────────┬─────────┘
-             ▼                          ▼                          ▼
-   Figma AutoLayout Canvas    - App/ui/layouts/*.json    Sanntids testbar
-   (Felles Designsystem)      - App/models/schema.json   interaktiv prototype
-                              - resource.nb.json
+       [Haskell Dialogue DSL] (Authoring SSOT: typesikker & komponerbar)
+                 │
+                 ▼  (cabal run schema-dsl-cli)
+       [baseline-schema.json] (Portable IR SSOT: nøytralt format)
+                 │
+      ┌──────────┼──────────┬──────────────────┐
+      ▼          ▼          ▼                  ▼
+ [Simulator]  [Figma]   [Altinn 3]      [JSON Metaschema Validering]
+ (Canvas UI)  (Plugin)  (App layouts)   (baseline-schema-meta.json)
 ```
 
 ---
 
 ## 3. Livssyklus og Arbeidsflyt (Steg-for-steg)
 
-### Steg 1: Definisjon og Validering av SSOT
-- Skjemaet defineres eller oppdateres i `baseline-schema.json` (eller genereres fra Haskell Dialogue DSL).
-- Valideres mot `dsl/baseline-schema-meta.json` for å garantere at påkrevde felt og typer er korrekte.
+### Steg 1: Forfattering og Generering fra Haskell DSL
+- Skjemaet forfattes typesikkert i Haskell DSL (`dsl/src/SchemaDSL/Types.hs` eller domenespesifikke moduler).
+- `cabal test` verifiserer semantiske invarianter, spørsmålstyper og round-trip koding.
+- `cabal run schema-dsl-cli` genererer eller oppdaterer `dsl/baseline-schema.json`.
+- `baseline-schema.json` valideres mot `dsl/baseline-schema-meta.json` som ledd i CI/bygg.
 
 ### Steg 2: Automatisk Generering av Målformater
 - **Figma Prototype Generator**:
-  - Leser SSOT og oppretter frames i Figma med ferdige Felles Designsystem-komponenter.
+  - Leser `baseline-schema.json` og oppretter frames i Figma med ferdige Felles Designsystem-komponenter.
   - Hver node tagges med `fieldId` i `pluginData`.
 - **Altinn 3 Artifact Generator**:
   - Genererer `layout.json` (med `Header`, `Input`, `RadioButtons`, koblet mot `dataModelBindings`).
   - Genererer `resource.nb.json` for alle tekster.
   - Genererer `schema.json` (ren datamodell).
 - **Simulator**:
-  - Laster SSOT inn i simulatoren (`simulator/index.html`) for umiddelbar testing av dialogflyten.
+  - Laster `baseline-schema.json` inn i simulatoren (`simulator/index.html`) for umiddelbar testing av dialogflyten.
 
 ### Steg 3: Håndtering av Design-iterasjoner (Toveis synkronisering / Round-trip)
 Når fageksperter eller designere endrer tekster eller rekkefølge i Figma:
 1. Endringene skal **ikke** overskrive Altinn-filer direkte.
-2. Figma-eksportøren dytter oppdaterte tekster/rekkefølge tilbake til **SSOT (`baseline-schema.json`)**.
-3. SSOT regenererer deretter de tekniske Altinn 3-filene. Dette sikrer at SSOT alltid forblir den autoritative kilden.
+2. Figma-eksportøren dytter oppdaterte tekster/rekkefølge tilbake til enten **`baseline-schema.json`** eller et diff-format.
+3. En synk-mekanisme oppdaterer Haskell-definisjonen eller flagger endringene for godkjenning, før nye målformater regenereres. Dette sikrer at koden og skjemaene aldri divergerer.
 
 ---
 
@@ -76,7 +76,9 @@ Når fageksperter eller designere endrer tekster eller rekkefølge i Figma:
   - Bygget og testet Haskell DSL-støtte for semantisk serialisering.
 - [x] **Fase 2: Simulator som verifikasjonsarena**
   - Implementert og åpnet side-panel canvas for sanntidssimulering av dialog og payload.
-- [ ] **Fase 3: Altinn 3 Eksportør (`ssot-to-altinn`)**
+- [ ] **Fase 3: Haskell Generator CLI (`schema-dsl-cli`)**
+  - Utvide `schema-dsl-cli` slik at det kan skrive direkte til `dsl/baseline-schema.json` og eventuelt generere JSON Schema metaschema.
+- [ ] **Fase 4: Altinn 3 Eksportør (`ssot-to-altinn`)**
   - Lage et script/CLI som transformerer `baseline-schema.json` til en komplett Altinn 3-mappestruktur (`App/ui/layouts/Form.json`, `resource.nb.json`, `applicationmetadata.json`).
-- [ ] **Fase 4: Figma Plugin Kobling (`ssot-to-figma`)**
+- [ ] **Fase 5: Figma Plugin Kobling (`ssot-to-figma`)**
   - Knytte Figma Plugin API til å parse `baseline-schema.json` og instansiere designelementer.

@@ -96,8 +96,8 @@ helloWorldDialogue = Dialogue
 
 For å sikre at DSL-en mapper mot Figma og Altinn, planlegges to enkle tolkere:
 
-### 3.1 Tolker 1: JSON Intermediate Representation (IR)
-Haskell-programmet kan serialisere dialogen til en nøytral JSON-struktur:
+### 3.1 Tolker 1: JSON Intermediate Representation (IR / SSOT Generator)
+Haskell-programmet serialiserer dialogen til en nøytral JSON-struktur (`baseline-schema.json`), som fungerer som det portable SSOT-artefaktet for andre systemer:
 ```json
 {
   "dialogueId": "hack4ssb-hello",
@@ -113,7 +113,7 @@ Haskell-programmet kan serialisere dialogen til en nøytral JSON-struktur:
   ]
 }
 ```
-*Formål*: Dette JSON-formatet kan umiddelbart konsumeres av Figma-pluginen eller Altinn-generatoren uten at disse må kjøre Haskell direkte.
+*Formål*: Dette JSON-formatet kan umiddelbart konsumeres av simulatoren, Figma-pluginen eller Altinn-generatoren uten at disse må kjøre Haskell direkte. Haskell forblir den typesikre forfatterkilden (Authoring SSOT), mens JSON-artefaktet er den portable eksekveringskilden (Portable IR SSOT).
 
 ### 3.2 Tolker 2: Altinn 3 Generator (`AltinnInterpreter.hs`)
 Mapper `Dialogue` direkte til:
