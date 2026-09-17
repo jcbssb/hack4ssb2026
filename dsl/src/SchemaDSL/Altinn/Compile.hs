@@ -126,6 +126,11 @@ compileSteps dIdClean qs =
             helpTxt  = maybe "" id (helpText (prompt q))
             curTexts = [ (compLabelKey, labelTxt), (compHelpKey, helpTxt) ]
 
+            trbBindings =
+              [ "title"       .= compLabelKey
+              , "description" .= compHelpKey
+              ]
+
             hiddenProp = case (condition (q :: Question)) of
               Just cond -> [ "hidden" .= compilePredicateToHidden fieldMap cond ]
               Nothing   -> []
@@ -143,7 +148,7 @@ compileSteps dIdClean qs =
                 let c = object $
                       [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
                       , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (8 :: Int) ] ]
@@ -155,7 +160,7 @@ compileSteps dIdClean qs =
                 let c = object $
                       [ "id"                   .= (prefix ++ "-textarea")
                       , "type"                 .= ("TextArea" :: String)
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
                       , "grid"                 .= object [ "xs" .= (12 :: Int) ]
@@ -172,7 +177,7 @@ compileSteps dIdClean qs =
                               [ "allowNegative" .= False
                               ]
                           ]
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
                       , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
@@ -190,7 +195,7 @@ compileSteps dIdClean qs =
                               , "allowNegative" .= False
                               ]
                           ]
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
                       , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
@@ -203,7 +208,7 @@ compileSteps dIdClean qs =
                       [ "id"                   .= (prefix ++ "-datepicker")
                       , "type"                 .= ("Datepicker" :: String)
                       , "timeStamp"            .= False
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
                       , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (6 :: Int) ] ]
@@ -220,7 +225,7 @@ compileSteps dIdClean qs =
                     c = object $
                       [ "id"                   .= (prefix ++ "-radio")
                       , "type"                 .= ("RadioButtons" :: String)
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "optionsId"            .= optionsName
                       , "required"             .= required q
@@ -235,7 +240,7 @@ compileSteps dIdClean qs =
                     c = object $
                       [ "id"                   .= (prefix ++ "-radio")
                       , "type"                 .= ("RadioButtons" :: String)
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "optionsId"            .= optionsName
                       , "required"             .= required q
@@ -250,7 +255,7 @@ compileSteps dIdClean qs =
                     c = object $
                       [ "id"                   .= (prefix ++ "-checkboxes")
                       , "type"                 .= ("Checkboxes" :: String)
-                      , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
+                      , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "optionsId"            .= optionsName
                       , "required"             .= required q
