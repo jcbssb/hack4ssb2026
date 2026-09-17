@@ -32,16 +32,17 @@ data AltinnArtifacts = AltinnArtifacts
 -- | Compile generic Dialogue to Altinn artifacts using model binding helper strategy
 compileToAltinn :: Dialogue -> AltinnArtifacts
 compileToAltinn d =
-  let pgName = "S05_" ++ sanitizeName (dialogueId d)
-      headerId = "hack4ssb-header"
-      panelId  = "hack4ssb-panel-info"
+  let dIdClean = sanitizeName (dialogueId d)
+      pgName = "S05_" ++ dIdClean
+      headerId = dIdClean ++ "-header"
+      panelId  = dIdClean ++ "-panel-info"
 
       -- Base header and panel components
       headerComp = object
         [ "id"                   .= (headerId :: String)
         , "type"                 .= ("Header" :: String)
         , "size"                 .= ("h2" :: String)
-        , "textResourceBindings" .= object [ "title" .= ("lang.hack4ssb.tittel" :: String) ]
+        , "textResourceBindings" .= object [ "title" .= ("lang." ++ dIdClean ++ ".tittel") ]
         ]
 
       panelComp = object
@@ -50,14 +51,14 @@ compileToAltinn d =
         , "variant"              .= ("info" :: String)
         , "showIcon"             .= True
         , "textResourceBindings" .= object
-            [ "title" .= ("lang.hack4ssb.panel.title" :: String)
-            , "body"  .= ("lang.hack4ssb.panel.body" :: String)
+            [ "title" .= ("lang." ++ dIdClean ++ ".panel.title")
+            , "body"  .= ("lang." ++ dIdClean ++ ".panel.body")
             ]
         , "grid"                 .= object [ "xs" .= (12 :: Int) ]
         ]
 
       -- Compile question steps to components, options, and text resources
-      (stepComps, stepOpts, stepTexts) = compileSteps (steps d) 1
+      (stepComps, stepOpts, stepTexts) = compileSteps dIdClean (steps d) 1
 
       fullLayout = object
         [ "$schema" .= ("https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json" :: String)
@@ -65,10 +66,10 @@ compileToAltinn d =
         ]
 
       baseTexts =
-        [ (pgName, "Hackday Team")
-        , ("lang.hack4ssb.tittel", title d)
-        , ("lang.hack4ssb.panel.title", "Om registreringen")
-        , ("lang.hack4ssb.panel.body", maybe "Dette skjemaet samler inn teamregistreringer." (maybe "" id . legalNotice) (context d))
+        [ (pgName, title d)
+        , ("lang." ++ dIdClean ++ ".tittel", title d)
+        , ("lang." ++ dIdClean ++ ".panel.title", "Om registreringen")
+        , ("lang." ++ dIdClean ++ ".panel.body", maybe "Dette skjemaet samler inn opplysninger." (maybe "" id . legalNotice) (context d))
         ]
 
   in AltinnArtifacts
@@ -102,17 +103,18 @@ compilePredicateToHidden fieldMap p =
         Nothing -> "Hjelpefelter.hjelpefelt1"
 
 -- | Compile list of Questions to layout components, options, and text resources
-compileSteps :: [Question] -> Int -> ([Value], [(String, Value)], [(String, String)])
-compileSteps qs startIdx =
+compileSteps :: String -> [Question] -> Int -> ([Value], [(String, Value)], [(String, String)])
+compileSteps dIdClean qs startIdx =
   let fieldMap = [ (fieldId q, "Hjelpefelter.hjelpefelt" ++ show idx)
                  | (q, idx) <- zip qs [startIdx..]
                  ]
       go [] _ = ([], [], [])
       go (q : rest) idx =
         let fid = fieldId q
-            compLabelKey = "lang.hack4ssb." ++ fid ++ ".label"
-            compHelpKey  = "lang.hack4ssb." ++ fid ++ ".help"
+            compLabelKey = "lang." ++ dIdClean ++ "." ++ fid ++ ".label"
+            compHelpKey  = "lang." ++ dIdClean ++ "." ++ fid ++ ".help"
             modelBinding = "Hjelpefelter.hjelpefelt" ++ show idx
+            prefix = dIdClean ++ "-" ++ fid
 
             labelTxt = label (prompt q)
             helpTxt  = maybe "" id (helpText (prompt q))
@@ -125,7 +127,7 @@ compileSteps qs startIdx =
             (comp, opts) = case questionType q of
               QText ->
                 let c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-input")
+                      [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
@@ -137,7 +139,7 @@ compileSteps qs startIdx =
 
               QTextArea ->
                 let c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-textarea")
+                      [ "id"                   .= (prefix ++ "-textarea")
                       , "type"                 .= ("TextArea" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
@@ -149,7 +151,7 @@ compileSteps qs startIdx =
 
               QInteger ->
                 let c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-input")
+                      [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
                       , "formatting"           .= object [ "number" .= object [ "maximumFractionDigits" .= (0 :: Int) ] ]
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
@@ -162,7 +164,7 @@ compileSteps qs startIdx =
 
               QDecimal ->
                 let c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-input")
+                      [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
                       , "formatting"           .= object [ "number" .= object [ "maximumFractionDigits" .= (2 :: Int) ] ]
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
@@ -175,7 +177,7 @@ compileSteps qs startIdx =
 
               QDate ->
                 let c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-date")
+                      [ "id"                   .= (prefix ++ "-date")
                       , "type"                 .= ("Datepicker" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
@@ -192,7 +194,7 @@ compileSteps qs startIdx =
                       , object [ "label" .= ("Nei" :: String), "value" .= ("false" :: String) ]
                       ]
                     c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-radio")
+                      [ "id"                   .= (prefix ++ "-radio")
                       , "type"                 .= ("RadioButtons" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
@@ -207,7 +209,7 @@ compileSteps qs startIdx =
                 let optionsName = capitalize fid ++ "Valg"
                     optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
                     c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-radio")
+                      [ "id"                   .= (prefix ++ "-radio")
                       , "type"                 .= ("RadioButtons" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
@@ -222,7 +224,7 @@ compileSteps qs startIdx =
                 let optionsName = capitalize fid ++ "Valg"
                     optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
                     c = object $
-                      [ "id"                   .= ("hack4ssb-" ++ fid ++ "-checkboxes")
+                      [ "id"                   .= (prefix ++ "-checkboxes")
                       , "type"                 .= ("Checkboxes" :: String)
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
