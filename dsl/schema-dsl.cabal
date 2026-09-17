@@ -16,14 +16,19 @@ library
     exposed-modules:
         SchemaDSL
         SchemaDSL.Types
+        SchemaDSL.Examples
         SchemaDSL.JSON
         SchemaDSL.MetaSchema
+        SchemaDSL.Altinn
     build-depends:
         base >= 4.14 && < 5.0,
         aeson >= 2.0,
         aeson-pretty >= 0.8,
         text >= 1.2,
-        bytestring >= 0.10
+        bytestring >= 0.10,
+        vector >= 0.12,
+        filepath >= 1.4,
+        directory >= 1.3
     hs-source-dirs:   src
     default-language: Haskell2010
 
@@ -35,7 +40,9 @@ executable schema-dsl-cli
         schema-dsl,
         bytestring >= 0.10,
         aeson >= 2.0,
-        aeson-pretty >= 0.8
+        aeson-pretty >= 0.8,
+        filepath >= 1.4,
+        directory >= 1.3
     hs-source-dirs:   app
     default-language: Haskell2010
 
