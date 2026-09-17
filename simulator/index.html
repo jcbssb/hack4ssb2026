@@ -199,7 +199,13 @@
       <span>SSB Skjemasimulator</span>
       <span class="badge">Team Foran Skjema</span>
     </div>
-    <div class="env-tag">Baseline Dialogue DSL Runner</div>
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      <label for="schema-select" style="font-size:0.85rem; color:#BACBD1;">Aktivt skjema:</label>
+      <select id="schema-select" onchange="switchSchema(this.value)" style="padding:0.35rem 0.6rem; border-radius:4px; border:1px solid #334B5C; background:#1E2B3C; color:white; font-size:0.85rem;">
+        <option value="hello">Baseline: Hello World (2 trinn)</option>
+        <option value="synthetic" selected>Syntetisk: Full Semantikk & Betingelser (8 trinn)</option>
+      </select>
+    </div>
   </header>
 
   <main>
@@ -231,7 +237,7 @@
   </main>
 
   <script>
-    const baselineSchema = {
+    const helloSchema = {
       dialogueId: "hack4ssb-hello",
       title: "SSB Hackday 2026 - Registrering",
       context: {
@@ -270,12 +276,140 @@
       ]
     };
 
+    const syntheticSchema = {
+      dialogueId: "hack4ssb-comprehensive",
+      title: "SSB Hackday 2026 - Teamregistrering & Kartlegging",
+      context: {
+        surveyCode: "HACK-SSB-2026-SYNTH",
+        organization: "Statistisk sentralbyrå",
+        legalNotice: "Dette er et syntetisk SSB-skjema som demonstrerer full dekning av Dialogue DSL-semantikk på Altinn 3."
+      },
+      steps: [
+        {
+          fieldId: "lagNavn",
+          prompt: {
+            label: "Navn på hack-team",
+            helpText: "F.eks. 'Foran Skjema' eller 'Klass-Knuserne'"
+          },
+          questionType: { type: "text" },
+          required: true,
+          annotations: { placeholder: "Skriv teamnavn..." }
+        },
+        {
+          fieldId: "antallDeltakere",
+          prompt: {
+            label: "Antall deltakere på laget",
+            helpText: "Oppgi heltall mellom 1 og 10."
+          },
+          questionType: { type: "integer" },
+          required: true
+        },
+        {
+          fieldId: "budsjettPizzaKaffe",
+          prompt: {
+            label: "Estimert snacks- og kaffebudsjett (i tusen kr)",
+            helpText: "F.eks. 1.5 for 1500 kr."
+          },
+          questionType: { type: "decimal" },
+          required: false
+        },
+        {
+          fieldId: "startDato",
+          prompt: {
+            label: "Planlagt dato for første hack-sprint",
+            helpText: "Velg dato i kalenderen."
+          },
+          questionType: { type: "date" },
+          required: false
+        },
+        {
+          fieldId: "primarTeknologi",
+          prompt: {
+            label: "Hovedspor / primær teknologi",
+            helpText: "Velg det primære fokusområdet."
+          },
+          questionType: {
+            type: "choice",
+            options: [
+              "Haskell Dialogue DSL",
+              "Figma Auto Layout Prototype",
+              "Altinn 3 Frontend v4",
+              "LLM Agent Pipeline"
+            ]
+          },
+          required: true
+        },
+        {
+          fieldId: "onskerVeiledning",
+          prompt: {
+            label: "Ønsker teamet særskilt veiledning fra Altinn/SSB-mentorer?",
+            helpText: "Kryss av om dere trenger mentorstøtte."
+          },
+          questionType: { type: "boolean" },
+          required: false
+        },
+        {
+          fieldId: "stotteTemaer",
+          prompt: {
+            label: "Hvilke områder trenger dere mentorstøtte på?",
+            helpText: "Velg ett eller flere alternativer."
+          },
+          questionType: {
+            type: "multichoice",
+            options: [
+              "Datamodellering & XSD",
+              "Felles Designsystem styling",
+              "Altinn Studio REST API",
+              "SSB SUV-undersøkelsesstandarder"
+            ]
+          },
+          required: false,
+          condition: { op: "isTrue", fieldId: "onskerVeiledning" }
+        },
+        {
+          fieldId: "prosjektBeskrivelse",
+          prompt: {
+            label: "Utdypende prosjektbeskrivelse og målsetning",
+            helpText: "Forklar kort hva teamet skal bygge under hackdayen."
+          },
+          questionType: { type: "textarea" },
+          required: false,
+          annotations: { maxLength: 2000 }
+        }
+      ]
+    };
+
+    let activeSchema = syntheticSchema;
+    let visibleSteps = [];
     let currentStepIndex = 0;
     const formData = {};
 
+    function evaluateCondition(cond) {
+      if (!cond) return true;
+      if (cond.op === "equals") return formData[cond.fieldId] === cond.value;
+      if (cond.op === "notEquals") return formData[cond.fieldId] !== cond.value;
+      if (cond.op === "isTrue") return formData[cond.fieldId] === "true" || formData[cond.fieldId] === true;
+      if (cond.op === "and") return cond.conditions.every(evaluateCondition);
+      if (cond.op === "or") return cond.conditions.some(evaluateCondition);
+      return true;
+    }
+
+    function recomputeVisibleSteps() {
+      visibleSteps = activeSchema.steps.filter(s => evaluateCondition(s.condition));
+      if (currentStepIndex >= visibleSteps.length) {
+        currentStepIndex = Math.max(0, visibleSteps.length - 1);
+      }
+    }
+
+    function switchSchema(key) {
+      activeSchema = (key === "hello") ? helloSchema : syntheticSchema;
+      resetSimulator();
+    }
+
     function init() {
-      document.getElementById("survey-title").textContent = baselineSchema.title;
-      document.getElementById("survey-desc").textContent = `${baselineSchema.context.organization} • ${baselineSchema.context.surveyCode}`;
+      document.getElementById("survey-title").textContent = activeSchema.title;
+      document.getElementById("survey-desc").textContent = `${activeSchema.context.organization} • ${activeSchema.context.surveyCode}`;
+      recomputeVisibleSteps();
       renderStepIndicators();
       renderCurrentStep();
       updatePreview();
@@ -284,7 +418,7 @@
     function renderStepIndicators() {
       const container = document.getElementById("step-indicators");
       container.innerHTML = "";
-      baselineSchema.steps.forEach((_, idx) => {
+      visibleSteps.forEach((_, idx) => {
         const pill = document.createElement("div");
         pill.className = `step-pill ${idx === currentStepIndex ? 'active' : (idx < currentStepIndex ? 'completed' : '')}`;
         container.appendChild(pill);
@@ -292,9 +426,12 @@
     }
 
     function renderCurrentStep() {
-      const step = baselineSchema.steps[currentStepIndex];
+      recomputeVisibleSteps();
+      const step = visibleSteps[currentStepIndex];
       const container = document.getElementById("step-container");
       container.innerHTML = "";
+
+      if (!step) return;
 
       const qBlock = document.createElement("div");
       qBlock.className = "question-block";
@@ -311,9 +448,12 @@
         qBlock.appendChild(help);
       }
 
-      if (step.questionType.type === "text") {
+      const qtype = step.questionType.type;
+
+      if (qtype === "text" || qtype === "integer" || qtype === "decimal") {
         const input = document.createElement("input");
-        input.type = "text";
+        input.type = (qtype === "text") ? "text" : "number";
+        if (qtype === "decimal") input.step = "any";
         input.className = "text-input";
         input.placeholder = (step.annotations && step.annotations.placeholder) || "";
         input.value = formData[step.fieldId] || "";
@@ -322,7 +462,50 @@
           updatePreview();
         };
         qBlock.appendChild(input);
-      } else if (step.questionType.type === "choice") {
+      } else if (qtype === "textarea") {
+        const textarea = document.createElement("textarea");
+        textarea.className = "text-input";
+        textarea.style.minHeight = "110px";
+        textarea.placeholder = (step.annotations && step.annotations.placeholder) || "";
+        textarea.value = formData[step.fieldId] || "";
+        textarea.oninput = (e) => {
+          formData[step.fieldId] = e.target.value;
+          updatePreview();
+        };
+        qBlock.appendChild(textarea);
+      } else if (qtype === "date") {
+        const input = document.createElement("input");
+        input.type = "date";
+        input.className = "text-input";
+        input.value = formData[step.fieldId] || "";
+        input.oninput = (e) => {
+          formData[step.fieldId] = e.target.value;
+          updatePreview();
+        };
+        qBlock.appendChild(input);
+      } else if (qtype === "boolean") {
+        const group = document.createElement("div");
+        group.className = "choice-group";
+        [ { label: "Ja", val: "true" }, { label: "Nei", val: "false" } ].forEach((opt) => {
+          const optLabel = document.createElement("label");
+          optLabel.className = "choice-option";
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = step.fieldId;
+          radio.value = opt.val;
+          radio.checked = formData[step.fieldId] === opt.val;
+          radio.onchange = () => {
+            formData[step.fieldId] = opt.val;
+            updatePreview();
+            recomputeVisibleSteps();
+            renderStepIndicators();
+          };
+          optLabel.appendChild(radio);
+          optLabel.appendChild(document.createTextNode(opt.label));
+          group.appendChild(optLabel);
+        });
+        qBlock.appendChild(group);
+      } else if (qtype === "choice") {
         const group = document.createElement("div");
         group.className = "choice-group";
         step.questionType.options.forEach((opt) => {
@@ -336,8 +519,37 @@
           radio.onchange = () => {
             formData[step.fieldId] = opt;
             updatePreview();
+            recomputeVisibleSteps();
+            renderStepIndicators();
           };
           optLabel.appendChild(radio);
+          optLabel.appendChild(document.createTextNode(opt));
+          group.appendChild(optLabel);
+        });
+        qBlock.appendChild(group);
+      } else if (qtype === "multichoice") {
+        const group = document.createElement("div");
+        group.className = "choice-group";
+        const selectedArr = formData[step.fieldId] || [];
+        step.questionType.options.forEach((opt) => {
+          const optLabel = document.createElement("label");
+          optLabel.className = "choice-option";
+          const cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.name = step.fieldId;
+          cb.value = opt;
+          cb.checked = selectedArr.includes(opt);
+          cb.onchange = () => {
+            let current = formData[step.fieldId] || [];
+            if (cb.checked) {
+              if (!current.includes(opt)) current.push(opt);
+            } else {
+              current = current.filter(x => x !== opt);
+            }
+            formData[step.fieldId] = current;
+            updatePreview();
+          };
+          optLabel.appendChild(cb);
           optLabel.appendChild(document.createTextNode(opt));
           group.appendChild(optLabel);
         });
@@ -348,7 +560,7 @@
 
       document.getElementById("btn-back").style.visibility = currentStepIndex === 0 ? "hidden" : "visible";
       const forwardBtn = document.getElementById("btn-forward");
-      if (currentStepIndex === baselineSchema.steps.length - 1) {
+      if (currentStepIndex === visibleSteps.length - 1) {
         forwardBtn.textContent = "Fullfør & Send inn";
         forwardBtn.className = "btn-submit";
       } else {
@@ -358,13 +570,14 @@
     }
 
     function navigateStep(direction) {
-      const step = baselineSchema.steps[currentStepIndex];
-      if (direction > 0 && step.required && !formData[step.fieldId]) {
+      recomputeVisibleSteps();
+      const step = visibleSteps[currentStepIndex];
+      if (direction > 0 && step && step.required && (!formData[step.fieldId] || (Array.isArray(formData[step.fieldId]) && formData[step.fieldId].length === 0))) {
         alert("Dette feltet er påkrevd.");
         return;
       }
 
-      if (direction > 0 && currentStepIndex === baselineSchema.steps.length - 1) {
+      if (direction > 0 && currentStepIndex === visibleSteps.length - 1) {
         alert(`Skjema innsendt!\n\nPayload:\n${JSON.stringify(formData, null, 2)}`);
         return;
       }
@@ -381,9 +594,7 @@
     function resetSimulator() {
       for (const key in formData) delete formData[key];
       currentStepIndex = 0;
-      renderStepIndicators();
-      renderCurrentStep();
-      updatePreview();
+      init();
     }
 
     window.onload = init;

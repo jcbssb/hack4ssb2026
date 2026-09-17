@@ -254,7 +254,12 @@
 
       <div class="type-card">
         <div class="type-header">data QuestionType</div>
-        <div class="type-body">• QText (string input)<br>• QInteger (numeric input)<br>• QChoice [String] (radio/dropdown)</div>
+        <div class="type-body">• QText (string input)<br>• QTextArea (multiline text)<br>• QInteger (integer number)<br>• QDecimal (decimal number)<br>• QDate (date picker)<br>• QBoolean (yes/no)<br>• QChoice [String] (single choice)<br>• QMultiChoice [String] (checkboxes)</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">data Predicate</div>
+        <div class="type-body">• Equals FieldId String<br>• NotEquals FieldId String<br>• IsTrue FieldId<br>• And [Predicate]<br>• Or [Predicate]</div>
       </div>
 
       <div class="type-card">

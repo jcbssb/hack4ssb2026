@@ -34,12 +34,30 @@ main = do
     ["--print-meta"] ->
       BLC.putStrLn encodeMetaSchemaPretty
 
+    ["--inject-altinn", targetPath] -> do
+      injectIntoAltinnApp targetPath helloWorldDialogue
+
+    ["--inject-synthetic", targetPath] -> do
+      injectIntoAltinnApp targetPath syntheticHackDialogue
+
+    ["--print-altinn-layout"] -> do
+      let artifacts = compileToAltinn helloWorldDialogue
+      BLC.putStrLn (encodePretty (pageLayout artifacts))
+
+    ["--print-synthetic-layout"] -> do
+      let artifacts = compileToAltinn syntheticHackDialogue
+      BLC.putStrLn (encodePretty (pageLayout artifacts))
+
     _ -> do
       putStrLn "Dialogue Schema DSL CLI"
       putStrLn "Usage:"
-      putStrLn "  cabal run schema-dsl-cli -- --update-baseline   # Write dsl/baseline-schema.json"
-      putStrLn "  cabal run schema-dsl-cli -- --emit-meta         # Write dsl/baseline-schema-meta.json"
-      putStrLn "  cabal run schema-dsl-cli -- --update-all        # Write both meta and baseline schemas"
-      putStrLn "  cabal run schema-dsl-cli -- --print-baseline    # Print baseline JSON to stdout"
-      putStrLn "  cabal run schema-dsl-cli -- --print-meta        # Print meta schema JSON to stdout"
+      putStrLn "  cabal run schema-dsl-cli -- --update-baseline       # Write dsl/baseline-schema.json"
+      putStrLn "  cabal run schema-dsl-cli -- --emit-meta             # Write dsl/baseline-schema-meta.json"
+      putStrLn "  cabal run schema-dsl-cli -- --update-all            # Write both meta and baseline schemas"
+      putStrLn "  cabal run schema-dsl-cli -- --inject-altinn <DIR>   # Compile and inject baseline into Altinn App repo"
+      putStrLn "  cabal run schema-dsl-cli -- --inject-synthetic <DIR># Compile and inject comprehensive synthetic schema into Altinn App repo"
+      putStrLn "  cabal run schema-dsl-cli -- --print-altinn-layout   # Print compiled Altinn layout JSON"
+      putStrLn "  cabal run schema-dsl-cli -- --print-synthetic-layout# Print compiled synthetic Altinn layout JSON"
+      putStrLn "  cabal run schema-dsl-cli -- --print-baseline        # Print baseline JSON to stdout"
+      putStrLn "  cabal run schema-dsl-cli -- --print-meta            # Print meta schema JSON to stdout"
       exitFailure
