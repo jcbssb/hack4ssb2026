@@ -1,5 +1,35 @@
 {
     "$defs": {
+        "Predicate": {
+            "properties": {
+                "conditions": {
+                    "items": {
+                        "$ref": "#/$defs/Predicate"
+                    },
+                    "type": "array"
+                },
+                "fieldId": {
+                    "type": "string"
+                },
+                "op": {
+                    "enum": [
+                        "equals",
+                        "notEquals",
+                        "isTrue",
+                        "and",
+                        "or"
+                    ],
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "op"
+            ],
+            "type": "object"
+        },
         "QuestionStep": {
             "properties": {
                 "annotations": {
@@ -8,16 +38,25 @@
                         "componentHint": {
                             "enum": [
                                 "Input",
+                                "TextArea",
                                 "RadioButtons",
-                                "Dropdown"
+                                "Checkboxes",
+                                "Dropdown",
+                                "Datepicker"
                             ],
                             "type": "string"
+                        },
+                        "maxLength": {
+                            "type": "integer"
                         },
                         "placeholder": {
                             "type": "string"
                         }
                     },
                     "type": "object"
+                },
+                "condition": {
+                    "$ref": "#/$defs/Predicate"
                 },
                 "fieldId": {
                     "description": "Identifier used for data model bindings (Altinn simpleBinding and JSON payload key)",
@@ -51,8 +90,13 @@
                         "type": {
                             "enum": [
                                 "text",
+                                "textarea",
                                 "integer",
-                                "choice"
+                                "decimal",
+                                "date",
+                                "boolean",
+                                "choice",
+                                "multichoice"
                             ],
                             "type": "string"
                         }

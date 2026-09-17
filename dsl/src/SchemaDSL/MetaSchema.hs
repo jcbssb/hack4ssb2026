@@ -69,7 +69,7 @@ baselineMetaSchema = object
                   , "properties" .= object
                       [ "type" .= object
                           [ "type" .= ("string" :: String)
-                          , "enum" .= (["text", "integer", "choice"] :: [String])
+                          , "enum" .= (["text", "textarea", "integer", "decimal", "date", "boolean", "choice", "multichoice"] :: [String])
                           ]
                       , "options" .= object
                           [ "type" .= ("array" :: String)
@@ -82,19 +82,39 @@ baselineMetaSchema = object
                   [ "type" .= ("boolean" :: String)
                   , "default" .= False
                   ]
+              , "condition" .= object
+                  [ "$ref" .= ("#/$defs/Predicate" :: String)
+                  ]
               , "annotations" .= object
                   [ "type" .= ("object" :: String)
                   , "description" .= ("Optional UI/UX hints for Figma or Altinn interpreters" :: String)
                   , "properties" .= object
                       [ "placeholder" .= object [ "type" .= ("string" :: String) ]
+                      , "maxLength" .= object [ "type" .= ("integer" :: String) ]
                       , "componentHint" .= object
                           [ "type" .= ("string" :: String)
-                          , "enum" .= (["Input", "RadioButtons", "Dropdown"] :: [String])
+                          , "enum" .= (["Input", "TextArea", "RadioButtons", "Checkboxes", "Dropdown", "Datepicker"] :: [String])
                           ]
                       ]
                   ]
               ]
           , "required" .= (["fieldId", "prompt", "questionType", "required"] :: [String])
+          ]
+      , "Predicate" .= object
+          [ "type" .= ("object" :: String)
+          , "properties" .= object
+              [ "op" .= object
+                  [ "type" .= ("string" :: String)
+                  , "enum" .= (["equals", "notEquals", "isTrue", "and", "or"] :: [String])
+                  ]
+              , "fieldId" .= object [ "type" .= ("string" :: String) ]
+              , "value" .= object [ "type" .= ("string" :: String) ]
+              , "conditions" .= object
+                  [ "type" .= ("array" :: String)
+                  , "items" .= object [ "$ref" .= ("#/$defs/Predicate" :: String) ]
+                  ]
+              ]
+          , "required" .= (["op"] :: [String])
           ]
       ]
   ]

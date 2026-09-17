@@ -5,10 +5,10 @@ module SchemaDSL.Types
   ( FieldId
   , Prompt(..)
   , QuestionType(..)
+  , Predicate(..)
   , Question(..)
   , SurveyContext(..)
   , Dialogue(..)
-  , helloWorldDialogue
   ) where
 
 import GHC.Generics (Generic)
@@ -48,16 +48,30 @@ instance FromJSON Prompt where
 -- | Semantic question data type
 data QuestionType
   = QText
+  | QTextArea
   | QInteger
+  | QDecimal
+  | QDate
+  | QBoolean
   | QChoice [String]
+  | QMultiChoice [String]
   deriving (Show, Eq, Generic)
 
 instance ToJSON QuestionType where
   toJSON QText = object [ "type" .= ("text" :: String) ]
+  toJSON QTextArea = object [ "type" .= ("textarea" :: String) ]
   toJSON QInteger = object [ "type" .= ("integer" :: String) ]
+  toJSON QDecimal = object [ "type" .= ("decimal" :: String) ]
+  toJSON QDate = object [ "type" .= ("date" :: String) ]
+  toJSON QBoolean = object [ "type" .= ("boolean" :: String) ]
   toJSON (QChoice opts) =
     object
       [ "type" .= ("choice" :: String)
+      , "options" .= opts
+      ]
+  toJSON (QMultiChoice opts) =
+    object
+      [ "type" .= ("multichoice" :: String)
       , "options" .= opts
       ]
 
@@ -65,10 +79,42 @@ instance FromJSON QuestionType where
   parseJSON = withObject "QuestionType" $ \o -> do
     t <- o .: "type"
     case (t :: String) of
-      "text"    -> pure QText
-      "integer" -> pure QInteger
-      "choice"  -> QChoice <$> o .: "options"
-      other     -> fail $ "Unknown question type: " ++ other
+      "text"        -> pure QText
+      "textarea"    -> pure QTextArea
+      "integer"     -> pure QInteger
+      "decimal"     -> pure QDecimal
+      "date"        -> pure QDate
+      "boolean"     -> pure QBoolean
+      "choice"      -> QChoice <$> o .: "options"
+      "multichoice" -> QMultiChoice <$> o .: "options"
+      other         -> fail $ "Unknown question type: " ++ other
+
+-- | Conditional predicate for dynamic visibility or skip logic
+data Predicate
+  = Equals FieldId String
+  | NotEquals FieldId String
+  | IsTrue FieldId
+  | And [Predicate]
+  | Or [Predicate]
+  deriving (Show, Eq, Generic)
+
+instance ToJSON Predicate where
+  toJSON (Equals fid val) = object [ "op" .= ("equals" :: String), "fieldId" .= fid, "value" .= val ]
+  toJSON (NotEquals fid val) = object [ "op" .= ("notEquals" :: String), "fieldId" .= fid, "value" .= val ]
+  toJSON (IsTrue fid) = object [ "op" .= ("isTrue" :: String), "fieldId" .= fid ]
+  toJSON (And preds) = object [ "op" .= ("and" :: String), "conditions" .= preds ]
+  toJSON (Or preds) = object [ "op" .= ("or" :: String), "conditions" .= preds ]
+
+instance FromJSON Predicate where
+  parseJSON = withObject "Predicate" $ \o -> do
+    op <- o .: "op"
+    case (op :: String) of
+      "equals"     -> Equals <$> o .: "fieldId" <*> o .: "value"
+      "notEquals"  -> NotEquals <$> o .: "fieldId" <*> o .: "value"
+      "isTrue"     -> IsTrue <$> o .: "fieldId"
+      "and"        -> And <$> o .: "conditions"
+      "or"         -> Or <$> o .: "conditions"
+      other        -> fail $ "Unknown predicate operation: " ++ other
 
 -- | Atomic question representing one dialogue step
 data Question = Question
@@ -76,17 +122,20 @@ data Question = Question
   , prompt       :: Prompt
   , questionType :: QuestionType
   , required     :: Bool
+  , condition    :: Maybe Predicate
   , annotations  :: Maybe (KM.KeyMap Value)
   } deriving (Show, Eq, Generic)
 
 instance ToJSON Question where
-  toJSON (Question fid prmpt qtype req anns) =
+  toJSON (Question fid prmpt qtype req cond anns) =
     object $
       [ "fieldId"      .= fid
       , "prompt"       .= prmpt
       , "questionType" .= qtype
       , "required"     .= req
-      ] ++ maybe [] (\a -> ["annotations" .= Object a]) anns
+      ]
+      ++ maybe [] (\c -> ["condition" .= c]) cond
+      ++ maybe [] (\a -> ["annotations" .= Object a]) anns
 
 instance FromJSON Question where
   parseJSON = withObject "Question" $ \o ->
@@ -94,6 +143,7 @@ instance FromJSON Question where
              <*> o .: "prompt"
              <*> o .: "questionType"
              <*> o .: "required"
+             <*> o .:? "condition"
              <*> (fmap unObject <$> (o .:? "annotations"))
     where
       unObject (Object km) = km
@@ -145,41 +195,3 @@ instance FromJSON Dialogue where
              <*> o .:? "context"
              <*> o .: "steps"
 
--- | Hello World baseline dialogue matching baseline-schema.json
-helloWorldDialogue :: Dialogue
-helloWorldDialogue = Dialogue
-  { dialogueId = "hack4ssb-hello"
-  , title      = "SSB Hackday 2026 - Registrering"
-  , context    = Just SurveyContext
-      { surveyCode   = Just "HACK-2026"
-      , organization = Just "Statistisk sentralbyrå"
-      , legalNotice  = Just "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
-      }
-  , steps      =
-      [ Question
-          { fieldId      = "teamName"
-          , prompt       = Prompt
-              { label    = "Hva er navnet på ditt Hackday Team?"
-              , helpText = Just "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'."
-              }
-          , questionType = QText
-          , required     = True
-          , annotations  = Just (KM.fromList [("placeholder", String "F.eks. Foran Skjema"), ("componentHint", String "Input")])
-          }
-      , Question
-          { fieldId      = "trackChoice"
-          , prompt       = Prompt
-              { label    = "Hvilket hovedspor jobber teamet med?"
-              , helpText = Just "Velg det primære fokusområdet for hack-prosjektet."
-              }
-          , questionType = QChoice
-              [ "AI & Skjemaer"
-              , "Figma Prototyping"
-              , "Altinn 3 Integrasjon"
-              , "Kombinasjon / Helhetlig flyt"
-              ]
-          , required     = False
-          , annotations  = Just (KM.fromList [("componentHint", String "RadioButtons")])
-          }
-      ]
-  }
