@@ -60,4 +60,6 @@ test-suite schema-dsl-test
         base >= 4.14 && < 5.0,
         schema-dsl,
         aeson >= 2.0,
-        bytestring >= 0.10
+        bytestring >= 0.10,
+        text >= 1.2,
+        vector >= 0.12

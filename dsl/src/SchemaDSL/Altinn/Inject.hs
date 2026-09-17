@@ -3,11 +3,14 @@
 module SchemaDSL.Altinn.Inject
   ( injectIntoAltinnApp
   , updateSettingsPageOrder
+  , enforceEvolutionPageOrder
   , mergeTextResources
   , stripBOM
   ) where
 
 import qualified Data.ByteString.Lazy as BL
+import Data.List (sortBy)
+import Data.Ord (comparing)
 import Data.Aeson
   ( Value(..)
   , object
@@ -99,7 +102,32 @@ stripBOM bs
   | BL.isPrefixOf (BL.pack [0xEF, 0xBB, 0xBF]) bs = BL.drop 3 bs
   | otherwise                                     = bs
 
--- | Helper to insert pageName into pages.groups[0].order after S01_Forside
+-- | Canonical schema evolution rank for demoing schema development progress
+evolutionRank :: T.Text -> Int
+evolutionRank p
+  | p == "S05_hack4ssb_hello"          = 10  -- v1: Minimal Hello World baseline
+  | p == "S05_hack4ssb_comprehensive"  = 20  -- v2: Extended synthetic schema with full question types
+  | p == "S05_kostra51_kulturminner"   = 30  -- v3: OCR screenshot prototype (B1 Kulturminner)
+  | p == "S05_kostra51_side1"          = 41  -- v4.1: Skjema 51 Side 1
+  | p == "S05_kostra51_side2"          = 42  -- v4.2: Skjema 51 Side 2
+  | p == "S05_kostra51_side3"          = 43  -- v4.3: Skjema 51 Side 3
+  | p == "S05_kostra51_side4"          = 44  -- v4.4: Skjema 51 Side 4
+  | p == "S05_kostra51_side5"          = 45  -- v4.5: Skjema 51 Side 5
+  | p == "S05_kostra51_side6"          = 46  -- v4.6: Skjema 51 Side 6
+  | otherwise                          = 999 -- Other / custom pages
+
+-- | Sort injected pages by schema evolution progression while preserving outer boundary pages
+sortPagesByEvolution :: [T.Text] -> [T.Text]
+sortPagesByEvolution pages =
+  let (before, rest1) = break (== "S01_Forside") pages
+      (prefix, withoutPrefix) = case rest1 of
+        (f:rest) -> (before ++ [f], rest)
+        []       -> ([], pages)
+      (injected, suffix) = break (`elem` ["S20_Summary", "S70_Tidsbruk", "S80_Brukeropplevelse", "S90_Kommentarogkontakt"]) withoutPrefix
+      sortedInjected = sortBy (comparing evolutionRank) injected
+  in prefix ++ sortedInjected ++ suffix
+
+-- | Helper to insert pageName into pages.groups[0].order in schema evolution order
 updateSettingsPageOrder :: String -> KM.KeyMap Value -> KM.KeyMap Value
 updateSettingsPageOrder pName km =
   case KM.lookup "pages" km of
@@ -117,17 +145,33 @@ updateSettingsPageOrder pName km =
         Just (Array ord) ->
           let listOrd = [s | String s <- V.toList ord]
               pNameT = T.pack pName
-              newListOrd = if pNameT `elem` listOrd
-                             then listOrd
-                             else insertAfter "S01_Forside" pNameT listOrd
+              baseList = if pNameT `elem` listOrd then listOrd else listOrd ++ [pNameT]
+              newListOrd = sortPagesByEvolution baseList
           in Object (KM.insert "order" (Array (V.fromList (map String newListOrd))) gObj)
         _ -> Object gObj
     updateGroup other = other
 
-    insertAfter _ item [] = [item]
-    insertAfter target item (x : xs)
-      | x == target = x : item : xs
-      | otherwise   = x : insertAfter target item xs
+-- | Standalone helper to enforce canonical schema evolution order on Settings.json
+enforceEvolutionPageOrder :: KM.KeyMap Value -> KM.KeyMap Value
+enforceEvolutionPageOrder km =
+  case KM.lookup "pages" km of
+    Just (Object pObj) ->
+      case KM.lookup "groups" pObj of
+        Just (Array grps) ->
+          let updatedGrps = V.map updateGroup grps
+              newPObj = KM.insert "groups" (Array updatedGrps) pObj
+          in KM.insert "pages" (Object newPObj) km
+        _ -> km
+    _ -> km
+  where
+    updateGroup (Object gObj) =
+      case KM.lookup "order" gObj of
+        Just (Array ord) ->
+          let listOrd = [s | String s <- V.toList ord]
+              newListOrd = sortPagesByEvolution listOrd
+          in Object (KM.insert "order" (Array (V.fromList (map String newListOrd))) gObj)
+        _ -> Object gObj
+    updateGroup other = other
 
 -- | Helper to merge text resources without duplicating IDs
 mergeTextResources :: [(String, String)] -> KM.KeyMap Value -> KM.KeyMap Value

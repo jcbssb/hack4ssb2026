@@ -3,6 +3,10 @@
 module Main where
 
 import System.Exit (exitFailure, exitSuccess)
+import Data.Aeson (Value(..))
+import qualified Data.Aeson.KeyMap as KM
+import qualified Data.Vector as V
+import qualified Data.Text as T
 import SchemaDSL
 
 main :: IO ()
@@ -18,8 +22,57 @@ main = do
   testCompileKostra51Side1ToAltinn
   testCompileKostra51AllSidesToAltinn
   testBolkRoundTripAndCompilation
+  testEvolutionPageOrdering
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
+
+-- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
+testEvolutionPageOrdering :: IO ()
+testEvolutionPageOrdering = do
+  let initialPages = Array $ V.fromList
+        [ String "S01_Forside"
+        , String "S05_kostra51_side6"
+        , String "S05_kostra51_side1"
+        , String "S05_hack4ssb_hello"
+        , String "S05_kostra51_kulturminner"
+        , String "S05_hack4ssb_comprehensive"
+        , String "S20_Summary"
+        ]
+      initialSettings = KM.fromList
+        [ ("pages", Object $ KM.fromList
+            [ ("groups", Array $ V.fromList
+                [ Object $ KM.fromList [ ("order", initialPages) ]
+                ])
+            ])
+        ]
+      reordered = enforceEvolutionPageOrder initialSettings
+      expectedOrder =
+        [ "S01_Forside"
+        , "S05_hack4ssb_hello"
+        , "S05_hack4ssb_comprehensive"
+        , "S05_kostra51_kulturminner"
+        , "S05_kostra51_side1"
+        , "S05_kostra51_side6"
+        , "S20_Summary"
+        ]
+  case KM.lookup "pages" reordered of
+    Just (Object pObj) ->
+      case KM.lookup "groups" pObj of
+        Just (Array grps) | not (V.null grps) ->
+          case grps V.! 0 of
+            Object gObj ->
+              case KM.lookup "order" gObj of
+                Just (Array ord) ->
+                  let actual = [T.unpack s | String s <- V.toList ord]
+                  in if actual == expectedOrder
+                       then putStrLn "[PASS] Schema evolution page ordering verified."
+                       else do
+                         putStrLn $ "[FAIL] Unexpected page order: " ++ show actual
+                         exitFailure
+                _ -> exitFailure
+            _ -> exitFailure
+        _ -> exitFailure
+    _ -> exitFailure
 
 -- | Test 9: Verify Bolk round-trip JSON serialization and Altinn Header/Paragraph compilation
 testBolkRoundTripAndCompilation :: IO ()

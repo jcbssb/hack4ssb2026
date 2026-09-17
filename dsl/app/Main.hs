@@ -6,7 +6,10 @@ import System.Environment (getArgs)
 import System.Exit (exitFailure)
 import qualified Data.ByteString.Lazy as BL
 import qualified Data.ByteString.Lazy.Char8 as BLC
+import Data.Aeson (Value(..), decode)
 import Data.Aeson.Encode.Pretty (encodePretty)
+import System.FilePath ((</>))
+import System.Directory (doesFileExist)
 import SchemaDSL
 
 main :: IO ()
@@ -108,6 +111,24 @@ main = do
       let artifacts = compileToAltinn kostra51KulturminneDialogue
       BLC.putStrLn (encodePretty (pageLayout artifacts))
 
+    ["--reorder-evolution", targetPath] -> do
+      let settingsPath = targetPath </> "App" </> "ui" </> "mainlayout" </> "Settings.json"
+      exists <- doesFileExist settingsPath
+      if exists
+        then do
+          content <- BL.readFile settingsPath
+          case decode (stripBOM content) of
+            Just (Object obj) -> do
+              let updated = enforceEvolutionPageOrder obj
+              BL.writeFile settingsPath (encodePretty (Object updated))
+              putStrLn $ "Successfully reordered pages in " ++ settingsPath ++ " according to schema evolution!"
+            _ -> do
+              putStrLn $ "Error: Failed to parse Settings.json at " ++ settingsPath
+              exitFailure
+        else do
+          putStrLn $ "Error: Settings.json does not exist at " ++ settingsPath
+          exitFailure
+
     _ -> do
       putStrLn "Dialogue Schema DSL CLI"
       putStrLn "Usage:"
@@ -116,6 +137,7 @@ main = do
       putStrLn "  cabal run schema-dsl-cli -- --update-all            # Write both meta and baseline schemas"
       putStrLn "  cabal run schema-dsl-cli -- --inject-altinn <DIR>   # Compile and inject baseline into Altinn App repo"
       putStrLn "  cabal run schema-dsl-cli -- --inject-synthetic <DIR># Compile and inject comprehensive synthetic schema into Altinn App repo"
+      putStrLn "  cabal run schema-dsl-cli -- --reorder-evolution <DIR> # Reorder Altinn pages by schema evolution progression"
       putStrLn "  cabal run schema-dsl-cli -- --print-altinn-layout   # Print compiled Altinn layout JSON"
       putStrLn "  cabal run schema-dsl-cli -- --print-synthetic-layout# Print compiled synthetic Altinn layout JSON"
       putStrLn "  cabal run schema-dsl-cli -- --print-baseline        # Print baseline JSON to stdout"
