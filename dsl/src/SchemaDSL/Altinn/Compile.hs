@@ -124,12 +124,15 @@ compileSteps dIdClean qs =
 
             labelTxt = label (prompt q)
             helpTxt  = maybe "" id (helpText (prompt q))
-            curTexts = [ (compLabelKey, labelTxt), (compHelpKey, helpTxt) ]
+            hasHelp  = case helpText (prompt q) of
+              Just txt -> not (null txt)
+              Nothing  -> False
+            curTexts = [ (compLabelKey, labelTxt) ]
+                       ++ [ (compHelpKey, helpTxt) | hasHelp ]
 
             trbBindings =
-              [ "title"       .= compLabelKey
-              , "description" .= compHelpKey
-              ]
+              [ "title" .= compLabelKey ]
+              ++ [ "description" .= compHelpKey | hasHelp ]
 
             hiddenProp = case (condition (q :: Question)) of
               Just cond -> [ "hidden" .= compilePredicateToHidden fieldMap cond ]
