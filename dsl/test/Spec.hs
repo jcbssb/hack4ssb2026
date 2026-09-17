@@ -14,8 +14,51 @@ main = do
   testInvalidJSONHandling
   testCompileToAltinn
   testCompileSyntheticToAltinn
+  testCompileKostra51ToAltinn
+  testCompileKostra51Side1ToAltinn
+  testCompileKostra51AllSidesToAltinn
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
+
+-- | Test 8: Verify compileToAltinn on KOSTRA 51 Sides 2-6 produces expected artifacts
+testCompileKostra51AllSidesToAltinn :: IO ()
+testCompileKostra51AllSidesToAltinn = do
+  let a2 = compileToAltinn kostra51Side2Dialogue
+      a3 = compileToAltinn kostra51Side3Dialogue
+      a4 = compileToAltinn kostra51Side4Dialogue
+      a5 = compileToAltinn kostra51Side5Dialogue
+      a6 = compileToAltinn kostra51Side6Dialogue
+  if pageName a2 == "S05_kostra51_side2"
+     && pageName a3 == "S05_kostra51_side3"
+     && pageName a4 == "S05_kostra51_side4"
+     && pageName a5 == "S05_kostra51_side5"
+     && pageName a6 == "S05_kostra51_side6"
+    then putStrLn "[PASS] KOSTRA 51 Sides 2-6 Altinn artifact compilation verified."
+    else do
+      putStrLn "[FAIL] KOSTRA 51 Sides 2-6 Altinn compilation failed expectations."
+      exitFailure
+
+-- | Test 7: Verify compileToAltinn on KOSTRA 51 Side 1 dialogue produces full page 1
+testCompileKostra51Side1ToAltinn :: IO ()
+testCompileKostra51Side1ToAltinn = do
+  let artifacts = compileToAltinn kostra51Side1Dialogue
+  if pageName artifacts == "S05_kostra51_side1"
+     && length (textResources artifacts) >= 30
+    then putStrLn "[PASS] KOSTRA 51 Side 1 Altinn artifact compilation verified."
+    else do
+      putStrLn "[FAIL] KOSTRA 51 Side 1 Altinn compilation failed expectations."
+      exitFailure
+
+-- | Test 6: Verify compileToAltinn on KOSTRA 51 dialogue produces readOnly total sum and decimal questions
+testCompileKostra51ToAltinn :: IO ()
+testCompileKostra51ToAltinn = do
+  let artifacts = compileToAltinn kostra51KulturminneDialogue
+  if pageName artifacts == "S05_kostra51_kulturminner"
+     && length (textResources artifacts) >= 14
+    then putStrLn "[PASS] KOSTRA 51 Altinn artifact compilation verified."
+    else do
+      putStrLn "[FAIL] KOSTRA 51 Altinn compilation failed expectations."
+      exitFailure
 
 -- | Test 2b: Round-trip encode -> decode on comprehensive synthetic dialogue
 testRoundTripSyntheticComprehensive :: IO ()

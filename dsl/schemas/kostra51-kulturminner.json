@@ -1,0 +1,109 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "B1. Tid brukt til arbeid med kulturminner i fylkeskommunen. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 dersom det ikke har vært aktivitet.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "KOSTRA-51-2026"
+    },
+    "dialogueId": "kostra51-kulturminner",
+    "steps": [
+        {
+            "annotations": {
+                "calculatedSumOf": [
+                    "aarsverkArkeologi",
+                    "aarsverkNyereTid",
+                    "aarsverkArealplan",
+                    "aarsverkAnnet"
+                ],
+                "decimalScale": 1,
+                "readOnly": true,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkKulturminnerAlt",
+            "prompt": {
+                "helpText": "Beregnet totalsum av delpostene 1a til 1d (antall årsverk).",
+                "label": "1. Hvor mange årsverk brukte fylkeskommunen til kulturminnearbeid i alt?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": false
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkArkeologi",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1a. Herav til arkeologi?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkNyereTid",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1b. Herav til saksbehandling ift. nyere tids kulturminner?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkArealplan",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1c. Herav til saksbehandling ift. landskap/by/arealplan?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkAnnet",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1d. Herav til annet?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "aarsverkMidlertidige",
+            "prompt": {
+                "helpText": "2. Midlertidige årsverk (antall årsverk).",
+                "label": "2a. Hvor mange årsverk til kulturminneforvaltning var midlertidige?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        }
+    ],
+    "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026"
+}

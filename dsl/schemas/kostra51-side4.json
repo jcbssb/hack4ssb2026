@@ -1,0 +1,544 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "DEL II: C22 Temaplaner etter pbl vedtatt av fylkeskommunen, C23 Behandling av kommunale planer samlet.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "KOSTRA-51-2026"
+    },
+    "dialogueId": "kostra51-side4",
+    "steps": [
+        {
+            "fieldId": "c22_naturmangfoldHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2b Plan med fokus på naturmangfold?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_naturmangfoldHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_naturmangfoldAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2b Hvis ja: Hvilket år sist vedtatt/revidert for naturmangfold?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_friluftslivHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2c Plan med fokus på friluftsliv?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_friluftslivHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_friluftslivAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2c Hvis ja: Hvilket år sist vedtatt/revidert for friluftsliv?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_gronnstrukturHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2d Plan med fokus på grønnstruktur i tettsteder?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_gronnstrukturHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_gronnstrukturAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2d Hvis ja: Hvilket år sist vedtatt/revidert for grønnstruktur?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_vassdragHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2e Plan med fokus på vassdrag (i tillegg til reg. vannforvaltningsplaner)?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_vassdragHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_vassdragAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2e Hvis ja: Hvilket år sist vedtatt/revidert for vassdrag?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_fjellomraaderHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2f Plan med fokus på fjellområder?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_fjellomraaderHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_fjellomraaderAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2f Hvis ja: Hvilket år sist vedtatt/revidert for fjellområder?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_kystsonenHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2g Plan med fokus på kystsonen?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_kystsonenHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_kystsonenAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2g Hvis ja: Hvilket år sist vedtatt/revidert for kystsonen?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_universellUtformingHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2h Plan med fokus på universell utforming?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_universellUtformingHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_universellUtformingAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2h Hvis ja: Hvilket år sist vedtatt/revidert for universell utforming?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_folkehelseHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2i Plan med fokus på folkehelse?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_folkehelseHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_folkehelseAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2i Hvis ja: Hvilket år sist vedtatt/revidert for folkehelse?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_jordvernHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2j Plan med fokus på jordvern?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_jordvernHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_jordvernAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2j Hvis ja: Hvilket år sist vedtatt/revidert for jordvern?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_energiHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2k Plan med fokus på energi?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_energiHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_energiAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2k Hvis ja: Hvilket år sist vedtatt/revidert for energi?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_klimaHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2l Plan med fokus på klima?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_klimaHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_klimaAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2l Hvis ja: Hvilket år sist vedtatt/revidert for klima?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_samordnetArealHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2m Plan med fokus på samordnet areal- og transportplanlegging?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_samordnetArealHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_samordnetArealAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2m Hvis ja: Hvilket år sist vedtatt/revidert for samordnet areal- og transport?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_naeringsutviklingHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2n Plan med fokus på næringsutvikling, inkl. handel og senterstruktur?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_naeringsutviklingHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_naeringsutviklingAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2n Hvis ja: Hvilket år sist vedtatt/revidert for næringsutvikling?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c22_fritidsutbyggingHarPlan",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2o Plan med fokus på fritidsutbygging?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Årstall"
+            },
+            "condition": {
+                "fieldId": "c22_fritidsutbyggingHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c22_fritidsutbyggingAar",
+            "prompt": {
+                "helpText": null,
+                "label": "C22.2o Hvis ja: Hvilket år sist vedtatt/revidert for fritidsutbygging?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_kommuneplanerAlt",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3a Kommune(del)planer behandlet i alt"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_kommuneplanerInnsigelser",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3a Kommune(del)planer med innsigelser ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_kommuneplanerMekling",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3a Kommune(del)planer brakt til mekling ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_omraadeplanerAlt",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3b Områdereguleringsplaner behandlet i alt"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_omraadeplanerInnsigelser",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3b Områdereguleringsplaner med innsigelser ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_omraadeplanerMekling",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3b Områdereguleringsplaner brakt til mekling ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_detaljplanerAlt",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3c Detaljreguleringsplaner behandlet i alt"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_detaljplanerInnsigelser",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3c Detaljreguleringsplaner med innsigelser ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c23_detaljplanerMekling",
+            "prompt": {
+                "helpText": null,
+                "label": "C23.3c Detaljreguleringsplaner brakt til mekling ut fra alle hensyn"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        }
+    ],
+    "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 4)"
+}

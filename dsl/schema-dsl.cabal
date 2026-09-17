@@ -20,6 +20,10 @@ library
         SchemaDSL.JSON
         SchemaDSL.MetaSchema
         SchemaDSL.Altinn
+        SchemaDSL.Altinn.Types
+        SchemaDSL.Altinn.Compile
+        SchemaDSL.Altinn.DataModel
+        SchemaDSL.Altinn.Inject
     build-depends:
         base >= 4.14 && < 5.0,
         aeson >= 2.0,

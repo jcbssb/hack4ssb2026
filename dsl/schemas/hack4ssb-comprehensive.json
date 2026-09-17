@@ -1,0 +1,128 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "Dette er et syntetisk SSB-skjema som demonstrerer full dekning av Dialogue DSL-semantikk på Altinn 3.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "HACK-SSB-2026-SYNTH"
+    },
+    "dialogueId": "hack4ssb-comprehensive",
+    "steps": [
+        {
+            "annotations": {
+                "placeholder": "Skriv teamnavn..."
+            },
+            "fieldId": "lagNavn",
+            "prompt": {
+                "helpText": "F.eks. 'Foran Skjema' eller 'Klass-Knuserne'",
+                "label": "Navn på hack-team"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "antallDeltakere",
+            "prompt": {
+                "helpText": "Oppgi heltall mellom 1 og 10.",
+                "label": "Antall deltakere på laget"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "budsjettPizzaKaffe",
+            "prompt": {
+                "helpText": "F.eks. 1.5 for 1500 kr.",
+                "label": "Estimert snacks- og kaffebudsjett (i tusen kr)"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": false
+        },
+        {
+            "fieldId": "startDato",
+            "prompt": {
+                "helpText": "Velg dato i kalenderen.",
+                "label": "Planlagt dato for første hack-sprint"
+            },
+            "questionType": {
+                "type": "date"
+            },
+            "required": false
+        },
+        {
+            "annotations": {
+                "componentHint": "RadioButtons"
+            },
+            "fieldId": "primarTeknologi",
+            "prompt": {
+                "helpText": "Velg det primære fokusområdet.",
+                "label": "Hovedspor / primær teknologi"
+            },
+            "questionType": {
+                "options": [
+                    "Haskell Dialogue DSL",
+                    "Figma Auto Layout Prototype",
+                    "Altinn 3 Frontend v4",
+                    "LLM Agent Pipeline"
+                ],
+                "type": "choice"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "onskerVeiledning",
+            "prompt": {
+                "helpText": "Kryss av om dere trenger mentorstøtte.",
+                "label": "Ønsker teamet særskilt veiledning fra Altinn/SSB-mentorer?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": false
+        },
+        {
+            "annotations": {
+                "componentHint": "Checkboxes"
+            },
+            "condition": {
+                "fieldId": "onskerVeiledning",
+                "op": "isTrue"
+            },
+            "fieldId": "stotteTemaer",
+            "prompt": {
+                "helpText": "Velg ett eller flere alternativer.",
+                "label": "Hvilke områder trenger dere mentorstøtte på?"
+            },
+            "questionType": {
+                "options": [
+                    "Datamodellering & XSD",
+                    "Felles Designsystem styling",
+                    "Altinn Studio REST API",
+                    "SSB SUV-undersøkelsesstandarder"
+                ],
+                "type": "multichoice"
+            },
+            "required": false
+        },
+        {
+            "annotations": {
+                "maxLength": 2000
+            },
+            "fieldId": "prosjektBeskrivelse",
+            "prompt": {
+                "helpText": "Forklar kort hva teamet skal bygge under hackdayen.",
+                "label": "Utdypende prosjektbeskrivelse og målsetning"
+            },
+            "questionType": {
+                "type": "textarea"
+            },
+            "required": false
+        }
+    ],
+    "title": "SSB Hackday 2026 - Teamregistrering & Kartlegging"
+}

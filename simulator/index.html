@@ -236,153 +236,32 @@
     </section>
   </main>
 
+  <script src="schemas.js"></script>
   <script>
-    const helloSchema = {
-      dialogueId: "hack4ssb-hello",
-      title: "SSB Hackday 2026 - Registrering",
-      context: {
-        surveyCode: "HACK-2026",
-        organization: "Statistisk sentralbyrå",
-        legalNotice: "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
-      },
-      steps: [
-        {
-          fieldId: "teamName",
-          prompt: {
-            label: "Hva er navnet på ditt Hackday Team?",
-            helpText: "Oppgi et unikt lagnavn, f.eks. 'Foran Skjema'."
-          },
-          questionType: { type: "text" },
-          required: true,
-          annotations: { placeholder: "F.eks. Foran Skjema" }
-        },
-        {
-          fieldId: "trackChoice",
-          prompt: {
-            label: "Hvilket hovedspor jobber teamet med?",
-            helpText: "Velg det primære fokusområdet for hack-prosjektet."
-          },
-          questionType: {
-            type: "choice",
-            options: [
-              "AI & Skjemaer",
-              "Figma Prototyping",
-              "Altinn 3 Integrasjon",
-              "Kombinasjon / Helhetlig flyt"
-            ]
-          },
-          required: false
-        }
-      ]
-    };
+    // Schemas loaded dynamically from dsl single source of truth (schemas.js)
+    const availableSchemas = window.SSB_SCHEMAS || {};
 
-    const syntheticSchema = {
-      dialogueId: "hack4ssb-comprehensive",
-      title: "SSB Hackday 2026 - Teamregistrering & Kartlegging",
-      context: {
-        surveyCode: "HACK-SSB-2026-SYNTH",
-        organization: "Statistisk sentralbyrå",
-        legalNotice: "Dette er et syntetisk SSB-skjema som demonstrerer full dekning av Dialogue DSL-semantikk på Altinn 3."
-      },
-      steps: [
-        {
-          fieldId: "lagNavn",
-          prompt: {
-            label: "Navn på hack-team",
-            helpText: "F.eks. 'Foran Skjema' eller 'Klass-Knuserne'"
-          },
-          questionType: { type: "text" },
-          required: true,
-          annotations: { placeholder: "Skriv teamnavn..." }
-        },
-        {
-          fieldId: "antallDeltakere",
-          prompt: {
-            label: "Antall deltakere på laget",
-            helpText: "Oppgi heltall mellom 1 og 10."
-          },
-          questionType: { type: "integer" },
-          required: true
-        },
-        {
-          fieldId: "budsjettPizzaKaffe",
-          prompt: {
-            label: "Estimert snacks- og kaffebudsjett (i tusen kr)",
-            helpText: "F.eks. 1.5 for 1500 kr."
-          },
-          questionType: { type: "decimal" },
-          required: false
-        },
-        {
-          fieldId: "startDato",
-          prompt: {
-            label: "Planlagt dato for første hack-sprint",
-            helpText: "Velg dato i kalenderen."
-          },
-          questionType: { type: "date" },
-          required: false
-        },
-        {
-          fieldId: "primarTeknologi",
-          prompt: {
-            label: "Hovedspor / primær teknologi",
-            helpText: "Velg det primære fokusområdet."
-          },
-          questionType: {
-            type: "choice",
-            options: [
-              "Haskell Dialogue DSL",
-              "Figma Auto Layout Prototype",
-              "Altinn 3 Frontend v4",
-              "LLM Agent Pipeline"
-            ]
-          },
-          required: true
-        },
-        {
-          fieldId: "onskerVeiledning",
-          prompt: {
-            label: "Ønsker teamet særskilt veiledning fra Altinn/SSB-mentorer?",
-            helpText: "Kryss av om dere trenger mentorstøtte."
-          },
-          questionType: { type: "boolean" },
-          required: false
-        },
-        {
-          fieldId: "stotteTemaer",
-          prompt: {
-            label: "Hvilke områder trenger dere mentorstøtte på?",
-            helpText: "Velg ett eller flere alternativer."
-          },
-          questionType: {
-            type: "multichoice",
-            options: [
-              "Datamodellering & XSD",
-              "Felles Designsystem styling",
-              "Altinn Studio REST API",
-              "SSB SUV-undersøkelsesstandarder"
-            ]
-          },
-          required: false,
-          condition: { op: "isTrue", fieldId: "onskerVeiledning" }
-        },
-        {
-          fieldId: "prosjektBeskrivelse",
-          prompt: {
-            label: "Utdypende prosjektbeskrivelse og målsetning",
-            helpText: "Forklar kort hva teamet skal bygge under hackdayen."
-          },
-          questionType: { type: "textarea" },
-          required: false,
-          annotations: { maxLength: 2000 }
-        }
-      ]
+    let activeSchemaKey = "hack4ssb-comprehensive";
+    let activeSchema = availableSchemas[activeSchemaKey] || Object.values(availableSchemas)[0] || {
+      title: "Laster skjema...",
+      context: { organization: "SSB", surveyCode: "" },
+      steps: []
     };
-
-    let activeSchema = syntheticSchema;
     let visibleSteps = [];
     let currentStepIndex = 0;
     const formData = {};
+
+    function populateSchemaDropdown() {
+      const select = document.getElementById("schema-select");
+      select.innerHTML = "";
+      for (const [key, schema] of Object.entries(availableSchemas)) {
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.textContent = `${schema.title} (${schema.steps ? schema.steps.length : 0} trinn)`;
+        if (key === activeSchemaKey) opt.selected = true;
+        select.appendChild(opt);
+      }
+    }
 
     function evaluateCondition(cond) {
       if (!cond) return true;
@@ -395,20 +274,22 @@
     }
 
     function recomputeVisibleSteps() {
-      visibleSteps = activeSchema.steps.filter(s => evaluateCondition(s.condition));
+      visibleSteps = (activeSchema.steps || []).filter(s => evaluateCondition(s.condition));
       if (currentStepIndex >= visibleSteps.length) {
         currentStepIndex = Math.max(0, visibleSteps.length - 1);
       }
     }
 
     function switchSchema(key) {
-      activeSchema = (key === "hello") ? helloSchema : syntheticSchema;
+      activeSchemaKey = key;
+      activeSchema = availableSchemas[key];
       resetSimulator();
     }
 
     function init() {
-      document.getElementById("survey-title").textContent = activeSchema.title;
-      document.getElementById("survey-desc").textContent = `${activeSchema.context.organization} • ${activeSchema.context.surveyCode}`;
+      populateSchemaDropdown();
+      document.getElementById("survey-title").textContent = activeSchema.title || "Skjema";
+      document.getElementById("survey-desc").textContent = `${(activeSchema.context && activeSchema.context.organization) || 'SSB'} • ${(activeSchema.context && activeSchema.context.surveyCode) || ''}`;
       recomputeVisibleSteps();
       renderStepIndicators();
       renderCurrentStep();

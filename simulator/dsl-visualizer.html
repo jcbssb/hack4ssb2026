@@ -234,7 +234,11 @@
       <span>SSB Dialogue DSL Visualizer</span>
       <span class="badge">Haskell AST</span>
     </div>
-    <div class="header-links">SchemaDSL.Types ➔ Visual Flow ➔ Target Mappings</div>
+    <div style="display:flex; align-items:center; gap:0.75rem;">
+      <label for="visualizer-schema-select" style="font-size:0.85rem; color:var(--text-secondary);">Aktivt skjema:</label>
+      <select id="visualizer-schema-select" onchange="switchVisualizerSchema(this.value)" style="padding:0.35rem 0.6rem; border-radius:4px; border:1px solid var(--border-color); background:var(--bg-panel); color:white; font-size:0.85rem;">
+      </select>
+    </div>
   </header>
 
   <div class="main-layout">
@@ -269,51 +273,8 @@
     </aside>
 
     <!-- Center: Interactive Visual Graph -->
-    <main class="graph-stage">
-      <!-- Root Node: Dialogue -->
-      <div class="node active" id="node-root" onclick="selectNode('root')">
-        <div class="node-header">
-          <span class="node-id">hack4ssb-hello</span>
-          <span class="node-kind kind-dialogue">Dialogue</span>
-        </div>
-        <div class="node-body">
-          <div class="field-row"><span class="field-key">title:</span><span class="field-val">"SSB Hackday 2026 - Registrering"</span></div>
-          <div class="field-row"><span class="field-key">context:</span><span class="field-val">SurveyContext { code="HACK-2026", org="SSB" }</span></div>
-          <div class="field-row"><span class="field-key">steps:</span><span class="field-val">2 Question steps</span></div>
-        </div>
-      </div>
-
-      <div class="edge-connector"></div>
-
-      <!-- Step 1: teamName -->
-      <div class="node" id="node-step-1" onclick="selectNode('step-1')">
-        <div class="node-header">
-          <span class="node-id">teamName</span>
-          <span class="node-kind kind-question">Question (Step 1)</span>
-        </div>
-        <div class="node-body">
-          <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"Hva er navnet på ditt Hackday Team?"</span></div>
-          <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">QText</strong></span></div>
-          <div class="field-row"><span class="field-key">required:</span><span class="field-val"><span style="color:#F87171">True</span></span></div>
-          <div class="field-row"><span class="field-key">annotation:</span><span class="field-val">componentHint: "Input"</span></div>
-        </div>
-      </div>
-
-      <div class="edge-connector"></div>
-
-      <!-- Step 2: trackChoice -->
-      <div class="node" id="node-step-2" onclick="selectNode('step-2')">
-        <div class="node-header">
-          <span class="node-id">trackChoice</span>
-          <span class="node-kind kind-question">Question (Step 2)</span>
-        </div>
-        <div class="node-body">
-          <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"Hvilket hovedspor jobber teamet med?"</span></div>
-          <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">QChoice (4 options)</strong></span></div>
-          <div class="field-row"><span class="field-key">required:</span><span class="field-val"><span style="color:#34D399">False</span></span></div>
-          <div class="field-row"><span class="field-key">annotation:</span><span class="field-val">componentHint: "RadioButtons"</span></div>
-        </div>
-      </div>
+    <main class="graph-stage" id="graph-stage">
+      <!-- Dynamically generated from window.SSB_SCHEMAS -->
     </main>
 
     <!-- Right Panel: Semantic Target Mappings -->
@@ -337,96 +298,187 @@
     </aside>
   </div>
 
+  <script src="schemas.js"></script>
   <script>
-    const nodeData = {
-      root: {
+    let currentSchema = null;
+    let nodeDataMap = {};
+
+    function initVisualizer() {
+      const select = document.getElementById('visualizer-schema-select');
+      select.innerHTML = '';
+      if (!window.SSB_SCHEMAS || window.SSB_SCHEMAS.length === 0) {
+        document.getElementById('graph-stage').innerHTML = '<div style="color:red; padding:1rem;">Ingen skjemaer lastet fra schemas.js</div>';
+        return;
+      }
+
+      window.SSB_SCHEMAS.forEach((s, idx) => {
+        const opt = document.createElement('option');
+        opt.value = s.dialogueId;
+        opt.textContent = `${s.title} (${s.dialogueId})`;
+        select.appendChild(opt);
+      });
+
+      switchVisualizerSchema(window.SSB_SCHEMAS[0].dialogueId);
+    }
+
+    function switchVisualizerSchema(dialogueId) {
+      currentSchema = window.SSB_SCHEMAS.find(s => s.dialogueId === dialogueId) || window.SSB_SCHEMAS[0];
+      renderGraph(currentSchema);
+    }
+
+    function formatType(qt) {
+      if (typeof qt === 'string') return qt;
+      if (qt.type === 'QChoice') return `QChoice (${qt.options ? qt.options.length : 0} options)`;
+      if (qt.type === 'QMultiChoice') return `QMultiChoice (${qt.options ? qt.options.length : 0} options)`;
+      return JSON.stringify(qt);
+    }
+
+    function renderGraph(schema) {
+      nodeDataMap = {};
+      const stage = document.getElementById('graph-stage');
+      stage.innerHTML = '';
+
+      // Root node
+      const rootId = 'root';
+      const rootNode = document.createElement('div');
+      rootNode.className = 'node active';
+      rootNode.id = 'node-root';
+      rootNode.onclick = () => selectNode('root');
+
+      const ctxDesc = schema.context ? `SurveyContext { code="${schema.context.surveyCode}", org="${schema.context.orgName}" }` : 'None';
+      rootNode.innerHTML = `
+        <div class="node-header">
+          <span class="node-id">${escapeHtml(schema.dialogueId)}</span>
+          <span class="node-kind kind-dialogue">Dialogue</span>
+        </div>
+        <div class="node-body">
+          <div class="field-row"><span class="field-key">title:</span><span class="field-val">"${escapeHtml(schema.title)}"</span></div>
+          <div class="field-row"><span class="field-key">context:</span><span class="field-val">${escapeHtml(ctxDesc)}</span></div>
+          <div class="field-row"><span class="field-key">steps:</span><span class="field-val">${schema.steps.length} Question steps</span></div>
+        </div>
+      `;
+      stage.appendChild(rootNode);
+
+      nodeDataMap['root'] = {
         haskell: `Dialogue
-  { dialogueId = "hack4ssb-hello"
-  , title      = "SSB Hackday 2026 - Registrering"
-  , context    = Just (SurveyContext ...)
-  , steps      = [teamName, trackChoice]
+  { dialogueId = "${schema.dialogueId}"
+  , title      = "${schema.title}"
+  , context    = ${schema.context ? `Just (SurveyContext "${schema.context.surveyCode}" "${schema.context.orgName}")` : 'Nothing'}
+  , steps      = [${schema.steps.map(s => s.fieldId).join(', ')}]
   }`,
-        altinn: `// App/ui/layouts/Form.json
+        altinn: `// App/ui/layouts/${schema.dialogueId}.json
 {
   "layout": [
     {
-      "id": "header-root",
+      "id": "${schema.dialogueId}-header",
       "type": "Header",
       "size": "L",
-      "textResourceBindings": { "title": "appName" }
+      "textResourceBindings": { "title": "lang.tittel.${schema.dialogueId}.title" }
+    },
+    ... ${schema.steps.length} form components ...,
+    {
+      "id": "${schema.dialogueId}-nav-buttons",
+      "type": "NavigationButtons",
+      "textResourceBindings": { "next": "lang.tittel.navigation.neste", "back": "lang.tittel.navigation.tilbake" }
     }
   ]
 }`,
         figma: `// Figma Frame Root
 const pageFrame = figma.createFrame();
-pageFrame.name = "Dialogue: hack4ssb-hello";
+pageFrame.name = "Dialogue: ${schema.dialogueId}";
 pageFrame.layoutMode = "VERTICAL";
-pageFrame.itemSpacing = 24;`
-      },
-      'step-1': {
-        haskell: `Question
-  { fieldId      = "teamName"
-  , prompt       = Prompt "Hva er navnet..." (Just "Oppgi et unikt...")
-  , questionType = QText
-  , required     = True
-  , annotations  = Just [("componentHint", "Input")]
+pageFrame.itemSpacing = 24;
+pageFrame.paddingTop = 40;
+pageFrame.paddingBottom = 40;`
+      };
+
+      // Steps
+      schema.steps.forEach((step, idx) => {
+        const edge = document.createElement('div');
+        edge.className = 'edge-connector';
+        stage.appendChild(edge);
+
+        const stepKey = `step-${idx}`;
+        const stepNode = document.createElement('div');
+        stepNode.className = 'node';
+        stepNode.id = `node-${stepKey}`;
+        stepNode.onclick = () => selectNode(stepKey);
+
+        const qTypeStr = formatType(step.questionType);
+        const reqStr = step.required ? '<span style="color:#F87171">True</span>' : '<span style="color:#34D399">False</span>';
+        const condStr = step.condition ? `<div class="field-row"><span class="field-key">condition:</span><span class="field-val" style="color:var(--accent-cyan)">${escapeHtml(JSON.stringify(step.condition))}</span></div>` : '';
+        const hint = (step.annotations && step.annotations.componentHint) ? step.annotations.componentHint : 'Default';
+
+        stepNode.innerHTML = `
+          <div class="node-header">
+            <span class="node-id">${escapeHtml(step.fieldId)}</span>
+            <span class="node-kind kind-question">Question (Step ${idx + 1})</span>
+          </div>
+          <div class="node-body">
+            <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"${escapeHtml(step.prompt.label)}"</span></div>
+            <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">${escapeHtml(qTypeStr)}</strong></span></div>
+            <div class="field-row"><span class="field-key">required:</span><span class="field-val">${reqStr}</span></div>
+            ${condStr}
+            <div class="field-row"><span class="field-key">annotation:</span><span class="field-val">componentHint: "${escapeHtml(hint)}"</span></div>
+          </div>
+        `;
+        stage.appendChild(stepNode);
+
+        // Map projections for step
+        let altinnType = "Input";
+        let formatting = null;
+        let isDate = false;
+        const rawType = typeof step.questionType === 'string' ? step.questionType : step.questionType.type;
+        if (rawType === 'QTextArea') altinnType = "TextArea";
+        else if (rawType === 'QInteger') { altinnType = "Input"; formatting = { number: { allowNegative: false } }; }
+        else if (rawType === 'QDecimal') { altinnType = "Input"; formatting = { number: { allowNegative: false, decimalScale: 2 } }; }
+        else if (rawType === 'QDate') { altinnType = "Datepicker"; isDate = true; }
+        else if (rawType === 'QChoice') altinnType = "RadioButtons";
+        else if (rawType === 'QMultiChoice') altinnType = "Checkboxes";
+        else if (rawType === 'QBoolean') altinnType = "RadioButtons";
+
+        const altinnComponent = {
+          id: `${schema.dialogueId}-${step.fieldId}-input`,
+          type: altinnType,
+          ...(isDate ? { timeStamp: false } : {}),
+          required: step.required,
+          dataModelBindings: { simpleBinding: `SkjemaData.${schema.dialogueId}.${step.fieldId}` },
+          textResourceBindings: {
+            title: `lang.${schema.dialogueId}.${step.fieldId}.label`,
+            ...(step.prompt.guidance ? { help: `lang.${schema.dialogueId}.${step.fieldId}.help` } : {})
+          },
+          ...(formatting ? { formatting } : {})
+        };
+
+        nodeDataMap[stepKey] = {
+          haskell: `Question
+  { fieldId      = "${step.fieldId}"
+  , prompt       = Prompt "${step.prompt.label}" ${step.prompt.guidance ? `(Just "${step.prompt.guidance}")` : 'Nothing'}
+  , questionType = ${JSON.stringify(step.questionType)}
+  , required     = ${step.required ? 'True' : 'False'}
+  , condition    = ${step.condition ? `Just (${JSON.stringify(step.condition)})` : 'Nothing'}
+  , annotations  = ${step.annotations ? `Just ${JSON.stringify(step.annotations)}` : 'Nothing'}
   }`,
-        altinn: `// Altinn 3 Component
-{
-  "id": "team-name-input",
-  "type": "Input",
-  "required": true,
-  "dataModelBindings": {
-    "simpleBinding": "teamName"
-  },
-  "textResourceBindings": {
-    "title": "teamNameLabel",
-    "help": "teamNameHelp"
-  }
-}`,
-        figma: `// Figma Component Instance
-const inputField = figma.createComponent();
-inputField.name = "Input: teamName";
-inputField.setPluginData("binding", "teamName");
-pageFrame.appendChild(inputField);`
-      },
-      'step-2': {
-        haskell: `Question
-  { fieldId      = "trackChoice"
-  , prompt       = Prompt "Hvilket hovedspor..." (...)
-  , questionType = QChoice
-      [ "AI & Skjemaer"
-      , "Figma Prototyping"
-      , "Altinn 3 Integrasjon"
-      , "Kombinasjon"
-      ]
-  , required     = False
-  , annotations  = Just [("componentHint", "RadioButtons")]
-  }`,
-        altinn: `// Altinn 3 Component
-{
-  "id": "track-choice-radio",
-  "type": "RadioButtons",
-  "required": false,
-  "dataModelBindings": {
-    "simpleBinding": "trackChoice"
-  },
-  "optionsId": "trackChoiceOptions"
-}`,
-        figma: `// Figma RadioGroup Instance
-const radioGroup = figma.createFrame();
-radioGroup.name = "RadioGroup: trackChoice";
-radioGroup.layoutMode = "VERTICAL";
-options.forEach(opt => appendRadio(radioGroup, opt));`
-      }
-    };
+          altinn: `// Altinn 3 Layout Component:
+${JSON.stringify(altinnComponent, null, 2)}`,
+          figma: `// Figma Component Instance:
+const comp = figma.createComponent();
+comp.name = "${altinnType}: ${step.fieldId}";
+comp.setPluginData("binding", "${step.fieldId}");
+comp.setPluginData("required", "${step.required}");
+pageFrame.appendChild(comp);`
+        };
+      });
+
+      selectNode('root');
+    }
 
     function selectNode(nodeId) {
       document.querySelectorAll('.node').forEach(el => el.classList.remove('active'));
       const target = document.getElementById('node-' + nodeId);
       if (target) target.classList.add('active');
 
-      const data = nodeData[nodeId];
+      const data = nodeDataMap[nodeId];
       if (data) {
         document.getElementById('preview-haskell').textContent = data.haskell;
         document.getElementById('preview-altinn').textContent = data.altinn;
@@ -434,7 +486,16 @@ options.forEach(opt => appendRadio(radioGroup, opt));`
       }
     }
 
-    window.onload = () => selectNode('root');
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    window.onload = initVisualizer;
   </script>
 </body>
 </html>

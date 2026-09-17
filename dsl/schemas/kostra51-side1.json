@@ -1,0 +1,249 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "A. Opplysninger om fylket og ansvarlig for rapporteringen. DEL I: Planarbeid og saksbehandling for kulturminner (Bolk B1, C11, C12). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "KOSTRA-51-2026"
+    },
+    "dialogueId": "kostra51-side1",
+    "steps": [
+        {
+            "annotations": {
+                "placeholder": "F.eks. 30",
+                "readOnly": true
+            },
+            "fieldId": "fylkesnr",
+            "prompt": {
+                "helpText": "Forhåndsutfylt av SSB.",
+                "label": "Fylkesnr"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "Fylkeskommune",
+                "readOnly": true
+            },
+            "fieldId": "fylkesnavn",
+            "prompt": {
+                "helpText": "Forhåndsutfylt av SSB.",
+                "label": "Navnet på fylket"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "skjemaansvarligNavn",
+            "prompt": {
+                "helpText": "Person ansvarlig for utfylling av skjemaet.",
+                "label": "Navn - skjemaansvarlig"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "F.eks. 22864500"
+            },
+            "fieldId": "skjemaansvarligTlf",
+            "prompt": {
+                "helpText": "Telefonnummer til skjemaansvarlig (8 siffer).",
+                "label": "Tlf nr"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "navn@fylke.no"
+            },
+            "fieldId": "skjemaansvarligEpost",
+            "prompt": {
+                "helpText": "E-postadresse for oppfølging og bekreftelse.",
+                "label": "E-post - skjemaansvarlig"
+            },
+            "questionType": {
+                "type": "text"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "calculatedSumOf": [
+                    "b1_aarsverkArkeologi",
+                    "b1_aarsverkNyereTid",
+                    "b1_aarsverkArealplan",
+                    "b1_aarsverkAnnet"
+                ],
+                "decimalScale": 1,
+                "readOnly": true,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkKulturminnerAlt",
+            "prompt": {
+                "helpText": "Beregnet totalsum av delpostene 1a til 1d (antall årsverk).",
+                "label": "1. Hvor mange årsverk brukte fylkeskommunen til kulturminnearbeid i alt?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": false
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkArkeologi",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1a. Herav til arkeologi?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkNyereTid",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1b. Herav til saksbehandling ift. nyere tids kulturminner?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkArealplan",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1c. Herav til saksbehandling ift. landskap/by/arealplan?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkAnnet",
+            "prompt": {
+                "helpText": "Oppgi antall årsverk med 1 desimal. Ingen forekomster = 0.",
+                "label": "... 1d. Herav til annet?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "decimalScale": 1,
+                "unit": "Antall årsverk"
+            },
+            "fieldId": "b1_aarsverkMidlertidige",
+            "prompt": {
+                "helpText": "2. Midlertidige årsverk (antall årsverk).",
+                "label": "2a. Hvor mange årsverk til kulturminneforvaltning var midlertidige?"
+            },
+            "questionType": {
+                "type": "decimal"
+            },
+            "required": true
+        },
+        {
+            "fieldId": "c11_kulturminnerHarPlan",
+            "prompt": {
+                "helpText": "Kryss av for Ja eller Nei.",
+                "label": "1a. Har fylkeskommunen en gjeldende plan etter pbl med spesielt fokus på kulturminner og kulturmiljø?"
+            },
+            "questionType": {
+                "type": "boolean"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "placeholder": "F.eks. 2022"
+            },
+            "condition": {
+                "fieldId": "c11_kulturminnerHarPlan",
+                "op": "isTrue"
+            },
+            "fieldId": "c11_kulturminnerPlanAar",
+            "prompt": {
+                "helpText": "Hvis 'Ja' i 1a: oppgi 4-sifret årstall.",
+                "label": "1b. Hvilket år ble det sist vedtatt/revidert plan for kulturminner og kulturmiljø?"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c12_kommuneplanerBehandlet",
+            "prompt": {
+                "helpText": "Totalt antall behandlede planer.",
+                "label": "C12.1a Antall behandlede kommune(del)planer i rapporteringsåret"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c12_kommuneplanerInnsigelser",
+            "prompt": {
+                "helpText": "Herav planer med innsigelser.",
+                "label": "C12.1b Antall kommune(del)planer med innsigelser begrunnet med kulturminner"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        },
+        {
+            "annotations": {
+                "unit": "Antall planer"
+            },
+            "fieldId": "c12_kommuneplanerMekling",
+            "prompt": {
+                "helpText": "Herav planer brakt til mekling.",
+                "label": "C12.1c Antall kommune(del)planer brakt til mekling begrunnet med kulturminner"
+            },
+            "questionType": {
+                "type": "integer"
+            },
+            "required": true
+        }
+    ],
+    "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 1)"
+}
