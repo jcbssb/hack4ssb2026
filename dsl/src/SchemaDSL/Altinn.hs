@@ -60,9 +60,24 @@ compileToAltinn d =
       -- Compile question steps to components, options, and text resources
       (stepComps, stepOpts, stepTexts) = compileSteps dIdClean (steps d) 1
 
+      -- Navigation buttons at the end of the page
+      navComp = object
+        [ "id"                   .= (dIdClean ++ "-nav-buttons")
+        , "type"                 .= ("NavigationButtons" :: String)
+        , "textResourceBindings" .= object
+            [ "next" .= ("lang.tittel.navigation.neste" :: String)
+            , "back" .= ("lang.tittel.navigation.tilbake" :: String)
+            ]
+        , "showBackButton"       .= True
+        , "validateOnNext"       .= object
+            [ "page" .= ("current" :: String)
+            , "show" .= (["All"] :: [String])
+            ]
+        ]
+
       fullLayout = object
         [ "$schema" .= ("https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json" :: String)
-        , "data"    .= object [ "layout" .= ([headerComp, panelComp] ++ stepComps) ]
+        , "data"    .= object [ "layout" .= ([headerComp, panelComp] ++ stepComps ++ [navComp]) ]
         ]
 
       baseTexts =
@@ -153,11 +168,16 @@ compileSteps dIdClean qs startIdx =
                 let c = object $
                       [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
-                      , "formatting"           .= object [ "number" .= object [ "maximumFractionDigits" .= (0 :: Int) ] ]
+                      , "formatting"           .= object
+                          [ "number" .= object
+                              [ "allowNegative" .= False
+                              , "decimalScale"  .= (0 :: Int)
+                              ]
+                          ]
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (8 :: Int) ] ]
+                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp
                 in (c, [])
@@ -166,11 +186,16 @@ compileSteps dIdClean qs startIdx =
                 let c = object $
                       [ "id"                   .= (prefix ++ "-input")
                       , "type"                 .= ("Input" :: String)
-                      , "formatting"           .= object [ "number" .= object [ "maximumFractionDigits" .= (2 :: Int) ] ]
+                      , "formatting"           .= object
+                          [ "number" .= object
+                              [ "allowNegative" .= False
+                              , "decimalScale"  .= (2 :: Int)
+                              ]
+                          ]
                       , "textResourceBindings" .= object [ "title" .= compLabelKey, "help" .= compHelpKey ]
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (8 :: Int) ] ]
+                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp
                 in (c, [])
