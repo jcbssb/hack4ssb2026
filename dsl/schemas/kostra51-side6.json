@@ -8,51 +8,59 @@
     "dialogueId": "kostra51-side6",
     "steps": [
         {
-            "annotations": {
-                "calculatedSumOf": [
-                    "h2a_timerFramskaffe",
-                    "h2b_timerFylleUt"
-                ],
-                "readOnly": true,
-                "unit": "Timer"
-            },
-            "fieldId": "h2_timerTotalt",
-            "prompt": {
-                "helpText": "Beregnet totalsum av 2a og 2b (hele timer).",
-                "label": "H.2 Antall timer det tok å rapportere i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": false
-        },
-        {
-            "annotations": {
-                "unit": "Timer"
-            },
-            "fieldId": "h2a_timerFramskaffe",
-            "prompt": {
-                "helpText": null,
-                "label": "H.2a Antall timer det tok å framskaffe informasjonen"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Timer"
-            },
-            "fieldId": "h2b_timerFylleUt",
-            "prompt": {
-                "helpText": null,
-                "label": "H.2b Antall timer det tok å fylle ut skjemaet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_h2",
+            "description": "Oppgi anslag på tidsbruk for framskaffing av informasjon og utfylling av skjemaet.",
+            "questions": [
+                {
+                    "annotations": {
+                        "calculatedSumOf": [
+                            "h2a_timerFramskaffe",
+                            "h2b_timerFylleUt"
+                        ],
+                        "readOnly": true,
+                        "unit": "Timer"
+                    },
+                    "fieldId": "h2_timerTotalt",
+                    "prompt": {
+                        "helpText": "Beregnet totalsum av 2a og 2b (hele timer).",
+                        "label": "H.2 Antall timer det tok å rapportere i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "unit": "Timer"
+                    },
+                    "fieldId": "h2a_timerFramskaffe",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "H.2a Antall timer det tok å framskaffe informasjonen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Timer"
+                    },
+                    "fieldId": "h2b_timerFylleUt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "H.2b Antall timer det tok å fylle ut skjemaet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "H2. Tidsbruk for rapportering",
+            "type": "bolk"
         }
     ],
     "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 6)"

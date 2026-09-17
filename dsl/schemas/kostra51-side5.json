@@ -8,461 +8,499 @@
     "dialogueId": "kostra51-side5",
     "steps": [
         {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_strandsoneBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1a Dispensasjonssøknader etter pbl § 1-8 Strandsonen behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_d2_1",
+            "description": "Behandling av søknader om dispensasjon i 100-metersbeltet langs sjø og vassdrag.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_strandsoneBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1a Dispensasjonssøknader etter pbl § 1-8 Strandsonen behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_strandsoneFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1a Herav søknader der fylkeskommunen har frarådet dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_strandsonePaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1a Herav søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_vassdragBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1b Dispensasjonssøknader etter pbl § 1-8 Vassdrag behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_vassdragFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1b Herav søknader der fylkeskommunen har frarådet dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_vassdragPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.1b Herav søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "D2.1 Dispensasjonsbehandling etter pbl § 1-8 (forbud mot tiltak langs sjø og vassdrag)",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_strandsoneFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1a Herav søknader der fylkeskommunen har frarådet dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_d2_2",
+            "description": "Behandling av søknader om dispensasjon fra kommune- og reguleringsplanbestemmelser innen ulike saksområder.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_landskapBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2a Landskap og kulturlandskap (LNFR) søknader behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_landskapFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2a Herav søknader frarådet dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_landskapPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2a Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_naturomraaderBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2b Større sammenhengende naturområder søknader behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_naturomraaderFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2b Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_naturomraaderPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2b Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_friluftslivBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2c Friluftsliv - retten til fri ferdsel behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_friluftslivFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2c Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_friluftslivPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2c Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_arealTransportBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2d Samordning areal- og transport behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_arealTransportFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2d Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_arealTransportPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2d Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_universellUtformingBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2e Universell utforming og tilgjengelighet behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_universellUtformingFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2e Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_universellUtformingPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2e Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_barnUngeBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2f Barn og unges oppvekstmiljø behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_barnUngeFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2f Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_barnUngePaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2f Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_andreBestemmelserBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2g Andre planfaglige bestemmelser behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_andreBestemmelserFraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2g Herav søknader frarådet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_andreBestemmelserPaaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.2g Herav søknader påklaget"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "D2.2 Dispensasjon fra kommunale planbestemmelser (pbl § 19)",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_strandsonePaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1a Herav søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_d2_3",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_regionalePlanerBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.3 Søknader om dispensasjon fra regionale planer behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_regionalePlanerSamtykke",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.3 Herav antall søknader der fylkeskommunen har gitt samtykke"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d2_regionalePlanerIkkeSamtykke",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D2.3 Herav antall søknader der fylkeskommunen ikke har samtykket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "D2.3 Søknader om dispensasjon fra regionale planer",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_vassdragBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1b Dispensasjonssøknader etter pbl § 1-8 Vassdrag behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_g",
+            "questions": [
+                {
+                    "fieldId": "g_merknader",
+                    "prompt": {
+                        "helpText": "Skriv inn dersom du har kommentarer til innhold eller utforming.",
+                        "label": "G. Kommentarer og merknader til skjemaet"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "G. Kommentarer og merknader",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_vassdragFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1b Herav søknader der fylkeskommunen har frarådet dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_vassdragPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.1b Herav søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_landskapBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2a Landskap og kulturlandskap (LNFR) søknader behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_landskapFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2a Herav søknader frarådet dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_landskapPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2a Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_naturomraaderBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2b Større sammenhengende naturområder søknader behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_naturomraaderFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2b Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_naturomraaderPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2b Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_friluftslivBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2c Friluftsliv - retten til fri ferdsel behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_friluftslivFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2c Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_friluftslivPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2c Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_arealTransportBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2d Samordning areal- og transport behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_arealTransportFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2d Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_arealTransportPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2d Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_universellUtformingBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2e Universell utforming og tilgjengelighet behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_universellUtformingFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2e Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_universellUtformingPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2e Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_barnUngeBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2f Barn og unges oppvekstmiljø behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_barnUngeFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2f Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_barnUngePaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2f Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_andreBestemmelserBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2g Andre planfaglige bestemmelser behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_andreBestemmelserFraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2g Herav søknader frarådet"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_andreBestemmelserPaaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.2g Herav søknader påklaget"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_regionalePlanerBehandlet",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.3 Søknader om dispensasjon fra regionale planer behandlet i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_regionalePlanerSamtykke",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.3 Herav antall søknader der fylkeskommunen har gitt samtykke"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d2_regionalePlanerIkkeSamtykke",
-            "prompt": {
-                "helpText": null,
-                "label": "D2.3 Herav antall søknader der fylkeskommunen ikke har samtykket"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "fieldId": "g_merknader",
-            "prompt": {
-                "helpText": "Skriv inn dersom du har kommentarer til innhold eller utforming.",
-                "label": "G. Kommentarer og merknader til skjemaet"
-            },
-            "questionType": {
-                "type": "textarea"
-            },
-            "required": false
-        },
-        {
-            "fieldId": "h1_elektroniskSakssystem",
-            "prompt": {
-                "helpText": null,
-                "label": "H.1 Er elektronisk sakssystem brukt som grunnlag for rapporteringen?"
-            },
-            "questionType": {
-                "type": "boolean"
-            },
-            "required": true
-        },
-        {
-            "condition": {
-                "fieldId": "h1_elektroniskSakssystem",
-                "op": "isTrue"
-            },
-            "fieldId": "h1a_maskinelleOpptellinger",
-            "prompt": {
-                "helpText": null,
-                "label": "H.1a Er tallene framkommet som resultat av maskinelle opptellinger/summeringer?"
-            },
-            "questionType": {
-                "type": "boolean"
-            },
-            "required": true
+            "bolkId": "bolk_h1",
+            "description": "Spørsmål om datagrunnlag for rapporteringen.",
+            "questions": [
+                {
+                    "fieldId": "h1_elektroniskSakssystem",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "H.1 Er elektronisk sakssystem brukt som grunnlag for rapporteringen?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "condition": {
+                        "fieldId": "h1_elektroniskSakssystem",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "h1a_maskinelleOpptellinger",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "H.1a Er tallene framkommet som resultat av maskinelle opptellinger/summeringer?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "H. Tidsbruk og elektronisk sakssystem",
+            "type": "bolk"
         }
     ],
     "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 5)"

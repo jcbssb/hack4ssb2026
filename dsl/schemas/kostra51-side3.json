@@ -8,260 +8,299 @@
     "dialogueId": "kostra51-side3",
     "steps": [
         {
-            "annotations": {
-                "unit": "Antall registreringer"
-            },
-            "fieldId": "f2_regAlt",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2a Arkeologiske registreringer i alt gjennomført i rapporteringsåret"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_f2",
+            "description": "Registreringer gjennomført i rapporteringsåret.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall registreringer"
+                    },
+                    "fieldId": "f2_regAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2a Arkeologiske registreringer i alt gjennomført i rapporteringsåret"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall registreringer"
+                    },
+                    "fieldId": "f2_regKommuneplan",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2b Herav ifm. kommune(del)planer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall tilfeller"
+                    },
+                    "fieldId": "f2_regNyeKulturminner",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2a1 Av dette: I hvor mange tilfelle ble det påvist ikke tidligere kjente automatisk fredete kulturminner?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall registreringer"
+                    },
+                    "fieldId": "f2_regMindrePrivate",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2a2 Hvor mange av registreringene skyldtes mindre, private tiltak?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall tilfeller"
+                    },
+                    "fieldId": "f2_regMindrePrivateNye",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2a2a I hvor mange av disse ble det påvist ikke tidligere kjente automatisk fredete kulturminner?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall registreringer"
+                    },
+                    "fieldId": "f2_regKrevdDekning",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.2a3 I hvor mange av registreringene ble det krevd kostnadsdekning etter kml § 10?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F2. Arkeologiske registreringer",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall registreringer"
-            },
-            "fieldId": "f2_regKommuneplan",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2b Herav ifm. kommune(del)planer"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_f3",
+            "description": "Skjøtsel og tilrettelegging av automatisk fredete kulturminner utført uten tilskudd fra Riksantikvaren.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall lokaliteter"
+                    },
+                    "fieldId": "f3_skjoetselUtenTilskudd",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F3.3a På hvor mange lokaliteter har fylkeskommunen utført skjøtsel uten tilskudd fra RA?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall lokaliteter"
+                    },
+                    "fieldId": "f3_tilretteleggingUtenTilskudd",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F3.3b På hvor mange lokaliteter har fylkeskommunen utført tilrettelegging uten tilskudd fra RA?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F3. Skjøtsel og tilrettelegging",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall tilfeller"
-            },
-            "fieldId": "f2_regNyeKulturminner",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2a1 Av dette: I hvor mange tilfelle ble det påvist ikke tidligere kjente automatisk fredete kulturminner?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_f4",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "f4_kostnaderMindrePrivate",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.4a Hvor store kostnader har fylkeskommunen hatt ifm. registreringer for mindre, private tiltak? (Kroner)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "f4_belopKrevdDekning",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.4b Hvor stort samlet beløp har fylkeskommunen krevd dekning for ang. automatisk fredete kulturminner, jf. KML § 10? (Kroner)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F4. Kostnader og kostnadsdekning for automatisk fredete kulturminner",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall registreringer"
-            },
-            "fieldId": "f2_regMindrePrivate",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2a2 Hvor mange av registreringene skyldtes mindre, private tiltak?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_b2",
+            "description": "Ressursbruk målt i antall årsverk.",
+            "questions": [
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "unit": "Antall årsverk"
+                    },
+                    "fieldId": "b2_aarsverkPlanbehandling",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "B2.3 Hvor mange årsverk brukte fylkeskommunen til planbehandling i alt?"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "unit": "Antall årsverk"
+                    },
+                    "fieldId": "b2_aarsverkKommuneplaner",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "B2.3a ... Herav til behandling av kommunale planer?"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "unit": "Antall årsverk"
+                    },
+                    "fieldId": "b2_aarsverkEgnePlaner",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "B2.3b ... Herav til utarbeidelse av egne planer?"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "unit": "Antall årsverk"
+                    },
+                    "fieldId": "b2_aarsverkFolkehelse",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "B2.4 Hvor mange årsverk brukte fylkeskommunen til koordinering av folkehelsearbeidet?"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "B2. Årsverk til planbehandling og koordinering av folkehelsearbeidet",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall tilfeller"
-            },
-            "fieldId": "f2_regMindrePrivateNye",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2a2a I hvor mange av disse ble det påvist ikke tidligere kjente automatisk fredete kulturminner?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall registreringer"
-            },
-            "fieldId": "f2_regKrevdDekning",
-            "prompt": {
-                "helpText": null,
-                "label": "F2.2a3 I hvor mange av registreringene ble det krevd kostnadsdekning etter kml § 10?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall lokaliteter"
-            },
-            "fieldId": "f3_skjoetselUtenTilskudd",
-            "prompt": {
-                "helpText": null,
-                "label": "F3.3a På hvor mange lokaliteter har fylkeskommunen utført skjøtsel uten tilskudd fra RA?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall lokaliteter"
-            },
-            "fieldId": "f3_tilretteleggingUtenTilskudd",
-            "prompt": {
-                "helpText": null,
-                "label": "F3.3b På hvor mange lokaliteter har fylkeskommunen utført tilrettelegging uten tilskudd fra RA?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Kroner"
-            },
-            "fieldId": "f4_kostnaderMindrePrivate",
-            "prompt": {
-                "helpText": null,
-                "label": "F4.4a Hvor store kostnader har fylkeskommunen hatt ifm. registreringer for mindre, private tiltak? (Kroner)"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Kroner"
-            },
-            "fieldId": "f4_belopKrevdDekning",
-            "prompt": {
-                "helpText": null,
-                "label": "F4.4b Hvor stort samlet beløp har fylkeskommunen krevd dekning for ang. automatisk fredete kulturminner, jf. KML § 10? (Kroner)"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "decimalScale": 1,
-                "unit": "Antall årsverk"
-            },
-            "fieldId": "b2_aarsverkPlanbehandling",
-            "prompt": {
-                "helpText": null,
-                "label": "B2.3 Hvor mange årsverk brukte fylkeskommunen til planbehandling i alt?"
-            },
-            "questionType": {
-                "type": "decimal"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "decimalScale": 1,
-                "unit": "Antall årsverk"
-            },
-            "fieldId": "b2_aarsverkKommuneplaner",
-            "prompt": {
-                "helpText": null,
-                "label": "B2.3a ... Herav til behandling av kommunale planer?"
-            },
-            "questionType": {
-                "type": "decimal"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "decimalScale": 1,
-                "unit": "Antall årsverk"
-            },
-            "fieldId": "b2_aarsverkEgnePlaner",
-            "prompt": {
-                "helpText": null,
-                "label": "B2.3b ... Herav til utarbeidelse av egne planer?"
-            },
-            "questionType": {
-                "type": "decimal"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "decimalScale": 1,
-                "unit": "Antall årsverk"
-            },
-            "fieldId": "b2_aarsverkFolkehelse",
-            "prompt": {
-                "helpText": null,
-                "label": "B2.4 Hvor mange årsverk brukte fylkeskommunen til koordinering av folkehelsearbeidet?"
-            },
-            "questionType": {
-                "type": "decimal"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "placeholder": "F.eks. 2024"
-            },
-            "fieldId": "c21_planstrategiAar",
-            "prompt": {
-                "helpText": null,
-                "label": "C21.1a Når ble gjeldende planstrategi vedtatt? (4-sifret årstall)"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c21_regionalePlanerVedtatt",
-            "prompt": {
-                "helpText": null,
-                "label": "C21.1b Hvor mange regionale planer ble vedtatt siste år?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c21_regionalePlanerFlereFylker",
-            "prompt": {
-                "helpText": null,
-                "label": "C21.1b1 Hvor mange av disse regionale planene omfatter flere fylker?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c21_regionalePlanerIkkeHeleFylket",
-            "prompt": {
-                "helpText": null,
-                "label": "C21.1b2 Hvor mange av planene i 1b dekker ikke hele arealet i fylket?"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_c21",
+            "description": "Vedtatt planstrategi og regionale planer etter plan- og bygningsloven.",
+            "questions": [
+                {
+                    "annotations": {
+                        "placeholder": "F.eks. 2024"
+                    },
+                    "fieldId": "c21_planstrategiAar",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C21.1a Når ble gjeldende planstrategi vedtatt? (4-sifret årstall)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c21_regionalePlanerVedtatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C21.1b Hvor mange regionale planer ble vedtatt siste år?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c21_regionalePlanerFlereFylker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C21.1b1 Hvor mange av disse regionale planene omfatter flere fylker?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c21_regionalePlanerIkkeHeleFylket",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C21.1b2 Hvor mange av planene i 1b dekker ikke hele arealet i fylket?"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C21. Fylkeskommunens egen planlegging (Planstrategi og regionale planer)",
+            "type": "bolk"
         }
     ],
     "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 3)"

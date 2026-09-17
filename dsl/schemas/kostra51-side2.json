@@ -8,270 +8,301 @@
     "dialogueId": "kostra51-side2",
     "steps": [
         {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_omraadeplanerBehandlet",
-            "prompt": {
-                "helpText": "Totalt antall behandlede planer.",
-                "label": "C12.2a Antall behandlede områdereguleringsplaner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_c12_reguleringsplaner",
+            "description": "Innsigelser til områderegulering og detaljregulering begrunnet med kulturminner.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_omraadeplanerBehandlet",
+                    "prompt": {
+                        "helpText": "Totalt antall behandlede planer.",
+                        "label": "C12.2a Antall behandlede områdereguleringsplaner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_omraadeplanerInnsigelser",
+                    "prompt": {
+                        "helpText": "Herav planer med innsigelser.",
+                        "label": "C12.2b Antall områdereguleringsplaner med innsigelser begrunnet med kulturminner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_omraadeplanerMekling",
+                    "prompt": {
+                        "helpText": "Herav planer brakt til mekling.",
+                        "label": "C12.2c Antall områdereguleringsplaner brakt til mekling begrunnet med kulturminner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_detaljplanerBehandlet",
+                    "prompt": {
+                        "helpText": "Totalt antall behandlede planer.",
+                        "label": "C12.3a Antall behandlede detaljreguleringsplaner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_detaljplanerInnsigelser",
+                    "prompt": {
+                        "helpText": "Herav planer med innsigelser.",
+                        "label": "C12.3b Antall detaljreguleringsplaner med innsigelser begrunnet med kulturminner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall planer"
+                    },
+                    "fieldId": "c12_detaljplanerMekling",
+                    "prompt": {
+                        "helpText": "Herav planer brakt til mekling.",
+                        "label": "C12.3c Antall detaljreguleringsplaner brakt til mekling begrunnet med kulturminner"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C12. Innsigelser til kommunale planer - Reguleringsplaner",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_omraadeplanerInnsigelser",
-            "prompt": {
-                "helpText": "Herav planer med innsigelser.",
-                "label": "C12.2b Antall områdereguleringsplaner med innsigelser begrunnet med kulturminner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_d1",
+            "description": "Bygge- og rivesaker, meldinger og dispensasjonssøknader fra planbestemmelser og kulturminneloven.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "d1_byggeRivesakerUttalelse",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.1 Antall bygge- og rivesaker i områder med hensynssone eller bevaring som fylkeskommunen har gitt uttalelse til"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall meldinger"
+                    },
+                    "fieldId": "d1_rivingFor1850",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.2 Antall behandlede meldinger om riving/endring av ikke-fredete bygninger oppført før 1850"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall meldinger"
+                    },
+                    "fieldId": "d1_rivingEtter1850",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.3 Antall behandlede meldinger om riving/endring av verneverdige bygninger oppført etter 1850"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d1_dispPbl19Alt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.3a Antall søknader om dispensasjon i medhold av pbl § 19 hvor kulturminner blir berørt i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d1_dispPbl19Fraraad",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.3b Herav søknader der fylkeskommunen har frarådet dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d1_dispPbl19Paaklaget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.3c Herav (kolonne a) søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall søknader"
+                    },
+                    "fieldId": "d1_dispKmlAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.4 Antall dispensasjonssøknader fra fredningsvedtak i medhold av kulturminneloven §§ 15a, 19, 20 og 22a"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "D1. Behandling av tiltak/søknader som påvirker kulturminner",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_omraadeplanerMekling",
-            "prompt": {
-                "helpText": "Herav planer brakt til mekling.",
-                "label": "C12.2c Antall områdereguleringsplaner brakt til mekling begrunnet med kulturminner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_e",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall anmeldelser"
+                    },
+                    "fieldId": "e_politianmeldelserKml",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E.1 Antall politianmeldelser med utgangspunkt i kulturminneloven levert inn siste år"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "E. Politianmeldelser med grunnlag i kulturminneloven",
+            "type": "bolk"
         },
         {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_detaljplanerBehandlet",
-            "prompt": {
-                "helpText": "Totalt antall behandlede planer.",
-                "label": "C12.3a Antall behandlede detaljreguleringsplaner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_detaljplanerInnsigelser",
-            "prompt": {
-                "helpText": "Herav planer med innsigelser.",
-                "label": "C12.3b Antall detaljreguleringsplaner med innsigelser begrunnet med kulturminner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall planer"
-            },
-            "fieldId": "c12_detaljplanerMekling",
-            "prompt": {
-                "helpText": "Herav planer brakt til mekling.",
-                "label": "C12.3c Antall detaljreguleringsplaner brakt til mekling begrunnet med kulturminner"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "d1_byggeRivesakerUttalelse",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.1 Antall bygge- og rivesaker i områder med hensynssone eller bevaring som fylkeskommunen har gitt uttalelse til"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall meldinger"
-            },
-            "fieldId": "d1_rivingFor1850",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.2 Antall behandlede meldinger om riving/endring av ikke-fredete bygninger oppført før 1850"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall meldinger"
-            },
-            "fieldId": "d1_rivingEtter1850",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.3 Antall behandlede meldinger om riving/endring av verneverdige bygninger oppført etter 1850"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d1_dispPbl19Alt",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.3a Antall søknader om dispensasjon i medhold av pbl § 19 hvor kulturminner blir berørt i alt"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d1_dispPbl19Fraraad",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.3b Herav søknader der fylkeskommunen har frarådet dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d1_dispPbl19Paaklaget",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.3c Herav (kolonne a) søknader der fylkeskommunen har påklaget vedtak om dispensasjon"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall søknader"
-            },
-            "fieldId": "d1_dispKmlAlt",
-            "prompt": {
-                "helpText": null,
-                "label": "D1.4 Antall dispensasjonssøknader fra fredningsvedtak i medhold av kulturminneloven §§ 15a, 19, 20 og 22a"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall anmeldelser"
-            },
-            "fieldId": "e_politianmeldelserKml",
-            "prompt": {
-                "helpText": null,
-                "label": "E.1 Antall politianmeldelser med utgangspunkt i kulturminneloven levert inn siste år"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "f1_kommuneReguleringsplanerAlt",
-            "prompt": {
-                "helpText": null,
-                "label": "F1.1a Antall kommune- og reguleringsplansaker hvor forholdet til automatisk fredete kulturminner er vurdert"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "f1_andreSakerAlt",
-            "prompt": {
-                "helpText": null,
-                "label": "F1.1b Antall andre saker hvor forholdet til automatisk fredete kulturminner er vurdert"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "f1_andreSakerSjofart",
-            "prompt": {
-                "helpText": null,
-                "label": "F1.1b Herav oversendt sjøfartsmuseum"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "f1_offentligeStoreTiltak",
-            "prompt": {
-                "helpText": null,
-                "label": "F1.1c Saker som gjelder offentlige og større private tiltak mottatt i rapporteringsåret"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
-        },
-        {
-            "annotations": {
-                "unit": "Antall saker"
-            },
-            "fieldId": "f1_mindrePrivateTiltak",
-            "prompt": {
-                "helpText": null,
-                "label": "F1.1d Antall saker i 1b som gjelder mindre, private tiltak"
-            },
-            "questionType": {
-                "type": "integer"
-            },
-            "required": true
+            "bolkId": "bolk_f1",
+            "description": "Kommune-, reguleringsplaner og offentlige/private tiltak.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "f1_kommuneReguleringsplanerAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F1.1a Antall kommune- og reguleringsplansaker hvor forholdet til automatisk fredete kulturminner er vurdert"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "f1_andreSakerAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F1.1b Antall andre saker hvor forholdet til automatisk fredete kulturminner er vurdert"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "f1_andreSakerSjofart",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F1.1b Herav oversendt sjøfartsmuseum"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "f1_offentligeStoreTiltak",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F1.1c Saker som gjelder offentlige og større private tiltak mottatt i rapporteringsåret"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall saker"
+                    },
+                    "fieldId": "f1_mindrePrivateTiltak",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F1.1d Antall saker i 1b som gjelder mindre, private tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F1. Saker om planer og tiltak ift. automatisk fredete kulturminner",
+            "type": "bolk"
         }
     ],
     "title": "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 2)"
