@@ -9,6 +9,9 @@ Thumbs.db
 .env.local
 *.env
 
+# Submodules / Nested Repos
+altinn-skjema-hacking/
+
 # Dependencies & Build
 node_modules/
 dist/
