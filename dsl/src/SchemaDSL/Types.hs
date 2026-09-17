@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DuplicateRecordFields #-}
 
 module SchemaDSL.Types
   ( FieldId
@@ -7,11 +8,15 @@ module SchemaDSL.Types
   , QuestionType(..)
   , Predicate(..)
   , Question(..)
+  , Bolk(..)
+  , Step(..)
   , SurveyContext(..)
   , Dialogue(..)
+  , allDialogueQuestions
   ) where
 
 import GHC.Generics (Generic)
+import Control.Applicative ((<|>))
 import Data.Aeson
   ( ToJSON(..)
   , FromJSON(..)
@@ -149,6 +154,54 @@ instance FromJSON Question where
       unObject (Object km) = km
       unObject _           = KM.empty
 
+-- | A Bolk or thematic group of related questions with title, guidance, and optional condition
+data Bolk = Bolk
+  { bolkId          :: String
+  , bolkTitle       :: String
+  , bolkDescription :: Maybe String
+  , bolkCondition   :: Maybe Predicate
+  , bolkQuestions   :: [Question]
+  } deriving (Show, Eq, Generic)
+
+instance ToJSON Bolk where
+  toJSON (Bolk bid ttl desc cond qs) =
+    object $
+      [ "type"        .= ("bolk" :: String)
+      , "bolkId"      .= bid
+      , "title"       .= ttl
+      ]
+      ++ maybe [] (\d -> ["description" .= d]) desc
+      ++ maybe [] (\c -> ["condition" .= c]) cond
+      ++ [ "questions" .= qs ]
+
+instance FromJSON Bolk where
+  parseJSON = withObject "Bolk" $ \o ->
+    Bolk <$> o .: "bolkId"
+         <*> o .: "title"
+         <*> o .:? "description"
+         <*> o .:? "condition"
+         <*> o .: "questions"
+
+-- | A Dialogue Step: either an atomic Question or a structured Bolk
+data Step
+  = QuestionStep Question
+  | BolkStep Bolk
+  deriving (Show, Eq, Generic)
+
+instance ToJSON Step where
+  toJSON (QuestionStep q) = toJSON q
+  toJSON (BolkStep b)     = toJSON b
+
+instance FromJSON Step where
+  parseJSON v = (BolkStep <$> parseJSON v) <|> (QuestionStep <$> parseJSON v)
+
+-- | Extract all questions in a dialogue regardless of whether they are in bolker or standalone
+allDialogueQuestions :: Dialogue -> [Question]
+allDialogueQuestions d = concatMap stepQuestions (steps d)
+  where
+    stepQuestions (QuestionStep q) = [q]
+    stepQuestions (BolkStep b)     = bolkQuestions b
+
 -- | Context metadata (survey code, organization, legal notice)
 data SurveyContext = SurveyContext
   { surveyCode   :: Maybe String
@@ -175,7 +228,7 @@ data Dialogue = Dialogue
   { dialogueId :: String
   , title      :: String
   , context    :: Maybe SurveyContext
-  , steps      :: [Question]
+  , steps      :: [Step]
   } deriving (Show, Eq, Generic)
 
 instance ToJSON Dialogue where

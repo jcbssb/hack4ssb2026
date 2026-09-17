@@ -43,12 +43,32 @@ baselineMetaSchema = object
           ]
       , "steps" .= object
           [ "type" .= ("array" :: String)
-          , "items" .= object [ "$ref" .= ("#/$defs/QuestionStep" :: String) ]
+          , "items" .= object
+              [ "anyOf" .=
+                  [ object [ "$ref" .= ("#/$defs/QuestionStep" :: String) ]
+                  , object [ "$ref" .= ("#/$defs/BolkStep" :: String) ]
+                  ]
+              ]
           ]
       ]
   , "required" .= (["dialogueId", "title", "steps"] :: [String])
   , "$defs" .= object
-      [ "QuestionStep" .= object
+      [ "BolkStep" .= object
+          [ "type" .= ("object" :: String)
+          , "properties" .= object
+              [ "type" .= object [ "type" .= ("string" :: String), "const" .= ("bolk" :: String) ]
+              , "bolkId" .= object [ "type" .= ("string" :: String) ]
+              , "title" .= object [ "type" .= ("string" :: String) ]
+              , "description" .= object [ "type" .= ("string" :: String) ]
+              , "condition" .= object [ "$ref" .= ("#/$defs/Predicate" :: String) ]
+              , "questions" .= object
+                  [ "type" .= ("array" :: String)
+                  , "items" .= object [ "$ref" .= ("#/$defs/QuestionStep" :: String) ]
+                  ]
+              ]
+          , "required" .= (["bolkId", "title", "questions"] :: [String])
+          ]
+      , "QuestionStep" .= object
           [ "type" .= ("object" :: String)
           , "properties" .= object
               [ "fieldId" .= object

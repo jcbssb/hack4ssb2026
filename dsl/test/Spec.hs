@@ -17,8 +17,33 @@ main = do
   testCompileKostra51ToAltinn
   testCompileKostra51Side1ToAltinn
   testCompileKostra51AllSidesToAltinn
+  testBolkRoundTripAndCompilation
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
+
+-- | Test 9: Verify Bolk round-trip JSON serialization and Altinn Header/Paragraph compilation
+testBolkRoundTripAndCompilation :: IO ()
+testBolkRoundTripAndCompilation = do
+  let original = kostra51Side1Dialogue
+      encoded = encodeDialogue original
+  case decodeDialogue encoded of
+    Left err -> do
+      putStrLn $ "[FAIL] Bolk round-trip decode failed: " ++ err
+      exitFailure
+    Right decoded ->
+      if decoded == original
+        then do
+          let artifacts = compileToAltinn decoded
+          -- Check that Bolk title text keys are emitted
+          if any (\(k, _) -> k == "lang.kostra51_side1.bolk.bolk_a.title") (textResources artifacts)
+             && any (\(k, _) -> k == "lang.kostra51_side1.bolk.bolk_b1.title") (textResources artifacts)
+            then putStrLn "[PASS] Bolk JSON round-trip and Altinn text resource generation verified."
+            else do
+              putStrLn "[FAIL] Bolk text resources missing from Altinn compilation."
+              exitFailure
+        else do
+          putStrLn "[FAIL] Decoded Bolk dialogue does not match original."
+          exitFailure
 
 -- | Test 8: Verify compileToAltinn on KOSTRA 51 Sides 2-6 produces expected artifacts
 testCompileKostra51AllSidesToAltinn :: IO ()
@@ -124,7 +149,7 @@ testRoundTripWithChoice = do
         , title      = "Choice Dialogue Test"
         , context    = Nothing
         , steps      =
-            [ Question
+            [ QuestionStep Question
                 { fieldId      = "category"
                 , prompt       = Prompt "Select category" (Just "Choose one")
                 , questionType = QChoice ["AI", "Figma", "Altinn"]

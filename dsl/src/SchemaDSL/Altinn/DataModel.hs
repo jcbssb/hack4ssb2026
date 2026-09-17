@@ -34,8 +34,9 @@ updateJsonSchemaModel modelsDir d = do
       case decode content of
         Just (Object rootObj) -> do
           let dIdClean = sanitizeName (dialogueId d)
+              allQs = allDialogueQuestions d
               fieldProps = [ (fromText (T.pack (fieldId q)), qTypeToJsonSchema (questionType q))
-                           | q <- steps d
+                           | q <- allQs
                            ]
               dialogueObj = object
                 [ "type" .= ("object" :: String)
@@ -93,7 +94,7 @@ updateCSharpModel modelsDir d = do
       if ("public " ++ className ++ " " ++ propName) `isInfixOfStr` content
         then putStrLn $ "  [=] C# model already has " ++ className ++ " definition."
         else do
-          let updated = injectCSharpClass dIdClean className (steps d) content
+          let updated = injectCSharpClass dIdClean className (allDialogueQuestions d) content
           TIO.writeFile csPath (T.pack updated)
           putStrLn $ "  [+] Updated C# data model with class " ++ className ++ " in: " ++ csPath
 

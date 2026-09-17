@@ -1,8 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE RecordWildCards #-}
 
 module SchemaDSL.Altinn.Compile
   ( compileToAltinn
   , compileSteps
+  , compileStepItems
   , compilePredicateToHidden
   ) where
 
@@ -19,8 +22,8 @@ import SchemaDSL.Altinn.Types
 
 -- | Compile generic Dialogue to Altinn artifacts using model binding helper strategy
 compileToAltinn :: Dialogue -> AltinnArtifacts
-compileToAltinn d =
-  let dIdClean = sanitizeName (dialogueId d)
+compileToAltinn Dialogue{ dialogueId = did, title = dTitle, context = dCtx, steps = dSteps } =
+  let dIdClean = sanitizeName did
       pgName = "S05_" ++ dIdClean
       headerId = dIdClean ++ "-header"
       panelId  = dIdClean ++ "-panel-info"
@@ -45,8 +48,8 @@ compileToAltinn d =
         , "grid"                 .= object [ "xs" .= (12 :: Int) ]
         ]
 
-      -- Compile question steps to components, options, and text resources
-      (stepComps, stepOpts, stepTexts) = compileSteps dIdClean (steps d)
+      -- Compile steps (both standalone questions and grouped bolker)
+      (stepComps, stepOpts, stepTexts) = compileStepItems dIdClean dSteps
 
       -- Navigation buttons at the end of the page
       navComp = object
@@ -69,10 +72,10 @@ compileToAltinn d =
         ]
 
       baseTexts =
-        [ (pgName, title d)
-        , ("lang." ++ dIdClean ++ ".tittel", title d)
+        [ (pgName, dTitle)
+        , ("lang." ++ dIdClean ++ ".tittel", dTitle)
         , ("lang." ++ dIdClean ++ ".panel.title", "Om registreringen")
-        , ("lang." ++ dIdClean ++ ".panel.body", maybe "Dette skjemaet samler inn opplysninger." (maybe "" id . legalNotice) (context d))
+        , ("lang." ++ dIdClean ++ ".panel.body", maybe "Dette skjemaet samler inn opplysninger." (maybe "" id . legalNotice) dCtx)
         ]
 
   in AltinnArtifacts
@@ -123,7 +126,7 @@ compileSteps dIdClean qs =
             helpTxt  = maybe "" id (helpText (prompt q))
             curTexts = [ (compLabelKey, labelTxt), (compHelpKey, helpTxt) ]
 
-            hiddenProp = case condition q of
+            hiddenProp = case (condition (q :: Question)) of
               Just cond -> [ "hidden" .= compilePredicateToHidden fieldMap cond ]
               Nothing   -> []
 
@@ -259,3 +262,59 @@ compileSteps dIdClean qs =
             (nextComps, nextOpts, nextTexts) = go rest
         in (comp : nextComps, opts ++ nextOpts, curTexts ++ nextTexts)
   in go qs
+
+-- | Compile list of Steps (either Questions or Bolker) to layout components, options, and text resources
+compileStepItems :: String -> [Step] -> ([Value], [(String, Value)], [(String, String)])
+compileStepItems dIdClean stepList = goItems stepList
+  where
+    allQs = concatMap getQs stepList
+    getQs (QuestionStep q) = [q]
+    getQs (BolkStep b)     = bolkQuestions b
+
+    fieldMap = [ (fieldId q, "SkjemaData." ++ dIdClean ++ "." ++ fieldId q)
+               | q <- allQs
+               ]
+
+    goItems [] = ([], [], [])
+    goItems (x:xs) =
+      let (c1, o1, t1) = processItem x
+          (c2, o2, t2) = goItems xs
+      in (c1 ++ c2, o1 ++ o2, t1 ++ t2)
+
+    processItem (QuestionStep q) =
+      compileSteps dIdClean [q]
+
+    processItem (BolkStep b) =
+      let bIdClean = sanitizeName (bolkId b)
+          bHeaderId = dIdClean ++ "-bolk-" ++ bIdClean ++ "-header"
+          bDescId   = dIdClean ++ "-bolk-" ++ bIdClean ++ "-desc"
+
+          bTitleKey = "lang." ++ dIdClean ++ ".bolk." ++ bIdClean ++ ".title"
+          bDescKey  = "lang." ++ dIdClean ++ ".bolk." ++ bIdClean ++ ".desc"
+
+          bHiddenProp = case bolkCondition b of
+            Just cond -> [ "hidden" .= compilePredicateToHidden fieldMap cond ]
+            Nothing   -> []
+
+          bHeaderComp = object $
+            [ "id"                   .= (bHeaderId :: String)
+            , "type"                 .= ("Header" :: String)
+            , "size"                 .= ("h3" :: String)
+            , "textResourceBindings" .= object [ "title" .= bTitleKey ]
+            , "grid"                 .= object [ "xs" .= (12 :: Int) ]
+            ] ++ bHiddenProp
+
+          (bDescCompList, bDescTexts) = case bolkDescription b of
+            Just descTxt ->
+              let comp = object $
+                    [ "id"                   .= (bDescId :: String)
+                    , "type"                 .= ("Paragraph" :: String)
+                    , "textResourceBindings" .= object [ "title" .= bDescKey ]
+                    , "grid"                 .= object [ "xs" .= (12 :: Int) ]
+                    ] ++ bHiddenProp
+              in ([comp], [(bDescKey, descTxt)])
+            Nothing -> ([], [])
+
+          bBaseTexts = (bTitleKey, bolkTitle b) : bDescTexts
+          (qComps, qOpts, qTexts) = compileSteps dIdClean (bolkQuestions b)
+      in ([bHeaderComp] ++ bDescCompList ++ qComps, qOpts, bBaseTexts ++ qTexts)

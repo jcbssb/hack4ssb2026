@@ -1,5 +1,37 @@
 {
     "$defs": {
+        "BolkStep": {
+            "properties": {
+                "bolkId": {
+                    "type": "string"
+                },
+                "condition": {
+                    "$ref": "#/$defs/Predicate"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "questions": {
+                    "items": {
+                        "$ref": "#/$defs/QuestionStep"
+                    },
+                    "type": "array"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "type": {
+                    "const": "bolk",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bolkId",
+                "title",
+                "questions"
+            ],
+            "type": "object"
+        },
         "Predicate": {
             "properties": {
                 "conditions": {
@@ -145,7 +177,14 @@
         },
         "steps": {
             "items": {
-                "$ref": "#/$defs/QuestionStep"
+                "anyOf": [
+                    {
+                        "$ref": "#/$defs/QuestionStep"
+                    },
+                    {
+                        "$ref": "#/$defs/BolkStep"
+                    }
+                ]
             },
             "type": "array"
         },
