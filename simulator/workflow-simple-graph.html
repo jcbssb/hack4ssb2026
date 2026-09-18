@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSB Skjema Flytgraf: Enkel Visning</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&family=Roboto+Mono:wght@600;800&display=swap">
+  <style>
+    :root {
+      --bg: #090D16;
+      --card-bg: #131B2E;
+      --border: #2B384E;
+      --text: #F8FAFC;
+      --text-muted: #8492A6;
+      
+      --c-kilder: #EC4899;   /* Pink */
+      --c-figma: #A855F7;    /* Purple */
+      --c-dsl: #10B981;      /* Emerald */
+      --c-altinn: #0284C7;   /* Sky/Blue */
+      --c-sim: #06B6D4;      /* Cyan */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(11, 17, 32, 0.95);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--c-dsl);
+      border: 1px solid var(--c-dsl);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      background: #111827;
+      transition: all 0.15s;
+    }
+
+    .nav-btn:hover {
+      color: var(--text);
+      border-color: #475569;
+    }
+
+    .nav-btn.active {
+      color: #FFF;
+      background: #1E293B;
+      border-color: #64748B;
+    }
+
+    /* Fullscreen graph stage */
+    .graph-container {
+      flex: 1;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(20, 30, 50, 0.4) 0%, rgba(9, 13, 22, 0.95) 100%),
+        radial-gradient(#1E293B 1.5px, transparent 1.5px);
+      background-size: 100% 100%, 32px 32px;
+    }
+
+    svg.edges-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: all;
+    }
+
+    /* Node Card: Ultra Minimal & Clean */
+    .graph-node {
+      position: absolute;
+      width: 170px;
+      height: 90px;
+      border-radius: 14px;
+      background: var(--card-bg);
+      border: 3px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 35px -6px rgba(0, 0, 0, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      z-index: 5;
+    }
+
+    .graph-node:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      border-color: var(--node-accent) !important;
+    }
+
+    .node-icon {
+      font-size: 26px;
+      margin-bottom: 2px;
+    }
+
+    .node-title {
+      font-weight: 900;
+      font-size: 19px;
+      letter-spacing: -0.3px;
+      color: #FFF;
+    }
+
+    /* Edge SVG styles */
+    path.edge-line {
+      fill: none;
+      stroke-width: 3.5px;
+      stroke-linecap: round;
+      opacity: 0.85;
+      transition: stroke-width 0.2s, opacity 0.2s, stroke 0.2s;
+    }
+
+    path.edge-line:hover {
+      stroke-width: 6px;
+      opacity: 1;
+      filter: drop-shadow(0 0 8px currentColor);
+    }
+
+    .edge-label-pill {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 11px;
+      font-weight: 800;
+      fill: #FFFFFF;
+      text-anchor: middle;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .edge-label-bg {
+      rx: 5px;
+      ry: 5px;
+      fill: #0F172A;
+      stroke: var(--border);
+      stroke-width: 1.5px;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.6));
+    }
+
+    /* Bottom Info Strip */
+    .info-strip {
+      background: rgba(11, 17, 32, 0.95);
+      border-top: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      z-index: 10;
+    }
+
+    .legend-dots {
+      display: flex;
+      gap: 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: #CBD5E1;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Skjema-graf</span>
+      <span class="badge">5 Hovednoder</span>
+    </div>
+    <div class="nav-links">
+      <a href="workflow-simple-graph.html" class="nav-btn active">Enkel Graf</a>
+      <a href="workflow-graph.html" class="nav-btn">Full Relasjonsgraf</a>
+      <a href="workflow-compare.html" class="nav-btn">Sammenligning</a>
+      <a href="workflow-triptych.html" class="nav-btn">4 Arbeidsflyter</a>
+      <a href="../docs/fire-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument (MD)</a>
+    </div>
+  </header>
+
+  <div class="graph-container" id="container">
+    <svg class="edges-svg" id="svgStage">
+      <defs>
+        <marker id="arr-kilder" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#EC4899" />
+        </marker>
+        <marker id="arr-figma" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#A855F7" />
+        </marker>
+        <marker id="arr-dsl" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#10B981" />
+        </marker>
+        <marker id="arr-altinn" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#0284C7" />
+        </marker>
+        <marker id="arr-amber" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#F59E0B" />
+        </marker>
+      </defs>
+      <!-- Paths dynamically injected by JS -->
+    </svg>
+
+    <!-- 5 Clean Single-Word Nodes -->
+    <div id="nodes"></div>
+  </div>
+
+  <div class="info-strip">
+    <div class="legend-dots">
+      <div class="legend-item"><span class="dot" style="background:#EC4899;"></span> Kilder (PDF, Foto, Regler)</div>
+      <div class="legend-item"><span class="dot" style="background:#A855F7;"></span> Figma (Designhub)</div>
+      <div class="legend-item"><span class="dot" style="background:#10B981;"></span> DSL (SSOT Kodehub)</div>
+      <div class="legend-item"><span class="dot" style="background:#0284C7;"></span> Altinn (Produksjonsmål)</div>
+      <div class="legend-item"><span class="dot" style="background:#06B6D4;"></span> Simulator (Testmål)</div>
+    </div>
+    <div style="font-family:'Roboto Mono', monospace;">
+      Klikk på nodene for å fremheve kantene
+    </div>
+  </div>
+
+  <script>
+    // 5 Clean nodes with single-word titles
+    const NODES = [
+      { id: "Kilder", title: "Kilder", icon: "📄", color: "#EC4899", col: 0, row: 1 },
+      { id: "Figma", title: "Figma", icon: "🎨", color: "#A855F7", col: 1, row: 0 },
+      { id: "DSL", title: "DSL", icon: "💎", color: "#10B981", col: 1, row: 2 },
+      { id: "Altinn", title: "Altinn", icon: "🏛️", color: "#0284C7", col: 2, row: 0.5 },
+      { id: "Simulator", title: "Simulator", icon: "🖥️", color: "#06B6D4", col: 2, row: 2 }
+    ];
+
+    // Ultra-clean single-word / short edges
+    const EDGES = [
+      // Kilder -> Figma
+      {
+        from: "Kilder", to: "Figma",
+        label: "AI + Metodikk",
+        color: "#A855F7",
+        marker: "arr-figma",
+        curv: -25
+      },
+      // Kilder -> DSL (Multiple sources: PDF, Screenshots, Rules)
+      {
+        from: "Kilder", to: "DSL",
+        label: "PDF / OCR",
+        color: "#10B981",
+        marker: "arr-dsl",
+        curv: 25
+      },
+      // Figma -> Altinn (Joakim Full AI)
+      {
+        from: "Figma", to: "Altinn",
+        label: "Full AI (API JSON)",
+        color: "#F59E0B",
+        marker: "arr-amber",
+        curv: -35
+      },
+      // Figma -> Altinn (Jon Manual Coder)
+      {
+        from: "Figma", to: "Altinn",
+        label: "Manuell",
+        color: "#A855F7",
+        marker: "arr-figma",
+        curv: 25
+      },
+      // DSL -> Altinn (Compiler)
+      {
+        from: "DSL", to: "Altinn",
+        label: "Kompilator",
+        color: "#10B981",
+        marker: "arr-dsl",
+        curv: -20
+      },
+      // DSL -> Simulator (Instant preview)
+      {
+        from: "DSL", to: "Simulator",
+        label: "Generering",
+        color: "#06B6D4",
+        marker: "arr-dsl",
+        curv: 0
+      }
+    ];
+
+    function calculatePositions() {
+      const container = document.getElementById("container");
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+
+      // 3 Columns: 20%, 50%, 80%
+      const colX = [
+        w * 0.16,  // Col 0: Kilder
+        w * 0.48,  // Col 1: Figma & DSL
+        w * 0.80   // Col 2: Altinn & Simulator
+      ];
+
+      // Vertical layout based on row index
+      const rowY = {
+        0: h * 0.24,    // Figma (Top mid)
+        0.5: h * 0.35,  // Altinn (Upper right)
+        1: h * 0.50,    // Kilder (Center left)
+        2: h * 0.76     // DSL & Simulator (Bottom)
+      };
+
+      NODES.forEach(n => {
+        n.x = colX[n.col] - 85; // 85 is half node width
+        n.y = rowY[n.row] - 45; // 45 is half node height
+      });
+    }
+
+    function renderNodes() {
+      const container = document.getElementById("nodes");
+      container.innerHTML = "";
+
+      NODES.forEach(n => {
+        const div = document.createElement("div");
+        div.className = "graph-node";
+        div.id = `node-${n.id}`;
+        div.style.left = `${n.x}px`;
+        div.style.top = `${n.y}px`;
+        div.style.setProperty("--node-accent", n.color);
+        div.style.borderColor = n.color;
+
+        div.innerHTML = `
+          <div class="node-icon">${n.icon}</div>
+          <div class="node-title">${n.title}</div>
+        `;
+
+        div.addEventListener("click", () => highlightNode(n.id));
+        container.appendChild(div);
+      });
+    }
+
+    function renderEdges() {
+      const svg = document.getElementById("svgStage");
+      const defs = svg.querySelector("defs").outerHTML;
+      svg.innerHTML = defs;
+
+      EDGES.forEach((e, i) => {
+        const fn = NODES.find(n => n.id === e.from);
+        const tn = NODES.find(n => n.id === e.to);
+        if (!fn || !tn) return;
+
+        const startX = fn.x + 170; // right of node
+        const startY = fn.y + 45;  // center of node
+        const endX = tn.x;         // left of node
+        const endY = tn.y + 45;    // center of node
+
+        // Curved bezier
+        const dx = (endX - startX) * 0.5;
+        const dy = (endY - startY) * 0.5 + (e.curv || 0);
+
+        const cx1 = startX + dx;
+        const cy1 = startY + (e.curv || 0);
+        const cx2 = endX - dx;
+        const cy2 = endY + (e.curv || 0);
+
+        const pathData = `M ${startX} ${startY} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${endX} ${endY}`;
+
+        // Path Line
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", pathData);
+        path.setAttribute("class", "edge-line");
+        path.setAttribute("id", `edge-${i}`);
+        path.setAttribute("stroke", e.color);
+        path.setAttribute("marker-end", `url(#${e.marker})`);
+
+        // Midpoint for single-word / short pill label
+        const midX = (startX + endX) / 2;
+        const midY = (startY + endY) / 2 + (e.curv || 0) * 0.8;
+
+        const textLen = e.label.length * 7.5 + 16;
+
+        // Label Background
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("class", "edge-label-bg");
+        rect.setAttribute("x", midX - textLen / 2);
+        rect.setAttribute("y", midY - 12);
+        rect.setAttribute("width", textLen);
+        rect.setAttribute("height", 22);
+        rect.setAttribute("stroke", e.color);
+
+        // Label Text
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("class", "edge-label-pill");
+        text.setAttribute("x", midX);
+        text.setAttribute("y", midY + 3);
+        text.textContent = e.label;
+
+        svg.appendChild(path);
+        svg.appendChild(rect);
+        svg.appendChild(text);
+      });
+    }
+
+    let activeFilter = null;
+    function highlightNode(nodeId) {
+      if (activeFilter === nodeId) {
+        // Reset
+        activeFilter = null;
+        document.querySelectorAll(".graph-node").forEach(n => {
+          n.style.opacity = "1";
+          n.style.transform = "none";
+        });
+        document.querySelectorAll(".edge-line").forEach(l => {
+          l.style.opacity = "0.85";
+          l.style.strokeWidth = "3.5px";
+        });
+        return;
+      }
+
+      activeFilter = nodeId;
+      const connectedEdges = EDGES.filter(e => e.from === nodeId || e.to === nodeId);
+      const connectedNodeIds = new Set([nodeId, ...connectedEdges.map(e => e.from), ...connectedEdges.map(e => e.to)]);
+
+      NODES.forEach(n => {
+        const el = document.getElementById(`node-${n.id}`);
+        if (connectedNodeIds.has(n.id)) {
+          el.style.opacity = "1";
+          if (n.id === nodeId) {
+            el.style.transform = "scale(1.08)";
+          } else {
+            el.style.transform = "none";
+          }
+        } else {
+          el.style.opacity = "0.2";
+          el.style.transform = "none";
+        }
+      });
+
+      EDGES.forEach((e, i) => {
+        const line = document.getElementById(`edge-${i}`);
+        if (e.from === nodeId || e.to === nodeId) {
+          line.style.opacity = "1";
+          line.style.strokeWidth = "5px";
+        } else {
+          line.style.opacity = "0.1";
+          line.style.strokeWidth = "2px";
+        }
+      });
+    }
+
+    function init() {
+      calculatePositions();
+      renderNodes();
+      renderEdges();
+    }
+
+    window.addEventListener("DOMContentLoaded", init);
+    window.addEventListener("resize", () => {
+      calculatePositions();
+      renderNodes();
+      renderEdges();
+      if (activeFilter) highlightNode(activeFilter);
+    });
+  </script>
+</body>
+</html>
