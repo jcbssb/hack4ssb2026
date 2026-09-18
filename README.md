@@ -37,6 +37,7 @@ Interaktiv visualisering av arbeidsflyten: Åpne `simulator/workflow-visualizer.
 - `altinn/` – Altinn-relaterte skjemadefinisjoner og datamodeller
 - `ai/` – Eksperimenter, prompts, scripts og verktøy
 - `docs/` – Notater og presentasjonsmateriell
+  - `docs/jon-workflow-figma-mcp-altinn.md` – Jon-metodikken: Fra metodikk/screenshots via AI (MCP) til Figma og videre til Altinn 3
   - `docs/arbeidsflyt-skjema.md` – Konseptuell arbeidsflyt fra modell til Altinn via Figma
   - `docs/altinn-figma-to-app-joakim/` – Detaljert referanse og veiledning for oversettelse av Figma-design til Altinn 3-applikasjoner (komponentkatalog, sidetype-identifisering, datamodellsynk, tekstressurser og options)
 - `research/` – Bakgrunnsundersøkelser, designsystemstandarder og API-dokumentasjon
