@@ -46,3 +46,16 @@ Arbeidsflyten baserer seg på å bruke **Figma** som den visuelle og brukersentr
   - Genererer Altinn 3 app-strukturer: `App/ui/layouts/*.json` og tilhørende ressursfiler.
 - **Output**:
   - Kjørbart Altinn 3 skjema klart for testkjøring eller videre tilpasning i Altinn Studio.
+
+---
+
+## 3. Relatert Referansedokumentasjon
+
+For dybdeveiledning og tekniske spesifikasjoner om hvordan Figma-elementer mappes til konkrete Altinn 3-filer og arkitektur, se referansemappen:
+- **Veileder & Hovedretningslinjer**: `docs/altinn-figma-to-app-joakim/SKILL.md`
+- **Komponentkatalog**: `docs/altinn-figma-to-app-joakim/reference/component-catalog.md`
+- **Identifisering av innholdssider vs. boilerplate**: `docs/altinn-figma-to-app-joakim/reference/page-identification.md`
+- **Synkronisering av datamodeller (.cs, .xsd, .schema.json)**: `docs/altinn-figma-to-app-joakim/reference/datamodel-sync.md`
+- **Tekst- og språkressurser**: `docs/altinn-figma-to-app-joakim/reference/text-resources.md`
+- **Options-lister**: `docs/altinn-figma-to-app-joakim/reference/options-lists.md`
+- **Eksempler og schema**: `docs/altinn-figma-to-app-joakim/reference/examples/` og `docs/altinn-figma-to-app-joakim/reference/layout.schema.v1.json`

@@ -1,0 +1,12 @@
+{
+  "language": "nn",
+  "resources": [
+    { "id": "S05_ExamplePage.Header-aa0001.title", "value": "Ekstra opplysningar" },
+    { "id": "S05_ExamplePage.RadioButtons-aa0002.title", "value": "Har de ekstra opplysningar å registrere?" },
+    { "id": "S05_ExamplePage.Group-aa0003.title", "value": "Ekstra opplysningar" },
+    { "id": "S05_ExamplePage.Input-aa0004.title", "value": "Talet" },
+    { "id": "S05_ExamplePage.RepeatingGroup-aa0005.title", "value": "Registrerte rader" },
+    { "id": "S05_ExamplePage.Input-aa0006.title", "value": "Kategori" },
+    { "id": "S05_ExamplePage.Input-aa0007.title", "value": "Areal" }
+  ]
+}

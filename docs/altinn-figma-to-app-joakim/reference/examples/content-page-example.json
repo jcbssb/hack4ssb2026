@@ -1,0 +1,53 @@
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      { "id": "Header-aa0001", "type": "Header", "size": "L",
+        "textResourceBindings": { "title": "S05_ExamplePage.Header-aa0001.title" } },
+
+      { "id": "RadioButtons-aa0002", "type": "RadioButtons",
+        "dataModelBindings": { "simpleBinding": { "field": "SkjemaData.harEkstraOpplysninger", "dataType": "Example_M" } },
+        "textResourceBindings": { "title": "S05_ExamplePage.RadioButtons-aa0002.title" },
+        "required": true,
+        "optionsId": "JaNeiOptionlist" },
+
+      { "id": "Group-aa0003", "type": "Group",
+        "textResourceBindings": { "title": "S05_ExamplePage.Group-aa0003.title" },
+        "children": ["Input-aa0004"],
+        "hidden": ["notEquals", ["dataModel", "SkjemaData.harEkstraOpplysninger"], "1"] },
+
+      { "id": "Input-aa0004", "type": "Input",
+        "dataModelBindings": { "simpleBinding": { "field": "SkjemaData.ekstraOpplysningerAntall", "dataType": "Example_M" } },
+        "textResourceBindings": { "title": "S05_ExamplePage.Input-aa0004.title" },
+        "required": true,
+        "formatting": { "number": { "decimalScale": 0, "allowNegative": false }, "align": "right" } },
+
+      { "id": "RepeatingGroup-aa0005", "type": "RepeatingGroup",
+        "dataModelBindings": { "group": { "field": "SkjemaData.ExampleRows", "dataType": "Example_M" } },
+        "textResourceBindings": { "title": "S05_ExamplePage.RepeatingGroup-aa0005.title" },
+        "maxCount": 99999,
+        "children": ["Input-aa0006", "Input-aa0007"],
+        "edit": { "mode": "onlyTable", "editButton": false, "saveButton": false, "addButton": false, "deleteButton": false },
+        "tableColumns": {
+          "Input-aa0006": { "editInTable": false },
+          "Input-aa0007": { "editInTable": true, "width": "24%" }
+        } },
+
+      { "id": "Input-aa0006", "type": "Option",
+        "textResourceBindings": { "title": "S05_ExamplePage.Input-aa0006.title" },
+        "value": ["dataModel", "SkjemaData.ExampleRows.category"],
+        "optionsId": "ExampleCategoryOptions" },
+
+      { "id": "Input-aa0007", "type": "Input",
+        "dataModelBindings": { "simpleBinding": { "field": "SkjemaData.ExampleRows.amount", "dataType": "Example_M" } },
+        "textResourceBindings": { "title": "S05_ExamplePage.Input-aa0007.title" },
+        "required": true,
+        "formatting": { "number": { "decimalScale": 1, "suffix": " dekar", "allowNegative": false }, "align": "right" } },
+
+      { "id": "NavigationButtons-aa0008", "type": "NavigationButtons",
+        "textResourceBindings": { "next": "lang.tittel.navigation.neste", "back": "lang.tittel.navigation.tilbake" },
+        "showBackButton": true,
+        "validateOnNext": { "page": "current", "show": ["All"] } }
+    ]
+  }
+}

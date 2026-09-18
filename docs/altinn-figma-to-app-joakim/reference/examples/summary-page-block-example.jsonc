@@ -1,0 +1,11 @@
+// Excerpt: adding a Summary2 block for a newly created content page "S05_ExamplePage"
+// to the existing S20_Summary.json boilerplate page. Append this object to that page's
+// "data.layout" array (before the trailing NavigationButtons component), it does not
+// replace the existing blocks for other pages.
+{
+  "target": { "type": "page", "id": "S05_ExamplePage" },
+  "id": "Summary2-aa0009",
+  "type": "Summary2",
+  "hideEmptyFields": true,
+  "overrides": []
+}

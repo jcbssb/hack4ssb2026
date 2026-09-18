@@ -73,3 +73,10 @@ Traverse nodes via REST (`GET /v1/files/:file_key/nodes?ids=...`) or Plugin `sel
 1. **Define Prototype Scope**: Decide whether to generate Figma frames from Altinn schemas, or parse Figma frames into Altinn layout JSON.
 2. **Setup Plugin Boilerplate**: If generating UI in Figma, initialize a minimal Figma plugin in `prototyper/` (`manifest.json` + `code.ts`).
 3. **Establish Component Naming Standard**: Standardize layer/component names in Figma (e.g., `altinn:Input`, `altinn:Checkboxes`) so mapping to Altinn 3 layout components is deterministic.
+
+---
+
+## References & Companion Guides
+- See `docs/altinn-figma-to-app-joakim/SKILL.md` for end-to-end Figma-to-Altinn translation workflow and `figma-altinn` CLI extension usage.
+- See `docs/altinn-figma-to-app-joakim/reference/component-catalog.md` for complete Altinn Studio UI component mapping specs.
+- See `docs/altinn-figma-to-app-joakim/reference/page-identification.md` for rules distinguishing form content pages from standard SSB boilerplate pages.

@@ -35,3 +35,7 @@ Vi utforsker en to-stegs, iterativ arbeidsflyt for rask skjemautvikling:
 - `altinn/` – Altinn-relaterte skjemadefinisjoner og datamodeller
 - `ai/` – Eksperimenter, prompts, scripts og verktøy
 - `docs/` – Notater og presentasjonsmateriell
+  - `docs/arbeidsflyt-skjema.md` – Konseptuell arbeidsflyt fra modell til Altinn via Figma
+  - `docs/altinn-figma-to-app-joakim/` – Detaljert referanse og veiledning for oversettelse av Figma-design til Altinn 3-applikasjoner (komponentkatalog, sidetype-identifisering, datamodellsynk, tekstressurser og options)
+- `research/` – Bakgrunnsundersøkelser, designsystemstandarder og API-dokumentasjon
+- `plans/` – Arkitektur- og implementasjonsplaner

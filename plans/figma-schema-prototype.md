@@ -104,3 +104,11 @@ For å produsere et "Hello World"-skjema som oppfyller standardene, kombineres d
 - [ ] Figma-framen bruker Auto Layout så tekster og felter flyter naturlig ved redigering.
 - [ ] Inneholder alle obligatoriske SSB-elementer: Tittel, kontekst/hjemmel, entydig ledetekst og hjelpetekst.
 - [ ] Noder er navngitt eller tagget slik at videre konvertering til Altinn 3 layout er deterministisk.
+
+---
+
+## 5. Referanser og Videre Lesing
+- For fullstendig teknisk oversettelsesguide fra Figma-noder til Altinn 3-repo-struktur: `docs/altinn-figma-to-app-joakim/SKILL.md`
+- Komponentkatalog og layoutregler: `docs/altinn-figma-to-app-joakim/reference/component-catalog.md`
+- Standarisert håndtering av innholdssider vs. boilerplate: `docs/altinn-figma-to-app-joakim/reference/page-identification.md`
+- Datamodellsynk (`.cs`, `.xsd`, `.schema.json`): `docs/altinn-figma-to-app-joakim/reference/datamodel-sync.md`
