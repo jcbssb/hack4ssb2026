@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visuell Sammenligning: Original vs. Dialogue DSL Arbeidsflyt</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --border: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      
+      --figma: #A855F7;
+      --figma-bg: rgba(168, 85, 247, 0.12);
+      
+      --dsl: #10B981;
+      --dsl-bg: rgba(16, 185, 129, 0.12);
+      
+      --altinn: #38BDF8;
+      --altinn-bg: rgba(56, 189, 248, 0.12);
+
+      --amber: #F59E0B;
+      --amber-bg: rgba(245, 158, 11, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Top Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--dsl-bg);
+      color: var(--dsl);
+      border: 1px solid var(--dsl);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.05);
+      color: white;
+    }
+
+    /* Comparison Container */
+    .compare-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      flex: 1;
+    }
+
+    .workflow-col {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .col-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .col-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .col-pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .figma-pill { background: var(--figma-bg); color: var(--figma); border: 1px solid var(--figma); }
+    .dsl-pill { background: var(--dsl-bg); color: var(--dsl); border: 1px solid var(--dsl); }
+
+    /* Flow Stages */
+    .flow-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+
+    .flow-card {
+      background: #0B1120;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .flow-card:hover {
+      transform: translateX(4px);
+      border-color: #64748B;
+    }
+
+    .icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .card-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-title {
+      font-weight: 700;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .chip {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .arrow-down {
+      display: flex;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 18px;
+      margin: -6px 0;
+      opacity: 0.6;
+    }
+
+    /* Key Difference Scoreboard */
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .metric-card {
+      background: #0B1120;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Highlights */
+    .figma-highlight { border-color: rgba(168, 85, 247, 0.5); }
+    .figma-highlight .icon-box { background: var(--figma-bg); color: var(--figma); }
+
+    .dsl-highlight { border-color: rgba(16, 185, 129, 0.5); }
+    .dsl-highlight .icon-box { background: var(--dsl-bg); color: var(--dsl); }
+
+    .altinn-highlight { border-color: rgba(56, 189, 248, 0.5); }
+    .altinn-highlight .icon-box { background: var(--altinn-bg); color: var(--altinn); }
+
+    .amber-highlight { border-color: rgba(245, 158, 11, 0.5); }
+    .amber-highlight .icon-box { background: var(--amber-bg); color: var(--amber); }
+
+    .human-loop {
+      border: 1px dashed var(--amber);
+      background: rgba(245, 158, 11, 0.04);
+    }
+
+    .auto-pipeline {
+      border: 1px solid var(--dsl);
+      background: rgba(16, 185, 129, 0.04);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Skjema-Workflow</span>
+      <span class="badge">Side-ved-Side Sammenligning</span>
+    </div>
+    <div class="nav-links">
+      <a href="workflow-visualizer.html" class="nav-btn">Tekstdokumentasjon</a>
+      <a href="index.html" class="nav-btn">Skjemasimulator</a>
+      <a href="dsl-visualizer.html" class="nav-btn">DSL Visualizer</a>
+    </div>
+  </header>
+
+  <div class="compare-container">
+    
+    <!-- LEFT: ORIGINAL WORKFLOW -->
+    <div class="workflow-col">
+      <div class="col-header">
+        <div class="col-title">
+          <span>🎨 Original Arbeidsflyt</span>
+        </div>
+        <span class="col-pill figma-pill">Figma-Sentrert</span>
+      </div>
+
+      <div class="flow-steps">
+        <!-- Step 1 -->
+        <div class="flow-card amber-highlight">
+          <div class="icon-box">📄</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>1. Krav & Datamodell</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">PDF / Tekst</span>
+              <span class="chip">XSD / JSON Schema</span>
+              <span class="chip">AI Prompts</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Figma Plugin)</div>
+
+        <!-- Step 2 -->
+        <div class="flow-card figma-highlight">
+          <div class="icon-box">📐</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>2. Visuell Figma Prototype</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Auto Layout</span>
+              <span class="chip">Felles Designsystem</span>
+              <span class="chip">Design Tokens</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Brukertesting)</div>
+
+        <!-- Step 3 -->
+        <div class="flow-card human-loop">
+          <div class="icon-box">👥</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>3. Manuell Iterasjon i Figma</span>
+              <span style="font-size:11px; color:var(--amber); font-weight:700;">Iterativ loop</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Fagekspert</span>
+              <span class="chip">UX-Designer</span>
+              <span class="chip">Ledetekst-justering</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Parser & Export)</div>
+
+        <!-- Step 4 -->
+        <div class="flow-card altinn-highlight">
+          <div class="icon-box">🚀</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>4. Altinn 3 Applikasjon</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">layout.json</span>
+              <span class="chip">resource.nb.json</span>
+              <span class="chip">Manuell C# Sync</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--figma);">Figma</div>
+          <div class="metric-label">SSOT Kilde</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--amber);">Manuell</div>
+          <div class="metric-label">Validering</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:#94A3B8;">Begrenset</div>
+          <div class="metric-label">Betingelser</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:#94A3B8;">Visuell</div>
+          <div class="metric-label">Hovedfokus</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: DSL WORKFLOW -->
+    <div class="workflow-col">
+      <div class="col-header">
+        <div class="col-title">
+          <span>⚡ Foran Skjema (Dialogue DSL)</span>
+        </div>
+        <span class="col-pill dsl-pill">Kode-Først SSOT</span>
+      </div>
+
+      <div class="flow-steps">
+        <!-- Step 1 -->
+        <div class="flow-card dsl-highlight">
+          <div class="icon-box">🧠</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>1. Haskell Dialogue AST</span>
+              <span style="font-size:11px; color:var(--dsl); font-weight:700;">100% Type-Safe</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Types.hs (Single Source of Truth)</span>
+              <span class="chip">Bolk & Steps</span>
+              <span class="chip">Betinget Logikk</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (cabal run schema-dsl-cli)</div>
+
+        <!-- Step 2 -->
+        <div class="flow-card auto-pipeline">
+          <div class="icon-box">⚙️</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>2. Deterministisk Kompilator</span>
+              <span style="font-size:11px; color:var(--dsl); font-weight:700;">Automatisk</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Compile.hs</span>
+              <span class="chip">DataModel.hs</span>
+              <span class="chip">Inject.hs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Parallell Distribusjon)</div>
+
+        <!-- Step 3: Multi-target -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+          <div class="flow-card altinn-highlight" style="padding:12px;">
+            <div class="icon-box" style="width:36px; height:36px; font-size:16px;">🏛️</div>
+            <div class="card-meta">
+              <div class="card-title" style="font-size:13px;">Altinn 3 App</div>
+              <div class="card-chips">
+                <span class="chip">Layout & Tekst</span>
+                <span class="chip">C# & XSD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-card dsl-highlight" style="padding:12px;">
+            <div class="icon-box" style="width:36px; height:36px; font-size:16px;">🧪</div>
+            <div class="card-meta">
+              <div class="card-title" style="font-size:13px;">Simulator Canvas</div>
+              <div class="card-chips">
+                <span class="chip">Live Testing</span>
+                <span class="chip">AST Graph</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Evolusjonsrekkefølge)</div>
+
+        <!-- Step 4 -->
+        <div class="flow-card amber-highlight">
+          <div class="icon-box">📈</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>4. Trial 1 ➔ 2 ➔ 3 Evolusjon</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">S05_trial1 (Rank 51)</span>
+              <span class="chip">S05_trial2 (Rank 52)</span>
+              <span class="chip">S05_trial3 (Rank 53)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--dsl);">Haskell AST</div>
+          <div class="metric-label">SSOT Kilde</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--dsl);">Type-Sjekk</div>
+          <div class="metric-label">Validering</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--dsl);">Innebygd</div>
+          <div class="metric-label">Betingelser</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--altinn);">Altinn + Web</div>
+          <div class="metric-label">Målplattformer</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
