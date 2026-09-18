@@ -276,6 +276,7 @@
       <span class="badge">Side-ved-Side Sammenligning</span>
     </div>
     <div class="nav-links">
+      <a href="../docs/jon-workflow-figma-mcp-altinn.md" class="nav-btn" target="_blank">📄 Jon Dokument (Markdown)</a>
       <a href="workflow-visualizer.html" class="nav-btn">Tekstdokumentasjon</a>
       <a href="index.html" class="nav-btn">Skjemasimulator</a>
       <a href="dsl-visualizer.html" class="nav-btn">DSL Visualizer</a>
@@ -284,79 +285,79 @@
 
   <div class="compare-container">
     
-    <!-- LEFT: ORIGINAL WORKFLOW -->
+    <!-- LEFT: JON WORKFLOW (ORIGINAL) -->
     <div class="workflow-col">
       <div class="col-header">
         <div class="col-title">
-          <span>🎨 Original Arbeidsflyt</span>
+          <span>🎨 Jon-arbeidsflyten (Metodikk ➔ Figma ➔ Altinn)</span>
         </div>
-        <span class="col-pill figma-pill">Figma-Sentrert</span>
+        <span class="col-pill figma-pill">Figma & MCP</span>
       </div>
 
       <div class="flow-steps">
         <!-- Step 1 -->
         <div class="flow-card amber-highlight">
-          <div class="icon-box">📄</div>
+          <div class="icon-box">📸</div>
           <div class="card-meta">
             <div class="card-title">
-              <span>1. Krav & Datamodell</span>
+              <span>1. Screenshots & Metodikk-krav</span>
             </div>
             <div class="card-chips">
-              <span class="chip">PDF / Tekst</span>
-              <span class="chip">XSD / JSON Schema</span>
-              <span class="chip">AI Prompts</span>
+              <span class="chip">Skjermbilder / PDF</span>
+              <span class="chip">SSB Metodikkregler</span>
+              <span class="chip">Spørsmålsstruktur</span>
             </div>
           </div>
         </div>
 
-        <div class="arrow-down">▼ (Figma Plugin)</div>
+        <div class="arrow-down">▼ (AI-agent med Figma MCP-server)</div>
 
         <!-- Step 2 -->
         <div class="flow-card figma-highlight">
           <div class="icon-box">📐</div>
           <div class="card-meta">
             <div class="card-title">
-              <span>2. Visuell Figma Prototype</span>
+              <span>2. Figma Skjemaprototype</span>
             </div>
             <div class="card-chips">
+              <span class="chip">MCP create_frame</span>
               <span class="chip">Auto Layout</span>
               <span class="chip">Felles Designsystem</span>
-              <span class="chip">Design Tokens</span>
             </div>
           </div>
         </div>
 
-        <div class="arrow-down">▼ (Brukertesting)</div>
+        <div class="arrow-down">▼ (Brukertesting & faglig gjennomgang)</div>
 
         <!-- Step 3 -->
         <div class="flow-card human-loop">
           <div class="icon-box">👥</div>
           <div class="card-meta">
             <div class="card-title">
-              <span>3. Manuell Iterasjon i Figma</span>
+              <span>3. Faglig iterasjon i Figma</span>
               <span style="font-size:11px; color:var(--amber); font-weight:700;">Iterativ loop</span>
             </div>
             <div class="card-chips">
-              <span class="chip">Fagekspert</span>
-              <span class="chip">UX-Designer</span>
+              <span class="chip">Metodologer</span>
+              <span class="chip">Statistikere & UX</span>
               <span class="chip">Ledetekst-justering</span>
             </div>
           </div>
         </div>
 
-        <div class="arrow-down">▼ (Parser & Export)</div>
+        <div class="arrow-down">▼ (Skjemakoder overtar til Altinn repo)</div>
 
         <!-- Step 4 -->
         <div class="flow-card altinn-highlight">
-          <div class="icon-box">🚀</div>
+          <div class="icon-box">👨‍💻</div>
           <div class="card-meta">
             <div class="card-title">
-              <span>4. Altinn 3 Applikasjon</span>
+              <span>4. Altinn 3 Koding & Implementasjon</span>
             </div>
             <div class="card-chips">
-              <span class="chip">layout.json</span>
+              <span class="chip">App/ui/layouts/*.json</span>
               <span class="chip">resource.nb.json</span>
-              <span class="chip">Manuell C# Sync</span>
+              <span class="chip">C# datamodell & XSD</span>
             </div>
           </div>
         </div>
@@ -368,15 +369,15 @@
           <div class="metric-label">SSOT Kilde</div>
         </div>
         <div class="metric-card">
-          <div class="metric-val" style="color:var(--amber);">Manuell</div>
-          <div class="metric-label">Validering</div>
+          <div class="metric-val" style="color:var(--amber);">Skjemakoder</div>
+          <div class="metric-label">Repo-Koding</div>
         </div>
         <div class="metric-card">
-          <div class="metric-val" style="color:#94A3B8;">Begrenset</div>
-          <div class="metric-label">Betingelser</div>
+          <div class="metric-val" style="color:var(--figma);">Figma MCP</div>
+          <div class="metric-label">AI-Verktøy</div>
         </div>
         <div class="metric-card">
-          <div class="metric-val" style="color:#94A3B8;">Visuell</div>
+          <div class="metric-val" style="color:#38BDF8;">Visuell / UX</div>
           <div class="metric-label">Hovedfokus</div>
         </div>
       </div>
