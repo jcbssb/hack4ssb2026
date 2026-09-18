@@ -17,6 +17,9 @@ library
         SchemaDSL
         SchemaDSL.Types
         SchemaDSL.Examples
+        SchemaDSL.Examples.Hackday
+        SchemaDSL.Examples.Kostra51
+        SchemaDSL.Examples.Byggesak
         SchemaDSL.JSON
         SchemaDSL.MetaSchema
         SchemaDSL.Altinn

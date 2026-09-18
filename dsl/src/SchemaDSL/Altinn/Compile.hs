@@ -138,6 +138,11 @@ compileSteps dIdClean qs =
               Just cond -> [ "hidden" .= compilePredicateToHidden fieldMap cond ]
               Nothing   -> []
 
+            gridProp = case annotations q of
+              Just ann | Just (Number xsVal) <- KM.lookup "gridXs" ann ->
+                object [ "xs" .= (round xsVal :: Int) ]
+              _ -> object [ "xs" .= (12 :: Int) ]
+
             readOnlyProp = case annotations q of
               Just ann | Just (Bool True) <- KM.lookup "readOnly" ann -> [ "readOnly" .= True ]
               _ -> []
@@ -154,7 +159,7 @@ compileSteps dIdClean qs =
                       , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (8 :: Int) ] ]
+                      , "grid"                 .= gridProp
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp ++ readOnlyProp
                 in (c, [])
@@ -166,7 +171,7 @@ compileSteps dIdClean qs =
                       , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int) ]
+                      , "grid"                 .= gridProp
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp ++ readOnlyProp
                 in (c, [])
@@ -183,7 +188,7 @@ compileSteps dIdClean qs =
                       , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
+                      , "grid"                 .= gridProp
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp ++ readOnlyProp
                 in (c, [])
