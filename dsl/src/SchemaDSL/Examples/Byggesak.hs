@@ -5,6 +5,7 @@ module SchemaDSL.Examples.Byggesak
   ( trial1ByggesakDialogue
   , trial2ByggesakDialogue
   , trial3ByggesakDialogue
+  , trial4ByggesakDialogue
   ) where
 
 import Data.Aeson (Value(..))
@@ -1348,6 +1349,516 @@ trial3ByggesakDialogue = Dialogue
                   }
               , Question
                   { fieldId      = "t3_timerTotalt"
+                  , prompt       = Prompt "I.2 Beregnet total tidsbruk (Sum 2a + 2b)" (Just "Automatisk beregnet total tidsbruk.")
+                  , questionType = QInteger
+                  , required     = False
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Timer"), ("readOnly", Bool True), ("gridXs", Number 4)])
+                  }
+              ]
+          }
+      ]
+  }
+
+-- | Trial 4: Enterprise Completeness, Cross-validation & Production Automation for 20Byggesak
+-- Evolves Trial 3 by:
+-- 1. Full schema completion: Del A through Del I with all validation rules and sub-totals
+-- 2. Added Del D: Matrikkelføring og eiendomstildeling
+-- 3. Strict cross-field validations (e.g. behandlet <= mottatt + rest)
+-- 4. Multi-target live demo readiness: Altinn 3 production layout, interactive simulator & AST visualizer
+trial4ByggesakDialogue :: Dialogue
+trial4ByggesakDialogue = Dialogue
+  { dialogueId = "trial4-byggesak"
+  , title      = "20. Byggesak 2026 (Trial 4: Komplett Produksjonsversjon med Kryssvalidering)"
+  , context    = Just SurveyContext
+      { surveyCode   = Just "KOSTRA-20-2026"
+      , organization = Just "Statistisk sentralbyrå"
+      , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Fullverdig Del A-I med kryssvalidering, automatiske summeringer og full Altinn 3 produksjonslayout."
+      }
+  , steps      =
+      -- Seksjon A: Kontaktinformasjon
+      [ BolkStep Bolk
+          { bolkId          = "bolk_a"
+          , bolkTitle       = "A. Opplysninger om skjema og kontaktinformasjon"
+          , bolkDescription = Just "Kontaktperson og opplysninger om kommunen for rapporteringsåret 2026."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_kommunenummer"
+                  , prompt       = Prompt "Kommunenummer" (Just "4-sifret kommunenummer for kommunen som rapporterer.")
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "F.eks. 0301"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_kommunenavn"
+                  , prompt       = Prompt "Kommunens navn" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "Navn på kommune"), ("gridXs", Number 8)])
+                  }
+              , Question
+                  { fieldId      = "t4_kontaktNavn"
+                  , prompt       = Prompt "Kontaktperson for utfyllingen" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "Fornavn og etternavn"), ("gridXs", Number 12)])
+                  }
+              , Question
+                  { fieldId      = "t4_kontaktTelefon"
+                  , prompt       = Prompt "Telefonnummer" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "8 siffer"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_kontaktEpost"
+                  , prompt       = Prompt "E-postadresse" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "navn@kommune.no"), ("gridXs", Number 6)])
+                  }
+              ]
+          }
+
+      -- Seksjon B: Gebyrer
+      , BolkStep Bolk
+          { bolkId          = "bolk_b"
+          , bolkTitle       = "B. Gebyrer og finansiering av byggesaksbehandling"
+          , bolkDescription = Just "Gebyrsatser og selvkostandel for byggesak og oppmåling i henhold til selvkostforskriften."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_gebyrEnebolig"
+                  , prompt       = Prompt "B1. Gebyr for standard enebolig m/1 boenhet" (Just "Fastsatt gebyr etter gjeldende regulativ (kr eks mva).")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_gebyrOppmaaling"
+                  , prompt       = Prompt "B2. Gebyr for standard oppmålingsforretning (inntil 2000 m²)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_selvkostgradByggesak"
+                  , prompt       = Prompt "B3. Beregnet selvkostgrad for byggesaksbehandling" (Just "Prosentandel av kommunens faktiske kostnader som dekkes av gebyr.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "%"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_selvkostgradOppmaaling"
+                  , prompt       = Prompt "B4. Beregnet selvkostgrad for oppmåling og matrikkelarbeid" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "%"), ("gridXs", Number 6)])
+                  }
+              ]
+          }
+
+      -- Seksjon C: Saksmengde
+      , BolkStep Bolk
+          { bolkId          = "bolk_c_saksmengde"
+          , bolkTitle       = "C10. Mottatte og behandlede byggesøknader"
+          , bolkDescription = Just "Mottatt i rapporteringsåret vs. behandlet/vedtatt fordelt på søknadstyper."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_c10_rammesoknaderMottatt"
+                  , prompt       = Prompt "C10.1b Rammesøknader: Mottatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_rammesoknaderBehandlet"
+                  , prompt       = Prompt "C10.2b Rammesøknader: Behandlet/vedtatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_ettTrinnMedAnsvarMottatt"
+                  , prompt       = Prompt "C10.1c Ett-trinns m/ansvarsrett: Mottatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_ettTrinnMedAnsvarBehandlet"
+                  , prompt       = Prompt "C10.2c Ett-trinns m/ansvarsrett: Behandlet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_ettTrinnUtenAnsvarMottatt"
+                  , prompt       = Prompt "C10.1d Ett-trinns u/ansvarsrett: Mottatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_ettTrinnUtenAnsvarBehandlet"
+                  , prompt       = Prompt "C10.2d Ett-trinns u/ansvarsrett: Behandlet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_dispensasjonMottatt"
+                  , prompt       = Prompt "C10.1e Dispensasjonssøknader: Mottatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_dispensasjonBehandlet"
+                  , prompt       = Prompt "C10.2e Dispensasjonssøknader: Behandlet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_delingMottatt"
+                  , prompt       = Prompt "C10.1f Opprettelse/endring av eiendom (deling): Mottatt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_c10_delingBehandlet"
+                  , prompt       = Prompt "C10.2f Opprettelse/endring av eiendom (deling): Behandlet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              ]
+          }
+
+      -- Seksjon C11-C16: Saksbehandlingstider og eKOSTRA
+      , BolkStep Bolk
+          { bolkId          = "bolk_c11_c16"
+          , bolkTitle       = "C11-C16. Saksbehandlingstid og tillatelser"
+          , bolkDescription = Just "Gjennomsnittlig saksbehandlingstid og tillatelser (IG, MB, FA)."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_c11_rammeTidDager"
+                  , prompt       = Prompt "C11.2.2 Rammesøknader gjennomsnittlig saksbehandlingstid" (Just "Kalenderdager.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Dager"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_c12_ettTrinnMedAnsvarTidDager"
+                  , prompt       = Prompt "C12.2.2 Ett-trinns m/ansvar snitt tid" (Just "Kalenderdager.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Dager"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_c13_ettTrinnUtenAnsvarTidDager"
+                  , prompt       = Prompt "C13.2.2 Ett-trinns u/ansvar snitt tid" (Just "Kalenderdager.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Dager"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_c16_igBehandlet"
+                  , prompt       = Prompt "C16.1a Igangsettingstillatelser (IG)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_c16_mbBehandlet"
+                  , prompt       = Prompt "C16.1b Midlertidige brukstillatelser (MB)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_c16_faBehandlet"
+                  , prompt       = Prompt "C16.1c Ferdigattester (FA)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_eKostraTattIBruk"
+                  , prompt       = Prompt "Har kommunen tatt i bruk eByggesak for rapportering av omfang og saksbehandlingstid (eKOSTRA)?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 12)])
+                  }
+              ]
+          }
+
+      -- Seksjon D: Matrikkelføring og eiendom (Ny i Trial 4)
+      , BolkStep Bolk
+          { bolkId          = "bolk_d_matrikkel"
+          , bolkTitle       = "D. Matrikkelføring og oppmåling"
+          , bolkDescription = Just "Fullførte oppmålingsforretninger og tidsfrister etter matrikkelloven."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_d1_oppmaalingGjennomfort"
+                  , prompt       = Prompt "D1. Antall oppmålingsforretninger gjennomført i marken" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_d2_matrikkelForingTid"
+                  , prompt       = Prompt "D2. Gjennomsnittlig tidsbruk fra rekvisisjon til matrikkelføring" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Uker"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_d3_vinterforskriftBrukt"
+                  , prompt       = Prompt "D3. Er lokal vinterforskrift for oppmåling benyttet i rapporteringsåret?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 12)])
+                  }
+              ]
+          }
+
+      -- Seksjon E: Klagesaker
+      , BolkStep Bolk
+          { bolkId          = "bolk_e"
+          , bolkTitle       = "E. Klagesaker etter plan- og bygningsloven"
+          , bolkDescription = Just "Behandling av klager i kommunen og oversendelse til Statsforvalteren."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_e0a_harKlager"
+                  , prompt       = Prompt "E0a. Har kommunen behandlet klagesaker etter pbl i rapporteringsåret?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 12)])
+                  }
+              , Question
+                  { fieldId      = "t4_e1_klagerKommuneAlt"
+                  , prompt       = Prompt "E1.1 Klagesaker behandlet i kommunen i alt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_e0a_harKlager")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_e1_klagerTattTilFoelge"
+                  , prompt       = Prompt "E1.1b1 Herav klager tatt til følge" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_e0a_harKlager")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_e1_klagerOversendtStatsforvalter"
+                  , prompt       = Prompt "E1.1b2 Herav oversendt Statsforvalteren" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_e0a_harKlager")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              ]
+          }
+
+      -- Seksjon F: Tilsyn
+      , BolkStep Bolk
+          { bolkId          = "bolk_f"
+          , bolkTitle       = "F. Tilsyn og ulovlighetsoppfølging"
+          , bolkDescription = Just "Gjennomførte tilsyn (byggesaker og ikke-omsøkte tiltak) og tilsynskonklusjon."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_f0a_erUtfoertTilsyn"
+                  , prompt       = Prompt "F0a. Er det utført tilsyn med tiltak i rapporteringsåret?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 12)])
+                  }
+              , Question
+                  { fieldId      = "t4_f2_tilsynAlt"
+                  , prompt       = Prompt "F2.a Antall gjennomførte tilsyn i alt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_f0a_erUtfoertTilsyn")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_f3_tilsynAvsluttetUtenAvvik"
+                  , prompt       = Prompt "F3.2 Antall tilsyn avsluttet uten avvik/ulovlighet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_f0a_erUtfoertTilsyn")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_f4_tilsynAvdekketUlovlighet"
+                  , prompt       = Prompt "F4.2 Antall tilsyn som avdekket ulovlighet som krever oppfølging" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_f0a_erUtfoertTilsyn")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              ]
+          }
+
+      -- Seksjon G: Pålegg og sanksjoner
+      , BolkStep Bolk
+          { bolkId          = "bolk_g"
+          , bolkTitle       = "G. Pålegg, sanksjoner og andre virkemidler"
+          , bolkDescription = Just "Gitte pålegg (retting, opphør, stans), tvangsmulkt, overtredelsesgebyr og anmeldelser."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_g0_erGittPaaleggEllerSanksjoner"
+                  , prompt       = Prompt "G0. Er det gitt pålegg, brukt sanksjoner eller andre virkemidler i rapporteringsåret?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 12)])
+                  }
+              , Question
+                  { fieldId      = "t4_g1_paaleggAlt"
+                  , prompt       = Prompt "G1.a Gitte pålegg i alt" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_g0_erGittPaaleggEllerSanksjoner")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_g3_overtredelsesgebyr"
+                  , prompt       = Prompt "G3.a1 Overtredelsesgebyr (pbl § 32-8)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_g0_erGittPaaleggEllerSanksjoner")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_g1_paaleggRetting"
+                  , prompt       = Prompt "G1.b1 Pålegg om retting (pbl § 32-3)" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_g0_erGittPaaleggEllerSanksjoner")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_g1_paaleggOpphoer"
+                  , prompt       = Prompt "G1.b2 Pålegg om opphør av bruk" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_g0_erGittPaaleggEllerSanksjoner")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_g1_paaleggStans"
+                  , prompt       = Prompt "G1.b3 Pålegg om stans av arbeid" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_g0_erGittPaaleggEllerSanksjoner")
+                  , annotations  = Just (KM.fromList [("unit", String "Antall"), ("gridXs", Number 4)])
+                  }
+              ]
+          }
+
+      -- Seksjon H: Merknader
+      , BolkStep Bolk
+          { bolkId          = "bolk_h"
+          , bolkTitle       = "H. Kommentarer og merknader til skjemaet"
+          , bolkDescription = Just "Åpent merknadsfelt for tilbakemelding om uklarheter eller forbedringsforslag."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_merknader"
+                  , prompt       = Prompt "Kommentarer og merknader til utfyllingen (maks 999 tegn)" Nothing
+                  , questionType = QTextArea
+                  , required     = False
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "Skriv eventuelle merknader her..."), ("gridXs", Number 12)])
+                  }
+              ]
+          }
+
+      -- Seksjon I: Grunnlag for rapportering og beregnet tidsbruk
+      , BolkStep Bolk
+          { bolkId          = "bolk_i"
+          , bolkTitle       = "I. Grunnlag for rapportering og tidsbruk"
+          , bolkDescription = Just "Elektronisk sakssystem og tidsbruk for framskaffing og utfylling."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t4_elektroniskSakssystemBrukt"
+                  , prompt       = Prompt "I.1 Er elektronisk sakssystem brukt som grunnlag for store deler av rapporteringen?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_maskinelleOpptellinger"
+                  , prompt       = Prompt "I.1a Hvis ja: Er tallene resultat av maskinelle opptellinger?" Nothing
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Just (IsTrue "t4_elektroniskSakssystemBrukt")
+                  , annotations  = Just (KM.fromList [("gridXs", Number 6)])
+                  }
+              , Question
+                  { fieldId      = "t4_timerUtfylling"
+                  , prompt       = Prompt "I.2a Timer brukt til å fylle ut skjemaet" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Timer"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_timerFremskaffe"
+                  , prompt       = Prompt "I.2b Timer brukt til å framskaffe informasjonen" Nothing
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Timer"), ("gridXs", Number 4)])
+                  }
+              , Question
+                  { fieldId      = "t4_timerTotalt"
                   , prompt       = Prompt "I.2 Beregnet total tidsbruk (Sum 2a + 2b)" (Just "Automatisk beregnet total tidsbruk.")
                   , questionType = QInteger
                   , required     = False
