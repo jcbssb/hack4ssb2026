@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Tre Skjema-arbeidsflytene: Individuell Visning</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --card-inner: #0B1120;
+      --border: #334155;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+
+      --tab-1: #38BDF8;
+      --tab-1-bg: rgba(56, 189, 248, 0.12);
+
+      --tab-2: #A855F7;
+      --tab-2-bg: rgba(168, 85, 247, 0.12);
+
+      --tab-3: #10B981;
+      --tab-3-bg: rgba(16, 185, 129, 0.12);
+
+      --amber: #F59E0B;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 24px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: var(--tab-2-bg);
+      color: var(--tab-2);
+      border: 1px solid var(--tab-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: rgba(255,255,255,0.06);
+      color: white;
+    }
+
+    /* Workflow Selector Tabs */
+    .tab-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .tab-btn {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tab-btn:hover {
+      border-color: #64748B;
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active.tab-1 {
+      border-color: var(--tab-1);
+      background: var(--tab-1-bg);
+    }
+    .tab-btn.active.tab-2 {
+      border-color: var(--tab-2);
+      background: var(--tab-2-bg);
+    }
+    .tab-btn.active.tab-3 {
+      border-color: var(--tab-3);
+      background: var(--tab-3-bg);
+    }
+
+    .tab-num {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tab-1 .tab-num { color: var(--tab-1); }
+    .tab-2 .tab-num { color: var(--tab-2); }
+    .tab-3 .tab-num { color: var(--tab-3); }
+
+    .tab-title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .tab-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Main Showcase Stage */
+    .stage-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stage-title {
+      font-size: 22px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stage-desc {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 6px;
+      max-width: 800px;
+    }
+
+    .stage-badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Pipeline Process Steps */
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    .pipeline-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+
+    .step-badge {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .step-icon-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .step-icon {
+      font-size: 24px;
+    }
+
+    .step-body {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      flex-grow: 1;
+    }
+
+    .step-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .arrow-next {
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+
+    /* Meta Details / Characteristics */
+    .characteristics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .char-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    .char-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .char-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Skjema-arbeidsflyter</span>
+      <span class="badge">Individuell Visning</span>
+    </div>
+    <div class="nav-links">
+      <a href="../docs/tre-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon (MD)</a>
+      <a href="workflow-compare.html" class="nav-btn">Side-ved-side Sammenligning</a>
+      <a href="workflow-visualizer.html" class="nav-btn">Original Detaljviser</a>
+      <a href="index.html" class="nav-btn">Skjemasimulator</a>
+    </div>
+  </header>
+
+  <!-- Workflow Selector Tabs -->
+  <div class="tab-bar">
+    <button class="tab-btn tab-1 active" onclick="showWorkflow(1)">
+      <span class="tab-num">Arbeidsflyt 1</span>
+      <span class="tab-title">Opprinnelig Konsept</span>
+      <span class="tab-sub">Figma ➔ Altinn 3 parser</span>
+    </button>
+
+    <button class="tab-btn tab-2" onclick="showWorkflow(2)">
+      <span class="tab-num">Arbeidsflyt 2</span>
+      <span class="tab-title">Jon-arbeidsflyten</span>
+      <span class="tab-sub">Screenshots/MCP ➔ Figma ➔ Skjemakoder</span>
+    </button>
+
+    <button class="tab-btn tab-3" onclick="showWorkflow(3)">
+      <span class="tab-num">Arbeidsflyt 3</span>
+      <span class="tab-title">Foran Skjema (Dialogue DSL)</span>
+      <span class="tab-sub">Haskell AST (SSOT) ➔ Multi-Target kompilator</span>
+    </button>
+  </div>
+
+  <!-- Showcase Stage -->
+  <div class="stage-container" id="stage">
+    <!-- Populated by JavaScript -->
+  </div>
+
+<script>
+  const workflows = {
+    1: {
+      id: 1,
+      title: "1. Opprinnelig Konseptuell Arbeidsflyt",
+      desc: "Tidlig visjon fra prosjektstart der datamodeller oversettes til Figma-prototyper, før et parser-script oversetter Figma-designet til Altinn 3 layout.",
+      badge: "UI-Fokusert • Datamodell ➔ Figma ➔ Altinn",
+      badgeColor: "var(--tab-1)",
+      badgeBg: "var(--tab-1-bg)",
+      steps: [
+        {
+          num: "Steg 1",
+          icon: "📄",
+          title: "Krav & Datamodell",
+          body: "JSON Schema, XSD eller enkle punktlister over felter og typer fungerer som grunnlag.",
+          chips: ["JSON Schema", "XSD", "AI Generator"]
+        },
+        {
+          num: "Steg 2",
+          icon: "📐",
+          title: "Figma Prototype",
+          body: "Figma plugin oppretter frames med Auto Layout og Felles Designsystem-komponenter.",
+          chips: ["Auto Layout", "UI Library", "Figma Frame"]
+        },
+        {
+          num: "Steg 3",
+          icon: "👥",
+          title: "Faglig Gjennomgang",
+          body: "Designere og fageksperter justerer rekkefølge, gruppering og ledetekster i Figma.",
+          chips: ["UX Design", "Fagekspert", "Visuell flyt"]
+        },
+        {
+          num: "Steg 4",
+          icon: "🚀",
+          title: "Altinn 3 Eksport",
+          body: "Figma REST API / parser genererer layout.json og text resources.",
+          chips: ["layout.json", "resource.nb.json", "Manuell Sync"]
+        }
+      ],
+      chars: [
+        { label: "Single Source of Truth", val: "Figma Design Canvas" },
+        { label: "Rolle AI", val: "Figma Plugin / Skript" },
+        { label: "Iterasjonsarena", val: "Figma UI Editor" },
+        { label: "Validering / Logikk", val: "Manuell oppfølging i kode" }
+      ]
+    },
+
+    2: {
+      id: 2,
+      title: "2. Jon-arbeidsflyten: Metodikk & Skjermbilder ➔ MCP ➔ Figma ➔ Skjemakoder",
+      desc: "Metodikere og fageksperter tar utgangspunkt i eksisterende skjemaer (PDF/screenshots) og SSB-spørreundersøkelsesmetodikk. En multimodal AI-agent koblet til Figma via MCP genererer prototypen. Skjemakoderen overtar deretter for å kode opp Altinn 3-appen i repoet.",
+      badge: "Metodikk & AI-MCP • Skjemakoder i Repo",
+      badgeColor: "var(--tab-2)",
+      badgeBg: "var(--tab-2-bg)",
+      steps: [
+        {
+          num: "Steg 1 (Fase 1)",
+          icon: "📸",
+          title: "Screenshots & Metodikk",
+          body: "Eksisterende skjemaer (PDF/skanninger) kombineres med metodiske regler (bolk-struktur, veiledning).",
+          chips: ["PDF/Bilde", "Metodikk-krav", "Bolk-inndeling"]
+        },
+        {
+          num: "Steg 2 (Fase 1)",
+          icon: "🤖",
+          title: "AI via Figma MCP",
+          body: "Multimodal AI-agent analyserer bildet og bruker Figma MCP-verktøy til å generere en Auto Layout-prototype.",
+          chips: ["Figma MCP Server", "create_frame", "Design Tokens"]
+        },
+        {
+          num: "Steg 3 (Fase 1)",
+          icon: "👥",
+          title: "Faglig forankring",
+          body: "Metodologer og fageksperter diskuterer, tester og finpusser ledetekster direkte i Figma.",
+          chips: ["Metodolog", "Fagstatistiker", "Figma kommentarer"]
+        },
+        {
+          num: "Steg 4 (Fase 2)",
+          icon: "👨‍💻",
+          title: "Skjemakoder i Altinn Repo",
+          body: "Skjemakoderen overtar Figma-designet og koder Altinn 3 layout, C# datamodell, XSD og tekster iht. Joakims veiledning.",
+          chips: ["Altinn Studio", "App/ui/layouts", "C# Datamodell"]
+        }
+      ],
+      chars: [
+        { label: "Single Source of Truth", val: "Figma (Fase 1) ➔ Repo (Fase 2)" },
+        { label: "Rolle AI", val: "Multimodal MCP Agent" },
+        { label: "Iterasjonsarena", val: "Figma (visuelt) + Git/Repo (kode)" },
+        { label: "Styrke", val: "Perfekt for metodologer & teamarbeid" }
+      ]
+    },
+
+    3: {
+      id: 3,
+      title: "3. Foran Skjema-arbeidsflyten: Dialogue DSL som Single Source of Truth",
+      desc: "Formell, kode-først tilnærming bygget under SSB Hackday 2026. Skjemaet defineres én gang som et typet Haskell Dialogue AST, som automatisk kompilerer til både Altinn 3, nettleser-simulator og AST-visualisering.",
+      badge: "Kode-Først SSOT • 100% Automatisert",
+      badgeColor: "var(--tab-3)",
+      badgeBg: "var(--tab-3-bg)",
+      steps: [
+        {
+          num: "Steg 1",
+          icon: "🧠",
+          title: "Haskell Dialogue AST",
+          body: "Typer, bolker, spørsmål, måleenheter og betinget visningslogikk defineres type-sikkert i SchemaDSL.",
+          chips: ["Types.hs", "Bolk & Steps", "Betinget logikk"]
+        },
+        {
+          num: "Steg 2",
+          icon: "⚙️",
+          title: "Deterministisk Kompilator",
+          body: "schema-dsl-cli kompilerer AST-et deterministisk uten manuelle feilkilder.",
+          chips: ["Compile.hs", "DataModel.hs", "Inject.hs"]
+        },
+        {
+          num: "Steg 3",
+          icon: "🧪",
+          title: "Parallell Distribusjon",
+          body: "Kompilerer samtidig til Altinn 3 (layout + tekster + C#) og interaktiv Skjemasimulator (web).",
+          chips: ["Altinn 3 App", "Web Simulator", "AST Visualizer"]
+        },
+        {
+          num: "Steg 4",
+          icon: "📈",
+          title: "Evolusjonsstyring",
+          body: "Støtter trinnvis evolusjon (Trial 1 ➔ 2 ➔ 3) med automatisk rangering og rekkefølgestyring.",
+          chips: ["Trial 1-3", "evolutionRank", "Validerings-test"]
+        }
+      ],
+      chars: [
+        { label: "Single Source of Truth", val: "Haskell Dialogue AST" },
+        { label: "Rolle AI", val: "OCR/Ekstraksjon til AST" },
+        { label: "Iterasjonsarena", val: "Skjemasimulator (web) + Figma" },
+        { label: "Styrke", val: "Type-sikkerhet & 100% auto Altinn sync" }
+      ]
+    }
+  };
+
+  function showWorkflow(id) {
+    document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+      btn.classList.toggle('active', (idx + 1) === id);
+    });
+
+    const wf = workflows[id];
+    const stageEl = document.getElementById('stage');
+
+    stageEl.innerHTML = `
+      <div class="stage-header">
+        <div>
+          <div class="stage-title">
+            <span>${wf.title}</span>
+          </div>
+          <div class="stage-desc">${wf.desc}</div>
+        </div>
+        <span class="stage-badge" style="background:${wf.badgeBg}; color:${wf.badgeColor}; border:1px solid ${wf.badgeColor};">
+          ${wf.badge}
+        </span>
+      </div>
+
+      <div class="pipeline">
+        ${wf.steps.map((step, idx) => `
+          <div class="pipeline-card">
+            <div class="step-badge">${step.num}</div>
+            <div class="step-icon-title">
+              <span class="step-icon">${step.icon}</span>
+              <span>${step.title}</span>
+            </div>
+            <div class="step-body">${step.body}</div>
+            <div class="step-chips">
+              ${step.chips.map(c => `<span class="chip">${c}</span>`).join('')}
+            </div>
+            ${idx < 3 ? '<div class="arrow-next">➔</div>' : ''}
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="characteristics-grid">
+        ${wf.chars.map(ch => `
+          <div class="char-card">
+            <div class="char-label">${ch.label}</div>
+            <div class="char-val">${ch.val}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  // Initial load
+  showWorkflow(2); // Start on Jon workflow as requested
+</script>
+
+</body>
+</html>

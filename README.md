@@ -30,13 +30,17 @@ Vi utforsker en to-stegs, iterativ arbeidsflyt for rask skjemautvikling:
 2. **Iterasjon i Figma**: Fageksperter og designere justerer layout, ledetekster, rekkefølge og felter direkte i Figma.
 3. **Figma-prototype ➔ Altinn 3**: Ekstrahere og oversette det ferdige Figma-designet til kjørbare Altinn 3-skjemadefinisjoner (`layout.json`, `layout-settings.json`, datamodell-bindinger).
 
-Interaktiv visualisering av arbeidsflyten: Åpne `simulator/workflow-visualizer.html` i en nettleser.
+Interaktive visualiseringer av arbeidsflytene:
+- **Individuell visning av de 3 flytene**: `simulator/workflow-triptych.html`
+- **Side-ved-side sammenligning**: `simulator/workflow-compare.html`
+- **Detaljert gjennomgang av Figma-flyt**: `simulator/workflow-visualizer.html`
 
 ## Prosjektstruktur
 - `prototyper/` – Figma-eksport, wireframes og UX-notater
 - `altinn/` – Altinn-relaterte skjemadefinisjoner og datamodeller
 - `ai/` – Eksperimenter, prompts, scripts og verktøy
 - `docs/` – Notater og presentasjonsmateriell
+  - `docs/tre-arbeidsflyter-oppsummering.md` – Kort oppsummering av de 3 arbeidsflytene (tilpasset deling med Jon)
   - `docs/jon-workflow-figma-mcp-altinn.md` – Jon-metodikken: Fra metodikk/screenshots via AI (MCP) til Figma og videre til Altinn 3
   - `docs/arbeidsflyt-skjema.md` – Konseptuell arbeidsflyt fra modell til Altinn via Figma
   - `docs/altinn-figma-to-app-joakim/` – Detaljert referanse og veiledning for oversettelse av Figma-design til Altinn 3-applikasjoner (komponentkatalog, sidetype-identifisering, datamodellsynk, tekstressurser og options)
