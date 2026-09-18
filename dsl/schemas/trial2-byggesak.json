@@ -1,0 +1,997 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "context": {
+        "legalNotice": "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A-I. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "KOSTRA-20-2026"
+    },
+    "dialogueId": "trial2-byggesak",
+    "steps": [
+        {
+            "bolkId": "bolk_a",
+            "description": "Utfylling av kontaktinformasjon om kommunen og ansvarlig for rapporteringen.",
+            "questions": [
+                {
+                    "annotations": {
+                        "componentHint": "Input",
+                        "placeholder": "F.eks. 0301"
+                    },
+                    "fieldId": "t2_kommunenummer",
+                    "prompt": {
+                        "helpText": "4-sifret kommunenummer forhåndsutfylt eller kontrollert.",
+                        "label": "Kommunenummer"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "componentHint": "Input",
+                        "placeholder": "F.eks. Oslo"
+                    },
+                    "fieldId": "t2_kommunensNavn",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Kommunens navn"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "componentHint": "Input"
+                    },
+                    "fieldId": "t2_navnSkjemaansvarlig",
+                    "prompt": {
+                        "helpText": "Fullt navn på kontaktperson.",
+                        "label": "Navn skjemaansvarlig"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "componentHint": "Input",
+                        "placeholder": "8 siffer"
+                    },
+                    "fieldId": "t2_telefonnummer",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Telefonnummer"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "componentHint": "Input",
+                        "placeholder": "navn@kommune.no"
+                    },
+                    "fieldId": "t2_epostSkjemaansvarlig",
+                    "prompt": {
+                        "helpText": "Offisiell e-postadresse i kommunen.",
+                        "label": "E-post skjemaansvarlig"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "A. Opplysninger om skjema og kontaktinformasjon",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_b",
+            "description": "Byggesaksgebyr og opprettelse av grunneiendom (kroner eksl. mva).",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "t2_gebyrEneboligVedtatt",
+                    "prompt": {
+                        "helpText": "Kroner eksl. mva.",
+                        "label": "1a. Byggesaksgebyr vedtatt for inneværende år for oppføring av enebolig (PBL § 20-1 a)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "t2_gebyrEneboligRapportering",
+                    "prompt": {
+                        "helpText": "Kroner eksl. mva.",
+                        "label": "1b. Byggesaksgebyr i rapporteringsåret for oppføring av enebolig"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "t2_gebyrTomt750mVedtatt",
+                    "prompt": {
+                        "helpText": "Matrikkellova §§ 5 og 32. Kroner eksl. mva.",
+                        "label": "2a. Gebyr vedtatt for inneværende år for opprettelse av grunneiendom på 750 m2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Kroner"
+                    },
+                    "fieldId": "t2_gebyrTomt750mRapportering",
+                    "prompt": {
+                        "helpText": "Matrikkellova §§ 5 og 32. Kroner eksl. mva.",
+                        "label": "2b. Gebyr i rapporteringsåret for opprettelse av grunneiendom på 750 m2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "B. Gebyrer",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c10",
+            "description": "Omfang av søknader mottatt og behandlet i rapporteringsåret fordelt på søknadstyper.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_rammesoknaderMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.1b Rammesøknader mottatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_rammesoknaderBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.2b Rammesøknader behandlet/vedtatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_ettTrinnMedAnsvarMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.1c Ett-trinnssøknader med ansvarsrett mottatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_ettTrinnMedAnsvarBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.2c Ett-trinnssøknader med ansvarsrett behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_ettTrinnUtenAnsvarMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.1d Ett-trinnssøknader uten ansvarsrett mottatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_ettTrinnUtenAnsvarBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.2d Ett-trinnssøknader uten ansvarsrett behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_dispensasjonMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.1e Dispensasjonssøknader mottatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_dispensasjonBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.2e Dispensasjonssøknader behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_delingMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.1f Opprettelse/endring av eiendom (deling) mottatt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c10_delingBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C10.2f Opprettelse/endring av eiendom (deling) behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C10. Antall byggesøknader, dispensasjonssøknader og deling (Hovedtall)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c11_c16",
+            "description": "Saksbehandlingstider, fristoverskridelser og tillatelser (IG, MB, FA).",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Dager"
+                    },
+                    "fieldId": "t2_c11_rammeTidDager",
+                    "prompt": {
+                        "helpText": "Kalenderdager.",
+                        "label": "C11.2.2 Rammesøknader gjennomsnittlig saksbehandlingstid"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Dager"
+                    },
+                    "fieldId": "t2_c12_ettTrinnMedAnsvarTidDager",
+                    "prompt": {
+                        "helpText": "Kalenderdager.",
+                        "label": "C12.2.2 Ett-trinnssøknader med ansvarsrett gjennomsnittlig saksbehandlingstid"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Dager"
+                    },
+                    "fieldId": "t2_c13_ettTrinnUtenAnsvarTidDager",
+                    "prompt": {
+                        "helpText": "Kalenderdager.",
+                        "label": "C13.2.2 Ett-trinnssøknader uten ansvarsrett gjennomsnittlig saksbehandlingstid"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c16_igBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C16.1a Igangsettingstillatelser (IG) behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c16_mbBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C16.1b Midlertidige brukstillatelser (MB) behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c16_faBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C16.1c Ferdigattester (FA) behandlet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "fieldId": "t2_eKostraTattIBruk",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Har kommunen tatt i bruk eByggesak for rapportering av omfang og saksbehandlingstid (eKOSTRA)?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C11-C16. Saksbehandlingstid og tillatelser",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c3_c4",
+            "description": "Rekvisisjoner for oppmålingsforretning og eierseksjoneringssaker.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c3_oppmaalingMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C3.1 Rekvisisjoner for oppmålingsforretning mottatt i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c3_oppmaalingBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C3.2 Rekvisisjoner for oppmålingsforretning behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c4_seksjoneringMottatt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C4.1 Søknader om seksjonering mottatt i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "fieldId": "t2_c4_seksjoneringBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "C4.2 Søknader om seksjonering behandlet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C3-C4. Oppmålingsforretninger og eierseksjonering",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_d",
+            "description": "Innvilgelser, avslagsvedtak, tiltak i LNF-områder, strandsone og kulturminner.",
+            "questions": [
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_vedtakAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.1a Byggesøknader vedtatt i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_vedtakInnvilget",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.1b Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_vedtakAvslag",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.1c Herav avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_lnfrNyeBygg",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.2 Vedtak som gjaldt nye byggverk i LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_strandsoneNyeBygg",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.3 Vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_ikkeFredetFor1850",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.6 Vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall vedtak"
+                    },
+                    "fieldId": "t2_d1_fredetByggverk",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "D1.7 Vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "D. Resultat av søknadsbehandling og vernehensyn",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_e",
+            "description": "Klagesaker behandlet i kommunen og klager oversendt til Statsforvalteren.",
+            "questions": [
+                {
+                    "fieldId": "t2_e0a_harKlager",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E0a. Har kommunen mottatt eller behandlet klager i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_e0a_harKlager",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_e1_klagerKommuneAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E1.1 Klagesaker behandlet i kommunen i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_e0a_harKlager",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_e1_klagerTattTilFoelge",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E1.1b1 Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_e0a_harKlager",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_e1_klagerOversendtStatsforvalter",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E1.1b2 Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "fieldId": "t2_e0b_statsforvalterBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E0b. Har Statsforvalteren behandlet kommunale vedtak ang. klager i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "E. Klagesaksbehandling",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f",
+            "description": "Gjennomførte tilsyn (byggesaker og ikke-omsøkte tiltak) og tema etter TEK17.",
+            "questions": [
+                {
+                    "fieldId": "t2_f0a_erUtfoertTilsyn",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F0a. Er det utført tilsyn med tiltak i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_f0a_erUtfoertTilsyn",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_f2_tilsynAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.a Antall gjennomførte tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_f0a_erUtfoertTilsyn",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_f2_tilsynOmsoekte",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.a1 Antall tilsyn med omsøkte tiltak (byggesaker)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_f0a_erUtfoertTilsyn",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_f2_tilsynIkkeOmsoekte",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F2.a2 Antall tilsyn med ikke-omsøkte tiltak (unntak og ulovligheter)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_f0a_erUtfoertTilsyn",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_f4_tilsynOk",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.1 Antall tilsyn der alt var OK (ingen feil/mangler påvist)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_f0a_erUtfoertTilsyn",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_f4_tilsynAvdekketUlovlighet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.2 Antall tilsyn som avdekket ulovlighet/forhold som krever oppfølging"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F. Tilsyn og ulovlighetsoppfølging",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g",
+            "description": "Gitte pålegg (retting, opphør, stans), tvangsmulkt, overtredelsesgebyr og anmeldelser.",
+            "questions": [
+                {
+                    "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G0. Er det gitt pålegg, brukt sanksjoner eller andre virkemidler i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g1_paaleggAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G1.a Antall pålegg gitt i rapporteringsåret i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g1_paaleggRetting",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G1.b1 Pålegg om retting (pbl § 32-3)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g1_paaleggOpphoer",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G1.b2 Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g1_paaleggStans",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G1.b3 Pålegg om stans (pbl § 32-3 og § 32-4)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g3_sanksjonerAlt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G3.a Antall sanksjoner brukt i rapporteringsåret i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Antall"
+                    },
+                    "condition": {
+                        "fieldId": "t2_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_g3_overtredelsesgebyr",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G3.a1 Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "G. Pålegg, sanksjoner og andre virkemidler",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_h",
+            "description": "Åpent merknadsfelt for tilbakemelding om uklarheter eller forbedringsforslag.",
+            "questions": [
+                {
+                    "annotations": {
+                        "placeholder": "Skriv eventuelle merknader her..."
+                    },
+                    "fieldId": "t2_merknader",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Kommentarer og merknader til utfyllingen (maks 999 tegn)"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "H. Kommentarer og merknader til skjemaet",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_i",
+            "description": "Elektronisk sakssystem og tidsbruk for framskaffing og utfylling.",
+            "questions": [
+                {
+                    "fieldId": "t2_elektroniskSakssystemBrukt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.1 Er elektronisk sakssystem brukt som grunnlag for store deler av rapporteringen?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "condition": {
+                        "fieldId": "t2_elektroniskSakssystemBrukt",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t2_maskinelleOpptellinger",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.1a Hvis ja: Er tallene framkommet som resultat av maskinelle opptellinger/summeringer?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t2_timerTotalt",
+                    "prompt": {
+                        "helpText": "Hele timer.",
+                        "label": "I.2 Antall timer det tok å rapportere totalt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t2_timerUtfylling",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.2a Antall timer det tok å fylle ut skjemaet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t2_timerFremskaffe",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.2b Antall timer det tok å framskaffe informasjonen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "I. Grunnlag for rapportering og tidsbruk",
+            "type": "bolk"
+        }
+    ],
+    "title": "20. Byggesak 2026 (Trial 2: Fullstendig undersøkelse Side 1-9)"
+}
