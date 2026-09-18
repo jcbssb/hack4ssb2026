@@ -93,8 +93,8 @@
     /* Comparison Container */
     .compare-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
       flex: 1;
     }
 
@@ -277,7 +277,7 @@
     </div>
     <div class="nav-links">
       <a href="workflow-triptych.html" class="nav-btn" style="border-color:var(--figma); color:white;">🔍 Vis Arbeidsflytene Hver for Seg</a>
-      <a href="../docs/tre-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon (MD)</a>
+      <a href="../docs/fire-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon & Teamet (MD)</a>
       <a href="workflow-visualizer.html" class="nav-btn">Tekstdokumentasjon</a>
       <a href="index.html" class="nav-btn">Skjemasimulator</a>
       <a href="dsl-visualizer.html" class="nav-btn">DSL Visualizer</a>
@@ -380,6 +380,104 @@
         <div class="metric-card">
           <div class="metric-val" style="color:#38BDF8;">Visuell / UX</div>
           <div class="metric-label">Hovedfokus</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MIDDLE: JOAKIM WORKFLOW -->
+    <div class="workflow-col">
+      <div class="col-header">
+        <div class="col-title">
+          <span>🤖 Joakim-arbeidsflyten (JSON ➔ AI ➔ Repo)</span>
+        </div>
+        <span class="col-pill" style="background:rgba(245, 158, 11, 0.12); color:#F59E0B; border:1px solid #F59E0B;">Figma JSON & AI</span>
+      </div>
+
+      <div class="flow-steps">
+        <!-- Step 1 -->
+        <div class="flow-card figma-highlight">
+          <div class="icon-box">🎨</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>1. Figma Skjemaprototype</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Auto Layout</span>
+              <span class="chip">Altinn Komponenter</span>
+              <span class="chip">Ferdig godkjent</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (Figma Eksport til JSON)</div>
+
+        <!-- Step 2 -->
+        <div class="flow-card amber-highlight">
+          <div class="icon-box">📦</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>2. Figma JSON Eksport</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">Komponenttre (JSON)</span>
+              <span class="chip">simplified: true</span>
+              <span class="chip">Felt-egenskaper</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (AI Agent leser Figma JSON)</div>
+
+        <!-- Step 3 -->
+        <div class="flow-card auto-pipeline">
+          <div class="icon-box">🤖</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>3. AI Tolking & Regelsett</span>
+              <span style="font-size:11px; color:var(--dsl); font-weight:700;">Automatisk</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">SKILL.md</span>
+              <span class="chip">component-catalog</span>
+              <span class="chip">page-identification</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="arrow-down">▼ (AI oppdaterer koden i repo)</div>
+
+        <!-- Step 4 -->
+        <div class="flow-card altinn-highlight">
+          <div class="icon-box">⚡</div>
+          <div class="card-meta">
+            <div class="card-title">
+              <span>4. AI Oppdaterer Altinn Repo</span>
+            </div>
+            <div class="card-chips">
+              <span class="chip">S05_*.json</span>
+              <span class="chip">resource.{nb,nn,en}.json</span>
+              <span class="chip">C# / XSD synk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scoreboard">
+        <div class="metric-card">
+          <div class="metric-val" style="color:#F59E0B;">Figma JSON</div>
+          <div class="metric-label">Mellomformat</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--dsl);">AI Agent</div>
+          <div class="metric-label">Repo-Oppdatering</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:var(--dsl);">100% Auto</div>
+          <div class="metric-label">JSON ➔ Repo</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" style="color:#38BDF8;">Full Stack</div>
+          <div class="metric-label">Leveranse</div>
         </div>
       </div>
     </div>

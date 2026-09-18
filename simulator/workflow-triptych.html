@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>De Tre Skjema-arbeidsflytene: Individuell Visning</title>
+  <title>De Fire Skjema-arbeidsflytene: Individuell Visning</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
   <style>
     :root {
@@ -20,10 +20,11 @@
       --tab-2: #A855F7;
       --tab-2-bg: rgba(168, 85, 247, 0.12);
 
-      --tab-3: #10B981;
-      --tab-3-bg: rgba(16, 185, 129, 0.12);
+      --tab-3: #F59E0B;
+      --tab-3-bg: rgba(245, 158, 11, 0.12);
 
-      --amber: #F59E0B;
+      --tab-4: #10B981;
+      --tab-4-bg: rgba(16, 185, 129, 0.12);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,9 +63,9 @@
       font-weight: 700;
       padding: 3px 8px;
       border-radius: 20px;
-      background: var(--tab-2-bg);
-      color: var(--tab-2);
-      border: 1px solid var(--tab-2);
+      background: var(--tab-3-bg);
+      color: var(--tab-3);
+      border: 1px solid var(--tab-3);
     }
 
     .nav-links {
@@ -90,7 +91,7 @@
     /* Workflow Selector Tabs */
     .tab-bar {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
     }
 
@@ -98,7 +99,7 @@
       background: var(--card-bg);
       border: 2px solid var(--border);
       border-radius: 10px;
-      padding: 16px 20px;
+      padding: 16px;
       color: var(--text);
       cursor: pointer;
       text-align: left;
@@ -125,6 +126,10 @@
       border-color: var(--tab-3);
       background: var(--tab-3-bg);
     }
+    .tab-btn.active.tab-4 {
+      border-color: var(--tab-4);
+      background: var(--tab-4-bg);
+    }
 
     .tab-num {
       font-size: 11px;
@@ -135,14 +140,15 @@
     .tab-1 .tab-num { color: var(--tab-1); }
     .tab-2 .tab-num { color: var(--tab-2); }
     .tab-3 .tab-num { color: var(--tab-3); }
+    .tab-4 .tab-num { color: var(--tab-4); }
 
     .tab-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 800;
     }
 
     .tab-sub {
-      font-size: 12px;
+      font-size: 11.5px;
       color: var(--text-muted);
     }
 
@@ -178,7 +184,7 @@
       color: var(--text-muted);
       font-size: 14px;
       margin-top: 6px;
-      max-width: 800px;
+      max-width: 850px;
     }
 
     .stage-badge {
@@ -296,7 +302,7 @@
     }
 
     .char-val {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--text);
     }
@@ -307,10 +313,10 @@
   <header>
     <div class="brand">
       <span>SSB Skjema-arbeidsflyter</span>
-      <span class="badge">Individuell Visning</span>
+      <span class="badge">4 Spor / Eksperimenter</span>
     </div>
     <div class="nav-links">
-      <a href="../docs/tre-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon (MD)</a>
+      <a href="../docs/fire-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon & Teamet (MD)</a>
       <a href="workflow-compare.html" class="nav-btn">Side-ved-side Sammenligning</a>
       <a href="workflow-visualizer.html" class="nav-btn">Original Detaljviser</a>
       <a href="index.html" class="nav-btn">Skjemasimulator</a>
@@ -319,21 +325,27 @@
 
   <!-- Workflow Selector Tabs -->
   <div class="tab-bar">
-    <button class="tab-btn tab-1 active" onclick="showWorkflow(1)">
-      <span class="tab-num">Arbeidsflyt 1</span>
+    <button class="tab-btn tab-1" onclick="showWorkflow(1)">
+      <span class="tab-num">Spor 1</span>
       <span class="tab-title">Opprinnelig Konsept</span>
-      <span class="tab-sub">Figma ➔ Altinn 3 parser</span>
+      <span class="tab-sub">Figma ➔ Parser ➔ Altinn</span>
     </button>
 
     <button class="tab-btn tab-2" onclick="showWorkflow(2)">
-      <span class="tab-num">Arbeidsflyt 2</span>
+      <span class="tab-num">Spor 2</span>
       <span class="tab-title">Jon-arbeidsflyten</span>
       <span class="tab-sub">Screenshots/MCP ➔ Figma ➔ Skjemakoder</span>
     </button>
 
-    <button class="tab-btn tab-3" onclick="showWorkflow(3)">
-      <span class="tab-num">Arbeidsflyt 3</span>
-      <span class="tab-title">Foran Skjema (Dialogue DSL)</span>
+    <button class="tab-btn tab-3 active" onclick="showWorkflow(3)">
+      <span class="tab-num">Spor 3 (Ny)</span>
+      <span class="tab-title">Joakim-arbeidsflyten</span>
+      <span class="tab-sub">Figma ➔ JSON Eksport ➔ AI ➔ Altinn Repo</span>
+    </button>
+
+    <button class="tab-btn tab-4" onclick="showWorkflow(4)">
+      <span class="tab-num">Spor 4</span>
+      <span class="tab-title">Foran Skjema (DSL)</span>
       <span class="tab-sub">Haskell AST (SSOT) ➔ Multi-Target kompilator</span>
     </button>
   </div>
@@ -348,7 +360,7 @@
     1: {
       id: 1,
       title: "1. Opprinnelig Konseptuell Arbeidsflyt",
-      desc: "Tidlig visjon fra prosjektstart der datamodeller oversettes til Figma-prototyper, før et parser-script oversetter Figma-designet til Altinn 3 layout.",
+      desc: "Tidlig visjon fra prosjektstart der datamodeller oversettes til Figma-prototyper, før et parser-skript oversetter Figma-designet til Altinn 3 layout.",
       badge: "UI-Fokusert • Datamodell ➔ Figma ➔ Altinn",
       badgeColor: "var(--tab-1)",
       badgeBg: "var(--tab-1-bg)",
@@ -423,7 +435,7 @@
           num: "Steg 4 (Fase 2)",
           icon: "👨‍💻",
           title: "Skjemakoder i Altinn Repo",
-          body: "Skjemakoderen overtar Figma-designet og koder Altinn 3 layout, C# datamodell, XSD og tekster iht. Joakims veiledning.",
+          body: "Skjemakoderen overtar Figma-designet og koder Altinn 3 layout, C# datamodell, XSD og tekster for hånd.",
           chips: ["Altinn Studio", "App/ui/layouts", "C# Datamodell"]
         }
       ],
@@ -437,11 +449,56 @@
 
     3: {
       id: 3,
-      title: "3. Foran Skjema-arbeidsflyten: Dialogue DSL som Single Source of Truth",
-      desc: "Formell, kode-først tilnærming bygget under SSB Hackday 2026. Skjemaet defineres én gang som et typet Haskell Dialogue AST, som automatisk kompilerer til både Altinn 3, nettleser-simulator og AST-visualisering.",
-      badge: "Kode-Først SSOT • 100% Automatisert",
+      title: "3. Joakim-arbeidsflyten: Figma ➔ JSON Eksport ➔ AI ➔ Altinn Repo",
+      desc: "Joakims eksperiment: Skjemaprototypen fra Figma eksporteres som en strukturert JSON. En AI-agent (Copilot CLI med Joakims regelsett) leser denne JSON-filen og oppdaterer automatisk Altinn-repositoriet med layouts, tekstressurser og C#/.schema.json datamodeller.",
+      badge: "Figma JSON ➔ AI Repo Oppdatering • Zero Manual Coding",
       badgeColor: "var(--tab-3)",
       badgeBg: "var(--tab-3-bg)",
+      steps: [
+        {
+          num: "Steg 1",
+          icon: "🎨",
+          title: "Figma Skjemaprototype",
+          body: "Ferdig designet frame bygget med Altinn Studio / Felles Designsystem-komponenter og Auto Layout.",
+          chips: ["Figma Frame", "Auto Layout", "Design Tokens"]
+        },
+        {
+          num: "Steg 2",
+          icon: "📦",
+          title: "Figma JSON Eksport",
+          body: "Eksport av komponenttre og egenskaper som strukturert JSON (via REST/Plugin/CLI simplified: true).",
+          chips: ["Figma JSON", "Komponent-hierarki", "Felt-props"]
+        },
+        {
+          num: "Steg 3",
+          icon: "🤖",
+          title: "AI Tolker JSON",
+          body: "AI-agenten leser JSON-eksporten, filtrerer boilerplate (S01, S20) og oversetter til Altinn-komponenter.",
+          chips: ["SKILL.md", "component-catalog", "page-identification"]
+        },
+        {
+          num: "Steg 4",
+          icon: "⚡",
+          title: "AI Oppdaterer Altinn Repo",
+          body: "AI skriver direkte til git-repoet: layouts/*.json, resource.{nb,nn,en}.json, og synker C#/XSD/JSON Schema.",
+          chips: ["layout.json", "C# datamodell", "Tekstressurser"]
+        }
+      ],
+      chars: [
+        { label: "Mellomformat", val: "Figma JSON Eksport" },
+        { label: "Rolle AI", val: "Leser JSON & koder Altinn repo" },
+        { label: "Automasjonsgrad", val: "100% fra Figma JSON til repo-kode" },
+        { label: "Styrke", val: "Fjerner manuell koding i Altinn Studio" }
+      ]
+    },
+
+    4: {
+      id: 4,
+      title: "4. Foran Skjema-arbeidsflyten: Dialogue DSL som Single Source of Truth",
+      desc: "Formell, kode-først tilnærming bygget under SSB Hackday 2026. Skjemaet defineres én gang som et typet Haskell Dialogue AST, som automatisk kompilerer til både Altinn 3, nettleser-simulator og AST-visualisering.",
+      badge: "Kode-Først SSOT • 100% Type-Safe",
+      badgeColor: "var(--tab-4)",
+      badgeBg: "var(--tab-4-bg)",
       steps: [
         {
           num: "Steg 1",
@@ -530,8 +587,8 @@
     `;
   }
 
-  // Initial load
-  showWorkflow(2); // Start on Jon workflow as requested
+  // Initial load: Default to Joakim's new workflow experiment (Spor 3)
+  showWorkflow(3);
 </script>
 
 </body>
