@@ -114,6 +114,10 @@ evolutionRank p
   | p == "S05_kostra51_side4"          = 44  -- v4.4: Skjema 51 Side 4
   | p == "S05_kostra51_side5"          = 45  -- v4.5: Skjema 51 Side 5
   | p == "S05_kostra51_side6"          = 46  -- v4.6: Skjema 51 Side 6
+  | p == "S05_trial1_byggesak"         = 51  -- v5.1: 20Byggesak Trial 1 (Metadata & Gebyrer)
+  | p == "S05_trial2_byggesak"         = 52  -- v5.2: 20Byggesak Trial 2
+  | p == "S05_trial3_byggesak"         = 53  -- v5.3: 20Byggesak Trial 3
+  | p == "S05_trial4_byggesak"         = 54  -- v5.4: 20Byggesak Trial 4
   | otherwise                          = 999 -- Other / custom pages
 
 -- | Sort injected pages by schema evolution progression while preserving outer boundary pages
@@ -123,9 +127,13 @@ sortPagesByEvolution pages =
       (prefix, withoutPrefix) = case rest1 of
         (f:rest) -> (before ++ [f], rest)
         []       -> ([], pages)
-      (injected, suffix) = break (`elem` ["S20_Summary", "S70_Tidsbruk", "S80_Brukeropplevelse", "S90_Kommentarogkontakt"]) withoutPrefix
-      sortedInjected = sortBy (comparing evolutionRank) injected
-  in prefix ++ sortedInjected ++ suffix
+      -- Exclude both the fixed suffix pages AND any injected pages that might have been appended at the end
+      fixedSuffix = ["S20_Summary", "S70_Tidsbruk", "S80_Brukeropplevelse", "S90_Kommentarogkontakt"]
+      isFixedSuffix p = p `elem` fixedSuffix
+      injectedPages = filter (\p -> not (isFixedSuffix p)) withoutPrefix
+      suffixPages   = filter isFixedSuffix withoutPrefix
+      sortedInjected = sortBy (comparing evolutionRank) injectedPages
+  in prefix ++ sortedInjected ++ suffixPages
 
 -- | Helper to insert pageName into pages.groups[0].order in schema evolution order
 updateSettingsPageOrder :: String -> KM.KeyMap Value -> KM.KeyMap Value

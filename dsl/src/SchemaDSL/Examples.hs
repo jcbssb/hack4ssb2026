@@ -12,6 +12,7 @@ module SchemaDSL.Examples
   , kostra51Side5Dialogue
   , kostra51Side6Dialogue
   , kostra51FullDialogue
+  , trial1ByggesakDialogue
   ) where
 
 import Data.Aeson (Value(..))
@@ -1548,5 +1549,112 @@ kostra51FullDialogue = Dialogue
       , steps kostra51Side6Dialogue
       ]
   }
+
+-- | Trial 1: Baseline extraction of 20Byggesak (Side 1 metadata & kontaktinfo + gebyrer intro)
+-- Demonstrating the initial stage of schema evolution from PDF to Altinn 3
+trial1ByggesakDialogue :: Dialogue
+trial1ByggesakDialogue = Dialogue
+  { dialogueId = "trial1-byggesak"
+  , title      = "20. Byggesak 2026 (Trial 1: Grunnlagsdata og kontaktinfo)"
+  , context    = Just SurveyContext
+      { surveyCode   = Just "KOSTRA-20-2026"
+      , organization = Just "Statistisk sentralbyrå"
+      , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A: Kontaktinformasjon og veiledning. Del B: Gebyrer."
+      }
+  , steps      =
+      -- Bolk A: Opplysninger om skjema og kontaktinformasjon
+      [ BolkStep Bolk
+          { bolkId          = "bolk_a"
+          , bolkTitle       = "A. Opplysninger om skjema og kontaktinformasjon"
+          , bolkDescription = Just "Utfylling av kontaktinformasjon om kommunen og ansvarlig for rapporteringen."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t1_kommunenummer"
+                  , prompt       = Prompt "Kommunenummer" (Just "4-sifret kommunenummer.")
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "F.eks. 0301"), ("componentHint", String "Input")])
+                  }
+              , Question
+                  { fieldId      = "t1_kommunensNavn"
+                  , prompt       = Prompt "Kommunens navn" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "F.eks. Oslo"), ("componentHint", String "Input")])
+                  }
+              , Question
+                  { fieldId      = "t1_navnSkjemaansvarlig"
+                  , prompt       = Prompt "Navn skjemaansvarlig" (Just "Fullt navn på kontaktperson for rapporteringen.")
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("componentHint", String "Input")])
+                  }
+              , Question
+                  { fieldId      = "t1_telefonnummer"
+                  , prompt       = Prompt "Telefonnummer" Nothing
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "8 siffer"), ("componentHint", String "Input")])
+                  }
+              , Question
+                  { fieldId      = "t1_epostSkjemaansvarlig"
+                  , prompt       = Prompt "E-post skjemaansvarlig" (Just "Offisiell e-postadresse i kommunen.")
+                  , questionType = QText
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("placeholder", String "navn@kommune.no"), ("componentHint", String "Input")])
+                  }
+              ]
+          }
+
+      -- Bolk B: Gebyrer (Del 1)
+      , BolkStep Bolk
+          { bolkId          = "bolk_b"
+          , bolkTitle       = "B. Gebyrer"
+          , bolkDescription = Just "Byggesaksgebyr og gebyr for opprettelse av grunneiendom (kroner eksl. mva)."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ Question
+                  { fieldId      = "t1_gebyrEneboligVedtatt"
+                  , prompt       = Prompt "1a. Byggesaksgebyr vedtatt for inneværende år for oppføring av enebolig (PBL § 20-1 a)" (Just "Kroner eksl. mva.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner")])
+                  }
+              , Question
+                  { fieldId      = "t1_gebyrEneboligRapportering"
+                  , prompt       = Prompt "1b. Byggesaksgebyr i rapporteringsåret for oppføring av enebolig" (Just "Kroner eksl. mva.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner")])
+                  }
+              , Question
+                  { fieldId      = "t1_gebyrTomt750mVedtatt"
+                  , prompt       = Prompt "2a. Gebyr vedtatt for inneværende år for opprettelse av grunneiendom på 750 m2" (Just "Matrikkellova §§ 5 og 32. Kroner eksl. mva.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner")])
+                  }
+              , Question
+                  { fieldId      = "t1_gebyrTomt750mRapportering"
+                  , prompt       = Prompt "2b. Gebyr i rapporteringsåret for opprettelse av grunneiendom på 750 m2" (Just "Matrikkellova §§ 5 og 32. Kroner eksl. mva.")
+                  , questionType = QInteger
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Just (KM.fromList [("unit", String "Kroner")])
+                  }
+              ]
+          }
+      ]
+  }
+
 
 
