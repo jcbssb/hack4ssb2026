@@ -13,8 +13,8 @@
 | **Utgangspunkt** | Datamodeller (JSON Schema / XSD) | Skjermbilder/PDF + Metodikk-krav | Ferdig designet Figma-frame/fil | Typet Haskell AST (Single Source of Truth) |
 | **Arena for iterasjon** | Figma | Figma | Figma (visuelt) + Git diff / PR | Toveis: Skjemasimulator (web) + Figma |
 | **Rolle AI** | Figma Plugin / script-generator | Multimodal agent via Figma MCP (`create_frame`) | AI Coding Agent (Copilot CLI + `figma-altinn` extension) | OCR/ekstraksjon til AST + syntesegenerering |
-| **Veien til Altinn 3** | Figma REST API / parser genererer layout | Skjemakoder overtar og koder i repo for hånd | Figma JSON-eksport ➔ AI leser JSON og oppdaterer repo | 100% automatisk kompilering (`schema-dsl-cli`) |
-| **Styrke** | Ren UI-visualisering tidlig | Naturlig for metodologer og fageksperter | Fjerner manuell koding via Figma JSON ➔ AI ➔ Repo | Full type-sikkerhet, validering og umiddelbar testbarhet |
+| **Veien til Altinn 3** | Figma REST API / parser genererer layout | Skjemakoder overtar og koder i repo for hånd | Figma REST API henter JSON ➔ AI leser JSON og oppdaterer repo | 100% automatisk kompilering (`schema-dsl-cli`) |
+| **Styrke** | Ren UI-visualisering tidlig | Naturlig for metodologer og fageksperter | Fjerner manuell koding via Figma API JSON ➔ AI ➔ Repo | Full type-sikkerhet, validering og umiddelbar testbarhet |
 
 ---
 
@@ -39,22 +39,22 @@
 
 ---
 
-## 3. Joakim-arbeidsflyten (Figma ➔ JSON Eksport ➔ AI Copilot ➔ Altinn Repo)
+## 3. Joakim-arbeidsflyten (Figma ➔ Figma API JSON ➔ AI Copilot ➔ Altinn Repo)
 *Beskrevet i `docs/altinn-figma-to-app-joakim/SKILL.md`.*
 - **Steg 1 (Figma Design):** Utgangspunktet er en ferdig godkjent Figma-frame bygget med Altinn Studio / Felles Designsystem-komponenter og Auto Layout.
-- **Steg 2 (JSON Eksport fra Figma):**
-  - Figma-skjemaprototypen eksporteres som et strukturert JSON-komponenttre (f.eks. via Figma REST API, plugin eller `figma-altinn` CLI med `simplified: true`).
-  - Dette gir en maskinlesbar representasjon av feltnavn, typer (`Input`, `Header`, `RadioButtons`, `Dropdown`, `Panel`) og layoutstruktur.
+- **Steg 2 (Henting av JSON via Figma API):**
+  - Figma-skjemaprototypen hentes direkte via **Figma REST API** (ved bruk av `figma-altinn` CLI extension eller Figma API klient med `simplified: true` og `node-id`).
+  - API-et returnerer en strukturert JSON-representasjon av komponenttreet med feltnavn, typer (`Input`, `Header`, `RadioButtons`, `Dropdown`, `Panel`) og layoutstruktur.
 - **Steg 3 (AI Tolkning & Regelmotor):**
-  - AI-agenten leser den eksporterte Figma JSON-filen.
+  - AI-agenten leser JSON-dataene levert fra Figma API.
   - Mapper mot Joakims retningslinjer (`SKILL.md`): identifiserer innholdssider, ignorerer SSB standard boilerplate (`S01_Forside`, `S20_Summary`, `S70_Tidsbruk`).
 - **Steg 4 (AI Oppdaterer Altinn Repo-koden):**
-  - AI-en genererer og oppdaterer koden direkte i Altinn-repoet:
+  - AI-en genererer og oppdaterer koden direkte i Altinn-repoet basert på API-JSON-et:
     - Skriver Altinn layouts: `App/ui/mainlayout/layouts/S05_*.json`.
     - Oppdaterer sidetilordning i `App/ui/mainlayout/Settings.json`.
     - Genererer flerspråklige tekstressurser i `App/config/texts/resource.{nb,nn,en}.json`.
     - Synkroniserer datamodell i tre filer samtidig: C# (`.cs`), JSON Schema (`.schema.json`) og XSD.
-- **Resultat:** AI bygger broen mellom det eksporterte Figma JSON-designet og produksjonskoden i Altinn-repositoriet uten manuell koding.
+- **Resultat:** AI bygger broen mellom Figma REST API (JSON) og produksjonskoden i Altinn-repositoriet uten manuell koding.
 
 ---
 

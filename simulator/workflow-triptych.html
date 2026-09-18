@@ -340,7 +340,7 @@
     <button class="tab-btn tab-3 active" onclick="showWorkflow(3)">
       <span class="tab-num">Spor 3 (Ny)</span>
       <span class="tab-title">Joakim-arbeidsflyten</span>
-      <span class="tab-sub">Figma ➔ JSON Eksport ➔ AI ➔ Altinn Repo</span>
+      <span class="tab-sub">Figma ➔ Figma API JSON ➔ AI ➔ Altinn Repo</span>
     </button>
 
     <button class="tab-btn tab-4" onclick="showWorkflow(4)">
@@ -449,9 +449,9 @@
 
     3: {
       id: 3,
-      title: "3. Joakim-arbeidsflyten: Figma ➔ JSON Eksport ➔ AI ➔ Altinn Repo",
-      desc: "Joakims eksperiment: Skjemaprototypen fra Figma eksporteres som en strukturert JSON. En AI-agent (Copilot CLI med Joakims regelsett) leser denne JSON-filen og oppdaterer automatisk Altinn-repositoriet med layouts, tekstressurser og C#/.schema.json datamodeller.",
-      badge: "Figma JSON ➔ AI Repo Oppdatering • Zero Manual Coding",
+      title: "3. Joakim-arbeidsflyten: Figma ➔ Figma API JSON ➔ AI ➔ Altinn Repo",
+      desc: "Joakims eksperiment: Skjemaprototypen hentes direkte via Figma REST API som strukturert JSON (figma_get_file simplified: true). En AI-agent (Copilot CLI med Joakims regelsett) leser denne JSON-responsen og oppdaterer automatisk Altinn-repositoriet med layouts, tekstressurser og C#/.schema.json datamodeller.",
+      badge: "Figma REST API JSON ➔ AI Repo Oppdatering • Zero Manual Coding",
       badgeColor: "var(--tab-3)",
       badgeBg: "var(--tab-3-bg)",
       steps: [
@@ -464,16 +464,16 @@
         },
         {
           num: "Steg 2",
-          icon: "📦",
-          title: "Figma JSON Eksport",
-          body: "Eksport av komponenttre og egenskaper som strukturert JSON (via REST/Plugin/CLI simplified: true).",
-          chips: ["Figma JSON", "Komponent-hierarki", "Felt-props"]
+          icon: "🌐",
+          title: "Figma REST API (JSON)",
+          body: "Prototypen hentes via Figma REST API (figma_get_file med simplified: true) som et strukturert JSON-tre.",
+          chips: ["Figma REST API", "figma_get_file", "JSON Komponenttre"]
         },
         {
           num: "Steg 3",
           icon: "🤖",
-          title: "AI Tolker JSON",
-          body: "AI-agenten leser JSON-eksporten, filtrerer boilerplate (S01, S20) og oversetter til Altinn-komponenter.",
+          title: "AI Tolker API JSON",
+          body: "AI-agenten leser JSON levert fra Figma API, filtrerer boilerplate (S01, S20) og oversetter til Altinn-komponenter.",
           chips: ["SKILL.md", "component-catalog", "page-identification"]
         },
         {
@@ -485,9 +485,9 @@
         }
       ],
       chars: [
-        { label: "Mellomformat", val: "Figma JSON Eksport" },
-        { label: "Rolle AI", val: "Leser JSON & koder Altinn repo" },
-        { label: "Automasjonsgrad", val: "100% fra Figma JSON til repo-kode" },
+        { label: "Mellomformat", val: "Figma REST API JSON (figma_get_file)" },
+        { label: "Rolle AI", val: "Leser API JSON & koder Altinn repo" },
+        { label: "Automasjonsgrad", val: "100% fra Figma API JSON til repo-kode" },
         { label: "Styrke", val: "Fjerner manuell koding i Altinn Studio" }
       ]
     },
