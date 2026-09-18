@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSB Skjema Arbeidsflyt-Nettverk: Komponent- & Relasjonsgraf</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
+  <style>
+    :root {
+      --bg: #0A0F1D;
+      --panel-bg: rgba(15, 23, 42, 0.85);
+      --card-bg: #1E293B;
+      --card-inner: #0B1120;
+      --border: #334155;
+      --border-bright: #475569;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+
+      /* Node theme colors */
+      --color-sources: #EC4899;   /* Pink: Inndata / Kilder */
+      --color-figma: #A855F7;     /* Purple: Figma */
+      --color-dsl: #10B981;       /* Green: Dialogue DSL */
+      --color-altinn: #38BDF8;    /* Cyan/Blue: Altinn 3 */
+      --color-agent: #F59E0B;     /* Amber: AI / Copilot / Regler */
+      --color-human: #E2E8F0;     /* Light Gray: Fagfolk */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #0B1120;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      z-index: 20;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: -0.3px;
+    }
+
+    .badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--color-dsl);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: #334155;
+      border-color: var(--text-muted);
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      background: rgba(15, 23, 42, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .filter-chip {
+      background: #1E293B;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .filter-chip:hover {
+      color: var(--text);
+      border-color: var(--border-bright);
+    }
+
+    .filter-chip.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      border-color: currentColor;
+    }
+
+    .chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .workflow-modes {
+      display: flex;
+      gap: 6px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mode-btn.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    /* Main Area: Canvas + Drawer */
+    .main-workspace {
+      display: flex;
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .graph-viewport {
+      flex: 1;
+      position: relative;
+      overflow: auto;
+      background: 
+        radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.3) 0%, rgba(10, 15, 29, 0.8) 100%),
+        radial-gradient(#1E293B 1px, transparent 1px);
+      background-size: 100% 100%, 28px 28px;
+    }
+
+    svg.graph-edges {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .nodes-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: 1350px;
+      min-height: 750px;
+      z-index: 2;
+    }
+
+    /* Node Styles */
+    .graph-node {
+      position: absolute;
+      background: var(--panel-bg);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      user-select: none;
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .graph-node:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -4px rgba(0, 0, 0, 0.8);
+      border-color: var(--node-color, var(--text));
+    }
+
+    .graph-node.selected {
+      border-color: var(--node-color, var(--text)) !important;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), 0 12px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .graph-node.highlighted {
+      border-color: var(--node-color, var(--text)) !important;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+    }
+
+    .graph-node.dimmed {
+      opacity: 0.25;
+      filter: grayscale(80%);
+    }
+
+    .node-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .node-badge {
+      font-size: 10px;
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    .node-icon-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .node-icon {
+      font-size: 18px;
+    }
+
+    .node-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .node-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .tag-chip {
+      font-size: 10px;
+      font-family: 'Roboto Mono', monospace;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #0B1120;
+      border: 1px solid var(--border);
+      color: #CBD5E1;
+    }
+
+    /* Edge Labels & Paths in SVG */
+    path.edge-path {
+      fill: none;
+      stroke: #475569;
+      stroke-width: 2.5px;
+      stroke-linecap: round;
+      transition: stroke 0.25s, stroke-width 0.25s, opacity 0.25s;
+    }
+
+    path.edge-path.highlighted {
+      stroke-width: 4px;
+      filter: drop-shadow(0 0 6px currentColor);
+    }
+
+    path.edge-path.dimmed {
+      opacity: 0.12;
+      stroke-width: 1.5px;
+    }
+
+    .edge-label-box {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      fill: #F1F5F9;
+      background: #0F172A;
+      border-radius: 4px;
+      padding: 2px 6px;
+      cursor: pointer;
+    }
+
+    /* Detail Drawer on Right */
+    .detail-drawer {
+      width: 400px;
+      background: #0B1120;
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      z-index: 15;
+      overflow-y: auto;
+      padding: 24px;
+      gap: 20px;
+    }
+
+    .drawer-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+
+    .drawer-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .drawer-title {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .drawer-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: 'Roboto Mono', monospace;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .drawer-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .section-h {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .edge-item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .edge-item-card:hover {
+      border-color: var(--text-muted);
+      background: #273549;
+    }
+
+    .edge-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+    .edge-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .edge-desc-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Legend bar bottom */
+    .legend-bar {
+      display: flex;
+      gap: 16px;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      align-items: center;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-line {
+      width: 18px;
+      height: 3px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>SSB Skjema Arbeidsflyt-Nettverk</span>
+      <span class="badge">Komponent- & Relasjonsgraf</span>
+    </div>
+    <div class="nav-links">
+      <a href="workflow-triptych.html" class="nav-btn">4 Arbeidsflyter (Tabber)</a>
+      <a href="workflow-compare.html" class="nav-btn">Side-ved-side Sammenligning</a>
+      <a href="../docs/fire-arbeidsflyter-oppsummering.md" class="nav-btn" target="_blank">📄 Dokument til Jon (MD)</a>
+    </div>
+  </header>
+
+  <!-- Controls & Filters -->
+  <div class="controls-bar">
+    <div class="filter-group">
+      <span class="filter-label">Vis Arbeidsflyt:</span>
+      <button class="filter-chip active" id="filter-all" onclick="setWorkflowFilter('all')">
+        <span class="chip-dot" style="background:#FFF;"></span> Alle relasjoner
+      </button>
+      <button class="filter-chip" id="filter-wf1" onclick="setWorkflowFilter('wf1')">
+        <span class="chip-dot" style="background:#38BDF8;"></span> 1. Original (Datamodell ➔ Figma ➔ Altinn)
+      </button>
+      <button class="filter-chip" id="filter-wf2" onclick="setWorkflowFilter('wf2')">
+        <span class="chip-dot" style="background:#A855F7;"></span> 2. Jon (Screenshot/MCP ➔ Figma ➔ Koder)
+      </button>
+      <button class="filter-chip" id="filter-wf3" onclick="setWorkflowFilter('wf3')">
+        <span class="chip-dot" style="background:#F59E0B;"></span> 3. Joakim (Figma API JSON ➔ AI ➔ Repo)
+      </button>
+      <button class="filter-chip" id="filter-wf4" onclick="setWorkflowFilter('wf4')">
+        <span class="chip-dot" style="background:#10B981;"></span> 4. Foran Skjema (Dialogue DSL SSOT)
+      </button>
+    </div>
+
+    <button class="mode-btn" onclick="resetSelection()">Tilbakestill visning</button>
+  </div>
+
+  <div class="main-workspace">
+    <!-- Graph Canvas Viewport -->
+    <div class="graph-viewport" id="viewport">
+      <!-- SVG Edges layer -->
+      <svg class="graph-edges" id="edgeSvg">
+        <defs>
+          <!-- Markers for Arrowheads -->
+          <marker id="arrow-default" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#475569" />
+          </marker>
+          <marker id="arrow-pink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#EC4899" />
+          </marker>
+          <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#A855F7" />
+          </marker>
+          <marker id="arrow-amber" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#F59E0B" />
+          </marker>
+          <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#10B981" />
+          </marker>
+          <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <polygon points="0 1, 8 4, 0 7" fill="#38BDF8" />
+          </marker>
+        </defs>
+        <!-- Dynamic paths rendered by JS -->
+      </svg>
+
+      <!-- HTML Nodes layer -->
+      <div class="nodes-layer" id="nodesLayer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- Inspector Drawer -->
+    <div class="detail-drawer" id="drawer">
+      <div class="drawer-header">
+        <div class="drawer-title-row">
+          <span id="drawerIcon" style="font-size:24px;">🔍</span>
+          <span class="drawer-title" id="drawerTitle">Velg en node eller kant</span>
+        </div>
+        <span class="drawer-badge" id="drawerBadge" style="background:#1E293B; color:#94A3B8;">Oversikt</span>
+      </div>
+
+      <div class="drawer-section">
+        <div class="section-h">Beskrivelse</div>
+        <p id="drawerDesc" style="font-size:13px; color:#CBD5E1; line-height:1.5;">
+          Klikk på en av nodene (f.eks. <strong>Figma</strong>, <strong>Dialogue DSL</strong>, <strong>Altinn 3</strong>) eller en tilkoblingskant for å utforske hvordan inndatakilder, AI-agenter og kompilatorer kobles sammen i de fire arbeidsflytene.
+        </p>
+      </div>
+
+      <div class="drawer-section" id="drawerEdgesSection">
+        <div class="section-h" id="drawerEdgesHeader">Tilknyttede Relasjoner</div>
+        <div id="drawerEdgesList" style="display:flex; flex-direction:column; gap:8px;">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <div class="legend-bar">
+        <div class="legend-item">
+          <div class="legend-line" style="background:#EC4899;"></div> Inndata
+        </div>
+        <div class="legend-item">
+          <div class="legend-line" style="background:#A855F7;"></div> Figma MCP
+        </div>
+        <div class="legend-item">
+          <div class="legend-line" style="background:#F59E0B;"></div> Figma API/AI
+        </div>
+        <div class="legend-item">
+          <div class="legend-line" style="background:#10B981;"></div> DSL Kompilering
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- GRAPH DATA MODEL ---
+    const NODES = [
+      // Column 1: Sources / Inputs (x: 40)
+      {
+        id: "source-pdf",
+        col: 1,
+        x: 50,
+        y: 60,
+        w: 240,
+        title: "Eksisterende PDF",
+        icon: "📄",
+        badge: "Kilde",
+        color: "#EC4899",
+        desc: "Papirskjemaer eller PDF-spesifikasjoner (f.eks. KOSTRA 51, Byggesak 20).",
+        tags: ["PDFKit", "OCR", "Bolk-inndeling"]
+      },
+      {
+        id: "source-screens",
+        col: 1,
+        x: 50,
+        y: 210,
+        w: 240,
+        title: "Screenshots / Eldre UI",
+        icon: "🖼️",
+        badge: "Kilde",
+        color: "#EC4899",
+        desc: "Skjermbilder av tidligere skjema-løsninger og skannede feltkataloger.",
+        tags: ["Vision LLM", "Billedanalyse", "Design-avlesning"]
+      },
+      {
+        id: "source-method",
+        col: 1,
+        x: 50,
+        y: 360,
+        w: 240,
+        title: "SSB Metodikk & Fagkrav",
+        icon: "📐",
+        badge: "Kravspesifikasjon",
+        color: "#EC4899",
+        desc: "Metodologiske prinsipper, godkjente spørsmålsformuleringer og standarder.",
+        tags: ["Spørsmålsmetodikk", "Valideringskrav", "Fagregler"]
+      },
+      {
+        id: "source-datamodel",
+        col: 1,
+        x: 50,
+        y: 510,
+        w: 240,
+        title: "Datamodell (XSD/JSON)",
+        icon: "💾",
+        badge: "Data Schema",
+        color: "#EC4899",
+        desc: "Ferdig forhåndsdefinert XSD eller JSON Schema fra fagsystemer.",
+        tags: ["XSD", "JSON Schema", "Entitetsmodell"]
+      },
+
+      // Column 2: Hubs (Figma & DSL) (x: 440)
+      {
+        id: "node-figma",
+        col: 2,
+        x: 470,
+        y: 120,
+        w: 290,
+        title: "Figma Skjemaprototype",
+        icon: "🎨",
+        badge: "Design Hub",
+        color: "#A855F7",
+        desc: "Interaktiv prototype bygget med Altinn Studio / Felles Designsystem-komponenter og Auto Layout.",
+        tags: ["Figma REST API", "Figma MCP", "Auto Layout", "Design Tokens"]
+      },
+      {
+        id: "node-dsl",
+        col: 2,
+        x: 470,
+        y: 430,
+        w: 290,
+        title: "Dialogue DSL (SSOT)",
+        icon: "💎",
+        badge: "Code Hub (SSOT)",
+        color: "#10B981",
+        desc: "Type-sikker Haskell AST som definerer felter, ruting, validering og bolker som Single Source of Truth.",
+        tags: ["Haskell AST", "schema-dsl-cli", "Type-safe", "Multi-target"]
+      },
+
+      // Column 3: Agents & Intermediaries (x: 880)
+      {
+        id: "node-figma-api-ai",
+        col: 3,
+        x: 880,
+        y: 60,
+        w: 260,
+        title: "Figma API + AI Agent",
+        icon: "🌐🤖",
+        badge: "Joakim-motoren",
+        color: "#F59E0B",
+        desc: "Henter JSON via Figma REST API (`figma_get_file`), tolker hierarkiet med SKILL.md og genererer Altinn-kode.",
+        tags: ["figma_get_file", "SKILL.md", "Direct-to-repo"]
+      },
+      {
+        id: "node-human-coder",
+        col: 3,
+        x: 880,
+        y: 220,
+        w: 260,
+        title: "Manuell Skjemakoder",
+        icon: "👨‍💻",
+        badge: "Menneskelig koding",
+        color: "#94A3B8",
+        desc: "Skjemakoder leser Figma visuelt og implementerer manuelt i Altinn Studio og git-repoet.",
+        tags: ["Manuell koding", "Altinn Studio UI", "C# og JSON"]
+      },
+      {
+        id: "node-dsl-compiler",
+        col: 3,
+        x: 880,
+        y: 470,
+        w: 260,
+        title: "DSL Kompilator",
+        icon: "⚙️",
+        badge: "Byggmotor",
+        color: "#10B981",
+        desc: "Deterministisk `schema-dsl-cli` som oversetter Haskell Dialogue AST til distribuerte målsystemer.",
+        tags: ["Determinisme", "Zero Hallucination", "Multi-Target"]
+      },
+
+      // Column 4: Final Targets (x: 1240)
+      {
+        id: "node-altinn",
+        col: 4,
+        x: 1240,
+        y: 190,
+        w: 280,
+        title: "Altinn 3 App / Studio",
+        icon: "🏛️",
+        badge: "Produksjonsmål",
+        color: "#38BDF8",
+        desc: "Kjørende Altinn 3 skjemaapplikasjon i produksjonsrepoet med layout, tekstressurser og datamodell.",
+        tags: ["App/ui/layouts", "C# Model", "resource.nb.json", "Settings.json"]
+      },
+      {
+        id: "node-simulators",
+        col: 4,
+        x: 1240,
+        y: 470,
+        w: 280,
+        title: "Simulator & AST Canvas",
+        icon: "🖥️",
+        badge: "Verifikasjonsmål",
+        color: "#34D399",
+        desc: "Interaktive web-simulatorer, rutingstestere og AST-visninger for umiddelbar faglig verifikasjon.",
+        tags: ["index.html", "dsl-visualizer.html", "Live Preview"]
+      }
+    ];
+
+    const EDGES = [
+      // Inndatakilder -> Figma
+      {
+        id: "e-screens-figma",
+        from: "source-screens",
+        to: "node-figma",
+        label: "AI + Vision MCP",
+        workflow: "wf2",
+        color: "#A855F7",
+        desc: "Jon-metodikk: Skjermbilder og faglige notater mates inn til AI-agent som oppretter Figma-frames via Figma MCP."
+      },
+      {
+        id: "e-method-figma",
+        from: "source-method",
+        to: "node-figma",
+        label: "Metodikk-regler",
+        workflow: "wf2",
+        color: "#A855F7",
+        desc: "Spørsmålsmetodikk og krav fra SSB legges til grunn i Figma MCP promptingen."
+      },
+      {
+        id: "e-datamodel-figma",
+        from: "source-datamodel",
+        to: "node-figma",
+        label: "Figma Plugin (Import)",
+        workflow: "wf1",
+        color: "#38BDF8",
+        desc: "Opprinnelig flyt: XSD/JSON Schema genererer basisfelter i Figma via dedikert plugin."
+      },
+
+      // Inndatakilder -> Dialogue DSL
+      {
+        id: "e-pdf-dsl",
+        from: "source-pdf",
+        to: "node-dsl",
+        label: "PDFKit / OCR ➔ DSL",
+        workflow: "wf4",
+        color: "#10B981",
+        desc: "Foran Skjema: Strukturert tekst, bolker og feltkrav ekstraheres fra PDF og kompileres til Dialogue AST (Trial 1–3)."
+      },
+      {
+        id: "e-screens-dsl",
+        from: "source-screens",
+        to: "node-dsl",
+        label: "Vision LLM ➔ DSL",
+        workflow: "wf4",
+        color: "#10B981",
+        desc: "Screenshots konverteres til typesikre Haskell Dialogue definisjoner med spørsmålstyper og logikk."
+      },
+      {
+        id: "e-method-dsl",
+        from: "source-method",
+        to: "node-dsl",
+        label: "Fagvalidering i typesystem",
+        workflow: "wf4",
+        color: "#10B981",
+        desc: "Metodiske regler og avhengigheter kodes direkte som Haskell typer og predicater i DSL-en."
+      },
+
+      // Figma -> Videre relasjoner
+      {
+        id: "e-figma-full-ai",
+        from: "node-figma",
+        to: "node-figma-api-ai",
+        label: "Figma REST API (JSON)",
+        workflow: "wf3",
+        color: "#F59E0B",
+        desc: "Joakim-arbeidsflyten: Skjemaet hentes direkte fra Figma REST API via figma_get_file som et strukturert JSON-komponenttre."
+      },
+      {
+        id: "e-figma-human",
+        from: "node-figma",
+        to: "node-human-coder",
+        label: "Visuell inspeksjon",
+        workflow: "wf2",
+        color: "#94A3B8",
+        desc: "Jon-arbeidsflyten: Skjemakoder inspiserer den godkjente Figma-prototypen og oversetter designet manuelt."
+      },
+      {
+        id: "e-figma-plugin-parse",
+        from: "node-figma",
+        to: "node-altinn",
+        label: "AST Parser / Plugin",
+        workflow: "wf1",
+        color: "#38BDF8",
+        desc: "Opprinnelig flyt: Figma-plug-in eller AST-parser som forsøker å serialisere Figma direkte til Altinn layout."
+      },
+
+      // Joakim AI -> Altinn
+      {
+        id: "e-ai-altinn",
+        from: "node-figma-api-ai",
+        to: "node-altinn",
+        label: "Direct Repo Commit",
+        workflow: "wf3",
+        color: "#F59E0B",
+        desc: "Full Figma-til-Altinn AI-edge: AI skriver layouts, flerspråklige tekster og synker C#/XSD datamodeller direkte i repoet."
+      },
+
+      // Manuell Koder -> Altinn
+      {
+        id: "e-human-altinn",
+        from: "node-human-coder",
+        to: "node-altinn",
+        label: "Manuell koding i repo/studio",
+        workflow: "wf2",
+        color: "#94A3B8",
+        desc: "Koder oppretter sider i Altinn Studio og koder logikk og tekster for hånd."
+      },
+
+      // DSL -> Kompilator -> Altinn & Simulator
+      {
+        id: "e-dsl-compiler",
+        from: "node-dsl",
+        to: "node-dsl-compiler",
+        label: "Kompilering (`schema-dsl-cli`)",
+        workflow: "wf4",
+        color: "#10B981",
+        desc: "DSL-kildekoden parses og sjekkes deterministisk av kompilatoren."
+      },
+      {
+        id: "e-compiler-altinn",
+        from: "node-dsl-compiler",
+        to: "node-altinn",
+        label: "Auto-generer Altinn App",
+        workflow: "wf4",
+        color: "#10B981",
+        desc: "Genererer fullverdige Altinn 3 layouts, `Settings.json` og tekstressurser uten menneskelige feil."
+      },
+      {
+        id: "e-compiler-sim",
+        from: "node-dsl-compiler",
+        to: "node-simulators",
+        label: "Simulator & AST Graf",
+        workflow: "wf4",
+        color: "#34D399",
+        desc: "Genererer øyeblikkelige nettlesersimuleringer for umiddelbar faglig verifikasjon og test."
+      }
+    ];
+
+    let currentWorkflow = "all";
+    let selectedElement = null; // { type: 'node'|'edge', data: ... }
+
+    // --- RENDER NODES ---
+    function renderNodes() {
+      const container = document.getElementById("nodesLayer");
+      container.innerHTML = "";
+
+      NODES.forEach(n => {
+        const div = document.createElement("div");
+        div.className = "graph-node";
+        div.id = n.id;
+        div.style.left = n.x + "px";
+        div.style.top = n.y + "px";
+        div.style.width = n.w + "px";
+        div.style.setProperty("--node-color", n.color);
+
+        div.innerHTML = `
+          <div class="node-header-row">
+            <span class="node-badge" style="border-left: 3px solid ${n.color};">${n.badge}</span>
+            <span style="font-size:11px; color:#64748B;">Col ${n.col}</span>
+          </div>
+          <div class="node-icon-title">
+            <span class="node-icon">${n.icon}</span>
+            <span style="color:${n.color};">${n.title}</span>
+          </div>
+          <div class="node-desc">${n.desc}</div>
+          <div class="node-tags">
+            ${n.tags.map(t => `<span class="tag-chip">${t}</span>`).join('')}
+          </div>
+        `;
+
+        div.addEventListener("click", (e) => {
+          e.stopPropagation();
+          selectNode(n);
+        });
+
+        container.appendChild(div);
+      });
+    }
+
+    // --- RENDER EDGES ---
+    function renderEdges() {
+      const svg = document.getElementById("edgeSvg");
+      // Keep defs
+      const defs = svg.querySelector("defs").outerHTML;
+      svg.innerHTML = defs;
+
+      EDGES.forEach(e => {
+        const fromNode = NODES.find(n => n.id === e.from);
+        const toNode = NODES.find(n => n.id === e.to);
+        if (!fromNode || !toNode) return;
+
+        // Calculate connection points
+        const startX = fromNode.x + fromNode.w;
+        const startY = fromNode.y + 45; // Approximate center of header/body
+        const endX = toNode.x;
+        const endY = toNode.y + 45;
+
+        // Bezier control points for smooth curves
+        const dx = Math.max(60, Math.abs(endX - startX) * 0.45);
+        const pathData = `M ${startX} ${startY} C ${startX + dx} ${startY}, ${endX - dx} ${endY}, ${endX} ${endY}`;
+
+        // Create Path element
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", pathData);
+        path.setAttribute("class", "edge-path");
+        path.setAttribute("id", e.id);
+        path.setAttribute("stroke", e.color);
+        
+        // Arrow marker based on color
+        let markerId = "arrow-default";
+        if (e.color === "#EC4899") markerId = "arrow-pink";
+        else if (e.color === "#A855F7") markerId = "arrow-purple";
+        else if (e.color === "#F59E0B") markerId = "arrow-amber";
+        else if (e.color === "#10B981") markerId = "arrow-green";
+        else if (e.color === "#38BDF8") markerId = "arrow-blue";
+        path.setAttribute("marker-end", `url(#${markerId})`);
+
+        // Clickable path overlay
+        const hitPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        hitPath.setAttribute("d", pathData);
+        hitPath.setAttribute("stroke", "transparent");
+        hitPath.setAttribute("stroke-width", "18");
+        hitPath.setAttribute("fill", "none");
+        hitPath.style.cursor = "pointer";
+        hitPath.style.pointerEvents = "all";
+
+        hitPath.addEventListener("click", (evt) => {
+          evt.stopPropagation();
+          selectEdge(e);
+        });
+
+        // Label in the middle
+        const midX = (startX + endX) / 2;
+        const midY = (startY + endY) / 2 - 8;
+
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", midX);
+        text.setAttribute("y", midY);
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "#F8FAFC");
+        text.setAttribute("font-size", "10");
+        text.setAttribute("font-family", "Roboto Mono, monospace");
+        text.setAttribute("font-weight", "600");
+        text.style.pointerEvents = "all";
+        text.style.cursor = "pointer";
+        text.textContent = e.label;
+
+        text.addEventListener("click", (evt) => {
+          evt.stopPropagation();
+          selectEdge(e);
+        });
+
+        svg.appendChild(path);
+        svg.appendChild(hitPath);
+        svg.appendChild(text);
+      });
+    }
+
+    // --- INTERACTION & SELECTION ---
+    function selectNode(node) {
+      selectedElement = { type: 'node', data: node };
+
+      // Highlight in UI
+      document.querySelectorAll(".graph-node").forEach(el => {
+        el.classList.remove("selected", "highlighted", "dimmed");
+      });
+      document.querySelectorAll(".edge-path").forEach(el => {
+        el.classList.remove("highlighted", "dimmed");
+      });
+
+      const nodeEl = document.getElementById(node.id);
+      if (nodeEl) nodeEl.classList.add("selected");
+
+      // Find connected edges
+      const connectedEdges = EDGES.filter(e => e.from === node.id || e.to === node.id);
+      const connectedNodeIds = new Set();
+      connectedEdges.forEach(e => {
+        connectedNodeIds.add(e.from);
+        connectedNodeIds.add(e.to);
+        const p = document.getElementById(e.id);
+        if (p) p.classList.add("highlighted");
+      });
+
+      // Dim unrelated nodes
+      NODES.forEach(n => {
+        if (!connectedNodeIds.has(n.id)) {
+          const el = document.getElementById(n.id);
+          if (el) el.classList.add("dimmed");
+        }
+      });
+
+      // Update drawer
+      updateDrawerForNode(node, connectedEdges);
+    }
+
+    function selectEdge(edge) {
+      selectedElement = { type: 'edge', data: edge };
+
+      document.querySelectorAll(".graph-node").forEach(el => {
+        el.classList.remove("selected", "highlighted", "dimmed");
+      });
+      document.querySelectorAll(".edge-path").forEach(el => {
+        el.classList.remove("highlighted", "dimmed");
+      });
+
+      const p = document.getElementById(edge.id);
+      if (p) p.classList.add("highlighted");
+
+      const fromEl = document.getElementById(edge.from);
+      const toEl = document.getElementById(edge.to);
+      if (fromEl) fromEl.classList.add("highlighted");
+      if (toEl) toEl.classList.add("highlighted");
+
+      NODES.forEach(n => {
+        if (n.id !== edge.from && n.id !== edge.to) {
+          const el = document.getElementById(n.id);
+          if (el) el.classList.add("dimmed");
+        }
+      });
+
+      updateDrawerForEdge(edge);
+    }
+
+    function resetSelection() {
+      selectedElement = null;
+      document.querySelectorAll(".graph-node").forEach(el => {
+        el.classList.remove("selected", "highlighted", "dimmed");
+      });
+      document.querySelectorAll(".edge-path").forEach(el => {
+        el.classList.remove("highlighted", "dimmed");
+      });
+
+      applyWorkflowFilterUI();
+
+      // Reset drawer
+      document.getElementById("drawerIcon").textContent = "🌐";
+      document.getElementById("drawerTitle").textContent = "SSB Arbeidsflyt-Nettverk";
+      document.getElementById("drawerBadge").textContent = "Komponentoversikt";
+      document.getElementById("drawerBadge").style.background = "#1E293B";
+      document.getElementById("drawerBadge").style.color = "#94A3B8";
+      document.getElementById("drawerDesc").innerHTML = `
+        Dette relasjonsdiagrammet samler alle fire spor som SSB Hackday har utforsket:
+        <ul style="margin-top:8px; padding-left:18px; display:flex; flex-direction:column; gap:4px;">
+          <li><strong>Spor 1:</strong> Opprinnelig konsept (XSD ➔ Figma Plugin ➔ Altinn)</li>
+          <li><strong>Spor 2:</strong> Jon-metodikk (Screenshot/Metodikk ➔ Figma MCP ➔ Koder)</li>
+          <li><strong>Spor 3:</strong> Joakim-eksperiment (Figma REST API JSON ➔ AI ➔ Repo)</li>
+          <li><strong>Spor 4:</strong> Dialogue DSL (Type-safe Haskell AST SSOT ➔ Multi-target)</li>
+        </ul>
+        <p style="margin-top:10px;">Klikk på nodene eller kantene for å inspisere tekniske overganger.</p>
+      `;
+      document.getElementById("drawerEdgesHeader").textContent = "Alle Komponenter & Hubs";
+      
+      const list = document.getElementById("drawerEdgesList");
+      list.innerHTML = NODES.map(n => `
+        <div class="edge-item-card" onclick="selectNode(NODES.find(x => x.id === '${n.id}'))">
+          <div class="edge-meta-row">
+            <span style="color:${n.color}; font-weight:700;">${n.badge}</span>
+            <span>Col ${n.col}</span>
+          </div>
+          <div class="edge-name">${n.icon} ${n.title}</div>
+          <div class="edge-desc-text">${n.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    function updateDrawerForNode(node, connectedEdges) {
+      document.getElementById("drawerIcon").textContent = node.icon;
+      document.getElementById("drawerTitle").textContent = node.title;
+      document.getElementById("drawerBadge").textContent = node.badge;
+      document.getElementById("drawerBadge").style.background = node.color + "22";
+      document.getElementById("drawerBadge").style.color = node.color;
+      document.getElementById("drawerBadge").style.border = `1px solid ${node.color}55`;
+      document.getElementById("drawerDesc").textContent = node.desc;
+
+      document.getElementById("drawerEdgesHeader").textContent = `Tilknyttede Kanter (${connectedEdges.length})`;
+      const list = document.getElementById("drawerEdgesList");
+      list.innerHTML = connectedEdges.map(e => {
+        const isOut = e.from === node.id;
+        const otherNodeId = isOut ? e.to : e.from;
+        const otherNode = NODES.find(n => n.id === otherNodeId);
+        return `
+          <div class="edge-item-card" onclick="selectEdge(EDGES.find(x => x.id === '${e.id}'))">
+            <div class="edge-meta-row">
+              <span style="color:${e.color};">${isOut ? "➔ Utgående til" : "⬅ Inngående fra"}</span>
+              <span class="tag-chip">${e.workflow.toUpperCase()}</span>
+            </div>
+            <div class="edge-name">${e.label} (${otherNode.title})</div>
+            <div class="edge-desc-text">${e.desc}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function updateDrawerForEdge(edge) {
+      const fromNode = NODES.find(n => n.id === edge.from);
+      const toNode = NODES.find(n => n.id === edge.to);
+
+      document.getElementById("drawerIcon").textContent = "⚡";
+      document.getElementById("drawerTitle").textContent = edge.label;
+      document.getElementById("drawerBadge").textContent = `Relasjon: ${edge.workflow.toUpperCase()}`;
+      document.getElementById("drawerBadge").style.background = edge.color + "22";
+      document.getElementById("drawerBadge").style.color = edge.color;
+      document.getElementById("drawerBadge").style.border = `1px solid ${edge.color}55`;
+
+      document.getElementById("drawerDesc").innerHTML = `
+        <strong>Kilde:</strong> ${fromNode.icon} ${fromNode.title}<br>
+        <strong>Mål:</strong> ${toNode.icon} ${toNode.title}<br><br>
+        ${edge.desc}
+      `;
+
+      document.getElementById("drawerEdgesHeader").textContent = "Noder i denne relasjonen";
+      const list = document.getElementById("drawerEdgesList");
+      list.innerHTML = `
+        <div class="edge-item-card" onclick="selectNode(NODES.find(x => x.id === '${fromNode.id}'))">
+          <div class="edge-meta-row"><span style="color:${fromNode.color};">Kildenode</span></div>
+          <div class="edge-name">${fromNode.icon} ${fromNode.title}</div>
+          <div class="edge-desc-text">${fromNode.desc}</div>
+        </div>
+        <div class="edge-item-card" onclick="selectNode(NODES.find(x => x.id === '${toNode.id}'))">
+          <div class="edge-meta-row"><span style="color:${toNode.color};">Målnode</span></div>
+          <div class="edge-name">${toNode.icon} ${toNode.title}</div>
+          <div class="edge-desc-text">${toNode.desc}</div>
+        </div>
+      `;
+    }
+
+    // --- WORKFLOW FILTERING ---
+    function setWorkflowFilter(wf) {
+      currentWorkflow = wf;
+      document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
+      const btn = document.getElementById(`filter-${wf}`);
+      if (btn) btn.classList.add("active");
+
+      applyWorkflowFilterUI();
+    }
+
+    function applyWorkflowFilterUI() {
+      if (currentWorkflow === "all") {
+        document.querySelectorAll(".graph-node").forEach(el => el.classList.remove("dimmed"));
+        document.querySelectorAll(".edge-path").forEach(el => el.classList.remove("dimmed"));
+        return;
+      }
+
+      // Filter active edges and active nodes
+      const activeEdges = EDGES.filter(e => e.workflow === currentWorkflow);
+      const activeNodeIds = new Set();
+      activeEdges.forEach(e => {
+        activeNodeIds.add(e.from);
+        activeNodeIds.add(e.to);
+      });
+
+      NODES.forEach(n => {
+        const el = document.getElementById(n.id);
+        if (el) {
+          if (activeNodeIds.has(n.id)) {
+            el.classList.remove("dimmed");
+          } else {
+            el.classList.add("dimmed");
+          }
+        }
+      });
+
+      EDGES.forEach(e => {
+        const p = document.getElementById(e.id);
+        if (p) {
+          if (e.workflow === currentWorkflow) {
+            p.classList.remove("dimmed");
+            p.classList.add("highlighted");
+          } else {
+            p.classList.remove("highlighted");
+            p.classList.add("dimmed");
+          }
+        }
+      });
+    }
+
+    // Init
+    window.addEventListener("DOMContentLoaded", () => {
+      renderNodes();
+      renderEdges();
+      resetSelection();
+
+      // Click background to reset
+      document.getElementById("viewport").addEventListener("click", (e) => {
+        if (e.target.id === "viewport" || e.target.id === "nodesLayer" || e.target.id === "edgeSvg") {
+          resetSelection();
+        }
+      });
+    });
+
+    // Re-render edges on window resize
+    window.addEventListener("resize", () => {
+      renderEdges();
+      if (selectedElement) {
+        if (selectedElement.type === 'node') selectNode(selectedElement.data);
+        else if (selectedElement.type === 'edge') selectEdge(selectedElement.data);
+      } else {
+        applyWorkflowFilterUI();
+      }
+    });
+  </script>
+</body>
+</html>
