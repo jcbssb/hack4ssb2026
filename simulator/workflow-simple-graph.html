@@ -108,6 +108,7 @@
       width: 100%;
       height: 100%;
       pointer-events: all;
+      z-index: 10;
     }
 
     /* Node Card: Ultra Minimal & Clean */
@@ -233,20 +234,20 @@
   <div class="graph-container" id="container">
     <svg class="edges-svg" id="svgStage">
       <defs>
-        <marker id="arr-kilder" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#EC4899" />
+        <marker id="arr-kilder" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 1, 6 3, 0 5" fill="#EC4899" />
         </marker>
-        <marker id="arr-figma" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#A855F7" />
+        <marker id="arr-figma" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 1, 6 3, 0 5" fill="#A855F7" />
         </marker>
-        <marker id="arr-dsl" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#10B981" />
+        <marker id="arr-dsl" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 1, 6 3, 0 5" fill="#10B981" />
         </marker>
-        <marker id="arr-altinn" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#0284C7" />
+        <marker id="arr-altinn" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 1, 6 3, 0 5" fill="#0284C7" />
         </marker>
-        <marker id="arr-amber" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-          <polygon points="0 1.5, 9 4.5, 0 7.5" fill="#F59E0B" />
+        <marker id="arr-amber" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+          <polygon points="0 1, 6 3, 0 5" fill="#F59E0B" />
         </marker>
       </defs>
       <!-- Paths dynamically injected by JS -->
@@ -414,31 +415,49 @@
         path.setAttribute("stroke", e.color);
         path.setAttribute("marker-end", `url(#${e.marker})`);
 
-        // Midpoint for single-word / short pill label
+        svg.appendChild(path);
+      });
+
+      // Render edge label backgrounds & texts AFTER all paths to guarantee labels are on top
+      EDGES.forEach((e, i) => {
+        const fn = NODES.find(n => n.id === e.from);
+        const tn = NODES.find(n => n.id === e.to);
+        if (!fn || !tn) return;
+
+        const startX = fn.x + 170;
+        const startY = fn.y + 45;
+        const endX = tn.x;
+        const endY = tn.y + 45;
+
+        // Midpoint for label
         const midX = (startX + endX) / 2;
         const midY = (startY + endY) / 2 + (e.curv || 0) * 0.8;
 
-        const textLen = e.label.length * 7.5 + 16;
+        const textLen = e.label.length * 8 + 18;
+
+        // Label Group
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("id", `edge-label-group-${i}`);
 
         // Label Background
         const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         rect.setAttribute("class", "edge-label-bg");
         rect.setAttribute("x", midX - textLen / 2);
-        rect.setAttribute("y", midY - 12);
+        rect.setAttribute("y", midY - 13);
         rect.setAttribute("width", textLen);
-        rect.setAttribute("height", 22);
+        rect.setAttribute("height", 24);
         rect.setAttribute("stroke", e.color);
 
         // Label Text
         const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
         text.setAttribute("class", "edge-label-pill");
         text.setAttribute("x", midX);
-        text.setAttribute("y", midY + 3);
+        text.setAttribute("y", midY + 4);
         text.textContent = e.label;
 
-        svg.appendChild(path);
-        svg.appendChild(rect);
-        svg.appendChild(text);
+        g.appendChild(rect);
+        g.appendChild(text);
+        svg.appendChild(g);
       });
     }
 
@@ -479,12 +498,15 @@
 
       EDGES.forEach((e, i) => {
         const line = document.getElementById(`edge-${i}`);
+        const labelGroup = document.getElementById(`edge-label-group-${i}`);
         if (e.from === nodeId || e.to === nodeId) {
           line.style.opacity = "1";
           line.style.strokeWidth = "5px";
+          if (labelGroup) labelGroup.style.opacity = "1";
         } else {
           line.style.opacity = "0.1";
           line.style.strokeWidth = "2px";
+          if (labelGroup) labelGroup.style.opacity = "0.15";
         }
       });
     }
