@@ -146,6 +146,7 @@
       border-radius: 4px;
     }
     .kind-dialogue { background: rgba(139, 92, 246, 0.2); color: var(--accent-purple); border: 1px solid var(--accent-purple); }
+    .kind-bolk { background: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); border: 1px solid var(--accent-emerald); }
     .kind-question { background: rgba(0, 98, 186, 0.2); color: #60A5FA; border: 1px solid var(--altinn-blue); }
     .kind-type { background: rgba(245, 158, 11, 0.2); color: var(--accent-amber); border: 1px solid var(--accent-amber); }
 
@@ -252,6 +253,16 @@
       </div>
 
       <div class="type-card">
+        <div class="type-header">data Step</div>
+        <div class="type-body">• QuestionStep Question<br>• BolkStep Bolk (thematic section grouping questions)</div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-header">data Bolk</div>
+        <div class="type-body">Group of related questions with title, guidance/description, optional condition, and child questions.</div>
+      </div>
+
+      <div class="type-card">
         <div class="type-header">data Question</div>
         <div class="type-body">Atomic dialog step binding a prompt, question type, required predicate, and target annotations.</div>
       </div>
@@ -306,23 +317,32 @@
     function initVisualizer() {
       const select = document.getElementById('visualizer-schema-select');
       select.innerHTML = '';
-      if (!window.SSB_SCHEMAS || window.SSB_SCHEMAS.length === 0) {
+      const schemas = Array.isArray(window.SSB_SCHEMAS) 
+        ? window.SSB_SCHEMAS 
+        : Object.values(window.SSB_SCHEMAS || {});
+
+      if (schemas.length === 0) {
         document.getElementById('graph-stage').innerHTML = '<div style="color:red; padding:1rem;">Ingen skjemaer lastet fra schemas.js</div>';
         return;
       }
 
-      window.SSB_SCHEMAS.forEach((s, idx) => {
+      schemas.forEach((s) => {
         const opt = document.createElement('option');
         opt.value = s.dialogueId;
         opt.textContent = `${s.title} (${s.dialogueId})`;
+        if (s.dialogueId === "kostra51-full") opt.selected = true;
         select.appendChild(opt);
       });
 
-      switchVisualizerSchema(window.SSB_SCHEMAS[0].dialogueId);
+      const defaultId = schemas.some(s => s.dialogueId === "kostra51-full") ? "kostra51-full" : schemas[0].dialogueId;
+      switchVisualizerSchema(defaultId);
     }
 
     function switchVisualizerSchema(dialogueId) {
-      currentSchema = window.SSB_SCHEMAS.find(s => s.dialogueId === dialogueId) || window.SSB_SCHEMAS[0];
+      const schemas = Array.isArray(window.SSB_SCHEMAS) 
+        ? window.SSB_SCHEMAS 
+        : Object.values(window.SSB_SCHEMAS || {});
+      currentSchema = schemas.find(s => s.dialogueId === dialogueId) || schemas[0];
       renderGraph(currentSchema);
     }
 
@@ -338,6 +358,18 @@
       const stage = document.getElementById('graph-stage');
       stage.innerHTML = '';
 
+      // Count total questions including inside Bolker
+      let totalQuestions = 0;
+      let totalBolker = 0;
+      (schema.steps || []).forEach(step => {
+        if (step.type === "bolk" || (step.bolkId && step.questions)) {
+          totalBolker++;
+          totalQuestions += (step.questions || []).length;
+        } else {
+          totalQuestions++;
+        }
+      });
+
       // Root node
       const rootId = 'root';
       const rootNode = document.createElement('div');
@@ -345,7 +377,11 @@
       rootNode.id = 'node-root';
       rootNode.onclick = () => selectNode('root');
 
-      const ctxDesc = schema.context ? `SurveyContext { code="${schema.context.surveyCode}", org="${schema.context.orgName}" }` : 'None';
+      const ctxDesc = schema.context ? `SurveyContext { code="${schema.context.surveyCode || ''}", org="${schema.context.organization || schema.context.orgName || 'SSB'}" }` : 'None';
+      const stepsSummary = totalBolker > 0 
+        ? `${schema.steps.length} Steps (${totalBolker} Bolker, ${totalQuestions} Questions)`
+        : `${schema.steps.length} Question steps`;
+
       rootNode.innerHTML = `
         <div class="node-header">
           <span class="node-id">${escapeHtml(schema.dialogueId)}</span>
@@ -354,7 +390,7 @@
         <div class="node-body">
           <div class="field-row"><span class="field-key">title:</span><span class="field-val">"${escapeHtml(schema.title)}"</span></div>
           <div class="field-row"><span class="field-key">context:</span><span class="field-val">${escapeHtml(ctxDesc)}</span></div>
-          <div class="field-row"><span class="field-key">steps:</span><span class="field-val">${schema.steps.length} Question steps</span></div>
+          <div class="field-row"><span class="field-key">structure:</span><span class="field-val">${escapeHtml(stepsSummary)}</span></div>
         </div>
       `;
       stage.appendChild(rootNode);
@@ -363,8 +399,8 @@
         haskell: `Dialogue
   { dialogueId = "${schema.dialogueId}"
   , title      = "${schema.title}"
-  , context    = ${schema.context ? `Just (SurveyContext "${schema.context.surveyCode}" "${schema.context.orgName}")` : 'Nothing'}
-  , steps      = [${schema.steps.map(s => s.fieldId).join(', ')}]
+  , context    = ${schema.context ? `Just (SurveyContext "${schema.context.surveyCode || ''}" "${schema.context.organization || schema.context.orgName || 'SSB'}")` : 'Nothing'}
+  , steps      = [ ... ${schema.steps.length} steps ... ]
   }`,
         altinn: `// App/ui/layouts/${schema.dialogueId}.json
 {
@@ -375,7 +411,7 @@
       "size": "L",
       "textResourceBindings": { "title": "lang.tittel.${schema.dialogueId}.title" }
     },
-    ... ${schema.steps.length} form components ...,
+    ... ${totalQuestions} question components across ${schema.steps.length} steps ...,
     {
       "id": "${schema.dialogueId}-nav-buttons",
       "type": "NavigationButtons",
@@ -392,30 +428,30 @@ pageFrame.paddingTop = 40;
 pageFrame.paddingBottom = 40;`
       };
 
-      // Steps
-      schema.steps.forEach((step, idx) => {
+      let globalQuestionIdx = 0;
+
+      function renderQuestionNode(question, stepKey, prefixLabel) {
         const edge = document.createElement('div');
         edge.className = 'edge-connector';
         stage.appendChild(edge);
 
-        const stepKey = `step-${idx}`;
         const stepNode = document.createElement('div');
         stepNode.className = 'node';
         stepNode.id = `node-${stepKey}`;
         stepNode.onclick = () => selectNode(stepKey);
 
-        const qTypeStr = formatType(step.questionType);
-        const reqStr = step.required ? '<span style="color:#F87171">True</span>' : '<span style="color:#34D399">False</span>';
-        const condStr = step.condition ? `<div class="field-row"><span class="field-key">condition:</span><span class="field-val" style="color:var(--accent-cyan)">${escapeHtml(JSON.stringify(step.condition))}</span></div>` : '';
-        const hint = (step.annotations && step.annotations.componentHint) ? step.annotations.componentHint : 'Default';
+        const qTypeStr = formatType(question.questionType);
+        const reqStr = question.required ? '<span style="color:#F87171">True</span>' : '<span style="color:#34D399">False</span>';
+        const condStr = question.condition ? `<div class="field-row"><span class="field-key">condition:</span><span class="field-val" style="color:var(--accent-cyan)">${escapeHtml(JSON.stringify(question.condition))}</span></div>` : '';
+        const hint = (question.annotations && question.annotations.componentHint) ? question.annotations.componentHint : 'Default';
 
         stepNode.innerHTML = `
           <div class="node-header">
-            <span class="node-id">${escapeHtml(step.fieldId)}</span>
-            <span class="node-kind kind-question">Question (Step ${idx + 1})</span>
+            <span class="node-id">${escapeHtml(question.fieldId)}</span>
+            <span class="node-kind kind-question">${escapeHtml(prefixLabel)}</span>
           </div>
           <div class="node-body">
-            <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"${escapeHtml(step.prompt.label)}"</span></div>
+            <div class="field-row"><span class="field-key">prompt:</span><span class="field-val">"${escapeHtml(question.prompt ? question.prompt.label : '')}"</span></div>
             <div class="field-row"><span class="field-key">type:</span><span class="field-val"><strong style="color:var(--accent-amber)">${escapeHtml(qTypeStr)}</strong></span></div>
             <div class="field-row"><span class="field-key">required:</span><span class="field-val">${reqStr}</span></div>
             ${condStr}
@@ -424,50 +460,123 @@ pageFrame.paddingBottom = 40;`
         `;
         stage.appendChild(stepNode);
 
-        // Map projections for step
+        // Map projections for question
         let altinnType = "Input";
         let formatting = null;
         let isDate = false;
-        const rawType = typeof step.questionType === 'string' ? step.questionType : step.questionType.type;
-        if (rawType === 'QTextArea') altinnType = "TextArea";
-        else if (rawType === 'QInteger') { altinnType = "Input"; formatting = { number: { allowNegative: false } }; }
-        else if (rawType === 'QDecimal') { altinnType = "Input"; formatting = { number: { allowNegative: false, decimalScale: 2 } }; }
-        else if (rawType === 'QDate') { altinnType = "Datepicker"; isDate = true; }
-        else if (rawType === 'QChoice') altinnType = "RadioButtons";
-        else if (rawType === 'QMultiChoice') altinnType = "Checkboxes";
-        else if (rawType === 'QBoolean') altinnType = "RadioButtons";
+        const rawType = typeof question.questionType === 'string' ? question.questionType : question.questionType.type;
+        if (rawType === 'textarea' || rawType === 'QTextArea') altinnType = "TextArea";
+        else if (rawType === 'integer' || rawType === 'QInteger') { altinnType = "Input"; formatting = { number: { allowNegative: false } }; }
+        else if (rawType === 'decimal' || rawType === 'QDecimal') { altinnType = "Input"; formatting = { number: { allowNegative: false, decimalScale: 2 } }; }
+        else if (rawType === 'date' || rawType === 'QDate') { altinnType = "Datepicker"; isDate = true; }
+        else if (rawType === 'choice' || rawType === 'QChoice') altinnType = "RadioButtons";
+        else if (rawType === 'multichoice' || rawType === 'QMultiChoice') altinnType = "Checkboxes";
+        else if (rawType === 'boolean' || rawType === 'QBoolean') altinnType = "RadioButtons";
 
         const altinnComponent = {
-          id: `${schema.dialogueId}-${step.fieldId}-input`,
+          id: `${schema.dialogueId}-${question.fieldId}-input`,
           type: altinnType,
           ...(isDate ? { timeStamp: false } : {}),
-          required: step.required,
-          dataModelBindings: { simpleBinding: `SkjemaData.${schema.dialogueId}.${step.fieldId}` },
+          required: question.required,
+          dataModelBindings: { simpleBinding: `SkjemaData.${schema.dialogueId}.${question.fieldId}` },
           textResourceBindings: {
-            title: `lang.${schema.dialogueId}.${step.fieldId}.label`,
-            ...(step.prompt.guidance ? { help: `lang.${schema.dialogueId}.${step.fieldId}.help` } : {})
+            title: `lang.${schema.dialogueId}.${question.fieldId}.label`,
+            ...(question.prompt && question.prompt.helpText ? { help: `lang.${schema.dialogueId}.${question.fieldId}.help` } : {})
           },
           ...(formatting ? { formatting } : {})
         };
 
         nodeDataMap[stepKey] = {
           haskell: `Question
-  { fieldId      = "${step.fieldId}"
-  , prompt       = Prompt "${step.prompt.label}" ${step.prompt.guidance ? `(Just "${step.prompt.guidance}")` : 'Nothing'}
-  , questionType = ${JSON.stringify(step.questionType)}
-  , required     = ${step.required ? 'True' : 'False'}
-  , condition    = ${step.condition ? `Just (${JSON.stringify(step.condition)})` : 'Nothing'}
-  , annotations  = ${step.annotations ? `Just ${JSON.stringify(step.annotations)}` : 'Nothing'}
+  { fieldId      = "${question.fieldId}"
+  , prompt       = Prompt "${question.prompt ? question.prompt.label : ''}" ${question.prompt && question.prompt.helpText ? `(Just "${question.prompt.helpText}")` : 'Nothing'}
+  , questionType = ${JSON.stringify(question.questionType)}
+  , required     = ${question.required ? 'True' : 'False'}
+  , condition    = ${question.condition ? `Just (${JSON.stringify(question.condition)})` : 'Nothing'}
+  , annotations  = ${question.annotations ? `Just ${JSON.stringify(question.annotations)}` : 'Nothing'}
   }`,
           altinn: `// Altinn 3 Layout Component:
 ${JSON.stringify(altinnComponent, null, 2)}`,
           figma: `// Figma Component Instance:
 const comp = figma.createComponent();
-comp.name = "${altinnType}: ${step.fieldId}";
-comp.setPluginData("binding", "${step.fieldId}");
-comp.setPluginData("required", "${step.required}");
+comp.name = "${altinnType}: ${question.fieldId}";
+comp.setPluginData("binding", "${question.fieldId}");
+comp.setPluginData("required", "${question.required}");
 pageFrame.appendChild(comp);`
         };
+      }
+
+      // Steps
+      schema.steps.forEach((step, idx) => {
+        if (step.type === "bolk" || (step.bolkId && step.questions)) {
+          // Render Bolk container node
+          const edge = document.createElement('div');
+          edge.className = 'edge-connector';
+          stage.appendChild(edge);
+
+          const bolkKey = `bolk-${idx}`;
+          const bolkNode = document.createElement('div');
+          bolkNode.className = 'node';
+          bolkNode.id = `node-${bolkKey}`;
+          bolkNode.onclick = () => selectNode(bolkKey);
+
+          const bTitle = step.title || step.bolkTitle || "Bolk";
+          const bDesc = step.description || step.bolkDescription || "";
+          const qCount = (step.questions || []).length;
+
+          bolkNode.innerHTML = `
+            <div class="node-header">
+              <span class="node-id">${escapeHtml(step.bolkId)}</span>
+              <span class="node-kind kind-bolk">BolkStep (${qCount} spm)</span>
+            </div>
+            <div class="node-body">
+              <div class="field-row"><span class="field-key">title:</span><span class="field-val">"${escapeHtml(bTitle)}"</span></div>
+              ${bDesc ? `<div class="field-row"><span class="field-key">description:</span><span class="field-val">${escapeHtml(bDesc)}</span></div>` : ''}
+              <div class="field-row"><span class="field-key">questions:</span><span class="field-val">${qCount} child questions</span></div>
+            </div>
+          `;
+          stage.appendChild(bolkNode);
+
+          nodeDataMap[bolkKey] = {
+            haskell: `BolkStep Bolk
+  { bolkId          = "${step.bolkId}"
+  , bolkTitle       = "${bTitle}"
+  , bolkDescription = ${bDesc ? `Just "${bDesc}"` : 'Nothing'}
+  , bolkCondition   = ${step.condition ? `Just (${JSON.stringify(step.condition)})` : 'Nothing'}
+  , bolkQuestions   = [${(step.questions || []).map(q => q.fieldId).join(', ')}]
+  }`,
+            altinn: `// Altinn 3 Group / Section Container
+{
+  "id": "${schema.dialogueId}-${step.bolkId}-group",
+  "type": "Group",
+  "textResourceBindings": {
+    "title": "lang.bolk.${step.bolkId}.title"${bDesc ? `,\n    "description": "lang.bolk.${step.bolkId}.description"` : ''}
+  },
+  "children": [
+${(step.questions || []).map(q => `    "${schema.dialogueId}-${q.fieldId}-input"`).join(',\n')}
+  ]
+}`,
+            figma: `// Figma Section Frame (AutoLayout)
+const bolkFrame = figma.createFrame();
+bolkFrame.name = "Bolk: ${step.bolkId} - ${bTitle}";
+bolkFrame.layoutMode = "VERTICAL";
+bolkFrame.itemSpacing = 16;
+bolkFrame.paddingTop = 20;
+bolkFrame.paddingBottom = 20;
+pageFrame.appendChild(bolkFrame);`
+          };
+
+          (step.questions || []).forEach((q, qIdx) => {
+            globalQuestionIdx++;
+            const stepKey = `bolk-${idx}-q-${qIdx}`;
+            renderQuestionNode(q, stepKey, `${step.bolkId} (Q ${qIdx + 1})`);
+          });
+        } else {
+          // Plain question step
+          globalQuestionIdx++;
+          const stepKey = `step-${idx}`;
+          renderQuestionNode(step, stepKey, `Question (Step ${idx + 1})`);
+        }
       });
 
       selectNode('root');

@@ -11,6 +11,7 @@ module SchemaDSL.Examples
   , kostra51Side4Dialogue
   , kostra51Side5Dialogue
   , kostra51Side6Dialogue
+  , kostra51FullDialogue
   ) where
 
 import Data.Aeson (Value(..))
@@ -1525,6 +1526,26 @@ kostra51Side6Dialogue = Dialogue
                   }
               ]
           }
+      ]
+  }
+
+-- | Complete KOSTRA 51 survey aggregating all 6 pages into a unified Dialogue SSOT
+kostra51FullDialogue :: Dialogue
+kostra51FullDialogue = Dialogue
+  { dialogueId = "kostra51-full"
+  , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Komplett undersøkelse)"
+  , context    = Just SurveyContext
+      { surveyCode   = Just "KOSTRA-51-2026"
+      , organization = Just "Statistisk sentralbyrå"
+      , legalNotice  = Just "Samlet rapportering for planbehandling, miljø- og kulturminneforvaltning (Side 1 til 6). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
+      }
+  , steps      = concat
+      [ steps kostra51Side1Dialogue
+      , steps kostra51Side2Dialogue
+      , steps kostra51Side3Dialogue
+      , steps kostra51Side4Dialogue
+      , steps kostra51Side5Dialogue
+      , steps kostra51Side6Dialogue
       ]
   }
 
