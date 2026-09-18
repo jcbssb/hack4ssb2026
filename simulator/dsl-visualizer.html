@@ -72,6 +72,45 @@
       padding: 1.25rem;
       overflow-y: auto;
     }
+
+    /* Bolk Quick Navigator in Left Sidebar */
+    .bolk-toc {
+      background: #0F172A;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      max-height: 240px;
+      overflow-y: auto;
+      margin-bottom: 1.25rem;
+    }
+    .bolk-toc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      color: #CBD5E1;
+      background: rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .bolk-toc-item:hover {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent-cyan);
+    }
+    .bolk-toc-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.15);
+      padding: 0.1rem 0.4rem;
+      border-radius: 3px;
+    }
     .panel-title {
       font-size: 0.85rem;
       text-transform: uppercase;
@@ -245,6 +284,11 @@
   <div class="main-layout">
     <!-- Left Panel: Grammar & Types -->
     <aside class="sidebar-left">
+      <div class="panel-title">Bolk Navigasjon</div>
+      <div class="bolk-toc" id="visualizer-bolk-toc">
+        <!-- Generated dynamically -->
+      </div>
+
       <div class="panel-title">Haskell DSL Type Hierarchy</div>
 
       <div class="type-card">
@@ -394,6 +438,36 @@
         </div>
       `;
       stage.appendChild(rootNode);
+
+      // Render Bolk TOC in sidebar
+      const tocContainer = document.getElementById('visualizer-bolk-toc');
+      if (tocContainer) {
+        tocContainer.innerHTML = '';
+        const bolkItems = (schema.steps || []).filter(s => s.type === 'bolk' || (s.bolkId && s.questions));
+        if (bolkItems.length === 0) {
+          tocContainer.innerHTML = '<div style="color:var(--text-secondary); font-size:0.75rem; padding:0.25rem;">Ingen bolker i dette skjemaet</div>';
+        } else {
+          bolkItems.forEach((b, bIdx) => {
+            const item = document.createElement('a');
+            item.className = 'bolk-toc-item';
+            item.onclick = (e) => {
+              e.preventDefault();
+              const targetNode = document.getElementById(`node-bolk-${bIdx}`);
+              if (targetNode) {
+                targetNode.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                selectNode(`bolk-${bIdx}`);
+              }
+            };
+            const bTitle = b.title || b.bolkTitle || b.bolkId;
+            const qCount = (b.questions || []).length;
+            item.innerHTML = `
+              <span><strong>${escapeHtml(b.bolkId)}</strong>: ${escapeHtml(bTitle.substring(0, 22))}${bTitle.length > 22 ? '…' : ''}</span>
+              <span class="bolk-toc-badge">${qCount} spm</span>
+            `;
+            tocContainer.appendChild(item);
+          });
+        }
+      }
 
       nodeDataMap['root'] = {
         haskell: `Dialogue
