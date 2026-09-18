@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foran Skjema - Original Skjema-arbeidsflyt (Figma ➔ Altinn 3)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+  <style>
+    :root {
+      --ssb-green: #00824D;
+      --ssb-green-dark: #005b36;
+      --ssb-green-light: #e8f5ed;
+      --figma-purple: #874FFF;
+      --figma-purple-light: #F2EEFF;
+      --altinn-blue: #0062BA;
+      --altinn-blue-light: #E6F0FA;
+      --ai-orange: #d97706;
+      --ai-orange-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ssb-green-dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--ssb-green-light);
+      color: var(--ssb-green-dark);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 130, 77, 0.2);
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--ssb-green);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--ssb-green-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      background: #f1f5f9;
+    }
+
+    /* Workflow Diagram */
+    .flow-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+    }
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+
+    .pipeline-step {
+      background: #ffffff;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pipeline-step:hover, .pipeline-step.active {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .pipeline-step.step-1:hover, .pipeline-step.step-1.active { border-color: var(--ai-orange); }
+    .pipeline-step.step-2:hover, .pipeline-step.step-2.active { border-color: var(--figma-purple); }
+    .pipeline-step.step-3:hover, .pipeline-step.step-3.active { border-color: var(--ssb-green); }
+    .pipeline-step.step-4:hover, .pipeline-step.step-4.active { border-color: var(--altinn-blue); }
+
+    .step-number {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step-1 .step-number { color: var(--ai-orange); }
+    .step-2 .step-number { color: var(--figma-purple); }
+    .step-3 .step-number { color: var(--ssb-green); }
+    .step-4 .step-number { color: var(--altinn-blue); }
+
+    .step-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .step-1 .tag { background: var(--ai-orange-light); color: #92400e; }
+    .step-2 .tag { background: var(--figma-purple-light); color: #581c87; }
+    .step-3 .tag { background: var(--ssb-green-light); color: var(--ssb-green-dark); }
+    .step-4 .tag { background: var(--altinn-blue-light); color: #1e40af; }
+
+    /* Connectors */
+    .arrow-divider {
+      position: absolute;
+      top: 50%;
+      right: -14px;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      z-index: 2;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* Details Drawer */
+    .details-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .details-title-group h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .details-title-group p {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .detail-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .detail-box h4 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #334155;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .detail-list {
+      list-style: none;
+    }
+
+    .detail-list li {
+      font-size: 13px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .bullet {
+      color: var(--ssb-green);
+      font-weight: bold;
+    }
+
+    pre code {
+      font-family: 'Roboto Mono', monospace;
+      font-size: 12px;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 12px;
+      border-radius: 6px;
+      display: block;
+      overflow-x: auto;
+    }
+
+    /* Bottom Comparison & References */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    .comparison-table th, .comparison-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .doc-link {
+      display: block;
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      transition: all 0.2s ease;
+    }
+    .doc-link:hover {
+      background: var(--ssb-green-light);
+      border-color: var(--ssb-green);
+      color: var(--ssb-green-dark);
+    }
+    .doc-link strong {
+      display: block;
+      font-size: 13px;
+    }
+    .doc-link span {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div>
+      <div class="brand-title">
+        Foran Skjema
+        <span class="brand-badge">SSB Hackday 2026</span>
+      </div>
+      <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">
+        Visuell fremstilling av den opprinnelige skjemautviklingsflyten fra <code>README.md</code> og <code>docs/arbeidsflyt-skjema.md</code>
+      </p>
+    </div>
+    <div class="header-nav">
+      <a href="index.html" class="btn btn-outline">Skjemasimulator</a>
+      <a href="dsl-visualizer.html" class="btn btn-outline">DSL Visualizer</a>
+      <a href="#details" class="btn btn-primary">Se Detaljer</a>
+    </div>
+  </header>
+
+  <!-- Interactive Workflow Pipeline -->
+  <div class="flow-card">
+    <div class="section-title">
+      Original Arbeidsflyt: Fra Beskrivelse til Altinn 3
+    </div>
+    <div class="section-sub">
+      Klikk på et av stegene under for å inspisere input, prosessering, ansvarlige roller og resulterende Altinn 3-artefakter.
+    </div>
+
+    <div class="pipeline-grid">
+      <!-- Step 1 -->
+      <div class="pipeline-step step-1 active" onclick="selectStep(1)">
+        <div class="step-number">Steg 1</div>
+        <div class="step-title">Beskrivelse & Datamodell</div>
+        <div class="step-desc">
+          Enkle krav, punktlister, JSON Schema, XSD eller legacy PDF ekstraheres og struktureres.
+        </div>
+        <div class="step-tags">
+          <span class="tag">JSON Schema</span>
+          <span class="tag">XSD</span>
+          <span class="tag">AI / Prompts</span>
+        </div>
+        <div class="arrow-divider">➔</div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="pipeline-step step-2" onclick="selectStep(2)">
+        <div class="step-number">Steg 2</div>
+        <div class="step-title">Figma Prototype</div>
+        <div class="step-desc">
+          Auto-generering av visuelle skjermbilder i Figma med Auto Layout og SSB/Altinn komponenter.
+        </div>
+        <div class="step-tags">
+          <span class="tag">Figma Plugin</span>
+          <span class="tag">Auto Layout</span>
+          <span class="tag">Design Tokens</span>
+        </div>
+        <div class="arrow-divider">➔</div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="pipeline-step step-3" onclick="selectStep(3)">
+        <div class="step-number">Steg 3</div>
+        <div class="step-title">Faglig Iterasjon</div>
+        <div class="step-desc">
+          Brukertesting og faglig gjennomgang av ledetekster, rekkefølge og gruppering direkte i Figma.
+        </div>
+        <div class="step-tags">
+          <span class="tag">Statistikere</span>
+          <span class="tag">UX-designere</span>
+          <span class="tag">Fageksperter</span>
+        </div>
+        <div class="arrow-divider">➔</div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="pipeline-step step-4" onclick="selectStep(4)">
+        <div class="step-number">Steg 4</div>
+        <div class="step-title">Altinn 3 App Layout</div>
+        <div class="step-desc">
+          Oversettelse av komponenttreet til kjørbare Altinn 3-definisjoner, layout, tekster og modeller.
+        </div>
+        <div class="step-tags">
+          <span class="tag">layout.json</span>
+          <span class="tag">resource.nb.json</span>
+          <span class="tag">C# / XSD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Step Inspector -->
+  <div class="details-panel" id="details">
+    <div class="details-header">
+      <div class="details-title-group">
+        <h3 id="panel-title">Steg 1: Enkel beskrivelse / Datamodell ➔ Figma-prototype</h3>
+        <p id="panel-subtitle">Ekstraksjon og konvertering av krav og datadefinisjoner til formkomponenter.</p>
+      </div>
+      <span class="brand-badge" id="panel-role">Rolle: AI & Utvikler</span>
+    </div>
+
+    <div class="details-grid">
+      <div class="detail-box">
+        <h4>Input & Prosess</h4>
+        <ul class="detail-list" id="panel-process">
+          <li><span class="bullet">•</span> <strong>Input:</strong> Tekstkrav, spørreskjema-skisser, XSD-skjemaer eller JSON Schema.</li>
+          <li><span class="bullet">•</span> <strong>AI-mapping:</strong> Datatyper (string, boolean, integer, enum) mappes til standard UI-komponenter.</li>
+          <li><span class="bullet">•</span> <strong>Figma Plugin:</strong> Oppretter frames med Auto Layout, spørsmålstekster og feltkomponenter.</li>
+        </ul>
+      </div>
+
+      <div class="detail-box">
+        <h4>Output & Kode-eksempel</h4>
+        <div id="panel-code">
+<pre><code>// Eksempel på datamodell-input
+{
+  "feltId": "aarsverkKulturminnerAlt",
+  "type": "decimal",
+  "prompt": "Hvor mange årsverk i alt?",
+  "required": true
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Comparison & Resources -->
+  <div class="bottom-grid">
+    <div class="card">
+      <div class="section-title">Synergi: Opprinnelig Figma-flyt vs. Dialogue DSL</div>
+      <p style="font-size: 13px; color: var(--text-muted);">
+        Hvordan Haskell Dialogue DSL komplementerer og forsterker den opprinnelige Figma-til-Altinn visjonen:
+      </p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Fase / Dimensjon</th>
+            <th>Opprinnelig Flyt (Figma ➔ Altinn)</th>
+            <th>Foran Skjema (Dialogue DSL SSOT)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Single Source of Truth</strong></td>
+            <td>Figma Design Canvas</td>
+            <td>Typet Haskell DSL AST (dekker regler, validering, layout)</td>
+          </tr>
+          <tr>
+            <td><strong>Iterasjonsarena</strong></td>
+            <td>Figma UI Editor (visuelt)</td>
+            <td>Toveis: Figma for UX + Nettleser-simulator for logikk</td>
+          </tr>
+          <tr>
+            <td><strong>Altinn 3 Ekstraksjon</strong></td>
+            <td>Figma REST API / Plugin parser</td>
+            <td>Deterministisk kompilator (<code>SchemaDSL.Altinn.Compile</code>)</td>
+          </tr>
+          <tr>
+            <td><strong>Modellkonsistens</strong></td>
+            <td>Manuell/semi-auto C# & JSON Schema sync</td>
+            <td>100% automatisk injeksjon av C#, XSD, Layout og Tekster</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="section-title">Dokumentasjonsreferanser</div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Referanser fra prosjektarkivet:
+      </p>
+
+      <a href="https://github.com/jcbssb/hack4ssb2026/blob/main/docs/arbeidsflyt-skjema.md" target="_blank" class="doc-link">
+        <strong>docs/arbeidsflyt-skjema.md</strong>
+        <span>Konseptuelt notat om Figma ➔ Altinn</span>
+      </a>
+
+      <a href="https://github.com/jcbssb/hack4ssb2026/tree/main/docs/altinn-figma-to-app-joakim" target="_blank" class="doc-link">
+        <strong>docs/altinn-figma-to-app-joakim/</strong>
+        <span>Joakims veiledning & komponentkatalog</span>
+      </a>
+
+      <a href="https://github.com/jcbssb/hack4ssb2026/blob/main/README.md" target="_blank" class="doc-link">
+        <strong>README.md</strong>
+        <span>Hovedbeskrivelse av hack-prosjektet</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const stepData = {
+    1: {
+      title: "Steg 1: Enkel beskrivelse / Datamodell ➔ Figma-prototype",
+      subtitle: "Ekstraksjon og konvertering av krav og datadefinisjoner til formkomponenter.",
+      role: "Rolle: AI-agent, Dataarkitekt & Utvikler",
+      process: [
+        "<strong>Input:</strong> Tekstkrav, legacy-skjema (f.eks. KOSTRA-pdf), XSD-skjemaer eller JSON Schema.",
+        "<strong>AI-mapping:</strong> Datatyper (string, boolean, integer, enum) mappes til standard UI-komponenter.",
+        "<strong>Figma Plugin:</strong> Oppretter frames med Auto Layout, spørsmålstekster og feltkomponenter."
+      ],
+      code: `// Steg 1: Datamodell eller enkel JSON spesifikasjon
+{
+  "fieldId": "kommuneNavn",
+  "type": "string",
+  "label": "Kommunens navn",
+  "required": true,
+  "componentHint": "Input"
+}`
+    },
+    2: {
+      title: "Steg 2: Figma Skjemaprototype",
+      subtitle: "Visuell skjemagenerering med Felles Designsystem / Altinn design tokens.",
+      role: "Rolle: Figma Generator / UI Designer",
+      process: [
+        "<strong>Auto Layout Frames:</strong> Sider representeres som vertikale rammer med standardisert padding og avstand.",
+        "<strong>Komponentinstanser:</strong> Skjemaelementer (Input, Radio, Checkboxes, Buttons) hentes fra felles designbibliotek.",
+        "<strong>Lagstruktur & Navneregler:</strong> Komponenter navngis med felttype og binding-ID for enkel eksport."
+      ],
+      code: `// Figma Frame struktur
+[Frame: S01_FormPage]
+  ├── [Component: Header (h2) - "Kontaktinfo"]
+  ├── [Component: InputField - "t1_kommunenummer"]
+  ├── [Component: RadioGroup - "t1_sporValg"]
+  └── [Component: ActionButton - "Neste"]`
+    },
+    3: {
+      title: "Steg 3: Faglig Iterasjon og Forenkling i Figma",
+      subtitle: "Samhandlingsarena for statistikere, fageksperter og UX-designere.",
+      role: "Rolle: Fagstatistiker, Fagekspert & UX-designer",
+      process: [
+        "<strong>Brukertesting:</strong> Tidlig validering av spørsmålsrekkefølge, ledetekster og hjelpetekster.",
+        "<strong>Optimalisering:</strong> Fjerning av overflødige spørsmål og forbedring av logisk inndeling i bolker.",
+        "<strong>Faglig godkjenning:</strong> Fageksperter godkjenner skjemaets visuelle struktur før kode genereres."
+      ],
+      code: `// Iterasjonsaktiviteter i Figma
+- Justering av hjelpetekster ("Oppgi 4 siffer...")
+- Samling av spørsmål i seksjonscontainere (Bolk A, B, C)
+- Omorganisering av felter i responsive rutenett (grid 50/50)`
+    },
+    4: {
+      title: "Steg 4: Figma-prototype ➔ Altinn 3 Skjema",
+      subtitle: "Oversettelse fra Figma-design til produksjonsklare Altinn 3 filer.",
+      role: "Rolle: Altinn Parser & Kompilator",
+      process: [
+        "<strong>Figma REST / JSON Parser:</strong> Analyserer nodetreet og komponentene i det godkjente designet.",
+        "<strong>Layout & Tekster:</strong> Genererer App/ui/layouts/*.json og App/config/texts/resource.*.json.",
+        "<strong>Datamodellsynk:</strong> Mapper felter mot C#-klasser og XSD/JSON Schema.",
+        "<strong>Kjørbart resultat:</strong> Skjemaet kan umiddelbart kjøres og testes i Altinn Studio."
+      ],
+      code: `// Generert Altinn 3 layout.json
+{
+  "id": "t1_kommunenummer-input",
+  "type": "Input",
+  "dataModelBindings": {
+    "simpleBinding": "SkjemaData.t1_kommunenummer"
+  },
+  "textResourceBindings": {
+    "title": "lang.t1_kommunenummer.label"
+  }
+}`
+    }
+  };
+
+  function selectStep(stepNum) {
+    document.querySelectorAll('.pipeline-step').forEach((el, idx) => {
+      el.classList.toggle('active', (idx + 1) === stepNum);
+    });
+
+    const data = stepData[stepNum];
+    document.getElementById('panel-title').innerText = data.title;
+    document.getElementById('panel-subtitle').innerText = data.subtitle;
+    document.getElementById('panel-role').innerText = data.role;
+
+    const listEl = document.getElementById('panel-process');
+    listEl.innerHTML = data.process.map(item => `<li><span class="bullet">•</span> ${item}</li>`).join('');
+
+    const codeEl = document.getElementById('panel-code');
+    codeEl.innerHTML = `<pre><code>${data.code}</code></pre>`;
+  }
+</script>
+
+</body>
+</html>
