@@ -1,0 +1,1532 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_boker_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_boker_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_boker_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_boker_k4",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_boker_alt"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k4",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_lydboker_alt"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_eboker_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k4",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_eboker_alt"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_boker_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_sum_k1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_boker_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_sum_k2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_boker_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k3",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_sum_k3"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_boker_k4",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_lydboker_k4",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_eboker_k4",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_sum_k4"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_utlaan_sum_k1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_sum_k2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_sum_k3",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_utlaan_sum_k4",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_utlaan_sum_alt"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_besoek_sentrum_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "demo_besoek_sentrum_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_besoek_sentrum_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_besoek_nord_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "demo_besoek_nord_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_besoek_nord_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_arr_forfatter_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_arr_teater_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_arr_kurs_antall",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_arr_sum_antall"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_arr_forfatter_deltakere",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_arr_teater_deltakere",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_arr_kurs_deltakere",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "demo_arr_sum_deltakere"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_arr_sum_deltakere",
+                    "op": "field"
+                },
+                "op": "div",
+                "right": {
+                    "fieldId": "demo_arr_sum_antall",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_arr_sum_snitt"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_arr_forfatter_deltakere",
+                    "op": "field"
+                },
+                "op": "div",
+                "right": {
+                    "fieldId": "demo_arr_forfatter_antall",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_arr_forfatter_snitt"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_arr_teater_deltakere",
+                    "op": "field"
+                },
+                "op": "div",
+                "right": {
+                    "fieldId": "demo_arr_teater_antall",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_arr_teater_snitt"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_arr_kurs_deltakere",
+                    "op": "field"
+                },
+                "op": "div",
+                "right": {
+                    "fieldId": "demo_arr_kurs_antall",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_arr_kurs_snitt"
+        },
+        {
+            "expr": {
+                "fieldId": "demo_utlaan_sum_alt",
+                "op": "field"
+            },
+            "fieldId": "demo_sml_utlaan_iaar"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "demo_sml_utlaan_iaar",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "demo_sml_utlaan_ifjor",
+                    "op": "field"
+                }
+            },
+            "fieldId": "demo_sml_utlaan_endring"
+        }
+    ],
+    "constraints": [
+        {
+            "comparison": "gte",
+            "constraintId": "demo_besoek_voksne_sentrum",
+            "left": {
+                "fieldId": "demo_besoek_sentrum_c",
+                "op": "field"
+            },
+            "message": "Barn kan ikke være flere enn besøk i alt (Filial Sentrum)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "demo_besoek_voksne_nord",
+            "left": {
+                "fieldId": "demo_besoek_nord_c",
+                "op": "field"
+            },
+            "message": "Barn kan ikke være flere enn besøk i alt (Filial Nord)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "demo_innkjop_forsinket_boker",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_innkjop_1_1_boker",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Forsinket kan ikke overstige bestilt (Bøker)",
+            "right": {
+                "fieldId": "demo_innkjop_1_boker",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "demo_innkjop_forsinket_lydboker",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_innkjop_1_1_lydboker",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Forsinket kan ikke overstige bestilt (Lydbøker)",
+            "right": {
+                "fieldId": "demo_innkjop_1_lydboker",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "demo_innkjop_herav_boker",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "demo_innkjop_1_1_boker",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "demo_innkjop_1_2_boker",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Forsinket og avbestilt kan til sammen ikke overstige bestilt (Bøker)",
+            "right": {
+                "fieldId": "demo_innkjop_1_boker",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "demo_sml_fall_utlaan",
+            "left": {
+                "fieldId": "demo_sml_utlaan_iaar",
+                "op": "field"
+            },
+            "message": "Utlånet har falt med mer enn 50 % fra i fjor. Er tallene riktige? (Utlån i alt)",
+            "right": {
+                "op": "mul",
+                "terms": [
+                    {
+                        "fieldId": "demo_sml_utlaan_ifjor",
+                        "op": "field"
+                    },
+                    {
+                        "op": "const",
+                        "value": 0.5
+                    }
+                ]
+            },
+            "severity": "warning"
+        }
+    ],
+    "context": {
+        "legalNotice": "Viser hovedbruken av matrise-hjelperen: summer, rest, snitt, betingede celler, herav-kontroller og celler hentet fra andre tabeller.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "HACK-2026-MATRISE"
+    },
+    "dialogueId": "hack4ssb-matrix",
+    "steps": [
+        {
+            "bolkId": "1_summer",
+            "description": "Fyll inn utlån per medietype og kvartal. «I alt»-kolonnen og «Sum»-raden beregnes, også hjørnecellen.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k1",
+                            "colLabel": "Kvartal 1",
+                            "id": "demo_utlaan",
+                            "row": "boker",
+                            "rowLabel": "Bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_boker_k1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Bøker: Kvartal 1"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k2",
+                            "colLabel": "Kvartal 2",
+                            "id": "demo_utlaan",
+                            "row": "boker",
+                            "rowLabel": "Bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_boker_k2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Bøker: Kvartal 2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k3",
+                            "colLabel": "Kvartal 3",
+                            "id": "demo_utlaan",
+                            "row": "boker",
+                            "rowLabel": "Bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_boker_k3",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Bøker: Kvartal 3"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k4",
+                            "colLabel": "Kvartal 4",
+                            "id": "demo_utlaan",
+                            "row": "boker",
+                            "rowLabel": "Bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_boker_k4",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Bøker: Kvartal 4"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "alt",
+                            "colLabel": "I alt",
+                            "id": "demo_utlaan",
+                            "row": "boker",
+                            "rowLabel": "Bøker"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_boker_alt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Bøker: I alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k1",
+                            "colLabel": "Kvartal 1",
+                            "id": "demo_utlaan",
+                            "row": "lydboker",
+                            "rowLabel": "Lydbøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_lydboker_k1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Lydbøker: Kvartal 1"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k2",
+                            "colLabel": "Kvartal 2",
+                            "id": "demo_utlaan",
+                            "row": "lydboker",
+                            "rowLabel": "Lydbøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_lydboker_k2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Lydbøker: Kvartal 2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k3",
+                            "colLabel": "Kvartal 3",
+                            "id": "demo_utlaan",
+                            "row": "lydboker",
+                            "rowLabel": "Lydbøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_lydboker_k3",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Lydbøker: Kvartal 3"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k4",
+                            "colLabel": "Kvartal 4",
+                            "id": "demo_utlaan",
+                            "row": "lydboker",
+                            "rowLabel": "Lydbøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_lydboker_k4",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Lydbøker: Kvartal 4"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "alt",
+                            "colLabel": "I alt",
+                            "id": "demo_utlaan",
+                            "row": "lydboker",
+                            "rowLabel": "Lydbøker"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_lydboker_alt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Lydbøker: I alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k1",
+                            "colLabel": "Kvartal 1",
+                            "id": "demo_utlaan",
+                            "row": "eboker",
+                            "rowLabel": "E-bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_eboker_k1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E-bøker: Kvartal 1"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k2",
+                            "colLabel": "Kvartal 2",
+                            "id": "demo_utlaan",
+                            "row": "eboker",
+                            "rowLabel": "E-bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_eboker_k2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E-bøker: Kvartal 2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k3",
+                            "colLabel": "Kvartal 3",
+                            "id": "demo_utlaan",
+                            "row": "eboker",
+                            "rowLabel": "E-bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_eboker_k3",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E-bøker: Kvartal 3"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k4",
+                            "colLabel": "Kvartal 4",
+                            "id": "demo_utlaan",
+                            "row": "eboker",
+                            "rowLabel": "E-bøker"
+                        }
+                    },
+                    "fieldId": "demo_utlaan_eboker_k4",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E-bøker: Kvartal 4"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "alt",
+                            "colLabel": "I alt",
+                            "id": "demo_utlaan",
+                            "row": "eboker",
+                            "rowLabel": "E-bøker"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_eboker_alt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E-bøker: I alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k1",
+                            "colLabel": "Kvartal 1",
+                            "id": "demo_utlaan",
+                            "row": "sum",
+                            "rowLabel": "Sum alle medier"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_sum_k1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum alle medier: Kvartal 1"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k2",
+                            "colLabel": "Kvartal 2",
+                            "id": "demo_utlaan",
+                            "row": "sum",
+                            "rowLabel": "Sum alle medier"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_sum_k2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum alle medier: Kvartal 2"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k3",
+                            "colLabel": "Kvartal 3",
+                            "id": "demo_utlaan",
+                            "row": "sum",
+                            "rowLabel": "Sum alle medier"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_sum_k3",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum alle medier: Kvartal 3"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "k4",
+                            "colLabel": "Kvartal 4",
+                            "id": "demo_utlaan",
+                            "row": "sum",
+                            "rowLabel": "Sum alle medier"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_sum_k4",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum alle medier: Kvartal 4"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 2,
+                        "matrix": {
+                            "col": "alt",
+                            "colLabel": "I alt",
+                            "id": "demo_utlaan",
+                            "row": "sum",
+                            "rowLabel": "Sum alle medier"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_utlaan_sum_alt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum alle medier: I alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "1. Utlån per kvartal (summer i rader og kolonner)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "2_rest",
+            "description": "«Herav voksne» beregnes som besøk i alt minus barn. Blir den negativ, stopper «Neste side» med en feil.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Besøk i alt",
+                            "id": "demo_besoek",
+                            "row": "sentrum",
+                            "rowLabel": "Filial Sentrum"
+                        }
+                    },
+                    "fieldId": "demo_besoek_sentrum_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Sentrum: a. Besøk i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav barn",
+                            "id": "demo_besoek",
+                            "row": "sentrum",
+                            "rowLabel": "Filial Sentrum"
+                        }
+                    },
+                    "fieldId": "demo_besoek_sentrum_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Sentrum: b. Herav barn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav voksne (beregnet)",
+                            "id": "demo_besoek",
+                            "row": "sentrum",
+                            "rowLabel": "Filial Sentrum"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_besoek_sentrum_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Sentrum: c. Herav voksne (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Besøk i alt",
+                            "id": "demo_besoek",
+                            "row": "nord",
+                            "rowLabel": "Filial Nord"
+                        }
+                    },
+                    "fieldId": "demo_besoek_nord_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Nord: a. Besøk i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav barn",
+                            "id": "demo_besoek",
+                            "row": "nord",
+                            "rowLabel": "Filial Nord"
+                        }
+                    },
+                    "fieldId": "demo_besoek_nord_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Nord: b. Herav barn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav voksne (beregnet)",
+                            "id": "demo_besoek",
+                            "row": "nord",
+                            "rowLabel": "Filial Nord"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_besoek_nord_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Filial Nord: c. Herav voksne (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "2. Besøk (restkolonne)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "3_snitt",
+            "description": "Snitt deltakere beregnes med divisjon. Sum-raden summerer antall og deltakere, men snittet i sum-raden er deltakere i alt delt på arrangementer i alt.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall arrangementer",
+                            "id": "demo_arr",
+                            "row": "sum",
+                            "rowLabel": "Arrangementer i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_sum_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Arrangementer i alt: Antall arrangementer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "deltakere",
+                            "colLabel": "Deltakere",
+                            "id": "demo_arr",
+                            "row": "sum",
+                            "rowLabel": "Arrangementer i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_sum_deltakere",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Arrangementer i alt: Deltakere"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "snitt",
+                            "colLabel": "Snitt deltakere per arrangement",
+                            "id": "demo_arr",
+                            "row": "sum",
+                            "rowLabel": "Arrangementer i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_sum_snitt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Arrangementer i alt: Snitt deltakere per arrangement"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall arrangementer",
+                            "id": "demo_arr",
+                            "row": "forfatter",
+                            "rowLabel": "Forfattermøter"
+                        }
+                    },
+                    "fieldId": "demo_arr_forfatter_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Forfattermøter: Antall arrangementer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "deltakere",
+                            "colLabel": "Deltakere",
+                            "id": "demo_arr",
+                            "row": "forfatter",
+                            "rowLabel": "Forfattermøter"
+                        }
+                    },
+                    "fieldId": "demo_arr_forfatter_deltakere",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Forfattermøter: Deltakere"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "snitt",
+                            "colLabel": "Snitt deltakere per arrangement",
+                            "id": "demo_arr",
+                            "row": "forfatter",
+                            "rowLabel": "Forfattermøter"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_forfatter_snitt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Forfattermøter: Snitt deltakere per arrangement"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall arrangementer",
+                            "id": "demo_arr",
+                            "row": "teater",
+                            "rowLabel": "Barneteater"
+                        }
+                    },
+                    "fieldId": "demo_arr_teater_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Barneteater: Antall arrangementer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "deltakere",
+                            "colLabel": "Deltakere",
+                            "id": "demo_arr",
+                            "row": "teater",
+                            "rowLabel": "Barneteater"
+                        }
+                    },
+                    "fieldId": "demo_arr_teater_deltakere",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Barneteater: Deltakere"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "snitt",
+                            "colLabel": "Snitt deltakere per arrangement",
+                            "id": "demo_arr",
+                            "row": "teater",
+                            "rowLabel": "Barneteater"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_teater_snitt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Barneteater: Snitt deltakere per arrangement"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall arrangementer",
+                            "id": "demo_arr",
+                            "row": "kurs",
+                            "rowLabel": "Datakurs for seniorer"
+                        }
+                    },
+                    "fieldId": "demo_arr_kurs_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Datakurs for seniorer: Antall arrangementer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "deltakere",
+                            "colLabel": "Deltakere",
+                            "id": "demo_arr",
+                            "row": "kurs",
+                            "rowLabel": "Datakurs for seniorer"
+                        }
+                    },
+                    "fieldId": "demo_arr_kurs_deltakere",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Datakurs for seniorer: Deltakere"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "snitt",
+                            "colLabel": "Snitt deltakere per arrangement",
+                            "id": "demo_arr",
+                            "row": "kurs",
+                            "rowLabel": "Datakurs for seniorer"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_arr_kurs_snitt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Datakurs for seniorer: Snitt deltakere per arrangement"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "3. Arrangementer (snitt og sum som hopper over snitt)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "4_innkjop",
+            "description": "Svarer du Ja, åpnes en ny side med innkjøpstabellen.",
+            "questions": [
+                {
+                    "fieldId": "demo_harKjoptInn",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Har biblioteket kjøpt inn medier i år?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "4. Innkjøp (inngangsspørsmål)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "4_betinget",
+            "condition": {
+                "fieldId": "demo_harKjoptInn",
+                "op": "isTrue"
+            },
+            "description": "«Herav»-cellene åpnes først når det er bestilt noe i samme kolonne, og kan ikke overstige det som er bestilt.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "matrix": {
+                            "col": "boker",
+                            "colLabel": "Bøker",
+                            "id": "demo_innkjop",
+                            "row": "1",
+                            "rowLabel": "1. Titler bestilt"
+                        }
+                    },
+                    "fieldId": "demo_innkjop_1_boker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Titler bestilt: Bøker"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "matrix": {
+                            "col": "lydboker",
+                            "colLabel": "Lydbøker",
+                            "id": "demo_innkjop",
+                            "row": "1",
+                            "rowLabel": "1. Titler bestilt"
+                        }
+                    },
+                    "fieldId": "demo_innkjop_1_lydboker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Titler bestilt: Lydbøker"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "matrix": {
+                            "col": "boker",
+                            "colLabel": "Bøker",
+                            "id": "demo_innkjop",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav forsinket levering"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "demo_innkjop_1_boker",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "demo_innkjop_1_1_boker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav forsinket levering: Bøker"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "matrix": {
+                            "col": "lydboker",
+                            "colLabel": "Lydbøker",
+                            "id": "demo_innkjop",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav forsinket levering"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "demo_innkjop_1_lydboker",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "demo_innkjop_1_1_lydboker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav forsinket levering: Lydbøker"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "matrix": {
+                            "col": "boker",
+                            "colLabel": "Bøker",
+                            "id": "demo_innkjop",
+                            "row": "1.2",
+                            "rowLabel": "1.2 Herav avbestilt (kun bøker)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "demo_innkjop_1_boker",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "demo_innkjop_1_2_boker",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.2 Herav avbestilt (kun bøker): Bøker"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "4b. Innkjøp (betingede celler og herav-kontroller)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "5_hentet",
+            "description": "«I år» hentes fra sum-raden i tabell 1. Endringen beregnes, og et fall på mer enn 50 % gir en advarsel du kan gå videre fra.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "iaar",
+                            "colLabel": "I år (fra tabell 1)",
+                            "id": "demo_sml",
+                            "row": "utlaan",
+                            "rowLabel": "Utlån i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_sml_utlaan_iaar",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Utlån i alt: I år (fra tabell 1)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "ifjor",
+                            "colLabel": "I fjor",
+                            "id": "demo_sml",
+                            "row": "utlaan",
+                            "rowLabel": "Utlån i alt"
+                        }
+                    },
+                    "fieldId": "demo_sml_utlaan_ifjor",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Utlån i alt: I fjor"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "matrix": {
+                            "col": "endring",
+                            "colLabel": "Endring",
+                            "id": "demo_sml",
+                            "row": "utlaan",
+                            "rowLabel": "Utlån i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "demo_sml_utlaan_endring",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Utlån i alt: Endring"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "5. Sammenligning med i fjor (celler hentet fra tabell 1)",
+            "type": "bolk"
+        }
+    ],
+    "title": "Matrise-demo: Bibliotekstatistikk"
+}

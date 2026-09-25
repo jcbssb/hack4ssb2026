@@ -34,6 +34,7 @@ main = do
   testMatrixColumnsFromPdf
   testMatrixRowsFromPdf
   testTrial5AgainstPdf
+  testMatrixDemo
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -121,7 +122,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, budgetDialogue, rulesDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -328,6 +329,30 @@ testTrial5AgainstPdf = do
       mismatches = [ (fid, v, M.lookup fid derived) | (fid, v) <- printed, M.lookup fid derived /= Just v ]
   expect (null (validateRules d)) ("Trial 5 rules are well-formed. " ++ show (validateRules d))
   expect (null mismatches) ("Trial 5 reproduces " ++ show (length printed) ++ " calculated cells printed in the PDF. " ++ show mismatches)
+
+-- | Test 20: The matrix demo computes totals, averages, copied cells and rules
+testMatrixDemo :: IO ()
+testMatrixDemo = do
+  let d = matrixDemoDialogue
+      entered = M.fromList $
+        [ (cellId "demo_utlaan" r q, v) | (r, vs) <- [("boker", ["10", "20", "30", "40"]), ("lydboker", ["1", "2", "3", "4"]), ("eboker", ["5", "5", "5", "5"])]
+                                        , (q, v) <- zip ["k1", "k2", "k3", "k4"] vs ]
+        ++ [ (cellId "demo_arr" r c, v) | (r, vs) <- [("forfatter", ["2", "50"]), ("teater", ["3", "90"]), ("kurs", ["0", "0"])]
+                                        , (c, v) <- zip ["antall", "deltakere"] vs ]
+        ++ [ (cellId "demo_sml" "utlaan" "ifjor", "300"), ("demo_harKjoptInn", "true")
+           , (cellId "demo_innkjop" "1" "boker", "5"), (cellId "demo_innkjop" "1.1" "boker", "4"), (cellId "demo_innkjop" "1.2" "boker", "3") ]
+      derived = applyCalculations d entered
+      val r c p = M.lookup (cellId p r c) derived
+      violated = map (constraintId . violatedConstraint) (checkConstraints d entered)
+  expect (val "sum" "alt" "demo_utlaan" == Just "130" && val "boker" "alt" "demo_utlaan" == Just "100"
+          && val "sum" "k1" "demo_utlaan" == Just "16")
+         "Matrix demo: row and column sums meet in the corner cell."
+  expect (val "forfatter" "snitt" "demo_arr" == Just "25" && val "sum" "snitt" "demo_arr" == Just "28"
+          && val "kurs" "snitt" "demo_arr" == Nothing)
+         "Matrix demo: averages use division, the sum row averages the totals, 0/0 has no value."
+  expect (val "utlaan" "iaar" "demo_sml" == Just "130" && val "utlaan" "endring" "demo_sml" == Just "-170"
+          && violated == ["demo_innkjop_herav_boker", "demo_sml_fall_utlaan"])
+         ("Matrix demo: copied cells, difference and rules. " ++ show violated)
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()
