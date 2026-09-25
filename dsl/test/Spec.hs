@@ -37,10 +37,12 @@ main = do
   testMatrixRowsFromPdf
   testTrialAgainstPdf "Trial 5" "t5" trial5ByggesakDialogue
   testTrialAgainstPdf "Trial 6" "t6" trial6ByggesakDialogue
+  testTrialAgainstPdf "Trial 7" "t7" trial7ByggesakDialogue
   testMatrixDemo
   testPagedAltinn
   testCSharpClassRemoval
   testAppTitle
+  testTrial7AuditFixes
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -128,7 +130,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, trial7ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -436,6 +438,58 @@ testAppTitle = do
           && fmap (T.isSuffixOf "  },\n  \"org\": \"ssb\"\n}\n") replaced == Just True
           && replaceAppTitle name "{}" == Nothing)
          "App title replacement keeps the rest of applicationmetadata.json untouched."
+
+-- | Test 24: Trial 7 corrections from research/byggesak-trial6-audit.md reproduce the PDF
+testTrial7AuditFixes :: IO ()
+testTrial7AuditFixes = do
+  let d = trial7ByggesakDialogue
+      cells prefix rows = [ (cellId prefix r c, v) | (r, cvs) <- rows, (c, v) <- cvs ]
+      entered = M.fromList $ concat
+        [ cells "t7_c10" [ ("1", zip ["a", "b", "c", "d", "e", "f"] ["12", "100", "234", "12", "23", "12"])
+                         , ("2", zip ["a", "b", "c", "d", "e", "f"] ["12", "100", "10", "12", "3", "45"]) ]
+        , cells "t7_c12" [ ("2", [("b", "546"), ("b1", "343")]), ("2.2", [("b1", "334"), ("b2", "545")]) ]
+        , cells "t7_c13" [ ("2", [("b", "345"), ("b1", "435")]), ("2.2", [("b1", "45")]) ]
+        , cells "t7_c4" [ ("2", zip ["b", "c", "d"] ["56", "67", "456"]), ("2.2", zip ["b", "c", "d"] ["78", "89", "768"]) ]
+        , cells "t7_d1" [ ("2a", [("b", "45")]), ("4", [("b", "45")]) ]
+        , cells "t7_e1" [ (r, zip ["b", "c"] vs) | (r, vs) <- [ ("2", ["345", "3124"]), ("3a", ["46", "5622"]), ("3b", ["875", "752"])
+                                                            , ("3c", ["26", "654"]), ("3d", ["25", "7467"]), ("4", ["36", "765"]) ] ]
+        , cells "t7_e2" [ (r, zip ["e2a", "e2b"] vs) | (r, vs) <- [ ("2", ["543", "365"]), ("3a", ["56", "22"]), ("3b", ["230", "203"])
+                                                                , ("3c", ["2930", "093"]), ("3d", ["938", "930"]), ("4", ["855", "444"]) ] ]
+        , cells "t7_f2" [ ("a1", zip ["b", "c", "d"] ["345", "83", "923"]), ("a2a", zip ["b", "c", "d"] ["234", "23", "22"])
+                        , ("a2b", zip ["b", "c", "d"] ["22", "21", "13"]) ]
+        , cells "t7_g2" [ ("a1", [("b", "31"), ("c", "76")]), ("a2", [("b", "63"), ("c", "73")]), ("a3", [("b", "26"), ("c", "72")]) ]
+        , cells "t7_g3" [ ("a1", [("b", "87"), ("c", "76")]) ]
+        , cells "t7_g4" [ (r, [("b", b), ("c", c)]) | (r, b, c) <- [ ("a1", "34", "35"), ("a2", "36", "37"), ("a3", "38", "39")
+                                                                   , ("a4", "21", "22"), ("a5", "23", "24") ] ]
+        ]
+      printed = concat
+        [ cells "t7_c14" [ ("1", [("a", "12")]), ("2", [("a", "12")]), ("2.2", [("b1", "172")]) ]
+        , cells "t7_d1" [ ("1a", [("a", "12")]), ("2a", [("b2", "45")]), ("4", [("b2", "45")]) ]
+        , cells "t7_d2" [ ("1", [("a", "45")]), ("3", [("a", "579")]) ]
+        , cells "t7_c12" [ ("2.2", [("b", "412")]) ]
+        , cells "t7_c4" [ ("2.2", [("a", "622")]) ]
+        , cells "t7_e1" [ ("1", [("c", "1644")]), ("3", [("c", "1152")]) ]
+        , cells "t7_e2" [ (r, [("e2", v)]) | (r, v) <- zip ["2", "3a", "3b", "3c", "3d", "4"] ["908", "78", "433", "3023", "1868", "1299"] ]
+        , cells "t7_f2" [ ("a", zip ["b", "c", "d"] ["601", "127", "958"]), ("a2", zip ["b", "c", "d"] ["256", "44", "35"]) ]
+        , cells "t7_g2" [ ("a", [("b", "120"), ("c", "221")]) ]
+        , cells "t7_g3" [ ("a", [("b", "87"), ("c", "76")]) ]
+        , cells "t7_g4" [ ("a", [("b", "152"), ("c", "157")]) ]
+        ]
+      derived = applyCalculations d entered
+      -- The PDF truncates averages to whole days (622.69 is printed as 622)
+      sameNumber v got = case (reads v :: [(Double, String)], got >>= \g -> case reads g :: [(Double, String)] of { [(x, "")] -> Just x; _ -> Nothing }) of
+        ([(x, "")], Just y) -> (truncate x :: Integer) == truncate y
+        _ -> False
+      mismatches = [ (fid, v, M.lookup fid derived) | (fid, v) <- printed, not (sameNumber v (M.lookup fid derived)) ]
+      violated = map (constraintId . violatedConstraint) (checkConstraints d entered)
+      bCell = [ q | q <- allDialogueQuestions d, fieldId q == cellId "t7_b" "1" "b" ]
+      prefilled q = fmap (KM.lookup "prefilled") (annotations q) == Just (Just (Bool True))
+  expect (null (validateRules d)) ("Trial 7 rules are well-formed. " ++ show (validateRules d))
+  expect (null mismatches) ("Trial 7 corrections reproduce " ++ show (length printed) ++ " more cells printed in the PDF. " ++ show mismatches)
+  expect ("t7_c10_iAlt_1" `elem` violated && cellId "t7_c10" "1" "a" `notElem` map calcTarget (calculations d))
+         "C10 a is entered and checked against b + c + d (the sample violates it)."
+  expect (map prefilled bCell == [True] && map required bCell == [False])
+         "B column b is prefilled and not required."
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

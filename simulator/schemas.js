@@ -1748,6 +1748,17557 @@ window.SSB_SCHEMAS = {
     ],
     "title": "Regler-demo: Fordeling av budsjett"
 },
+  "trial7-byggesak": {
+    "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_b",
+                "op": "field"
+            },
+            "fieldId": "t7_c11_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c11_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c11_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c11_1_c"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_b",
+                "op": "field"
+            },
+            "fieldId": "t7_c11_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c11_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c11_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c11_2_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c11_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c11_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c11_2_1_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c11_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c11_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c11_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c11_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c11_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c11_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c11_2_2_a"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_c",
+                "op": "field"
+            },
+            "fieldId": "t7_c12_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c12_1_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_c",
+                "op": "field"
+            },
+            "fieldId": "t7_c12_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_2_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_2_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_2_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_2_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c12_2_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_2_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_2_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_2_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c12_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c12_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c12_2_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c12_2_1_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c12_2_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b1",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b1",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_b1",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c12_2_2_b"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c12_2_2_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_d",
+                "op": "field"
+            },
+            "fieldId": "t7_c13_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c13_1_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_d",
+                "op": "field"
+            },
+            "fieldId": "t7_c13_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_2_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_2_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_2_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_2_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c13_2_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_2_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_2_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_2_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c13_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c13_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c13_2_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c13_2_1_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c13_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c13_2_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b1",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b1",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c13_2_b1",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c13_2_2_b"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c13_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c13_2_2_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_a",
+                "op": "field"
+            },
+            "fieldId": "t7_c14_1_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_1_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_1_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_1_b1"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c14_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c14_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c14_1_b2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c14_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c14_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_1_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_1_1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_1_1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_1_1_a"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_a",
+                "op": "field"
+            },
+            "fieldId": "t7_c14_2_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_b1"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c14_2_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c14_2_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c14_2_b2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c14_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c14_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_1_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_1_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_1_b1"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c14_2_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c14_2_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c14_2_1_b2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c14_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c14_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c14_2_1_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c11_2_2_a",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c11_2_a",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_a",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_a",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_a",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_a",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c11_2_a",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_a",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_a",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c11_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c11_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c11_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_b",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_b"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b1",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b1",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b1",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b1",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_b1",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_b1",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_b1"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_b2",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c11_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c11_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c11_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c12_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c12_2_2_d",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c12_2_d",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c13_2_2_d",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c13_2_d",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c12_2_d",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c13_2_d",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c14_2_2_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_e",
+                "op": "field"
+            },
+            "fieldId": "t7_c15_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c15_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c15_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c15_1_c"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_e",
+                "op": "field"
+            },
+            "fieldId": "t7_c15_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c15_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c15_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c15_2_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c15_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c15_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c15_2_1_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c15_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c15_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c15_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c15_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c15_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c15_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c15_2_2_a"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_1_f",
+                "op": "field"
+            },
+            "fieldId": "t7_c2_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c2_1_d"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_f",
+                "op": "field"
+            },
+            "fieldId": "t7_c2_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_2_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_2_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_2_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_2_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c2_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c2_2_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_2_1_b",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_2_1_b1",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_2_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c2_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c2_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c2_2_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c2_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c2_2_1_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c2_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c2_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c2_2_2_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_b1",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_b1",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c2_2_b1",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c2_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c2_2_2_b"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c2_2_2_b2",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c2_2_b2",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c2_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c2_2_b2",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c2_2_2_d"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c3_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c3_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c3_1_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c3_2_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c3_2_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c3_2_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "t7_c3_2_1_a",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "t7_c3_2_1_b",
+                    "op": "field"
+                }
+            },
+            "fieldId": "t7_c3_2_1_c"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c3_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c3_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c3_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c3_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c3_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c3_2_c",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c3_2_2_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c4_1_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_1_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_1_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c4_1_1_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c4_2_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_2_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c4_2_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_c4_2_1_a"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c4_2_2_b",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c4_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c4_2_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c4_2_c",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_c4_2_2_d",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_c4_2_d",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_c4_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c4_2_c",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_c4_2_d",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_c4_2_2_a"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_a",
+                "op": "field"
+            },
+            "fieldId": "t7_d1_1a_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2a_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_d1_1b_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_d1_1b_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_d1_1b_b1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2a_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_d1_1b_b2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2a_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_d1_1b_c"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_d1_2a_b",
+                "op": "field"
+            },
+            "fieldId": "t7_d1_2a_b2"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_d1_4_b",
+                "op": "field"
+            },
+            "fieldId": "t7_d1_4_b2"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_d1_4a_b",
+                "op": "field"
+            },
+            "fieldId": "t7_d1_4a_b2"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_d1_4b_b",
+                "op": "field"
+            },
+            "fieldId": "t7_d1_4b_b2"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c10_2_f",
+                "op": "field"
+            },
+            "fieldId": "t7_d2_1_a"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_c4_2_a",
+                "op": "field"
+            },
+            "fieldId": "t7_d2_3_a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_4_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_1_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_4_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_1_b1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_4_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_1_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_2_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_2_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_3_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_3_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_4_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_4_b",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_e1_2_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_e1_3_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_e1_4_b",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_e1_1_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_4_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_1_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3b_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3c_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3d_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_3_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3b_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3c_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3d_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_3_b1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3b_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3c_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3d_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_3_b2"
+        },
+        {
+            "expr": {
+                "left": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_3a_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_3a_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_3b_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_3b_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_3c_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_3c_b",
+                                    "op": "field"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "mul",
+                            "terms": [
+                                {
+                                    "fieldId": "t7_e1_3d_c",
+                                    "op": "field"
+                                },
+                                {
+                                    "fieldId": "t7_e1_3d_b",
+                                    "op": "field"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "op": "div",
+                "right": {
+                    "op": "add",
+                    "terms": [
+                        {
+                            "fieldId": "t7_e1_3a_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_e1_3b_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_e1_3c_b",
+                            "op": "field"
+                        },
+                        {
+                            "fieldId": "t7_e1_3d_b",
+                            "op": "field"
+                        }
+                    ]
+                }
+            },
+            "fieldId": "t7_e1_3_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3b_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3c_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3d_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e1_3_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_1_e"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_1_e1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_1_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e2a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_1_e2a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e2b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e2b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_1_e2b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_2_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_2_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3_e"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3_e1"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e2a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3_e2a"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e2b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e2b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e2b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3_e2b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3a_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3a_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3b_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3b_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3c_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3c_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3d_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_3d_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_4_e2a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e2b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_e2_4_e2"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a2_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a2_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f2_a2_d"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f3_a1_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a2_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a3_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a4_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a5_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a6_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a7_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a8_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a9_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a10_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a11_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a12_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a13_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a14_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a15_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a16_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a17_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a18_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a19_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a20_antall",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f3_a21_antall",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_f3_a_antall"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_g2_a_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_g2_a_c"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_g3_a1_b",
+                "op": "field"
+            },
+            "fieldId": "t7_g3_a_b"
+        },
+        {
+            "expr": {
+                "fieldId": "t7_g3_a1_c",
+                "op": "field"
+            },
+            "fieldId": "t7_g3_a_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_g4_a_b"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_g4_a_c"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_timerUtfylling",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_timerFremskaffe",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t7_timerTotalt"
+        }
+    ],
+    "constraints": [
+        {
+            "comparison": "eq",
+            "constraintId": "t7_c10_iAlt_1",
+            "left": {
+                "fieldId": "t7_c10_1_a",
+                "op": "field"
+            },
+            "message": "Byggesøknader i alt (a) må være lik summen av rammesøknader og ett-trinnssøknader (b+c+d) (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c10_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c10_1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c10_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "eq",
+            "constraintId": "t7_c10_iAlt_2",
+            "left": {
+                "fieldId": "t7_c10_2_a",
+                "op": "field"
+            },
+            "message": "Byggesøknader i alt (a) må være lik summen av rammesøknader og ett-trinnssøknader (b+c+d) (2. Antall søknader behandlet/vedtatt i rapporteringsåret)",
+            "right": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c10_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c10_2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c10_2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_a",
+            "left": {
+                "fieldId": "t7_c10_2_a",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (a. I alt (sum b+c+d))",
+            "right": {
+                "fieldId": "t7_c10_1_a",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_b",
+            "left": {
+                "fieldId": "t7_c10_2_b",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (b. Herav rammesøknader)",
+            "right": {
+                "fieldId": "t7_c10_1_b",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_c",
+            "left": {
+                "fieldId": "t7_c10_2_c",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (c. Herav ett-trinnssøknader med ansvarsrett)",
+            "right": {
+                "fieldId": "t7_c10_1_c",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_d",
+            "left": {
+                "fieldId": "t7_c10_2_d",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (d. Herav ett-trinnssøknader uten ansvarsrett)",
+            "right": {
+                "fieldId": "t7_c10_1_d",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_e",
+            "left": {
+                "fieldId": "t7_c10_2_e",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (e. Dispensasjonssøknader)",
+            "right": {
+                "fieldId": "t7_c10_1_e",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c10_behandlet_f",
+            "left": {
+                "fieldId": "t7_c10_2_f",
+                "op": "field"
+            },
+            "message": "Flere søknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet (f. Opprettelse/endring av eiendom (deling))",
+            "right": {
+                "fieldId": "t7_c10_1_f",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c11_ikkeNegativ_1",
+            "left": {
+                "fieldId": "t7_c11_1_c",
+                "op": "field"
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c11_ikkeNegativ_2",
+            "left": {
+                "fieldId": "t7_c11_2_c",
+                "op": "field"
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c11_ikkeNegativ_2_1",
+            "left": {
+                "fieldId": "t7_c11_2_1_c",
+                "op": "field"
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c11_ikkeNegativ_2_2",
+            "left": {
+                "fieldId": "t7_c11_2_2_c",
+                "op": "field"
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c11_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Rammesøknader i alt)",
+            "right": {
+                "fieldId": "t7_c11_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c11_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Rammesøknader i alt)",
+            "right": {
+                "fieldId": "t7_c11_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c11_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. Herav søknader i samsvar med plan)",
+            "right": {
+                "fieldId": "t7_c11_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c11_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Herav søknader som ikke er i samsvar med plan)",
+            "right": {
+                "fieldId": "t7_c11_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_samsvar_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c12_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_samsvar_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c12_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_samsvar_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c12_2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_samsvar_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c12_2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_treUker_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c12_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_treUker_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c12_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_treUker_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c12_2_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_treUker_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c12_2_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Ett-trinnssøknader med ansvarsrett i alt)",
+            "right": {
+                "fieldId": "t7_c12_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Ett-trinnssøknader med ansvarsrett i alt)",
+            "right": {
+                "fieldId": "t7_c12_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. I samsvar med plan, i alt)",
+            "right": {
+                "fieldId": "t7_c12_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_b1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b1. I samsvar med plan, herav med 3 ukers frist)",
+            "right": {
+                "fieldId": "t7_c12_2_b1",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b2. I samsvar med plan, herav med 12 ukers frist)",
+            "right": {
+                "fieldId": "t7_c12_2_b2",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Søknader som ikke er i samsvar med plan)",
+            "right": {
+                "fieldId": "t7_c12_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c12_overFrist_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c12_2_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (d. Søknader med 12 ukers frist i alt)",
+            "right": {
+                "fieldId": "t7_c12_2_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_samsvar_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c13_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_samsvar_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c13_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_samsvar_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c13_2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_samsvar_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c13_2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_treUker_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c13_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_treUker_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c13_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_treUker_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c13_2_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_treUker_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c13_2_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Ett-trinnssøknader uten ansvarsrett i alt)",
+            "right": {
+                "fieldId": "t7_c13_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Ett-trinnssøknader uten ansvarsrett i alt)",
+            "right": {
+                "fieldId": "t7_c13_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. I samsvar med plan, i alt)",
+            "right": {
+                "fieldId": "t7_c13_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_b1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b1. I samsvar med plan, herav med 3 ukers frist)",
+            "right": {
+                "fieldId": "t7_c13_2_b1",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b2. I samsvar med plan, herav med 12 ukers frist)",
+            "right": {
+                "fieldId": "t7_c13_2_b2",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Søknader som ikke er i samsvar med plan)",
+            "right": {
+                "fieldId": "t7_c13_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c13_overFrist_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c13_2_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (d. Søknader med 12 ukers frist i alt)",
+            "right": {
+                "fieldId": "t7_c13_2_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c15_ikkeNegativ_1",
+            "left": {
+                "fieldId": "t7_c15_1_c",
+                "op": "field"
+            },
+            "message": "Dispensasjon fra plan kan ikke overstige dispensasjonssøknader i alt (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c15_ikkeNegativ_2",
+            "left": {
+                "fieldId": "t7_c15_2_c",
+                "op": "field"
+            },
+            "message": "Dispensasjon fra plan kan ikke overstige dispensasjonssøknader i alt (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c15_ikkeNegativ_2_1",
+            "left": {
+                "fieldId": "t7_c15_2_1_c",
+                "op": "field"
+            },
+            "message": "Dispensasjon fra plan kan ikke overstige dispensasjonssøknader i alt (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c15_ikkeNegativ_2_2",
+            "left": {
+                "fieldId": "t7_c15_2_2_c",
+                "op": "field"
+            },
+            "message": "Dispensasjon fra plan kan ikke overstige dispensasjonssøknader i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c15_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c15_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Dispensasjonssøknader i alt)",
+            "right": {
+                "fieldId": "t7_c15_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c15_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c15_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Dispensasjonssøknader i alt)",
+            "right": {
+                "fieldId": "t7_c15_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c15_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c15_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. Herav dispensasjon fra plan)",
+            "right": {
+                "fieldId": "t7_c15_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c15_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c15_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Herav dispensasjon fra byggesaksbestemmelser)",
+            "right": {
+                "fieldId": "t7_c15_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_samsvar_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_samsvar_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_samsvar_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c2_2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_samsvar_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader i samsvar med plan kan ikke overstige søknader i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c2_2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_treUker_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (1. Antall søknader mottatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c2_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_treUker_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2. Antall søknader behandlet i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_c2_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_treUker_2_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "fieldId": "t7_c2_2_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_treUker_2_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_2_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader med 3 ukers frist kan ikke overstige søknader i samsvar med plan (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "fieldId": "t7_c2_2_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Søknader om opprettelse/endring av eiendommer i alt)",
+            "right": {
+                "fieldId": "t7_c2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Søknader om opprettelse/endring av eiendommer i alt)",
+            "right": {
+                "fieldId": "t7_c2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. I samsvar med plan, i alt)",
+            "right": {
+                "fieldId": "t7_c2_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_b1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_b1",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b1. I samsvar med plan, herav med 3 ukers frist)",
+            "right": {
+                "fieldId": "t7_c2_2_b1",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b2. I samsvar med plan, herav med 12 ukers frist)",
+            "right": {
+                "fieldId": "t7_c2_2_b2",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Søknader som ikke er i samsvar med plan)",
+            "right": {
+                "fieldId": "t7_c2_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c2_overFrist_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c2_2_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (d. Søknader med 12 ukers frist i alt)",
+            "right": {
+                "fieldId": "t7_c2_2_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c3_ikkeNegativ_1",
+            "left": {
+                "fieldId": "t7_c3_1_c",
+                "op": "field"
+            },
+            "message": "Rekvisisjoner for søknadspliktige tiltak kan ikke overstige rekvisisjoner i alt (1. Antall rekvisisjoner mottatt i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c3_ikkeNegativ_2",
+            "left": {
+                "fieldId": "t7_c3_2_c",
+                "op": "field"
+            },
+            "message": "Rekvisisjoner for søknadspliktige tiltak kan ikke overstige rekvisisjoner i alt (2. Antall rekvisisjoner behandlet i rapporteringsåret)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c3_ikkeNegativ_2_1",
+            "left": {
+                "fieldId": "t7_c3_2_1_c",
+                "op": "field"
+            },
+            "message": "Rekvisisjoner for søknadspliktige tiltak kan ikke overstige rekvisisjoner i alt (2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "gte",
+            "constraintId": "t7_c3_ikkeNegativ_2_2",
+            "left": {
+                "fieldId": "t7_c3_2_2_c",
+                "op": "field"
+            },
+            "message": "Rekvisisjoner for søknadspliktige tiltak kan ikke overstige rekvisisjoner i alt (2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager)",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c3_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c3_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle rekvisisjoner kan ikke overstige mottatte (a. Rekvisisjoner i alt)",
+            "right": {
+                "fieldId": "t7_c3_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c3_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c3_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Rekvisisjoner over frist kan ikke overstige behandlede (a. Rekvisisjoner i alt)",
+            "right": {
+                "fieldId": "t7_c3_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c3_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c3_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Rekvisisjoner over frist kan ikke overstige behandlede (b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven)",
+            "right": {
+                "fieldId": "t7_c3_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c3_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c3_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Rekvisisjoner over frist kan ikke overstige behandlede (c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven)",
+            "right": {
+                "fieldId": "t7_c3_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_mangelfulle_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (a. Seksjoneringsvirksomhet i alt)",
+            "right": {
+                "fieldId": "t7_c4_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_mangelfulle_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (b. Seksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_mangelfulle_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (c. Reseksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_1_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_mangelfulle_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_1_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Mangelfulle søknader kan ikke overstige mottatte (d. Opphevelse av seksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_1_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_overFrist_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (a. Seksjoneringsvirksomhet i alt)",
+            "right": {
+                "fieldId": "t7_c4_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_overFrist_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (b. Seksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_overFrist_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (c. Reseksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_c4_overFrist_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c4_2_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Søknader over frist kan ikke overstige behandlede (d. Opphevelse av seksjoneringer)",
+            "right": {
+                "fieldId": "t7_c4_2_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_1a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_1a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_1a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (1a. Antall byggesøknader i alt vedtatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_d1_1a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_1b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_1b_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_1b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor))",
+            "right": {
+                "fieldId": "t7_d1_1b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann)",
+            "right": {
+                "fieldId": "t7_d1_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_2a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8)",
+            "right": {
+                "fieldId": "t7_d1_2a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann)",
+            "right": {
+                "fieldId": "t7_d1_3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_4",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet)",
+            "right": {
+                "fieldId": "t7_d1_4_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_4a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse))",
+            "right": {
+                "fieldId": "t7_d1_4a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_4b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4b_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk))",
+            "right": {
+                "fieldId": "t7_d1_4b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_5",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_5_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan)",
+            "right": {
+                "fieldId": "t7_d1_5_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_6",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_6_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850)",
+            "right": {
+                "fieldId": "t7_d1_6_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilgetAvslag_7",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_7_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår)",
+            "right": {
+                "fieldId": "t7_d1_7_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_1a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_1a_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_1a_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (1a. Antall byggesøknader i alt vedtatt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_d1_1a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_1b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_1b_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_1b_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor))",
+            "right": {
+                "fieldId": "t7_d1_1b_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann)",
+            "right": {
+                "fieldId": "t7_d1_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_3_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_3_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann)",
+            "right": {
+                "fieldId": "t7_d1_3_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_5",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_5_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_5_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan)",
+            "right": {
+                "fieldId": "t7_d1_5_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_6",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_6_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_6_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850)",
+            "right": {
+                "fieldId": "t7_d1_6_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_innvilget_7",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_7_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_7_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår)",
+            "right": {
+                "fieldId": "t7_d1_7_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_lnfFerskvann_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2a_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak langs ferskvann kan ikke overstige vedtak i LNF/LNFR-områder (a. Vedtak i alt)",
+            "right": {
+                "fieldId": "t7_d1_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_lnfFerskvann_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2a_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak langs ferskvann kan ikke overstige vedtak i LNF/LNFR-områder (b. Herav innvilget i alt)",
+            "right": {
+                "fieldId": "t7_d1_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_lnfFerskvann_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2a_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak langs ferskvann kan ikke overstige vedtak i LNF/LNFR-områder (b2. Herav innvilget gjennom vedtak om dispensasjon fra plan)",
+            "right": {
+                "fieldId": "t7_d1_2_b2",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_lnfFerskvann_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_2a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak langs ferskvann kan ikke overstige vedtak i LNF/LNFR-områder (c. Herav vedtak om avslag)",
+            "right": {
+                "fieldId": "t7_d1_2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_universell_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4a_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4b_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak etter § 19-1 og § 31-2 kan ikke overstige dispensasjonsvedtak i alt (a. Vedtak i alt)",
+            "right": {
+                "fieldId": "t7_d1_4_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_universell_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4b_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak etter § 19-1 og § 31-2 kan ikke overstige dispensasjonsvedtak i alt (b. Herav innvilget i alt)",
+            "right": {
+                "fieldId": "t7_d1_4_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_universell_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4a_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4b_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak etter § 19-1 og § 31-2 kan ikke overstige dispensasjonsvedtak i alt (b2. Herav innvilget gjennom vedtak om dispensasjon fra plan)",
+            "right": {
+                "fieldId": "t7_d1_4_b2",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d1_universell_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d1_4a_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d1_4b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Vedtak etter § 19-1 og § 31-2 kan ikke overstige dispensasjonsvedtak i alt (c. Herav vedtak om avslag)",
+            "right": {
+                "fieldId": "t7_d1_4_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d2_innvilgetAvslag_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d2_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d2_1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m))",
+            "right": {
+                "fieldId": "t7_d2_1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d2_innvilgetAvslag_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d2_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d2_2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd))",
+            "right": {
+                "fieldId": "t7_d2_2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d2_innvilgetAvslag_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d2_3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d2_3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget og avslag kan til sammen ikke overstige vedtak i alt (3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k))",
+            "right": {
+                "fieldId": "t7_d2_3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_d2_innvilget_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_d2_1_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_d2_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Innvilget i samsvar med plan og ved dispensasjon kan ikke overstige innvilget i alt (1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m))",
+            "right": {
+                "fieldId": "t7_d2_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_1_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_1_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (1. Klagesaker i alt)",
+            "right": {
+                "fieldId": "t7_e1_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_2_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (2. Klagesaker på gebyrer)",
+            "right": {
+                "fieldId": "t7_e1_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (3. Klagesaker på utfall av søknadsbehandling)",
+            "right": {
+                "fieldId": "t7_e1_3_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_3a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3a_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (3a. Klagesaker på byggesøknader)",
+            "right": {
+                "fieldId": "t7_e1_3a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_3b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3b_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3b_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (3b. Klagesaker på søknader om opprettelse og endring av eiendom)",
+            "right": {
+                "fieldId": "t7_e1_3b_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_3c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3c_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3c_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (3c. Klagesaker på oppmålingssaker)",
+            "right": {
+                "fieldId": "t7_e1_3c_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_3d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3d_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_3d_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (3d. Klagesaker på seksjoneringssaker)",
+            "right": {
+                "fieldId": "t7_e1_3d_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_herav_4",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_4_b1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e1_4_b2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan ikke overstige vedtak i alt (4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging)",
+            "right": {
+                "fieldId": "t7_e1_4_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (1. Klagesaker i alt)",
+            "right": {
+                "fieldId": "t7_e1_1_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (2. Klagesaker på gebyrer)",
+            "right": {
+                "fieldId": "t7_e1_2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (3. Klagesaker på utfall av søknadsbehandling)",
+            "right": {
+                "fieldId": "t7_e1_3_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_3a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3a_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (3a. Klagesaker på byggesøknader)",
+            "right": {
+                "fieldId": "t7_e1_3a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_3b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3b_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (3b. Klagesaker på søknader om opprettelse og endring av eiendom)",
+            "right": {
+                "fieldId": "t7_e1_3b_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_3c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3c_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (3c. Klagesaker på oppmålingssaker)",
+            "right": {
+                "fieldId": "t7_e1_3c_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_3d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_3d_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (3d. Klagesaker på seksjoneringssaker)",
+            "right": {
+                "fieldId": "t7_e1_3d_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e1_overFrist_4",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e1_4_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klagesaker over frist kan ikke overstige vedtak i alt (4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging)",
+            "right": {
+                "fieldId": "t7_e1_4_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_1_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_1_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (1. Klagesaker i alt)",
+            "right": {
+                "fieldId": "t7_e2_1_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_2_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_2_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (2. Klagesaker på gebyrer)",
+            "right": {
+                "fieldId": "t7_e2_2_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (3. Klagesaker på utfall av søknadsbehandling)",
+            "right": {
+                "fieldId": "t7_e2_3_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_3a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3a_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3a_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (3a. Klagesaker på byggesøknader)",
+            "right": {
+                "fieldId": "t7_e2_3a_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_3b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3b_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3b_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (3b. Klagesaker på søknader om opprettelse og endring av eiendom)",
+            "right": {
+                "fieldId": "t7_e2_3b_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_3c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3c_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3c_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (3c. Klagesaker på oppmålingssaker)",
+            "right": {
+                "fieldId": "t7_e2_3c_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_3d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_3d_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_3d_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (3d. Klagesaker på seksjoneringssaker)",
+            "right": {
+                "fieldId": "t7_e2_3d_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_e2_utfall_4",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_e2_4_e1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_e2_4_e2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Stadfestede og ikke opprettholdte vedtak kan ikke overstige vedtak i alt (4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging)",
+            "right": {
+                "fieldId": "t7_e2_4_e",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f1_eksisterendeNye_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f1_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f1_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1)",
+            "right": {
+                "fieldId": "t7_f1_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f1_eksisterendeNye_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f1_b_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f1_b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4)",
+            "right": {
+                "fieldId": "t7_f1_b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f1_byggverket_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f1_a_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1)",
+            "right": {
+                "fieldId": "t7_f1_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f1_byggverket_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f1_b_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4)",
+            "right": {
+                "fieldId": "t7_f1_b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_eksisterendeNye_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport))",
+            "right": {
+                "fieldId": "t7_f2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_eksisterendeNye_a1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a1. Antall tilsyn med omsøkte tiltak (byggesaker))",
+            "right": {
+                "fieldId": "t7_f2_a1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_eksisterendeNye_a2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter))",
+            "right": {
+                "fieldId": "t7_f2_a2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_eksisterendeNye_a2a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt)",
+            "right": {
+                "fieldId": "t7_f2_a2a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_eksisterendeNye_a2b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2b_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med eksisterende og nye tiltak kan ikke overstige tilsyn i alt (a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak))",
+            "right": {
+                "fieldId": "t7_f2_a2b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_byggverket_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport))",
+            "right": {
+                "fieldId": "t7_f2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_byggverket_a1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a1. Antall tilsyn med omsøkte tiltak (byggesaker))",
+            "right": {
+                "fieldId": "t7_f2_a1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_byggverket_a2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter))",
+            "right": {
+                "fieldId": "t7_f2_a2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_byggverket_a2a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt)",
+            "right": {
+                "fieldId": "t7_f2_a2a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_byggverket_a2b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2b_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn på byggverket kan ikke overstige tilsyn i alt (a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak))",
+            "right": {
+                "fieldId": "t7_f2_a2b_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_omsokt_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med omsøkte og ikke omsøkte tiltak kan ikke overstige tilsyn i alt (a. Antall tilsyn i alt)",
+            "right": {
+                "fieldId": "t7_f2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_omsokt_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med omsøkte og ikke omsøkte tiltak kan ikke overstige tilsyn i alt (b. Herav tilsyn med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_f2_a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_omsokt_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med omsøkte og ikke omsøkte tiltak kan ikke overstige tilsyn i alt (c. Herav tilsyn med nye tiltak)",
+            "right": {
+                "fieldId": "t7_f2_a_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_omsokt_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a1_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med omsøkte og ikke omsøkte tiltak kan ikke overstige tilsyn i alt (d. Herav tilsyn på byggverket)",
+            "right": {
+                "fieldId": "t7_f2_a_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_ikkeOmsokt_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med unntatte tiltak og ulovlighetsoppfølginger kan ikke overstige tilsyn med ikke omsøkte tiltak (a. Antall tilsyn i alt)",
+            "right": {
+                "fieldId": "t7_f2_a2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_ikkeOmsokt_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med unntatte tiltak og ulovlighetsoppfølginger kan ikke overstige tilsyn med ikke omsøkte tiltak (b. Herav tilsyn med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_f2_a2_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_ikkeOmsokt_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med unntatte tiltak og ulovlighetsoppfølginger kan ikke overstige tilsyn med ikke omsøkte tiltak (c. Herav tilsyn med nye tiltak)",
+            "right": {
+                "fieldId": "t7_f2_a2_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f2_ikkeOmsokt_d",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f2_a2a_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f2_a2b_d",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn med unntatte tiltak og ulovlighetsoppfølginger kan ikke overstige tilsyn med ikke omsøkte tiltak (d. Herav tilsyn på byggverket)",
+            "right": {
+                "fieldId": "t7_f2_a2_d",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_f4_konklusjon",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_f4_1",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_f4_2",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn uten feil og tilsyn med ulovlighet kan til sammen ikke overstige gjennomførte tilsyn i alt (F2.a)",
+            "right": {
+                "fieldId": "t7_f2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_herav_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg med eksisterende og nye tiltak kan ikke overstige i alt (a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen)",
+            "right": {
+                "fieldId": "t7_g1_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_herav_b1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg med eksisterende og nye tiltak kan ikke overstige i alt (b1. Pålegg om retting (pbl § 32-3))",
+            "right": {
+                "fieldId": "t7_g1_b1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_herav_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg med eksisterende og nye tiltak kan ikke overstige i alt (b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4))",
+            "right": {
+                "fieldId": "t7_g1_b2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_herav_b3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg med eksisterende og nye tiltak kan ikke overstige i alt (b3. Pålegg om stans (pbl § 32-3 og § 32-4))",
+            "right": {
+                "fieldId": "t7_g1_b3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_typer_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b2_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b3_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg om retting, opphør og stans kan ikke overstige pålegg i alt (a. pålegg i alt)",
+            "right": {
+                "fieldId": "t7_g1_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_typer_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b3_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg om retting, opphør og stans kan ikke overstige pålegg i alt (b. Herav pålegg med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_g1_a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g1_typer_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g1_b1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g1_b3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Pålegg om retting, opphør og stans kan ikke overstige pålegg i alt (c. Herav pålegg med nye tiltak)",
+            "right": {
+                "fieldId": "t7_g1_a_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (a. Utfallet av pålegg gitt i rapporteringsåret)",
+            "right": {
+                "fieldId": "t7_g2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_a1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (a1. Antallet pålegg der forholdet ble rettet opp)",
+            "right": {
+                "fieldId": "t7_g2_a1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_a2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre)",
+            "right": {
+                "fieldId": "t7_g2_a2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_a3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (a3. Antallet pålegg med annet utfall)",
+            "right": {
+                "fieldId": "t7_g2_a3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_b1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_b1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_b1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (b1. Oppfølging av pålegg: Forelegg)",
+            "right": {
+                "fieldId": "t7_g2_b1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_b2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_b2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_b2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (b2. Oppfølging av pålegg: Tvangsmulkt)",
+            "right": {
+                "fieldId": "t7_g2_b2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_herav_b3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_b3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_b3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Oppfølginger med eksisterende og nye tiltak kan ikke overstige i alt (b3. Oppfølging av pålegg: Tvangsfullbyrdelse)",
+            "right": {
+                "fieldId": "t7_g2_b3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_utfall_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Utfallene kan til sammen ikke overstige pålegg i alt (a. oppfølginger i alt)",
+            "right": {
+                "fieldId": "t7_g2_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_utfall_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Utfallene kan til sammen ikke overstige pålegg i alt (b. Herav oppfølginger med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_g2_a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g2_utfall_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g2_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g2_a3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Utfallene kan til sammen ikke overstige pålegg i alt (c. Herav oppfølginger med nye tiltak)",
+            "right": {
+                "fieldId": "t7_g2_a_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g3_herav_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g3_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g3_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Sanksjoner med eksisterende og nye tiltak kan ikke overstige i alt (a. Antall sanksjoner brukt i rapporteringsåret, i alt)",
+            "right": {
+                "fieldId": "t7_g3_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g3_herav_a1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g3_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g3_a1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Sanksjoner med eksisterende og nye tiltak kan ikke overstige i alt (a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a))",
+            "right": {
+                "fieldId": "t7_g3_a1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g3_overtredelsesgebyr_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g3_a1_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Overtredelsesgebyr kan ikke overstige sanksjoner i alt (a. sanksjoner i alt)",
+            "right": {
+                "fieldId": "t7_g3_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g3_overtredelsesgebyr_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g3_a1_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Overtredelsesgebyr kan ikke overstige sanksjoner i alt (b. Herav sanksjoner med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_g3_a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g3_overtredelsesgebyr_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g3_a1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Overtredelsesgebyr kan ikke overstige sanksjoner i alt (c. Herav sanksjoner med nye tiltak)",
+            "right": {
+                "fieldId": "t7_g3_a_c",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a. Antall andre virkemidler brukt i rapporteringsåret, i alt)",
+            "right": {
+                "fieldId": "t7_g4_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a1",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a1_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a1. Herav advarsel)",
+            "right": {
+                "fieldId": "t7_g4_a1_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a2",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a2. Herav tilbaketrekking av ansvarsrett)",
+            "right": {
+                "fieldId": "t7_g4_a2_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a3",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a3. Herav rapport til den sentrale godkjenningsordningen)",
+            "right": {
+                "fieldId": "t7_g4_a3_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a4",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a4_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a4. Herav anmeldelse til politiet)",
+            "right": {
+                "fieldId": "t7_g4_a4_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_herav_a5",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a5_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Andre virkemidler med eksisterende og nye tiltak kan ikke overstige i alt (a5. Herav pålegg/krav om uavhengig kontroll)",
+            "right": {
+                "fieldId": "t7_g4_a5_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_typer_a",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_a",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_a",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Virkemidlene kan til sammen ikke overstige andre virkemidler i alt (a. andre virkemidler i alt)",
+            "right": {
+                "fieldId": "t7_g4_a_a",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_typer_b",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_b",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Virkemidlene kan til sammen ikke overstige andre virkemidler i alt (b. Herav andre virkemidler med eksisterende tiltak)",
+            "right": {
+                "fieldId": "t7_g4_a_b",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t7_g4_typer_c",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_g4_a1_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a2_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a3_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a4_c",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_g4_a5_c",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Virkemidlene kan til sammen ikke overstige andre virkemidler i alt (c. Herav andre virkemidler med nye tiltak)",
+            "right": {
+                "fieldId": "t7_g4_a_c",
+                "op": "field"
+            },
+            "severity": "error"
+        }
+    ],
+    "context": {
+        "formName": "20Byggesak. Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026",
+        "legalNotice": "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Celler med beregninger fylles ikke ut. Celler åpnes når det er svart Ja på et inngangsspørsmål eller fylt inn et tall større enn 0.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "KOSTRA-20-2026"
+    },
+    "dialogueId": "trial7-byggesak",
+    "steps": [
+        {
+            "bolkId": "bolk_a",
+            "description": "Utfylling av kontaktinformasjon om kommunen og ansvarlig for rapporteringen. Spørsmålene er nærmere forklart i veiledningen.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "placeholder": "F.eks. 0301"
+                    },
+                    "fieldId": "t7_kommunenummer",
+                    "prompt": {
+                        "helpText": "4-sifret kommunenummer.",
+                        "label": "Kommunenummer"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "placeholder": "F.eks. Oslo"
+                    },
+                    "fieldId": "t7_kommunensNavn",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Kommunens navn"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 12
+                    },
+                    "fieldId": "t7_navnSkjemaansvarlig",
+                    "prompt": {
+                        "helpText": "Fullt navn på kontaktperson for rapporteringen.",
+                        "label": "Navn skjemaansvarlig"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "placeholder": "8 siffer"
+                    },
+                    "fieldId": "t7_telefonnummer",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Telefonnummer"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6,
+                        "placeholder": "navn@kommune.no"
+                    },
+                    "fieldId": "t7_epostSkjemaansvarlig",
+                    "prompt": {
+                        "helpText": "Offisiell e-postadresse i kommunen.",
+                        "label": "E-post skjemaansvarlig"
+                    },
+                    "questionType": {
+                        "type": "text"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "A. Opplysninger om skjema og kontaktinformasjon",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_b",
+            "description": "Gebyrer i kroner eksklusive mva. Gebyret i rapporteringsåret er forhåndsutfylt av SSB.",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
+                            "id": "t7_b",
+                            "row": "1",
+                            "rowLabel": "1. Byggesaksgebyr (ekskl. mva.) for oppføring av enebolig (ny boligbygning med en boenhet), jf. PBL § 20-1 a"
+                        }
+                    },
+                    "fieldId": "t7_b_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Byggesaksgebyr (ekskl. mva.) for oppføring av enebolig (ny boligbygning med en boenhet), jf. PBL § 20-1 a: a. Gebyr vedtatt for inneværende år (kroner)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Gebyr i rapporteringsåret (kroner, forhåndsutfylt av SSB)",
+                            "id": "t7_b",
+                            "row": "1",
+                            "rowLabel": "1. Byggesaksgebyr (ekskl. mva.) for oppføring av enebolig (ny boligbygning med en boenhet), jf. PBL § 20-1 a"
+                        },
+                        "prefilled": true,
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_b_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Byggesaksgebyr (ekskl. mva.) for oppføring av enebolig (ny boligbygning med en boenhet), jf. PBL § 20-1 a: b. Gebyr i rapporteringsåret (kroner, forhåndsutfylt av SSB)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
+                            "id": "t7_b",
+                            "row": "2",
+                            "rowLabel": "2. Gebyr for opprettelse av grunneiendom på 750 m2, jf. matrikkellova §§ 5 og 32"
+                        }
+                    },
+                    "fieldId": "t7_b_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Gebyr for opprettelse av grunneiendom på 750 m2, jf. matrikkellova §§ 5 og 32: a. Gebyr vedtatt for inneværende år (kroner)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Gebyr i rapporteringsåret (kroner, forhåndsutfylt av SSB)",
+                            "id": "t7_b",
+                            "row": "2",
+                            "rowLabel": "2. Gebyr for opprettelse av grunneiendom på 750 m2, jf. matrikkellova §§ 5 og 32"
+                        },
+                        "prefilled": true,
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_b_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Gebyr for opprettelse av grunneiendom på 750 m2, jf. matrikkellova §§ 5 og 32: b. Gebyr i rapporteringsåret (kroner, forhåndsutfylt av SSB)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "B. Gebyrer",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c10",
+            "description": "Du må fylle ut ALLE cellene i denne bolken for å kunne sende inn skjema. Kolonne a skal være lik summen av b, c og d. Tallene overføres til kolonne a i C11-C13, C15 og C2.",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. I alt (sum b+c+d)",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. I alt (sum b+c+d)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rammesøknader",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. Herav rammesøknader"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Herav ett-trinnssøknader med ansvarsrett"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Herav ett-trinnssøknader uten ansvarsrett"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Dispensasjonssøknader",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: e. Dispensasjonssøknader"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "f",
+                            "colLabel": "f. Opprettelse/endring av eiendom (deling)",
+                            "id": "t7_c10",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_1_f",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: f. Opprettelse/endring av eiendom (deling)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. I alt (sum b+c+d)",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: a. I alt (sum b+c+d)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rammesøknader",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: b. Herav rammesøknader"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: c. Herav ett-trinnssøknader med ansvarsrett"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: d. Herav ett-trinnssøknader uten ansvarsrett"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Dispensasjonssøknader",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: e. Dispensasjonssøknader"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "f",
+                            "colLabel": "f. Opprettelse/endring av eiendom (deling)",
+                            "id": "t7_c10",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c10_2_f",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet/vedtatt i rapporteringsåret: f. Opprettelse/endring av eiendom (deling)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "C10. Antall byggesøknader, dispensasjonssøknader og søknader om opprettelse og endring av grunneiendom. Hovedtall",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c11",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rammesøknader i alt",
+                            "id": "t7_c11",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c11_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Rammesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav søknader i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c11_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. Herav søknader i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c11_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Herav søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rammesøknader i alt",
+                            "id": "t7_c11",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Rammesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rammesøknader i alt",
+                            "id": "t7_c11",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c11_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Rammesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav søknader i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c11_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. Herav søknader i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c11_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Herav søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rammesøknader i alt",
+                            "id": "t7_c11",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Rammesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav søknader i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. Herav søknader i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Herav søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rammesøknader i alt",
+                            "id": "t7_c11",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Rammesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav søknader i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. Herav søknader i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
+                            "id": "t7_c11",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c11_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Herav søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C11. Rammesøknader. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c12",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Ett-trinnssøknader med ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c12_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c12_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c12",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
+                            "id": "t7_c12",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Ett-trinnssøknader med ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Ett-trinnssøknader med ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c12_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c12_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c12",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c12_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Ett-trinnssøknader med ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c12",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Ett-trinnssøknader med ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c12",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c12_2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C12. Ett-trinnssøknader MED ansvarsrett. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c13",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Ett-trinnssøknader uten ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c13_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c13_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c13",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
+                            "id": "t7_c13",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Ett-trinnssøknader uten ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Ett-trinnssøknader uten ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c13_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c13_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c13",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c13_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Ett-trinnssøknader uten ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c13",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Ett-trinnssøknader uten ansvarsrett i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c13",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c13_2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C13. Ett-trinnssøknader UTEN ansvarsrett. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c14",
+            "description": "Feltene oppdateres kontinuerlig fra C11, C12 og C13 og er sperret for skriving. Feil i summene rettes i C11-C13.",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Byggesøknader i alt",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Byggesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c14",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Byggesøknader i alt",
+                            "id": "t7_c14",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Byggesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Byggesøknader i alt",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Byggesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c14",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c14_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Byggesøknader i alt",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Byggesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c14",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Byggesøknader i alt",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Byggesøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c14",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c14_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c14_2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C14. Til summeringskontroll: Byggesøknader i alt og fordelt på 3- og 12-ukers frister",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c15",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Dispensasjonssøknader i alt",
+                            "id": "t7_c15",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c15_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Dispensasjonssøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav dispensasjon fra plan",
+                            "id": "t7_c15",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c15_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. Herav dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
+                            "id": "t7_c15",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c15_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Herav dispensasjon fra byggesaksbestemmelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Dispensasjonssøknader i alt",
+                            "id": "t7_c15",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Dispensasjonssøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Dispensasjonssøknader i alt",
+                            "id": "t7_c15",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c15_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Dispensasjonssøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav dispensasjon fra plan",
+                            "id": "t7_c15",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c15_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. Herav dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
+                            "id": "t7_c15",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c15_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Herav dispensasjon fra byggesaksbestemmelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Dispensasjonssøknader i alt",
+                            "id": "t7_c15",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Dispensasjonssøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav dispensasjon fra plan",
+                            "id": "t7_c15",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. Herav dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
+                            "id": "t7_c15",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Herav dispensasjon fra byggesaksbestemmelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Dispensasjonssøknader i alt",
+                            "id": "t7_c15",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Dispensasjonssøknader i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav dispensasjon fra plan",
+                            "id": "t7_c15",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. Herav dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
+                            "id": "t7_c15",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c15_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Herav dispensasjon fra byggesaksbestemmelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C15. Dispensasjonssøknader. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c16",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Igangsettingstillatelser",
+                            "id": "t7_c16",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c16_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader behandlet i rapporteringsåret: a. Igangsettingstillatelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Midlertidige brukstillatelser",
+                            "id": "t7_c16",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c16_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader behandlet i rapporteringsåret: b. Midlertidige brukstillatelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Ferdigattester",
+                            "id": "t7_c16",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c16_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader behandlet i rapporteringsåret: c. Ferdigattester"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Igangsettingstillatelser",
+                            "id": "t7_c16",
+                            "row": "2",
+                            "rowLabel": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c16_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c16_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Igangsettingstillatelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Midlertidige brukstillatelser",
+                            "id": "t7_c16",
+                            "row": "2",
+                            "rowLabel": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c16_1_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c16_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager: b. Midlertidige brukstillatelser"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Ferdigattester",
+                            "id": "t7_c16",
+                            "row": "2",
+                            "rowLabel": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c16_1_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c16_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Ferdigattester"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C16. Igangsettingstillatelser, midlertidige brukstillatelser og ferdigattester. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c2",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Søknader om opprettelse/endring av eiendommer i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c2",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
+                            "id": "t7_c2",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Søknader om opprettelse/endring av eiendommer i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Søknader om opprettelse/endring av eiendommer i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c2_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c2",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Søknader om opprettelse/endring av eiendommer i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c2",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Søknader om opprettelse/endring av eiendommer i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. I samsvar med plan, i alt",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. I samsvar med plan, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b1",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b1. I samsvar med plan, herav med 3 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b2",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b2. I samsvar med plan, herav med 12 ukers frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Søknader som ikke er i samsvar med plan",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Søknader som ikke er i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Søknader med 12 ukers frist i alt",
+                            "id": "t7_c2",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c2_2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: d. Søknader med 12 ukers frist i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C2. Oppretting og endring av eiendom (deling)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c_ekostra",
+            "description": "Digitalisering av kommunale fagsystemer gjennom eByggesak danner grunnlaget for eKOSTRA, en tidsbesparende automatisering av kommunens rapportering til SSB.",
+            "questions": [
+                {
+                    "fieldId": "t7_c_eByggesak",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Har kommunen tatt i bruk eByggesak for rapportering av omfang og saksbehandlingstid for byggesøknader, dispensasjonssøknader og søknader om opprettelse/endring av grunneiendom fra 1.1.2024?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 12
+                    },
+                    "fieldId": "t7_c_eByggesakKommentar",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Eventuelle kommentarer"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C11-C2. Om eKOSTRA",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c3",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rekvisisjoner i alt",
+                            "id": "t7_c3",
+                            "row": "1",
+                            "rowLabel": "1. Antall rekvisisjoner mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c3_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall rekvisisjoner mottatt i rapporteringsåret: a. Rekvisisjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "1",
+                            "rowLabel": "1. Antall rekvisisjoner mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c3_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall rekvisisjoner mottatt i rapporteringsåret: b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "1",
+                            "rowLabel": "1. Antall rekvisisjoner mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c3_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall rekvisisjoner mottatt i rapporteringsåret: c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rekvisisjoner i alt",
+                            "id": "t7_c3",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle rekvisisjoner mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle rekvisisjoner mottatt hvor det ble bedt om tilleggsinformasjon: a. Rekvisisjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rekvisisjoner i alt",
+                            "id": "t7_c3",
+                            "row": "2",
+                            "rowLabel": "2. Antall rekvisisjoner behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c3_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall rekvisisjoner behandlet i rapporteringsåret: a. Rekvisisjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2",
+                            "rowLabel": "2. Antall rekvisisjoner behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c3_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall rekvisisjoner behandlet i rapporteringsåret: b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2",
+                            "rowLabel": "2. Antall rekvisisjoner behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c3_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall rekvisisjoner behandlet i rapporteringsåret: c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rekvisisjoner i alt",
+                            "id": "t7_c3",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist: a. Rekvisisjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist: b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall rekvisisjoner med saksbehandlingstid over lovpålagt frist: c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Rekvisisjoner i alt",
+                            "id": "t7_c3",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Rekvisisjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
+                            "id": "t7_c3",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c3_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C3. Oppmålingsforretninger. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_c4",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Seksjoneringsvirksomhet i alt",
+                            "id": "t7_c4",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c4_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: a. Seksjoneringsvirksomhet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: b. Seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Reseksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: c. Reseksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Opphevelse av seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1",
+                            "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Antall søknader mottatt i rapporteringsåret: d. Opphevelse av seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Seksjoneringsvirksomhet i alt",
+                            "id": "t7_c4",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_1_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: a. Seksjoneringsvirksomhet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_1_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: b. Seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Reseksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_1_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: c. Reseksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Opphevelse av seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "1.1",
+                            "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_1_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon: d. Opphevelse av seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Seksjoneringsvirksomhet i alt",
+                            "id": "t7_c4",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_c4_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: a. Seksjoneringsvirksomhet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: b. Seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Reseksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: c. Reseksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Opphevelse av seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2",
+                            "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_c4_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall søknader behandlet i rapporteringsåret: d. Opphevelse av seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Seksjoneringsvirksomhet i alt",
+                            "id": "t7_c4",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: a. Seksjoneringsvirksomhet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: b. Seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Reseksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: c. Reseksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Opphevelse av seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.1",
+                            "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist: d. Opphevelse av seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Seksjoneringsvirksomhet i alt",
+                            "id": "t7_c4",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        },
+                        "readOnly": true
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: a. Seksjoneringsvirksomhet i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: b. Seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Reseksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_c",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: c. Reseksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Opphevelse av seksjoneringer",
+                            "id": "t7_c4",
+                            "row": "2.2",
+                            "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_d",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "t7_c4_2_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager: d. Opphevelse av seksjoneringer"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "C4. Eierseksjoneringssaker. Antall og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_d1",
+            "description": "Antall vedtak.",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "1a",
+                            "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "1a",
+                            "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_d1_1a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "1a",
+                            "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_d1_1a_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "1a",
+                            "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_d1_1a_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "1a",
+                            "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_d1_1a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "1b",
+                            "rowLabel": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1b_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "1b",
+                            "rowLabel": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1b_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "1b",
+                            "rowLabel": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1b_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor): b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "1b",
+                            "rowLabel": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1b_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor): b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "1b",
+                            "rowLabel": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_1b_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1b. Antall vedtak i alt for søknader i områder med restriksjoner (sum av spørsmålene nedenfor): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "2",
+                            "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "2",
+                            "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "2",
+                            "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "2",
+                            "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "2",
+                            "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "2a",
+                            "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
+                        }
+                    },
+                    "fieldId": "t7_d1_2a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "2a",
+                            "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
+                        }
+                    },
+                    "fieldId": "t7_d1_2a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "2a",
+                            "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_2a_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "2a",
+                            "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
+                        }
+                    },
+                    "fieldId": "t7_d1_2a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "3",
+                            "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "3",
+                            "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "3",
+                            "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_3_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "3",
+                            "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_3_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "3",
+                            "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "fieldId": "t7_d1_3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "4",
+                            "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
+                        }
+                    },
+                    "fieldId": "t7_d1_4_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "4",
+                            "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
+                        }
+                    },
+                    "fieldId": "t7_d1_4_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "4",
+                            "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_4_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "4",
+                            "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
+                        }
+                    },
+                    "fieldId": "t7_d1_4_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "4a",
+                            "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "4a",
+                            "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "4a",
+                            "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_4a_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse): b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "4a",
+                            "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "4b",
+                            "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4b_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "4b",
+                            "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4b_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "4b",
+                            "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d1_4b_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk): b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "4b",
+                            "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
+                        }
+                    },
+                    "fieldId": "t7_d1_4b_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "5",
+                            "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "fieldId": "t7_d1_5_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "5",
+                            "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "fieldId": "t7_d1_5_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "5",
+                            "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "fieldId": "t7_d1_5_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "5",
+                            "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "fieldId": "t7_d1_5_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "5",
+                            "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "fieldId": "t7_d1_5_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "6",
+                            "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "fieldId": "t7_d1_6_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "6",
+                            "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "fieldId": "t7_d1_6_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "6",
+                            "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "fieldId": "t7_d1_6_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "6",
+                            "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "fieldId": "t7_d1_6_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "6",
+                            "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "fieldId": "t7_d1_6_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d1",
+                            "row": "7",
+                            "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "fieldId": "t7_d1_7_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår: a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d1",
+                            "row": "7",
+                            "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "fieldId": "t7_d1_7_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår: b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d1",
+                            "row": "7",
+                            "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "fieldId": "t7_d1_7_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår: b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d1",
+                            "row": "7",
+                            "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "fieldId": "t7_d1_7_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår: b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d1",
+                            "row": "7",
+                            "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "fieldId": "t7_d1_7_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår: c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "D1. Resultat av byggesaksbehandling i alt og i særskilt område",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_d2",
+            "description": "Antall vedtak i rapporteringsåret.",
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d2",
+                            "row": "1",
+                            "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d2_1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d2",
+                            "row": "1",
+                            "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "fieldId": "t7_d2_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
+                            "id": "t7_d2",
+                            "row": "1",
+                            "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "fieldId": "t7_d2_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m): b1. Herav innvilget gjennom vedtak i samsvar med plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
+                            "id": "t7_d2",
+                            "row": "1",
+                            "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "fieldId": "t7_d2_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m): b2. Herav innvilget gjennom vedtak om dispensasjon fra plan"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d2",
+                            "row": "1",
+                            "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "fieldId": "t7_d2_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d2",
+                            "row": "2",
+                            "rowLabel": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd)"
+                        }
+                    },
+                    "fieldId": "t7_d2_2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d2",
+                            "row": "2",
+                            "rowLabel": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd)"
+                        }
+                    },
+                    "fieldId": "t7_d2_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d2",
+                            "row": "2",
+                            "rowLabel": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd)"
+                        }
+                    },
+                    "fieldId": "t7_d2_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Vedtak i alt",
+                            "id": "t7_d2",
+                            "row": "3",
+                            "rowLabel": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_d2_3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k): a. Vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav innvilget i alt",
+                            "id": "t7_d2",
+                            "row": "3",
+                            "rowLabel": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k)"
+                        }
+                    },
+                    "fieldId": "t7_d2_3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k): b. Herav innvilget i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav vedtak om avslag",
+                            "id": "t7_d2",
+                            "row": "3",
+                            "rowLabel": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k)"
+                        }
+                    },
+                    "fieldId": "t7_d2_3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k): c. Herav vedtak om avslag"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "D2. Resultat av behandling av søknader om opprettelse og endring av eiendom, matrikuleringer uten fullført oppmålingsforretning (MUF) og seksjoneringer",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_d_ekostra",
+            "questions": [
+                {
+                    "fieldId": "t7_d_eByggesak",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Har kommunen tatt i bruk eByggesak for rapportering om resultat av saksbehandling for byggesøknader og andre søknader fra 1.1.2024?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 12
+                    },
+                    "fieldId": "t7_d_eByggesakKommentar",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Eventuelle kommentarer"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "D1-D2. Om eKOSTRA",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_e0",
+            "questions": [
+                {
+                    "fieldId": "t7_e0a_klagerMottattEllerBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E0a. Har kommunen mottatt eller behandlet klager i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "fieldId": "t7_e0b_statsforvalterBehandlet",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "E0b. Har Statsforvalteren behandlet kommunale vedtak angående klager fra kommunen i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "E. Klagesaksbehandling: Omfang, resultat og saksbehandlingstid",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_e1",
+            "condition": {
+                "fieldId": "t7_e0a_klagerMottattEllerBehandlet",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_1_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_1_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e1_2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e1_2_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e1_2_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e1_2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e1_2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_3_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_3_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e1_3_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e1_3a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e1_3a_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e1_3a_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e1_3a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e1_3a_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e1_3b_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e1_3b_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e1_3b_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e1_3b_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e1_3b_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3c_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3c_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3c_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3c_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3c_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3d_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3d_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3d_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3d_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e1_3d_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Antall vedtak i alt",
+                            "id": "t7_e1",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e1_4_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: b. Antall vedtak i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b1",
+                            "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
+                            "id": "t7_e1",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e1_4_b1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: b1. Herav klagesaker tatt til følge av kommunen"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b2",
+                            "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
+                            "id": "t7_e1",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e1_4_b2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: b2. Herav klagesaker oversendt Statsforvalteren"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
+                            "id": "t7_e1",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e1_4_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
+                            "id": "t7_e1",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e1_4_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: d. Antall klagesaker med behandlingstid over lovpålagt frist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "E1. Antall klagesaker behandlet i kommunen",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_e2",
+            "condition": {
+                "fieldId": "t7_e0b_statsforvalterBehandlet",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_1_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_1_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_1_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_1_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "1",
+                            "rowLabel": "1. Klagesaker i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_1_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "1. Klagesaker i alt: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e2_2_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e2_2_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_2_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e2_2_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "2",
+                            "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "fieldId": "t7_e2_2_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "2. Klagesaker på gebyrer: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "3",
+                            "rowLabel": "3. Klagesaker på utfall av søknadsbehandling"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3. Klagesaker på utfall av søknadsbehandling: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e2_3a_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e2_3a_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3a_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e2_3a_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "3a",
+                            "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "fieldId": "t7_e2_3a_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3a. Klagesaker på byggesøknader: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e2_3b_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e2_3b_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3b_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e2_3b_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "3b",
+                            "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "fieldId": "t7_e2_3b_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3b. Klagesaker på søknader om opprettelse og endring av eiendom: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3c_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3c_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3c_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3c_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "3c",
+                            "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3c_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3c. Klagesaker på oppmålingssaker: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3d_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3d_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_3d_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3d_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "3d",
+                            "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "fieldId": "t7_e2_3d_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "3d. Klagesaker på seksjoneringssaker: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e",
+                            "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
+                            "id": "t7_e2",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e2_4_e",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e1",
+                            "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
+                            "id": "t7_e2",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e2_4_e1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: e1. Kommunale vedtak som ble STADFESTET"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2",
+                            "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
+                            "id": "t7_e2",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_e2_4_e2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2a",
+                            "colLabel": "e2a. Herav vedtak som ble OMGJORT",
+                            "id": "t7_e2",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e2_4_e2a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: e2a. Herav vedtak som ble OMGJORT"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "e2b",
+                            "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
+                            "id": "t7_e2",
+                            "row": "4",
+                            "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "fieldId": "t7_e2_4_e2b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging: e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "E2. Klagesaker oversendt fra kommunen og behandlet av Statsforvalteren",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f0",
+            "questions": [
+                {
+                    "fieldId": "t7_f0a_erUtfoertTilsyn",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F0a. Er det utført tilsyn med tiltak i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "F. Utøvelse av tilsyn ved tiltak (i byggesaker)",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f1",
+            "condition": {
+                "fieldId": "t7_f0a_erUtfoertTilsyn",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f1",
+                            "row": "a",
+                            "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
+                        }
+                    },
+                    "fieldId": "t7_f1_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1: a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f1",
+                            "row": "a",
+                            "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
+                        }
+                    },
+                    "fieldId": "t7_f1_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1: b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f1",
+                            "row": "a",
+                            "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
+                        }
+                    },
+                    "fieldId": "t7_f1_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1: c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f1",
+                            "row": "a",
+                            "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
+                        }
+                    },
+                    "fieldId": "t7_f1_a_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1: d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f1",
+                            "row": "b",
+                            "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
+                        }
+                    },
+                    "fieldId": "t7_f1_b_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4: a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f1",
+                            "row": "b",
+                            "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
+                        }
+                    },
+                    "fieldId": "t7_f1_b_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4: b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f1",
+                            "row": "b",
+                            "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
+                        }
+                    },
+                    "fieldId": "t7_f1_b_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4: c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f1",
+                            "row": "b",
+                            "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
+                        }
+                    },
+                    "fieldId": "t7_f1_b_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4: d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f1",
+                            "row": "c",
+                            "rowLabel": "c. Antall tilsyn med eksisterende byggverk og arealer, jf. pbl § 25-4"
+                        }
+                    },
+                    "fieldId": "t7_f1_c_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "c. Antall tilsyn med eksisterende byggverk og arealer, jf. pbl § 25-4: a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "F1. Antall tiltak som det er ført tilsyn med",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f2",
+            "condition": {
+                "fieldId": "t7_f0a_erUtfoertTilsyn",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f2",
+                            "row": "a",
+                            "rowLabel": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport): a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f2",
+                            "row": "a",
+                            "rowLabel": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport): b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f2",
+                            "row": "a",
+                            "rowLabel": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport): c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f2",
+                            "row": "a",
+                            "rowLabel": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall gjennomførte tilsyn i alt (tilsyn med tilsynsrapport og enkle tilsyn som kun er oppført i samlerapport): d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antall tilsyn med omsøkte tiltak (byggesaker): a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antall tilsyn med omsøkte tiltak (byggesaker): b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antall tilsyn med omsøkte tiltak (byggesaker): c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a1_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antall tilsyn med omsøkte tiltak (byggesaker): d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter): a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter): b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter): c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter)"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f2_a2_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter): d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f2",
+                            "row": "a2a",
+                            "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt: a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f2",
+                            "row": "a2a",
+                            "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt: b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f2",
+                            "row": "a2a",
+                            "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt: c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f2",
+                            "row": "a2a",
+                            "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2a_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt: d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. Antall tilsyn i alt",
+                            "id": "t7_f2",
+                            "row": "a2b",
+                            "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2b_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak): a. Antall tilsyn i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav tilsyn med eksisterende tiltak",
+                            "id": "t7_f2",
+                            "row": "a2b",
+                            "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2b_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak): b. Herav tilsyn med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav tilsyn med nye tiltak",
+                            "id": "t7_f2",
+                            "row": "a2b",
+                            "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2b_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak): c. Herav tilsyn med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "d",
+                            "colLabel": "d. Herav tilsyn på byggverket",
+                            "id": "t7_f2",
+                            "row": "a2b",
+                            "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "fieldId": "t7_f2_a2b_d",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak): d. Herav tilsyn på byggverket"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "F2. Antall tilsyn og ulovlighetsoppfølginger",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f3",
+            "condition": {
+                "fieldId": "t7_f0a_erUtfoertTilsyn",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a",
+                            "rowLabel": "a. Antall tilsyn i alt, med fokus på følgende tema fra byggteknisk forskrift og byggesaksforskriften"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_f3_a_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall tilsyn i alt, med fokus på følgende tema fra byggteknisk forskrift og byggesaksforskriften: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a1",
+                            "rowLabel": "a1. Produkter til byggverk (TEK17 kap. 3 og DOK)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a1_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Produkter til byggverk (TEK17 kap. 3 og DOK): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a2",
+                            "rowLabel": "a2. Sikkerhet ved brann (TEK17 kap. 11)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a2_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Sikkerhet ved brann (TEK17 kap. 11): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a3",
+                            "rowLabel": "a3. Sikkerhet og bæreevne (TEK17 kap. 10)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a3_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Sikkerhet og bæreevne (TEK17 kap. 10): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a4",
+                            "rowLabel": "a4. Plassering av tiltak (pbl. § 29-4, tillatelsen, TEK17 kap. 5 og 6)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a4_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a4. Plassering av tiltak (pbl. § 29-4, tillatelsen, TEK17 kap. 5 og 6): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a5",
+                            "rowLabel": "a5. Energi (TEK17 kap. 14)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a5_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a5. Energi (TEK17 kap. 14): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a6",
+                            "rowLabel": "a6. Miljø og helse (TEK17 kap. 11)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a6_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a6. Miljø og helse (TEK17 kap. 11): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a7",
+                            "rowLabel": "a7. Ytre miljø (TEK17 kap. 9)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a7_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a7. Ytre miljø (TEK17 kap. 9): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a8",
+                            "rowLabel": "a8. Installasjoner og anlegg (TEK17 kap. 15)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a8_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a8. Installasjoner og anlegg (TEK17 kap. 15): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a9",
+                            "rowLabel": "a9. Utearealer / Universell utforming (TEK17 kap. 8)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a9_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a9. Utearealer / Universell utforming (TEK17 kap. 8): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a10",
+                            "rowLabel": "a10. Planløsning / Universell utforming (TEK17 kap. 12)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a10_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a10. Planløsning / Universell utforming (TEK17 kap. 12): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a11",
+                            "rowLabel": "a11. Dokumentasjon FDV (TEK17 kap. 4)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a11_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a11. Dokumentasjon FDV (TEK17 kap. 4): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a12",
+                            "rowLabel": "a12. Sluttdokumentasjon"
+                        }
+                    },
+                    "fieldId": "t7_f3_a12_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a12. Sluttdokumentasjon: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a13",
+                            "rowLabel": "a13. Avfallsplaner og miljøsanering (TEK17 § 9-6, 9-7, 9-8, 9-9)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a13_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a13. Avfallsplaner og miljøsanering (TEK17 § 9-6, 9-7, 9-8, 9-9): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a14",
+                            "rowLabel": "a14. Kulturminner og kulturmiljøer"
+                        }
+                    },
+                    "fieldId": "t7_f3_a14_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a14. Kulturminner og kulturmiljøer: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a15",
+                            "rowLabel": "a15. Kvalifikasjoner i tiltak (SAK10 kap. 9, 10, 11)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a15_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a15. Kvalifikasjoner i tiltak (SAK10 kap. 9, 10, 11): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a16",
+                            "rowLabel": "a16. Sikkerhet mot naturpåkjenninger (TEK17 kap. 7)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a16_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a16. Sikkerhet mot naturpåkjenninger (TEK17 kap. 7): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a17",
+                            "rowLabel": "a17. Inneklima og helse (TEK17 kap. 13)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a17_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a17. Inneklima og helse (TEK17 kap. 13): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a18",
+                            "rowLabel": "a18. Klima og livsløp (TEK17 kap. 17)"
+                        }
+                    },
+                    "fieldId": "t7_f3_a18_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a18. Klima og livsløp (TEK17 kap. 17): Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a19",
+                            "rowLabel": "a19. Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Dokumentasjon for sikkerhet mot naturfarer"
+                        }
+                    },
+                    "fieldId": "t7_f3_a19_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a19. Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Dokumentasjon for sikkerhet mot naturfarer: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a20",
+                            "rowLabel": "a20. Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Etablering av hybler og boenheter"
+                        }
+                    },
+                    "fieldId": "t7_f3_a20_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a20. Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Etablering av hybler og boenheter: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "antall",
+                            "colLabel": "Antall tilsyn",
+                            "id": "t7_f3",
+                            "row": "a21",
+                            "rowLabel": "a21. Annet"
+                        }
+                    },
+                    "fieldId": "t7_f3_a21_antall",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a21. Annet: Antall tilsyn"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "F3. Antall utførte tilsyn fordelt på tema",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_f4",
+            "condition": {
+                "fieldId": "t7_f0a_erUtfoertTilsyn",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 6
+                    },
+                    "fieldId": "t7_f4_1",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.1 Antall tilsyn der alt var ok. Ingen feil/mangler påvist"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6
+                    },
+                    "fieldId": "t7_f4_2",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "F4.2 Antall tilsyn som avdekket ulovlighet/forhold som krever oppfølging"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "F4. Konklusjon av tilsynet",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g0",
+            "questions": [
+                {
+                    "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "G0. Er det gitt pålegg, brukt sanksjoner eller andre virkemidler i rapporteringsåret?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "G. Pålegg, sanksjoner og andre virkemidler etter tilsyn og ulovlighetsoppfølging",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g1",
+            "condition": {
+                "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. pålegg i alt",
+                            "id": "t7_g1",
+                            "row": "a",
+                            "rowLabel": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen"
+                        }
+                    },
+                    "fieldId": "t7_g1_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen: a. pålegg i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav pålegg med eksisterende tiltak",
+                            "id": "t7_g1",
+                            "row": "a",
+                            "rowLabel": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen"
+                        }
+                    },
+                    "fieldId": "t7_g1_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen: b. Herav pålegg med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav pålegg med nye tiltak",
+                            "id": "t7_g1",
+                            "row": "a",
+                            "rowLabel": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen"
+                        }
+                    },
+                    "fieldId": "t7_g1_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen: c. Herav pålegg med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. pålegg i alt",
+                            "id": "t7_g1",
+                            "row": "b1",
+                            "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Pålegg om retting (pbl § 32-3): a. pålegg i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav pålegg med eksisterende tiltak",
+                            "id": "t7_g1",
+                            "row": "b1",
+                            "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Pålegg om retting (pbl § 32-3): b. Herav pålegg med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav pålegg med nye tiltak",
+                            "id": "t7_g1",
+                            "row": "b1",
+                            "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Pålegg om retting (pbl § 32-3): c. Herav pålegg med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. pålegg i alt",
+                            "id": "t7_g1",
+                            "row": "b2",
+                            "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4): a. pålegg i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav pålegg med eksisterende tiltak",
+                            "id": "t7_g1",
+                            "row": "b2",
+                            "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4): b. Herav pålegg med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav pålegg med nye tiltak",
+                            "id": "t7_g1",
+                            "row": "b2",
+                            "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4): c. Herav pålegg med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. pålegg i alt",
+                            "id": "t7_g1",
+                            "row": "b3",
+                            "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Pålegg om stans (pbl § 32-3 og § 32-4): a. pålegg i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav pålegg med eksisterende tiltak",
+                            "id": "t7_g1",
+                            "row": "b3",
+                            "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Pålegg om stans (pbl § 32-3 og § 32-4): b. Herav pålegg med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav pålegg med nye tiltak",
+                            "id": "t7_g1",
+                            "row": "b3",
+                            "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "fieldId": "t7_g1_b3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Pålegg om stans (pbl § 32-3 og § 32-4): c. Herav pålegg med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "G1. Antall pålegg gitt i rapporteringsåret",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g2",
+            "condition": {
+                "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "a",
+                            "rowLabel": "a. Utfallet av pålegg gitt i rapporteringsåret"
+                        }
+                    },
+                    "fieldId": "t7_g2_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Utfallet av pålegg gitt i rapporteringsåret: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "a",
+                            "rowLabel": "a. Utfallet av pålegg gitt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g2_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Utfallet av pålegg gitt i rapporteringsåret: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "a",
+                            "rowLabel": "a. Utfallet av pålegg gitt i rapporteringsåret"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g2_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Utfallet av pålegg gitt i rapporteringsåret: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
+                        }
+                    },
+                    "fieldId": "t7_g2_a1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antallet pålegg der forholdet ble rettet opp: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
+                        }
+                    },
+                    "fieldId": "t7_g2_a1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antallet pålegg der forholdet ble rettet opp: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "a1",
+                            "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
+                        }
+                    },
+                    "fieldId": "t7_g2_a1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Antallet pålegg der forholdet ble rettet opp: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
+                        }
+                    },
+                    "fieldId": "t7_g2_a2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
+                        }
+                    },
+                    "fieldId": "t7_g2_a2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "a2",
+                            "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
+                        }
+                    },
+                    "fieldId": "t7_g2_a2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "a3",
+                            "rowLabel": "a3. Antallet pålegg med annet utfall"
+                        }
+                    },
+                    "fieldId": "t7_g2_a3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Antallet pålegg med annet utfall: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "a3",
+                            "rowLabel": "a3. Antallet pålegg med annet utfall"
+                        }
+                    },
+                    "fieldId": "t7_g2_a3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Antallet pålegg med annet utfall: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "a3",
+                            "rowLabel": "a3. Antallet pålegg med annet utfall"
+                        }
+                    },
+                    "fieldId": "t7_g2_a3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Antallet pålegg med annet utfall: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "b1",
+                            "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
+                        }
+                    },
+                    "fieldId": "t7_g2_b1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Oppfølging av pålegg: Forelegg: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "b1",
+                            "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
+                        }
+                    },
+                    "fieldId": "t7_g2_b1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Oppfølging av pålegg: Forelegg: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "b1",
+                            "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
+                        }
+                    },
+                    "fieldId": "t7_g2_b1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b1. Oppfølging av pålegg: Forelegg: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "b2",
+                            "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
+                        }
+                    },
+                    "fieldId": "t7_g2_b2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Oppfølging av pålegg: Tvangsmulkt: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "b2",
+                            "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
+                        }
+                    },
+                    "fieldId": "t7_g2_b2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Oppfølging av pålegg: Tvangsmulkt: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "b2",
+                            "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
+                        }
+                    },
+                    "fieldId": "t7_g2_b2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b2. Oppfølging av pålegg: Tvangsmulkt: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. oppfølginger i alt",
+                            "id": "t7_g2",
+                            "row": "b3",
+                            "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
+                        }
+                    },
+                    "fieldId": "t7_g2_b3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse: a. oppfølginger i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
+                            "id": "t7_g2",
+                            "row": "b3",
+                            "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
+                        }
+                    },
+                    "fieldId": "t7_g2_b3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse: b. Herav oppfølginger med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav oppfølginger med nye tiltak",
+                            "id": "t7_g2",
+                            "row": "b3",
+                            "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
+                        }
+                    },
+                    "fieldId": "t7_g2_b3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse: c. Herav oppfølginger med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "G2. Antall oppfølginger av gitte pålegg",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g3",
+            "condition": {
+                "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. sanksjoner i alt",
+                            "id": "t7_g3",
+                            "row": "a",
+                            "rowLabel": "a. Antall sanksjoner brukt i rapporteringsåret, i alt"
+                        }
+                    },
+                    "fieldId": "t7_g3_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall sanksjoner brukt i rapporteringsåret, i alt: a. sanksjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
+                            "id": "t7_g3",
+                            "row": "a",
+                            "rowLabel": "a. Antall sanksjoner brukt i rapporteringsåret, i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g3_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall sanksjoner brukt i rapporteringsåret, i alt: b. Herav sanksjoner med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav sanksjoner med nye tiltak",
+                            "id": "t7_g3",
+                            "row": "a",
+                            "rowLabel": "a. Antall sanksjoner brukt i rapporteringsåret, i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g3_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall sanksjoner brukt i rapporteringsåret, i alt: c. Herav sanksjoner med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. sanksjoner i alt",
+                            "id": "t7_g3",
+                            "row": "a1",
+                            "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
+                        }
+                    },
+                    "fieldId": "t7_g3_a1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a): a. sanksjoner i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
+                            "id": "t7_g3",
+                            "row": "a1",
+                            "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
+                        }
+                    },
+                    "fieldId": "t7_g3_a1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a): b. Herav sanksjoner med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav sanksjoner med nye tiltak",
+                            "id": "t7_g3",
+                            "row": "a1",
+                            "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
+                        }
+                    },
+                    "fieldId": "t7_g3_a1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a): c. Herav sanksjoner med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "G3. Antall sanksjoner brukt",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_g4",
+            "condition": {
+                "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                "op": "isTrue"
+            },
+            "questions": [
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a",
+                            "rowLabel": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt"
+                        }
+                    },
+                    "fieldId": "t7_g4_a_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a",
+                            "rowLabel": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g4_a_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a",
+                            "rowLabel": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt"
+                        },
+                        "readOnly": true
+                    },
+                    "fieldId": "t7_g4_a_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a. Antall andre virkemidler brukt i rapporteringsåret, i alt: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a1",
+                            "rowLabel": "a1. Herav advarsel"
+                        }
+                    },
+                    "fieldId": "t7_g4_a1_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Herav advarsel: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a1",
+                            "rowLabel": "a1. Herav advarsel"
+                        }
+                    },
+                    "fieldId": "t7_g4_a1_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Herav advarsel: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a1",
+                            "rowLabel": "a1. Herav advarsel"
+                        }
+                    },
+                    "fieldId": "t7_g4_a1_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a1. Herav advarsel: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a2",
+                            "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
+                        }
+                    },
+                    "fieldId": "t7_g4_a2_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Herav tilbaketrekking av ansvarsrett: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a2",
+                            "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
+                        }
+                    },
+                    "fieldId": "t7_g4_a2_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Herav tilbaketrekking av ansvarsrett: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a2",
+                            "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
+                        }
+                    },
+                    "fieldId": "t7_g4_a2_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a2. Herav tilbaketrekking av ansvarsrett: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a3",
+                            "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
+                        }
+                    },
+                    "fieldId": "t7_g4_a3_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Herav rapport til den sentrale godkjenningsordningen: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a3",
+                            "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
+                        }
+                    },
+                    "fieldId": "t7_g4_a3_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Herav rapport til den sentrale godkjenningsordningen: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a3",
+                            "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
+                        }
+                    },
+                    "fieldId": "t7_g4_a3_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a3. Herav rapport til den sentrale godkjenningsordningen: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a4",
+                            "rowLabel": "a4. Herav anmeldelse til politiet"
+                        }
+                    },
+                    "fieldId": "t7_g4_a4_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a4. Herav anmeldelse til politiet: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a4",
+                            "rowLabel": "a4. Herav anmeldelse til politiet"
+                        }
+                    },
+                    "fieldId": "t7_g4_a4_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a4. Herav anmeldelse til politiet: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a4",
+                            "rowLabel": "a4. Herav anmeldelse til politiet"
+                        }
+                    },
+                    "fieldId": "t7_g4_a4_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a4. Herav anmeldelse til politiet: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "a",
+                            "colLabel": "a. andre virkemidler i alt",
+                            "id": "t7_g4",
+                            "row": "a5",
+                            "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
+                        }
+                    },
+                    "fieldId": "t7_g4_a5_a",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a5. Herav pålegg/krav om uavhengig kontroll: a. andre virkemidler i alt"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "b",
+                            "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
+                            "id": "t7_g4",
+                            "row": "a5",
+                            "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
+                        }
+                    },
+                    "fieldId": "t7_g4_a5_b",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a5. Herav pålegg/krav om uavhengig kontroll: b. Herav andre virkemidler med eksisterende tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "matrix": {
+                            "col": "c",
+                            "colLabel": "c. Herav andre virkemidler med nye tiltak",
+                            "id": "t7_g4",
+                            "row": "a5",
+                            "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
+                        }
+                    },
+                    "fieldId": "t7_g4_a5_c",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "a5. Herav pålegg/krav om uavhengig kontroll: c. Herav andre virkemidler med nye tiltak"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "G4. Antall andre virkemidler nyttet ved manglende overholdelse av plan- og bygningslovgivningen",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_h",
+            "description": "Åpent felt til kommentarer om ting som er uklare, type opplysninger som innhentes, omfang, utforming av skjemaet o.l.",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 12,
+                        "maxLength": 999
+                    },
+                    "fieldId": "t7_merknader",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Kommentarer og merknader (maks. 999 tegn)"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                }
+            ],
+            "title": "H. Kommentarer og merknader til skjemaet",
+            "type": "bolk"
+        },
+        {
+            "bolkId": "bolk_i",
+            "questions": [
+                {
+                    "annotations": {
+                        "gridXs": 6
+                    },
+                    "fieldId": "t7_elektroniskSakssystemBrukt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.1 Er elektronisk sakssystem brukt som grunnlag for store deler av rapporteringen?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 6
+                    },
+                    "condition": {
+                        "fieldId": "t7_elektroniskSakssystemBrukt",
+                        "op": "isTrue"
+                    },
+                    "fieldId": "t7_maskinelleOpptellinger",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.1a Er tallene i utfyllingen av skjema framkommet som resultat av maskinelle opptellinger/summeringer?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "readOnly": true,
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t7_timerTotalt",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.2 Antall timer det tok å rapportere - totalt (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t7_timerUtfylling",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.2a Antall timer det tok å fylle ut skjemaet"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "gridXs": 4,
+                        "unit": "Timer"
+                    },
+                    "fieldId": "t7_timerFremskaffe",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "I.2b Antall timer det tok å framskaffe informasjonen for utfylling"
+                    },
+                    "questionType": {
+                        "type": "integer"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "I. Grunnlag for rapportering og tid for utfylling av skjemaet",
+            "type": "bolk"
+        }
+    ],
+    "title": "20. Byggesak 2026 (Trial 7: Rettet etter revisjon mot PDF)"
+},
   "trial6-byggesak": {
     "$schema": "./baseline-schema-meta.json",
     "calculations": [

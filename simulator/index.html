@@ -340,7 +340,7 @@
     </section>
   </main>
 
-  <script src="schemas.js?v=65cbccea"></script>
+  <script src="schemas.js?v=dd245ef3"></script>
   <script>
     // Schemas loaded dynamically from dsl single source of truth (schemas.js)
     const availableSchemas = window.SSB_SCHEMAS || {};
@@ -818,10 +818,11 @@
             input.setAttribute("aria-label", `${r.label}: ${c.label}`);
             input.value = formData[q.fieldId] || "";
             const isCalc = calculated.has(q.fieldId);
-            if (isCalc) {
+            const isPrefilled = !!(q.annotations && q.annotations.prefilled);
+            if (isCalc || isPrefilled) {
               input.readOnly = true;
               td.classList.add("calc");
-              input.title = "Beregnes automatisk";
+              input.title = isCalc ? "Beregnes automatisk" : "Forhåndsutfylt";
             } else {
               input.oninput = (e) => {
                 formData[q.fieldId] = e.target.value;

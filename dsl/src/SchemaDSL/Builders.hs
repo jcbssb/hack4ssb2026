@@ -30,6 +30,7 @@ module SchemaDSL.Builders
   , matrixCells
   , cellId
   , sumOfKeys
+  , weightedAverage
   , partsAtMost
   , atLeastZero
   , questionsOnly
@@ -68,6 +69,7 @@ data MatrixCol = MatrixCol
   , colLabel   :: String
   , colFormula :: Maybe ((String -> Expr) -> Expr)        -- ^ cell from other columns' cells, by column key
   , colSummable :: Bool                                   -- ^ whether row formulas apply (False for averages)
+  , colPrefilled :: Bool                                  -- ^ filled in beforehand by the data owner, shown read-only
   }
 
 -- | Whether a rule is instantiated once per row (cells referred to by column key)
@@ -101,7 +103,7 @@ matrixCells m =
 
 -- | Entered column
 matrixCol :: String -> String -> MatrixCol
-matrixCol key lbl = MatrixCol key lbl Nothing True
+matrixCol key lbl = MatrixCol key lbl Nothing True False
 
 -- | Field id of a cell
 cellId :: String -> String -> String -> FieldId
@@ -114,6 +116,11 @@ safeKey = map (\c -> if c `elem` (".- " :: String) then '_' else c)
 -- | Sum of cells by key, for use in formulas and rules
 sumOfKeys :: [String] -> (String -> Expr) -> Expr
 sumOfKeys keys cell = Add (map cell keys)
+
+-- | Weighted average of (value, weight) pairs, e.g. average processing times weighted
+-- by the number of cases. Has no value when the weights sum to 0.
+weightedAverage :: [(Expr, Expr)] -> Expr
+weightedAverage pairs = Div (Add [ Mul [v, w] | (v, w) <- pairs ]) (Add (map snd pairs))
 
 -- | "Herav" rule: the parts together do not exceed the total
 partsAtMost :: String -> RuleScope -> [String] -> String -> String -> MatrixRule
@@ -155,13 +162,15 @@ matrix m = (questions, calcs, rules)
           { fieldId      = cellId prefix (rowKey r) (colKey c)
           , prompt       = Prompt (rowLabel r ++ ": " ++ colLabel c) Nothing
           , questionType = rowType r
-          , required     = colKey c `elem` rowRequired r
+          , required     = colKey c `elem` rowRequired r && not (colPrefilled c)
           , condition    = fmap (\f -> f ref (colKey c)) (rowCondition r)
           , annotations  = Just (KM.fromList
               ([ ("matrix", object
                    [ "id" .= prefix, "row" .= rowKey r, "col" .= colKey c
                    , "rowLabel" .= rowLabel r, "colLabel" .= colLabel c ])
-               ] ++ [ ("readOnly", Bool True) | Just _ <- [formulaFor r c] ]))
+               ] ++ [ ("readOnly", Bool True) | Just _ <- [formulaFor r c] ]
+                 ++ [ ("prefilled", Bool True) | colPrefilled c ]
+                 ++ [ ("readOnly", Bool True) | colPrefilled c, Nothing <- [formulaFor r c] ]))
           }
       | (r, c) <- cells
       ]

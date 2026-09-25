@@ -98,6 +98,25 @@ Stemmer med PDF-en for A, C10 og «i alt»-cellene i F1, F2, G1, G2 og G4, borts
 - **C10 kolonne a:** blir påkrevd når den gjøres til vanlig felt (funn 1).
 - **E1 rad 3a, kolonne b:** har `*` i PDF-en, sannsynligvis en feil i skjemaet.
 
+## Status i Trial 7
+
+Funn 1, 2 og 4 er rettet i `trial7ByggesakDialogue` (`ByggesakTrial7.hs`). Samme
+sammenligning mot PDF-en gir nå:
+
+| | Celler |
+|---|---|
+| Sammenlignet | 431 (ingen mangler eller ekstra celler) |
+| Mørk grå i PDF, ikke beregnet eller forhåndsutfylt | 0 |
+| Lys grå i PDF uten betingelse (funn 3, venter på åpningsregel) | 172 |
+| Vanlig felt i PDF, betinget i Trial 7 | 2 (C12 1.1 a og 2.1 a, PDF-en er ikke konsekvent) |
+
+`testTrial7AuditFixes` gjengir 30 flere trykte verdier fra PDF-en (kopierte celler,
+summer, b2 = b i D1 og vektede gjennomsnitt).
+
+Åpent punkt: PDF-en *avkorter* gjennomsnitt til hele dager (622,69 vises som 622, 412,39
+som 412). Trial 7 beregner med desimaler, og Altinn viser dem avrundet (623). DSL-en har
+ingen avkortingsfunksjon ennå.
+
 ## Anbefalt rekkefølge
 
 1. Funn 1: rett formler og celletyper. Trenger ingen nye DSL-funksjoner, bare
