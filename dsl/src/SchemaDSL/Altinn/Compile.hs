@@ -201,10 +201,20 @@ compileSteps dIdClean calcs qs =
               Just cond -> [ "hidden" .= compilePredicateToHidden dIdClean calcs cond ]
               Nothing   -> []
 
-            gridProp = case annotations q of
-              Just ann | Just (Number xsVal) <- KM.lookup "gridXs" ann ->
-                object [ "xs" .= (round xsVal :: Int) ]
-              _ -> object [ "xs" .= (12 :: Int) ]
+            -- Full width on phones (xs); the gridXs annotation applies from sm up,
+            -- as in the SSB base app and research/ssb-altinn-skjemastandarder.md
+            gridXsAnn = case annotations q of
+              Just ann | Just (Number xsVal) <- KM.lookup "gridXs" ann -> Just (round xsVal :: Int)
+              _ -> Nothing
+
+            gridProp = case gridXsAnn of
+              Just n  -> object [ "xs" .= (12 :: Int), "sm" .= n ]
+              Nothing -> object [ "xs" .= (12 :: Int) ]
+
+            -- Short number fields: full row, narrower input box from md up (SSB base app convention)
+            numberGrid = case gridXsAnn of
+              Just n  -> object [ "xs" .= (12 :: Int), "sm" .= n ]
+              Nothing -> object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
 
             readOnlyProp = case annotations q of
               Just ann | Just (Bool True) <- KM.lookup "readOnly" ann -> [ "readOnly" .= True ]
@@ -224,7 +234,7 @@ compileSteps dIdClean calcs qs =
                       , "value"                .= compileExpr dIdClean calcs calcE
                       , "formatting"           .= object [ "number" .= object [ "decimalScale" .= scale ] ]
                       , "textResourceBindings" .= object trbBindings
-                      , "grid"                 .= gridProp
+                      , "grid"                 .= numberGrid
                       ] ++ hiddenProp
                 in (c, [])
               _ -> compileInput
@@ -266,7 +276,7 @@ compileSteps dIdClean calcs qs =
                       , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= gridProp
+                      , "grid"                 .= numberGrid
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp ++ readOnlyProp
                 in (c, [])
@@ -284,7 +294,7 @@ compileSteps dIdClean calcs qs =
                       , "textResourceBindings" .= object trbBindings
                       , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
                       , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (4 :: Int) ] ]
+                      , "grid"                 .= numberGrid
                       , "labelSettings"        .= object [ "optionalIndicator" .= False ]
                       ] ++ hiddenProp ++ readOnlyProp
                 in (c, [])
@@ -414,7 +424,7 @@ compileQuestionsWithMatrices dIdClean calcs = go
             (gridComp, gridTexts) = matrixGrid mid cells
             (cComps, cOpts, cTexts) = compileSteps dIdClean calcs cells
             (rComps, rOpts, rTexts) = go rest
-        in (gridComp : cComps ++ rComps, cOpts ++ rOpts, gridTexts ++ cTexts ++ rTexts)
+        in (gridComp : map withoutGrid cComps ++ rComps, cOpts ++ rOpts, gridTexts ++ cTexts ++ rTexts)
       Nothing ->
         let (plain, rest) = break (\x -> matrixInfo x /= Nothing) qs
             (pComps, pOpts, pTexts) = compileSteps dIdClean calcs plain
@@ -432,12 +442,17 @@ compileQuestionsWithMatrices dIdClean calcs = go
           cellFor r c = case [ q | (r', c', _, _, q) <- infos, r' == r, c' == c ] of
             (q : _) -> object [ "component" .= compId q ]
             []      -> Null
+          -- The row label column gets a fixed share; number columns split the rest.
+          -- Labels may wrap instead of being cut off after 2 lines (the default).
+          labelWidth = if length cols >= 5 then "25%" else if length cols >= 3 then "30%" else "40%" :: String
+          wrap = object [ "lineWrap" .= True, "maxHeight" .= (10 :: Int) ]
           header = object
             [ "header" .= True
-            , "cells"  .= (object [ "text" .= ("" :: String) ] : [ object [ "text" .= key "col" c ] | (c, _) <- cols ])
+            , "cells"  .= ( object [ "text" .= ("" :: String), "width" .= labelWidth ]
+                          : [ object [ "text" .= key "col" c, "alignText" .= ("right" :: String), "textOverflow" .= wrap ] | (c, _) <- cols ] )
             ]
           body (r, _) = object
-            [ "cells" .= (object [ "text" .= key "row" r ] : [ cellFor r c | (c, _) <- cols ]) ]
+            [ "cells" .= (object [ "text" .= key "row" r, "textOverflow" .= wrap ] : [ cellFor r c | (c, _) <- cols ]) ]
           grid = object
             [ "id"   .= (dIdClean ++ "-matrix-" ++ mid)
             , "type" .= ("Grid" :: String)
@@ -447,6 +462,11 @@ compileQuestionsWithMatrices dIdClean calcs = go
 
     -- Keys in order of first appearance
     nubBy' = foldl (\acc x -> if fst x `elem` map fst acc then acc else acc ++ [x]) []
+
+-- | Components placed in a Grid table take the width of their table cell
+withoutGrid :: Value -> Value
+withoutGrid (Object o) = Object (KM.delete "grid" o)
+withoutGrid v = v
 
 -- | (matrix id, row key, column key, row label, column label) from a question's "matrix" annotation
 matrixInfo :: Question -> Maybe (String, String, String, String, String)

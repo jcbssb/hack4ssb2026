@@ -452,7 +452,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -473,7 +472,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -494,7 +492,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -515,7 +512,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -536,7 +532,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -558,7 +553,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -579,7 +573,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -600,7 +593,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -621,7 +613,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -642,7 +633,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -664,7 +654,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -685,7 +674,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -706,7 +694,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -727,7 +714,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -748,7 +734,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -770,7 +755,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -792,7 +776,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -814,7 +797,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -836,7 +818,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -858,7 +839,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -888,7 +868,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Besøk i alt",
@@ -909,7 +888,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav barn",
@@ -930,7 +908,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav voksne (beregnet)",
@@ -952,7 +929,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Besøk i alt",
@@ -973,7 +949,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav barn",
@@ -994,7 +969,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav voksne (beregnet)",
@@ -1024,7 +998,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1046,7 +1019,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1068,7 +1040,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1090,7 +1061,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1111,7 +1081,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1132,7 +1101,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1154,7 +1122,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1175,7 +1142,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1196,7 +1162,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1218,7 +1183,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1239,7 +1203,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1260,7 +1223,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1313,7 +1275,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1334,7 +1295,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "lydboker",
                             "colLabel": "Lydbøker",
@@ -1355,7 +1315,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1388,7 +1347,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "lydboker",
                             "colLabel": "Lydbøker",
@@ -1421,7 +1379,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1462,7 +1419,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "iaar",
                             "colLabel": "I år (fra tabell 1)",
@@ -1484,7 +1440,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "ifjor",
                             "colLabel": "I fjor",
@@ -1505,7 +1460,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "endring",
                             "colLabel": "Endring",
@@ -7761,7 +7715,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
@@ -7782,7 +7735,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Gebyr i rapporteringsåret (kroner)",
@@ -7803,7 +7755,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
@@ -7824,7 +7775,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Gebyr i rapporteringsåret (kroner)",
@@ -7853,7 +7803,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. I alt (sum b+c+d)",
@@ -7875,7 +7824,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rammesøknader",
@@ -7896,7 +7844,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
@@ -7917,7 +7864,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
@@ -7938,7 +7884,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Dispensasjonssøknader",
@@ -7959,7 +7904,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "f",
                             "colLabel": "f. Opprettelse/endring av eiendom (deling)",
@@ -7980,7 +7924,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. I alt (sum b+c+d)",
@@ -8002,7 +7945,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rammesøknader",
@@ -8023,7 +7965,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
@@ -8044,7 +7985,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
@@ -8065,7 +8005,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Dispensasjonssøknader",
@@ -8086,7 +8025,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "f",
                             "colLabel": "f. Opprettelse/endring av eiendom (deling)",
@@ -8114,7 +8052,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -8136,7 +8073,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -8157,7 +8093,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -8179,7 +8114,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -8212,7 +8146,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -8234,7 +8167,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -8255,7 +8187,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -8277,7 +8208,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -8310,7 +8240,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -8343,7 +8272,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -8377,7 +8305,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -8417,7 +8344,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -8439,7 +8365,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -8460,7 +8385,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -8481,7 +8405,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -8503,7 +8426,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -8525,7 +8447,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -8547,7 +8468,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -8580,7 +8500,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -8602,7 +8521,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -8623,7 +8541,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -8644,7 +8561,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -8666,7 +8582,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -8688,7 +8603,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -8710,7 +8624,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -8743,7 +8656,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -8776,7 +8688,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -8809,7 +8720,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -8843,7 +8753,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -8877,7 +8786,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -8911,7 +8819,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -8944,7 +8851,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -8977,7 +8883,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9017,7 +8922,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -9039,7 +8943,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9060,7 +8963,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9081,7 +8983,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9103,7 +9004,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9125,7 +9025,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -9147,7 +9046,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -9180,7 +9078,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -9202,7 +9099,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9223,7 +9119,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9244,7 +9139,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9266,7 +9160,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9288,7 +9181,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -9310,7 +9202,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -9343,7 +9234,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9376,7 +9266,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9409,7 +9298,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9443,7 +9331,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9477,7 +9364,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -9511,7 +9397,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9544,7 +9429,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9577,7 +9461,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9618,7 +9501,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -9640,7 +9522,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9662,7 +9543,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9684,7 +9564,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9706,7 +9585,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9728,7 +9606,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -9750,7 +9627,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -9784,7 +9660,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -9806,7 +9681,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9828,7 +9702,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -9850,7 +9723,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -9872,7 +9744,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -9894,7 +9765,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -9916,7 +9786,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -9950,7 +9819,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -9984,7 +9852,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -10018,7 +9885,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -10052,7 +9918,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -10086,7 +9951,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -10127,7 +9991,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -10149,7 +10012,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -10170,7 +10032,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -10192,7 +10053,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -10225,7 +10085,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -10247,7 +10106,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -10268,7 +10126,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -10290,7 +10147,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -10323,7 +10179,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -10356,7 +10211,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -10390,7 +10244,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -10430,7 +10283,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Igangsettingstillatelser",
@@ -10451,7 +10303,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Midlertidige brukstillatelser",
@@ -10472,7 +10323,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Ferdigattester",
@@ -10493,7 +10343,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Igangsettingstillatelser",
@@ -10526,7 +10375,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Midlertidige brukstillatelser",
@@ -10559,7 +10407,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Ferdigattester",
@@ -10599,7 +10446,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -10621,7 +10467,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -10642,7 +10487,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -10663,7 +10507,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -10685,7 +10528,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -10707,7 +10549,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -10729,7 +10570,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -10762,7 +10602,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -10784,7 +10623,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -10805,7 +10643,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -10826,7 +10663,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -10848,7 +10684,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -10870,7 +10705,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -10892,7 +10726,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -10925,7 +10758,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -10958,7 +10790,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -10991,7 +10822,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -11025,7 +10855,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -11059,7 +10888,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -11093,7 +10921,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -11126,7 +10953,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -11159,7 +10985,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -11232,7 +11057,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -11253,7 +11077,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -11274,7 +11097,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -11296,7 +11118,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -11329,7 +11150,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -11350,7 +11170,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -11371,7 +11190,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -11393,7 +11211,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -11426,7 +11243,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -11459,7 +11275,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -11493,7 +11308,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -11533,7 +11347,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -11555,7 +11368,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -11576,7 +11388,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -11597,7 +11408,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -11618,7 +11428,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -11652,7 +11461,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -11685,7 +11493,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -11718,7 +11525,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -11751,7 +11557,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -11773,7 +11578,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -11794,7 +11598,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -11815,7 +11618,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -11836,7 +11638,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -11870,7 +11671,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -11903,7 +11703,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -11936,7 +11735,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -11969,7 +11767,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -12002,7 +11799,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -12035,7 +11831,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -12068,7 +11863,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -12109,7 +11903,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12130,7 +11923,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12151,7 +11943,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12172,7 +11963,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12193,7 +11983,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12214,7 +12003,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12236,7 +12024,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12258,7 +12045,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12280,7 +12066,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12302,7 +12087,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12324,7 +12108,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12345,7 +12128,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12366,7 +12148,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12387,7 +12168,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12408,7 +12188,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12429,7 +12208,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12450,7 +12228,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12471,7 +12248,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12492,7 +12268,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12513,7 +12288,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12534,7 +12308,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12555,7 +12328,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12576,7 +12348,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12597,7 +12368,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12618,7 +12388,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12639,7 +12408,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12660,7 +12428,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12681,7 +12448,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12702,7 +12468,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12723,7 +12488,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12744,7 +12508,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12765,7 +12528,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12786,7 +12548,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12807,7 +12568,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12828,7 +12588,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12849,7 +12608,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12870,7 +12628,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12891,7 +12648,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -12912,7 +12668,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -12933,7 +12688,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -12954,7 +12708,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -12975,7 +12728,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -12996,7 +12748,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13017,7 +12768,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13038,7 +12788,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13059,7 +12808,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -13080,7 +12828,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -13101,7 +12848,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13122,7 +12868,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13143,7 +12888,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13164,7 +12908,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -13185,7 +12928,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -13206,7 +12948,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13227,7 +12968,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13248,7 +12988,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13277,7 +13016,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -13298,7 +13036,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -13319,7 +13056,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13340,7 +13076,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13361,7 +13096,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13382,7 +13116,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -13403,7 +13136,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -13424,7 +13156,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13445,7 +13176,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13466,7 +13196,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13487,7 +13216,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -13508,7 +13236,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -13529,7 +13256,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -13550,7 +13276,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -13571,7 +13296,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -13664,7 +13388,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -13686,7 +13409,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -13708,7 +13430,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -13730,7 +13451,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -13751,7 +13471,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -13773,7 +13492,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -13794,7 +13512,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -13815,7 +13532,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -13836,7 +13552,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -13857,7 +13572,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -13878,7 +13592,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -13900,7 +13613,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -13922,7 +13634,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -13944,7 +13655,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -13965,7 +13675,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -13987,7 +13696,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -14008,7 +13716,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -14029,7 +13736,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -14050,7 +13756,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -14071,7 +13776,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -14092,7 +13796,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -14113,7 +13816,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -14134,7 +13836,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -14155,7 +13856,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -14176,7 +13876,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -14197,7 +13896,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -14218,7 +13916,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -14239,7 +13936,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -14260,7 +13956,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -14281,7 +13976,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -14302,7 +13996,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -14323,7 +14016,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -14344,7 +14036,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -14365,7 +14056,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -14386,7 +14076,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -14407,7 +14096,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -14428,7 +14116,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -14449,7 +14136,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -14470,7 +14156,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -14491,7 +14176,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -14523,7 +14207,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -14545,7 +14228,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -14567,7 +14249,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -14589,7 +14270,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -14611,7 +14291,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -14633,7 +14312,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -14654,7 +14332,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -14675,7 +14352,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -14696,7 +14372,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -14717,7 +14392,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -14738,7 +14412,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -14760,7 +14433,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -14782,7 +14454,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -14804,7 +14475,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -14826,7 +14496,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -14848,7 +14517,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -14869,7 +14537,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -14890,7 +14557,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -14911,7 +14577,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -14932,7 +14597,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -14953,7 +14617,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -14974,7 +14637,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -14995,7 +14657,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -15016,7 +14677,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -15037,7 +14697,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -15058,7 +14717,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -15079,7 +14737,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -15100,7 +14757,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -15121,7 +14777,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -15142,7 +14797,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -15163,7 +14817,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -15184,7 +14837,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -15205,7 +14857,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -15226,7 +14877,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -15247,7 +14897,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -15268,7 +14917,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -15289,7 +14937,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -15310,7 +14957,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -15331,7 +14977,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -15352,7 +14997,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -15402,7 +15046,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15423,7 +15066,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15444,7 +15086,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15465,7 +15106,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15486,7 +15126,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15507,7 +15146,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15528,7 +15166,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15549,7 +15186,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15570,7 +15206,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15602,7 +15237,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15623,7 +15257,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15644,7 +15277,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15665,7 +15297,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15686,7 +15317,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15707,7 +15337,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15728,7 +15357,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15749,7 +15377,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15770,7 +15397,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15791,7 +15417,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15812,7 +15437,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15833,7 +15457,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15854,7 +15477,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15875,7 +15497,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15896,7 +15517,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -15917,7 +15537,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -15938,7 +15557,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -15959,7 +15577,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -15980,7 +15597,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -16001,7 +15617,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -16033,7 +15648,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16055,7 +15669,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16076,7 +15689,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16097,7 +15709,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16118,7 +15729,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16139,7 +15749,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16160,7 +15769,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16181,7 +15789,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16202,7 +15809,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16223,7 +15829,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16244,7 +15849,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16265,7 +15869,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16286,7 +15889,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16307,7 +15909,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16328,7 +15929,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16349,7 +15949,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16370,7 +15969,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16391,7 +15989,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16412,7 +16009,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16433,7 +16029,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16454,7 +16049,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16475,7 +16069,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -16564,7 +16157,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -16585,7 +16177,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -16606,7 +16197,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -16627,7 +16217,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -16648,7 +16237,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -16669,7 +16257,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -16690,7 +16277,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -16711,7 +16297,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -16732,7 +16317,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -16753,7 +16337,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -16774,7 +16357,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -16795,7 +16377,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -16827,7 +16408,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -16848,7 +16428,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -16869,7 +16448,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -16890,7 +16468,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -16911,7 +16488,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -16932,7 +16508,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -16953,7 +16528,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -16974,7 +16548,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -16995,7 +16568,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -17016,7 +16588,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -17037,7 +16608,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -17058,7 +16628,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -17079,7 +16648,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -17100,7 +16668,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -17121,7 +16688,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -17142,7 +16708,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -17163,7 +16728,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -17184,7 +16748,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -17205,7 +16768,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -17226,7 +16788,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -17247,7 +16808,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -17279,7 +16839,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. sanksjoner i alt",
@@ -17300,7 +16859,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
@@ -17321,7 +16879,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav sanksjoner med nye tiltak",
@@ -17342,7 +16899,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. sanksjoner i alt",
@@ -17363,7 +16919,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
@@ -17384,7 +16939,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav sanksjoner med nye tiltak",
@@ -17416,7 +16970,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17437,7 +16990,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17458,7 +17010,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -17479,7 +17030,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17500,7 +17050,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17521,7 +17070,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -17542,7 +17090,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17563,7 +17110,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17584,7 +17130,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -17605,7 +17150,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17626,7 +17170,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17647,7 +17190,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -17668,7 +17210,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17689,7 +17230,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17710,7 +17250,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -17731,7 +17270,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -17752,7 +17290,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -17773,7 +17310,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -23873,7 +23409,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
@@ -23894,7 +23429,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Gebyr i rapporteringsåret (kroner)",
@@ -23915,7 +23449,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Gebyr vedtatt for inneværende år (kroner)",
@@ -23936,7 +23469,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Gebyr i rapporteringsåret (kroner)",
@@ -23965,7 +23497,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. I alt (sum b+c+d)",
@@ -23987,7 +23518,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rammesøknader",
@@ -24008,7 +23538,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
@@ -24029,7 +23558,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
@@ -24050,7 +23578,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Dispensasjonssøknader",
@@ -24071,7 +23598,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "f",
                             "colLabel": "f. Opprettelse/endring av eiendom (deling)",
@@ -24092,7 +23618,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. I alt (sum b+c+d)",
@@ -24114,7 +23639,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rammesøknader",
@@ -24135,7 +23659,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav ett-trinnssøknader med ansvarsrett",
@@ -24156,7 +23679,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav ett-trinnssøknader uten ansvarsrett",
@@ -24177,7 +23699,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Dispensasjonssøknader",
@@ -24198,7 +23719,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "f",
                             "colLabel": "f. Opprettelse/endring av eiendom (deling)",
@@ -24226,7 +23746,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -24248,7 +23767,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -24269,7 +23787,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -24291,7 +23808,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -24324,7 +23840,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -24346,7 +23861,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -24367,7 +23881,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -24389,7 +23902,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -24422,7 +23934,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav søknader i samsvar med plan",
@@ -24455,7 +23966,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav søknader som ikke er i samsvar med plan",
@@ -24489,7 +23999,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rammesøknader i alt",
@@ -24529,7 +24038,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -24551,7 +24059,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -24572,7 +24079,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -24593,7 +24099,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -24615,7 +24120,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -24637,7 +24141,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -24659,7 +24162,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -24692,7 +24194,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -24714,7 +24215,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -24735,7 +24235,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -24756,7 +24255,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -24778,7 +24276,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -24800,7 +24297,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -24822,7 +24318,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader med ansvarsrett i alt",
@@ -24855,7 +24350,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -24888,7 +24382,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -24921,7 +24414,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -24955,7 +24447,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -24989,7 +24480,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -25023,7 +24513,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25056,7 +24545,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25089,7 +24577,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25129,7 +24616,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -25151,7 +24637,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -25172,7 +24657,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25193,7 +24677,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25215,7 +24698,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25237,7 +24719,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -25259,7 +24740,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -25292,7 +24772,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -25314,7 +24793,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -25335,7 +24813,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25356,7 +24833,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25378,7 +24854,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25400,7 +24875,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -25422,7 +24896,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Ett-trinnssøknader uten ansvarsrett i alt",
@@ -25455,7 +24928,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -25488,7 +24960,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25521,7 +24992,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25555,7 +25025,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25589,7 +25058,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -25623,7 +25091,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25656,7 +25123,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25689,7 +25155,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25730,7 +25195,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -25752,7 +25216,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -25774,7 +25237,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25796,7 +25258,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25818,7 +25279,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -25840,7 +25300,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -25862,7 +25321,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -25896,7 +25354,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -25918,7 +25375,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -25940,7 +25396,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -25962,7 +25417,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -25984,7 +25438,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -26006,7 +25459,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -26028,7 +25480,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Byggesøknader i alt",
@@ -26062,7 +25513,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -26096,7 +25546,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -26130,7 +25579,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -26164,7 +25612,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -26198,7 +25645,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -26239,7 +25685,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -26261,7 +25706,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -26282,7 +25726,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -26304,7 +25747,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -26337,7 +25779,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -26359,7 +25800,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -26380,7 +25820,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -26402,7 +25841,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -26435,7 +25873,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav dispensasjon fra plan",
@@ -26468,7 +25905,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav dispensasjon fra byggesaksbestemmelser",
@@ -26502,7 +25938,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Dispensasjonssøknader i alt",
@@ -26542,7 +25977,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Igangsettingstillatelser",
@@ -26563,7 +25997,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Midlertidige brukstillatelser",
@@ -26584,7 +26017,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Ferdigattester",
@@ -26605,7 +26037,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Igangsettingstillatelser",
@@ -26638,7 +26069,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Midlertidige brukstillatelser",
@@ -26671,7 +26101,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Ferdigattester",
@@ -26711,7 +26140,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -26733,7 +26161,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -26754,7 +26181,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -26775,7 +26201,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -26797,7 +26222,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -26819,7 +26243,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -26841,7 +26264,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -26874,7 +26296,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -26896,7 +26317,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -26917,7 +26337,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -26938,7 +26357,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -26960,7 +26378,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -26982,7 +26399,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -27004,7 +26420,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Søknader om opprettelse/endring av eiendommer i alt",
@@ -27037,7 +26452,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. I samsvar med plan, i alt",
@@ -27070,7 +26484,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -27103,7 +26516,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -27137,7 +26549,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -27171,7 +26582,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Søknader med 12 ukers frist i alt",
@@ -27205,7 +26615,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. I samsvar med plan, herav med 3 ukers frist",
@@ -27238,7 +26647,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. I samsvar med plan, herav med 12 ukers frist",
@@ -27271,7 +26679,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Søknader som ikke er i samsvar med plan",
@@ -27344,7 +26751,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -27365,7 +26771,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -27386,7 +26791,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -27408,7 +26812,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -27441,7 +26844,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -27462,7 +26864,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -27483,7 +26884,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -27505,7 +26905,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -27538,7 +26937,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav rekvisisjoner for søknadspliktige tiltak etter plan- og bygningsloven",
@@ -27571,7 +26969,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav rekvisisjoner for saker etter matrikkelloven som ikke krever tillatelse etter plan- og bygningsloven",
@@ -27605,7 +27002,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Rekvisisjoner i alt",
@@ -27645,7 +27041,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -27667,7 +27062,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -27688,7 +27082,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -27709,7 +27102,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -27730,7 +27122,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -27764,7 +27155,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -27797,7 +27187,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -27830,7 +27219,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -27863,7 +27251,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -27885,7 +27272,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -27906,7 +27292,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -27927,7 +27312,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -27948,7 +27332,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -27982,7 +27365,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -28015,7 +27397,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -28048,7 +27429,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -28081,7 +27461,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Seksjoneringsvirksomhet i alt",
@@ -28114,7 +27493,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Seksjoneringer",
@@ -28147,7 +27525,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Reseksjoneringer",
@@ -28180,7 +27557,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Opphevelse av seksjoneringer",
@@ -28221,7 +27597,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28242,7 +27617,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28263,7 +27637,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28284,7 +27657,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28305,7 +27677,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28326,7 +27697,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28348,7 +27718,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28370,7 +27739,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28392,7 +27760,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28414,7 +27781,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28436,7 +27802,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28457,7 +27822,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28478,7 +27842,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28499,7 +27862,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28520,7 +27882,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28541,7 +27902,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28562,7 +27922,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28583,7 +27942,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28604,7 +27962,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28625,7 +27982,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28646,7 +28002,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28667,7 +28022,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28688,7 +28042,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28709,7 +28062,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28730,7 +28082,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28751,7 +28102,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28772,7 +28122,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28793,7 +28142,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28814,7 +28162,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28835,7 +28182,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28856,7 +28202,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28877,7 +28222,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -28898,7 +28242,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -28919,7 +28262,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -28940,7 +28282,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -28961,7 +28302,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -28982,7 +28322,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29003,7 +28342,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29024,7 +28362,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29045,7 +28382,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29066,7 +28402,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29087,7 +28422,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29108,7 +28442,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29129,7 +28462,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29150,7 +28482,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29171,7 +28502,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29192,7 +28522,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29213,7 +28542,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29234,7 +28562,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29255,7 +28582,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29276,7 +28602,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29297,7 +28622,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29318,7 +28642,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29339,7 +28662,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29360,7 +28682,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29389,7 +28710,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29410,7 +28730,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29431,7 +28750,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29452,7 +28770,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29473,7 +28790,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29494,7 +28810,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29515,7 +28830,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29536,7 +28850,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29557,7 +28870,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29578,7 +28890,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29599,7 +28910,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Vedtak i alt",
@@ -29620,7 +28930,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav innvilget i alt",
@@ -29641,7 +28950,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav innvilget gjennom vedtak i samsvar med plan",
@@ -29662,7 +28970,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav innvilget gjennom vedtak om dispensasjon fra plan",
@@ -29683,7 +28990,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav vedtak om avslag",
@@ -29776,7 +29082,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -29798,7 +29103,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -29820,7 +29124,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -29842,7 +29145,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -29863,7 +29165,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -29885,7 +29186,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -29906,7 +29206,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -29927,7 +29226,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -29948,7 +29246,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -29969,7 +29266,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -29990,7 +29286,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30012,7 +29307,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30034,7 +29328,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30056,7 +29349,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30077,7 +29369,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30099,7 +29390,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30120,7 +29410,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30141,7 +29430,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30162,7 +29450,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30183,7 +29470,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30204,7 +29490,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30225,7 +29510,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30246,7 +29530,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30267,7 +29550,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30288,7 +29570,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30309,7 +29590,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30330,7 +29610,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30351,7 +29630,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30372,7 +29650,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30393,7 +29670,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30414,7 +29690,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30435,7 +29710,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30456,7 +29730,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30477,7 +29750,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30498,7 +29770,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30519,7 +29790,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Antall vedtak i alt",
@@ -30540,7 +29810,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b1",
                             "colLabel": "b1. Herav klagesaker tatt til følge av kommunen",
@@ -30561,7 +29830,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "b2",
                             "colLabel": "b2. Herav klagesaker oversendt Statsforvalteren",
@@ -30582,7 +29850,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Gjennomsnittlig saksbehandlingstid i kommunen, kalenderdager",
@@ -30603,7 +29870,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Antall klagesaker med behandlingstid over lovpålagt frist",
@@ -30635,7 +29901,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -30657,7 +29922,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -30679,7 +29943,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -30701,7 +29964,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -30723,7 +29985,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -30745,7 +30006,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -30766,7 +30026,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -30787,7 +30046,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -30808,7 +30066,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -30829,7 +30086,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -30850,7 +30106,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -30872,7 +30127,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -30894,7 +30148,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -30916,7 +30169,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -30938,7 +30190,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -30960,7 +30211,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -30981,7 +30231,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -31002,7 +30251,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -31023,7 +30271,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -31044,7 +30291,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -31065,7 +30311,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -31086,7 +30331,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -31107,7 +30351,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -31128,7 +30371,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -31149,7 +30391,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -31170,7 +30411,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -31191,7 +30431,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -31212,7 +30451,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -31233,7 +30471,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -31254,7 +30491,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -31275,7 +30511,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -31296,7 +30531,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -31317,7 +30551,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -31338,7 +30571,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -31359,7 +30591,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -31380,7 +30611,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e",
                             "colLabel": "e. Kommunale vedtak Statsforvalteren har fattet vedtak om, i alt",
@@ -31401,7 +30631,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e1",
                             "colLabel": "e1. Kommunale vedtak som ble STADFESTET",
@@ -31422,7 +30651,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2",
                             "colLabel": "e2. Kommunale vedtak som IKKE BLE OPPRETTHOLDT",
@@ -31443,7 +30671,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2a",
                             "colLabel": "e2a. Herav vedtak som ble OMGJORT",
@@ -31464,7 +30691,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "e2b",
                             "colLabel": "e2b. Herav vedtak som ble OPPHEVET OG SENDT TILBAKE til kommunen for ny behandling",
@@ -31514,7 +30740,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31535,7 +30760,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -31556,7 +30780,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -31577,7 +30800,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -31598,7 +30820,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31619,7 +30840,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -31640,7 +30860,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -31661,7 +30880,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -31682,7 +30900,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31714,7 +30931,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31735,7 +30951,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -31756,7 +30971,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -31777,7 +30991,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -31798,7 +31011,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31819,7 +31031,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -31840,7 +31051,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -31861,7 +31071,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -31882,7 +31091,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31903,7 +31111,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -31924,7 +31131,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -31945,7 +31151,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -31966,7 +31171,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -31987,7 +31191,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -32008,7 +31211,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -32029,7 +31231,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -32050,7 +31251,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Antall tilsyn i alt",
@@ -32071,7 +31271,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav tilsyn med eksisterende tiltak",
@@ -32092,7 +31291,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav tilsyn med nye tiltak",
@@ -32113,7 +31311,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 3,
                         "matrix": {
                             "col": "d",
                             "colLabel": "d. Herav tilsyn på byggverket",
@@ -32145,7 +31342,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32167,7 +31363,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32188,7 +31383,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32209,7 +31403,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32230,7 +31423,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32251,7 +31443,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32272,7 +31463,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32293,7 +31483,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32314,7 +31503,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32335,7 +31523,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32356,7 +31543,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32377,7 +31563,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32398,7 +31583,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32419,7 +31603,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32440,7 +31623,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32461,7 +31643,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32482,7 +31663,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32503,7 +31683,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32524,7 +31703,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32545,7 +31723,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32566,7 +31743,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32587,7 +31763,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 12,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall tilsyn",
@@ -32676,7 +31851,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -32697,7 +31871,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -32718,7 +31891,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -32739,7 +31911,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -32760,7 +31931,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -32781,7 +31951,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -32802,7 +31971,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -32823,7 +31991,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -32844,7 +32011,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -32865,7 +32031,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. pålegg i alt",
@@ -32886,7 +32051,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav pålegg med eksisterende tiltak",
@@ -32907,7 +32071,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav pålegg med nye tiltak",
@@ -32939,7 +32102,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -32960,7 +32122,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -32981,7 +32142,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33002,7 +32162,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33023,7 +32182,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33044,7 +32202,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33065,7 +32222,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33086,7 +32242,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33107,7 +32262,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33128,7 +32282,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33149,7 +32302,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33170,7 +32322,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33191,7 +32342,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33212,7 +32362,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33233,7 +32382,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33254,7 +32402,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33275,7 +32422,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33296,7 +32442,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33317,7 +32462,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. oppfølginger i alt",
@@ -33338,7 +32482,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav oppfølginger med eksisterende tiltak",
@@ -33359,7 +32502,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav oppfølginger med nye tiltak",
@@ -33391,7 +32533,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. sanksjoner i alt",
@@ -33412,7 +32553,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
@@ -33433,7 +32573,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav sanksjoner med nye tiltak",
@@ -33454,7 +32593,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. sanksjoner i alt",
@@ -33475,7 +32613,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav sanksjoner med eksisterende tiltak",
@@ -33496,7 +32633,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav sanksjoner med nye tiltak",
@@ -33528,7 +32664,6 @@ window.SSB_SCHEMAS = {
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33549,7 +32684,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33570,7 +32704,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -33591,7 +32724,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33612,7 +32744,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33633,7 +32764,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -33654,7 +32784,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33675,7 +32804,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33696,7 +32824,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -33717,7 +32844,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33738,7 +32864,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33759,7 +32884,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -33780,7 +32904,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33801,7 +32924,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33822,7 +32944,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",
@@ -33843,7 +32964,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. andre virkemidler i alt",
@@ -33864,7 +32984,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav andre virkemidler med eksisterende tiltak",
@@ -33885,7 +33004,6 @@ window.SSB_SCHEMAS = {
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav andre virkemidler med nye tiltak",

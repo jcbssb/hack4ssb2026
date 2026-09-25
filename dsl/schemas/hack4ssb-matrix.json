@@ -450,7 +450,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -471,7 +470,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -492,7 +490,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -513,7 +510,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -534,7 +530,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -556,7 +551,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -577,7 +571,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -598,7 +591,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -619,7 +611,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -640,7 +631,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -662,7 +652,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -683,7 +672,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -704,7 +692,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -725,7 +712,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -746,7 +732,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -768,7 +753,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k1",
                             "colLabel": "Kvartal 1",
@@ -790,7 +774,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k2",
                             "colLabel": "Kvartal 2",
@@ -812,7 +795,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k3",
                             "colLabel": "Kvartal 3",
@@ -834,7 +816,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "k4",
                             "colLabel": "Kvartal 4",
@@ -856,7 +837,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 2,
                         "matrix": {
                             "col": "alt",
                             "colLabel": "I alt",
@@ -886,7 +866,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Besøk i alt",
@@ -907,7 +886,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav barn",
@@ -928,7 +906,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav voksne (beregnet)",
@@ -950,7 +927,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "a",
                             "colLabel": "a. Besøk i alt",
@@ -971,7 +947,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "b",
                             "colLabel": "b. Herav barn",
@@ -992,7 +967,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "c",
                             "colLabel": "c. Herav voksne (beregnet)",
@@ -1022,7 +996,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1044,7 +1017,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1066,7 +1038,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1088,7 +1059,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1109,7 +1079,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1130,7 +1099,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1152,7 +1120,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1173,7 +1140,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1194,7 +1160,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1216,7 +1181,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "antall",
                             "colLabel": "Antall arrangementer",
@@ -1237,7 +1201,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "deltakere",
                             "colLabel": "Deltakere",
@@ -1258,7 +1221,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "snitt",
                             "colLabel": "Snitt deltakere per arrangement",
@@ -1311,7 +1273,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1332,7 +1293,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "lydboker",
                             "colLabel": "Lydbøker",
@@ -1353,7 +1313,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1386,7 +1345,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "lydboker",
                             "colLabel": "Lydbøker",
@@ -1419,7 +1377,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 6,
                         "matrix": {
                             "col": "boker",
                             "colLabel": "Bøker",
@@ -1460,7 +1417,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "iaar",
                             "colLabel": "I år (fra tabell 1)",
@@ -1482,7 +1438,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "ifjor",
                             "colLabel": "I fjor",
@@ -1503,7 +1458,6 @@
                 },
                 {
                     "annotations": {
-                        "gridXs": 4,
                         "matrix": {
                             "col": "endring",
                             "colLabel": "Endring",

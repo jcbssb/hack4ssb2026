@@ -150,8 +150,6 @@ matrix m = (questions, calcs, rules)
     -- Column and row formulas only apply where all their cells exist
     complete e = all (`elem` present) (exprFields e)
 
-    gridXs = max 2 (12 `div` max 1 (length cols))
-
     questions =
       [ Question
           { fieldId      = cellId prefix (rowKey r) (colKey c)
@@ -160,8 +158,7 @@ matrix m = (questions, calcs, rules)
           , required     = colKey c `elem` rowRequired r
           , condition    = fmap (\f -> f ref (colKey c)) (rowCondition r)
           , annotations  = Just (KM.fromList
-              ([ ("gridXs", Number (fromIntegral gridXs))
-               , ("matrix", object
+              ([ ("matrix", object
                    [ "id" .= prefix, "row" .= rowKey r, "col" .= colKey c
                    , "rowLabel" .= rowLabel r, "colLabel" .= colLabel c ])
                ] ++ [ ("readOnly", Bool True) | Just _ <- [formulaFor r c] ]))
