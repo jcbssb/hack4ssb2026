@@ -13,6 +13,7 @@ data AltinnArtifacts = AltinnArtifacts
   , pageLayout    :: Value                      -- Content for App/ui/mainlayout/layouts/S05_Hack4SSB.json
   , optionsLists  :: [(String, Value)]          -- (Filename e.g. "Hack4ssbSporValg.json", OptionsArray)
   , textResources :: [(String, String)]         -- [(ResourceID, TextValue)]
+  , validations   :: [(String, [Value])]        -- (Data model path, expression validations) for App/models/<DataType>.validation.json
   } deriving (Show, Eq)
 
 -- | Helper conversions

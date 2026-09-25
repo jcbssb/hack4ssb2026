@@ -32,8 +32,128 @@
             ],
             "type": "object"
         },
+        "Calculation": {
+            "properties": {
+                "expr": {
+                    "$ref": "#/$defs/Expr"
+                },
+                "fieldId": {
+                    "description": "Numeric question receiving the computed value",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "fieldId",
+                "expr"
+            ],
+            "type": "object"
+        },
+        "Constraint": {
+            "properties": {
+                "comparison": {
+                    "enum": [
+                        "eq",
+                        "notEq",
+                        "lt",
+                        "lte",
+                        "gt",
+                        "gte"
+                    ],
+                    "type": "string"
+                },
+                "condition": {
+                    "$ref": "#/$defs/Predicate",
+                    "description": "Only check the rule when this predicate holds"
+                },
+                "constraintId": {
+                    "type": "string"
+                },
+                "left": {
+                    "$ref": "#/$defs/Expr"
+                },
+                "message": {
+                    "description": "Shown to the respondent when the rule does not hold",
+                    "type": "string"
+                },
+                "reportOn": {
+                    "description": "Fields that show the message; defaults to the entered (non-calculated) fields referenced",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "right": {
+                    "$ref": "#/$defs/Expr"
+                },
+                "severity": {
+                    "default": "error",
+                    "enum": [
+                        "error",
+                        "warning"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "constraintId",
+                "left",
+                "comparison",
+                "right",
+                "message"
+            ],
+            "type": "object"
+        },
+        "Expr": {
+            "description": "Numeric expression over field values. Empty fields count as 0; division by zero has no value.",
+            "properties": {
+                "fieldId": {
+                    "type": "string"
+                },
+                "left": {
+                    "$ref": "#/$defs/Expr"
+                },
+                "op": {
+                    "enum": [
+                        "field",
+                        "const",
+                        "add",
+                        "sub",
+                        "mul",
+                        "div"
+                    ],
+                    "type": "string"
+                },
+                "right": {
+                    "$ref": "#/$defs/Expr"
+                },
+                "terms": {
+                    "items": {
+                        "$ref": "#/$defs/Expr"
+                    },
+                    "type": "array"
+                },
+                "value": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "op"
+            ],
+            "type": "object"
+        },
         "Predicate": {
             "properties": {
+                "comparison": {
+                    "enum": [
+                        "eq",
+                        "notEq",
+                        "lt",
+                        "lte",
+                        "gt",
+                        "gte"
+                    ],
+                    "type": "string"
+                },
                 "conditions": {
                     "items": {
                         "$ref": "#/$defs/Predicate"
@@ -43,15 +163,22 @@
                 "fieldId": {
                     "type": "string"
                 },
+                "left": {
+                    "$ref": "#/$defs/Expr"
+                },
                 "op": {
                     "enum": [
                         "equals",
                         "notEquals",
                         "isTrue",
+                        "compare",
                         "and",
                         "or"
                     ],
                     "type": "string"
+                },
+                "right": {
+                    "$ref": "#/$defs/Expr"
                 },
                 "value": {
                     "type": "string"
@@ -156,6 +283,20 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "description": "Single Source of Truth (SSOT) capturing semantic dialogue flow, field bindings, and design annotations decoupled from execution targets.",
     "properties": {
+        "calculations": {
+            "description": "Derived fields whose value is always given by an expression (totals, remainders)",
+            "items": {
+                "$ref": "#/$defs/Calculation"
+            },
+            "type": "array"
+        },
+        "constraints": {
+            "description": "Cross-field rules that must hold, e.g. parts adding up to a total",
+            "items": {
+                "$ref": "#/$defs/Constraint"
+            },
+            "type": "array"
+        },
         "context": {
             "properties": {
                 "legalNotice": {

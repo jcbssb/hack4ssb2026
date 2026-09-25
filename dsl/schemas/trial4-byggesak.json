@@ -1,5 +1,160 @@
 {
     "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t4_timerFremskaffe",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t4_timerUtfylling",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "t4_timerTotalt"
+        }
+    ],
+    "constraints": [
+        {
+            "comparison": "lte",
+            "constraintId": "t4_e1_herav",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t4_e1_klagerTattTilFoelge",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t4_e1_klagerOversendtStatsforvalter",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Klager tatt til følge og oversendt Statsforvalteren kan til sammen ikke overstige klagesaker i alt (E1.1).",
+            "right": {
+                "fieldId": "t4_e1_klagerKommuneAlt",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "condition": {
+                "fieldId": "t4_f0a_erUtfoertTilsyn",
+                "op": "isTrue"
+            },
+            "constraintId": "t4_f_herav",
+            "left": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t4_f3_tilsynAvsluttetUtenAvvik",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t4_f4_tilsynAvdekketUlovlighet",
+                        "op": "field"
+                    }
+                ]
+            },
+            "message": "Tilsyn uten avvik (F3.2) og tilsyn med ulovlighet (F4.2) kan til sammen ikke overstige antall tilsyn i alt (F2.a).",
+            "right": {
+                "fieldId": "t4_f2_tilsynAlt",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t4_c10_rammesoknader_behandlet",
+            "left": {
+                "fieldId": "t4_c10_rammesoknaderBehandlet",
+                "op": "field"
+            },
+            "message": "Flere rammesøknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet.",
+            "reportOn": [
+                "t4_c10_rammesoknaderBehandlet"
+            ],
+            "right": {
+                "fieldId": "t4_c10_rammesoknaderMottatt",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t4_c10_ettTrinnMedAnsvar_behandlet",
+            "left": {
+                "fieldId": "t4_c10_ettTrinnMedAnsvarBehandlet",
+                "op": "field"
+            },
+            "message": "Flere ett-trinnssøknader med ansvarsrett behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet.",
+            "reportOn": [
+                "t4_c10_ettTrinnMedAnsvarBehandlet"
+            ],
+            "right": {
+                "fieldId": "t4_c10_ettTrinnMedAnsvarMottatt",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t4_c10_ettTrinnUtenAnsvar_behandlet",
+            "left": {
+                "fieldId": "t4_c10_ettTrinnUtenAnsvarBehandlet",
+                "op": "field"
+            },
+            "message": "Flere ett-trinnssøknader uten ansvarsrett behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet.",
+            "reportOn": [
+                "t4_c10_ettTrinnUtenAnsvarBehandlet"
+            ],
+            "right": {
+                "fieldId": "t4_c10_ettTrinnUtenAnsvarMottatt",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t4_c10_dispensasjon_behandlet",
+            "left": {
+                "fieldId": "t4_c10_dispensasjonBehandlet",
+                "op": "field"
+            },
+            "message": "Flere dispensasjonssøknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet.",
+            "reportOn": [
+                "t4_c10_dispensasjonBehandlet"
+            ],
+            "right": {
+                "fieldId": "t4_c10_dispensasjonMottatt",
+                "op": "field"
+            },
+            "severity": "warning"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "t4_c10_deling_behandlet",
+            "left": {
+                "fieldId": "t4_c10_delingBehandlet",
+                "op": "field"
+            },
+            "message": "Flere delingssøknader behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet.",
+            "reportOn": [
+                "t4_c10_delingBehandlet"
+            ],
+            "right": {
+                "fieldId": "t4_c10_delingMottatt",
+                "op": "field"
+            },
+            "severity": "warning"
+        }
+    ],
     "context": {
         "legalNotice": "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Fullverdig Del A-I med kryssvalidering, automatiske summeringer og full Altinn 3 produksjonslayout.",
         "organization": "Statistisk sentralbyrå",

@@ -1,5 +1,47 @@
 {
     "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "b1_aarsverkArkeologi",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "b1_aarsverkNyereTid",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "b1_aarsverkArealplan",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "b1_aarsverkAnnet",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "b1_aarsverkKulturminnerAlt"
+        },
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "h2a_timerFramskaffe",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "h2b_timerFylleUt",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "h2_timerTotalt"
+        }
+    ],
     "context": {
         "legalNotice": "Samlet rapportering for planbehandling, miljø- og kulturminneforvaltning (Side 1 til 6). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster.",
         "organization": "Statistisk sentralbyrå",
@@ -90,12 +132,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "calculatedSumOf": [
-                            "b1_aarsverkArkeologi",
-                            "b1_aarsverkNyereTid",
-                            "b1_aarsverkArealplan",
-                            "b1_aarsverkAnnet"
-                        ],
                         "decimalScale": 1,
                         "readOnly": true,
                         "unit": "Antall årsverk"
@@ -1917,10 +1953,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "calculatedSumOf": [
-                            "h2a_timerFramskaffe",
-                            "h2b_timerFylleUt"
-                        ],
                         "readOnly": true,
                         "unit": "Timer"
                     },

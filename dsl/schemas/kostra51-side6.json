@@ -1,5 +1,23 @@
 {
     "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "h2a_timerFramskaffe",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "h2b_timerFylleUt",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "h2_timerTotalt"
+        }
+    ],
     "context": {
         "legalNotice": "DEL III: Bolk H Tidsbruk for rapportering.",
         "organization": "Statistisk sentralbyrå",
@@ -13,10 +31,6 @@
             "questions": [
                 {
                     "annotations": {
-                        "calculatedSumOf": [
-                            "h2a_timerFramskaffe",
-                            "h2b_timerFylleUt"
-                        ],
                         "readOnly": true,
                         "unit": "Timer"
                     },

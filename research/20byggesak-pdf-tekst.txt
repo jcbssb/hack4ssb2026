@@ -1,0 +1,1043 @@
+# Tekst ekstrahert fra screenshots/20Byggesak (utfylt).pdf med pypdf (uten OCR), 9 sider.
+# Kilde for Trial 4, se plans/byggesak-trial4-rebuild-plan.md. Tabellstruktur er flatet ut;
+# tallene er eksempelverdier fra det utfylte skjemaet.
+
+20Byggesak. Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering
+2026
+A Opplysninger om skjema og veiledning. Utfylling av kontaktinformasjon om kommunen og ansvarlig
+for rapporteringen
+Kommunenummer 
+*
+Kommunens navn 
+*
+Navn skjemaansvarlig 
+*
+Telefonnummer 
+*
+E-post skjemaansvarlig 
+*
+Utskrift (pdf) av skjema
+Øverst i skjema er det en "pdf-knapp" rett ved siden av skjematittelen. Denne knappen gir deg en pdf-fil
+av skjema slik det ser ut akkurat nå.
+ 
+Utfyllingshjelp underveis
+I skjemaportalen får du veiledning til de enkelte spørsmålene ved å klikke på I-knappene. 
+Navigeringer
+Deler av skjemaet fungerer slik at når ett felt fylles ut med tall større enn 0 (null), så åpnes nye celler for
+utfylling.
+Mer om hvordan dette fungerer, finner du i hovedveiledningen. 
+Praktiske råd om utfyllingen
+Vi anbefaler å fylle ut hele eller store deler av skjemaet i skjemaportalen før du kontrollerer det.
+Skjemaet inneholder en del funksjoner som skal gjøre utfylling enklere, bl.a. automatisk summering og
+sperring/åpning av nye celler for utfylling, og viktig; kontroller av utfyllingen.
+Denne funksjonaliteten virker godt og sparer brukeren for unødvendig utfylling, men etter at skjemaet
+er kontrollert første gang, slår kontrollene inn på bolker og celler som ikke er fylt ut. Tipset er derfor å
+vente med å kontrollere til alle eller flest mulig av skjemabolkene er fylt ut. 
+Spesielle celler i skjemaet 
+Noen av cellene i skjemaet inneholder beregninger, og skal ikke fylles ut.
+I tillegg er noen av cellene forhåndsutfylte i SSB.
+Begge disse typene celler har mørk grå fargebakgrunn, se eksempel til høyre.
+ 
+Andre celler i skjemaet skal bare fylles ut hvis det enten
+1. er svart "ja" på et inngangsspørsmål, eller
+2. er fylt inn et tall større enn 0 i et annet felt.
+Disse typene celler er i skjemaet markert med lys grå fargebakgrunn, se eksempel til høyre.
+Det er viktig at disse cellene fylles ut når de blir åpnet! 
+Kontroller og feilmeldinger
+Det er mange logiske kontroller i skjemaet. Dersom det skrives inn tall som åpenbart er feil, eller dersom
+tall ikke er fylt ut, vil det dukke opp en feilmelding når skjemaet kontrolleres.
+Disse feilmeldingene er av 2 typer: 
+1. KRITISK FEIL/MANGEL: Dette er feil eller mangler som MÅ rettes opp.
+Du får IKKE sendt inn skjemaet før feilen er rettet. 
+Rød
+skrift 
+2. ADVARSEL OM FEIL/MANGEL: Det har oppstått en feil eller mangel, ikke så alvorlig som feil med oker
+skrift, men vi ber om utfylling/oppretting. Skjema kan sendes inn uten oppretting. 
+Blå
+skrift 
+A.1 Spørsmålene er nærmere forklart og presisert i veiledningen. Denne kan hentes opp med
+veiledningsknappen i skjermbildet.
+B Gebyrer
+a.
+Gebyr
+vedtatt
+for
+inneværende
+år.
+Kroner 
+b.
+Gebyr i
+rapporte-
+rings-
+året.
+Kroner 
+
+=====PAGE=====
+1. Hva var byggesaksgebyret (eksl. mva.) for oppføring
+av enebolig (ny boligbygning med en boenhet),
+jf. PBL§ 20-1 a?
+11
+2. Hva var gebyret for opprettelse av grunneiendom
+på 750 m2, jf. matrikkellova §§ 5 og 32?
+13
+C Antall søknader og saksbehandlingstid for byggesøknader, søknader om opprettelse/endring av
+grunneiendom, oppmålingsforretninger og eierseksjoneringssaker
+C10. Antall byggesøknader, dispensasjonssøknadar og søknader om opprettelse og endring av
+grunneiendom. Hovedtall.
+Du må fylle ut ALLE cellene i denne bolken for å kunne sende inn skjema!
+C10.
+Omfang av søknader,
+i alt og fordelt på typer 
+a.
+I alt
+(sum
+kolonne
+b+c+d) 
+b.
+Herav
+ramme-
+søknader 
+c.
+Herav
+ett-trinns-
+søknader
+med
+ansvars-
+rett 
+d.
+Herav
+ett-trinns-
+søknader
+uten
+ansvars-
+rett 
+e.
+Dispen-
+sasjons-
+søknader 
+f.
+Opp-
+rettelse/
+endring
+av
+eiendom
+(deling) 
+1. Antall søknader
+mottatt
+i rapporteringsåret 
+*
+12
+*
+100
+*
+234
+*
+12
+*
+23
+*
+12
+2. Antall søknader
+behandlet / vedtatt
+i rapporteringsåret 
+*
+12
+*
+100
+*
+10
+*
+12
+*
+3
+*
+45
+C11. Rammesøknader. Antall og saksbehandlingstid
+C11. Rammesøknader 
+a.
+Ramme-
+søknader
+i alt 
+b.
+Herav
+søknader
+i samsvar
+med
+plan 
+c.
+Herav
+søknader
+som ikke
+er i
+samsvar
+med
+plan 
+1. Antall søknader mottatt
+i rapporteringsåret  100 44 56
+1.1. Herav antall mangelfulle søknader mottatt
+hvor det ble bedt om tilleggsinformasjon  444
+2. Antall søknader behandlet
+i rapporteringsåret  100 124 -24
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  2000 444 1556
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  44
+C12. Ett-trinnssøknader MED ansvarsrett. Antall og saksbehandlingstid
+C12. Ett-trinns-søknader MED
+ansvarsrett 
+Søknader i
+alt 
+Herav
+søknader
+i samsvar
+med plan
+-------->  -------->  ---------| 
+Herav
+søknader
+som ikke
+er i
+samsvar
+med
+plan 
+Begge
+typer
+søknader 
+a.
+Ett-
+trinns-
+søknader
+med
+ansvarsrett
+i alt 
+b.
+I alt 
+b1.
+Herav
+med
+3 ukers
+frist 
+b2.
+Herav
+med
+12 ukers
+frist 
+c.
+Søknader
+som ikke
+er i
+samsvar
+med
+plan 
+d.
+Søknader
+med 12
+ukers
+frist i alt 
+1. Antall søknader mottatt
+i rapporteringsåret   234 34 23 11 200 211
+1.1. Herav antall mangelfulle søknader
+mottatt hvor det ble bedt om
+tilleggsinformasjon 
+34
+2. Antall søknader behandlet
+i rapporteringsåret  10 546 343 203 -536 -333
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  5646 43 35465 -35422 5603 -29819
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  412 334 545
+
+=====PAGE=====
+C13. Ett-trinnssøknader UTEN ansvarsrett. Antall og saksbehandlingstid
+C13. Ett-trinnssøknader UTEN ansvarsrett  Søknader i
+alt 
+Herav
+søknader
+i samsvar
+med plan
+------->  ------->  --------| 
+Herav
+søknader
+som ikke
+er i
+samsvar
+med
+plan 
+Begge
+typer
+søknader 
+C13. Søknader i alt 
+a.
+Ett-trinns-
+søknader
+uten
+ansvars-
+rett
+i alt 
+b.
+I alt 
+b1.
+Herav
+med
+3 ukers
+frist 
+b2.
+Herav
+med
+12 ukers
+frist 
+c.
+Søknader
+som ikke
+er i
+samsvar
+med
+plan 
+d.
+Søknader
+med 12
+ukers
+frist i alt 
+1. Antall søknader mottatt
+i rapporteringsåret  12 345 30 315 -333 -18
+1.1. Herav antall mangelfulle søknader mottatt
+hvor det ble bedt om tilleggsinformasjon  13
+2. Antall søknader behandlet
+i rapporteringsåret  12 345 435 -90 -333 -423
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  24 54 45 9 -30 -21
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  45
+C14. TIL SUMMERINGSKONTROLL: Byggesøknader i alt og fordelt på 3- og 12-ukers frister. Antall og
+saksbehandlingstid
+Feltene oppdateres kontinuerlig under datainnlegging i bolkene C11, C12 og C13 over, og er sperret for skriving.
+Ved eventuelle feil i summene i denne bolken, må det derfor rettes i spørsmålene i bolk C1 og C2 over.
+C14. Byggesøknader i alt 
+Bygge-
+søknader
+i alt 
+Herav
+søknader
+i
+samsvar
+med plan
+------->  ------->  --------| 
+Herav
+søknader
+som ikke
+er i
+samsvar
+med
+plan 
+Begge
+typer
+søknader 
+a.
+Bygge-
+søknader
+i alt 
+b.
+I alt 
+b.1
+Herav
+med
+3 ukers
+frist
+i alt 
+b2.
+Herav
+med
+12 ukers
+frist
+i alt 
+c.
+Søknader
+som ikke
+er i
+samsvar
+med
+plan 
+d.
+Søknader
+med 12
+ukers
+frist i alt 
+1. Antall søknader mottatt
+i rapporteringsåret  12 423 53 370 -77 293
+1.1. Herav antall mangelfulle søknader mottatt
+hvor det ble bedt om tilleggsinformasjon  491
+2. Antall søknader behandlet
+i rapporteringsåret  12 1015 778 237 -893 -656
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  7670 541 35510 -34969 7129 -27840
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  227 172 489 0 0
+C15. Dispensasjonssøknader. Antall og saksbehandlingstid
+C15. Dispensasjonssøknader 
+a.
+Dispen-
+sasjons-
+søknader
+i alt 
+b.
+Herav
+dispen-
+sasjon
+fra plan 
+c.
+Herav
+dispen-
+sasjon
+fra
+bygge-
+saks-
+bestem-
+melser 
+1. Antall søknader mottatt
+i rapporteringsåret  23 233 -210
+1.1. Herav antall mangelfulle søknader mottatt
+hvor det ble bedt om tilleggsinformasjon  23
+2. Antall søknader behandlet
+i rapporteringsåret  3 345 -342
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  45 466 -421
+
+=====PAGE=====
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  4656
+C16. Igangsettingstillatelser (IG), Midlertidige brukstillatelser (MB) og Ferdigattester (FA). Antall og
+saksbehandlingstid
+a.
+Igang-
+settings-
+tillatelser 
+b.
+Midlertidige
+bruks-
+tillatelser 
+c.
+Ferdig-
+attester 
+1. Antall søknader behandlet
+i rapporteringsåret  32434 545 2321
+2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  232 434 545
+C2. Oppretting og endring av eiendom (deling).
+Opprettelse/
+endring av
+eiendom 
+Herav
+søknader
+i samsvar
+med plan
+------->  ------->  --------| 
+Herav
+søknader
+som ikke
+er i
+samsvar
+med
+plan 
+Begge
+typer
+søknader 
+a.
+Søknader
+om
+opprettelse/
+endring av
+eiendommer
+i alt 
+b.
+I alt 
+b1.
+Herav
+med
+3 ukers
+frist 
+b2.
+Herav
+med
+12 ukers
+frist 
+c.
+Søknader
+som ikke
+er i
+samsvar
+med
+plan 
+d.
+Søknader
+med 12
+ukers
+frist i alt 
+1. Antall søknader mottatt
+i rapporteringsåret  12 4566 574 3992 -4554 -562
+1.1. Herav antall mangelfulle søknader
+mottatt hvor det ble bedt om
+tilleggsinformasjon 
+346
+2. Antall søknader behandlet
+i rapporteringsåret  45 656 767 -111 -611 -722
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  45546 567 879 -312 44979 44667
+2.2. Gjennomsnittlig
+saksbehandlingstid, kalenderdager  456
+C11 - C2 Byggesøknader samt søknader om opprettelse og endring av eiendom. Om eKOSTRA for 2024
+Digitalisering av kommunale fagsystemer gjennom eByggesak, danner grunnlaget for eKOSTRA.
+Hensikten med eKOSTRA er en tidsbesparende automatisering av kommunens rapportering til SSB,
+med mål om å heve kvaliteten på KOSTRA-statistikkene. For mer informasjon, se veiledning.
+Har kommunen tatt i bruk eByggesak for rapportering av: Omfang og saksbehandlingstid for
+byggesøknader, dispensasjonssøknader, samt søknader om opprettelse/endring av grunneiendom fra
+1.1.2024?  
+ Ja
+ Nei
+Eventuelle kommentarer:  
+C3. Oppmålingsforretninger. Antall og saksbehandlingstid
+a.
+Rekvisi-
+sjoner
+i alt 
+b.
+Herav
+rekvisi-
+sjoner for
+søknads-
+pliktige
+tiltak
+etter
+plan- og
+bygnings-
+loven 
+c.
+Herav
+rekvisi-
+sjoner for
+saker
+etter
+matrikkel-
+loven som
+ikke
+krever
+tillatelse
+etter
+plan- og
+bygnings-
+loven 
+
+=====PAGE=====
+1. Antall rekvisisjoner mottatt
+i rapporteringsåret  897 89 808
+1.1. Herav antall mangelfulle rekvisisjoner
+mottatt hvor det ble bedt om
+tilleggsinformasjon 
+67
+2. Antall rekvisisjoner behandlet
+i rapporteringsåret  6 989 -983
+2.1. Herav antall rekvisisjoner med
+saksbehandlingstid over lovpålagt frist  98 89 9
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  89
+C4. Eierseksjoneringssaker. Antall og saksbehandlingstid
+a.
+Seksjo-
+nerings-
+virksom-
+het
+i alt 
+b.
+Seksjone-
+ringer 
+c.
+Re-
+seksjone-
+ringer 
+d.
+Opp-
+hevelse
+av
+seksjone-
+ringer 
+1. Antall søknader mottatt
+i rapporteringsåret  1064 435 564 65
+1.1. Herav antall mangelfulle søknader mottatt
+hvor det ble bedt om tilleggsinformasjon  7767 45 65 7657
+2. Antall søknader behandlet
+i rapporteringsåret  579 56 67 456
+2.1. Herav antall søknader med
+saksbehandlingstid over lovpålagt frist  843 76 89 678
+2.2. Gjennomsnittlig saksbehandlingstid,
+kalenderdager  622 78 89 768
+D Resultat av behandling av søknader
+D1. Resultat av byggesaksbehandling i alt og i særskilt område
+a.
+Vedtak
+i alt
+b.
+Herav:
+Innvilget
+i alt
+b1.
+Herav:
+Innvilget
+gjennom
+vedtak
+i samsvar
+med plan
+b2.
+Herav:
+Innvilget
+gjennom
+vedtak
+om
+dispen-
+sasjon
+fra plan
+c.
+Herav:
+Vedtak
+om
+avslag
+Antall
+vedtak 
+Antall
+vedtak 
+Antall
+vedtak 
+Antall
+vedtak 
+Antall
+vedtak 
+1a. Antall byggesøknader i alt vedtatt i
+rapporteringsåret
+ 
+12 34 54 34 34
+1b. Antall vedtak i alt i rapporteringsåret for
+søknader i områder med restriksjoner
+(sum av spørsmålene nedenfor) 
+252 842 89 155 1736
+2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-
+områder utenfor 100-metersbeltet langs saltvann. 
+64 45 44 45 45
+2a. Herav: Antall vedtak i LNF/LNFR-områder med
+byggeforbud langs ferskvann i kommuneplanen. jf. PBL-08
+§ 1-8.
+ 
+45 45 45 45
+3. Antall vedtak som gjaldt nye byggverk i
+100-metersbeltet langs saltvann 
+4.Antall dispensasjonsvedtak i alt angående universell
+utforming og tilgjengelighet 
+45 45 45 465
+4a. Herav: Antall vedtak med hjemmel i pbl §19-1
+(generelle dispensasjonsbestemmelse).  465 45 45 456
+4b. Herav: Antall vedtak med hjemmel i pbl § 31-2, siste
+ledd (om unntak vedrørende eksisterende byggverk).  456 45 45 456
+5. Antall vedtak om tiltak etter plan- og bygningsloven i
+områder med bevaringsstatus i reguleringsplan
+ 
+64 45 45 65 546
+
+=====PAGE=====
+6. Antall vedtak etter plan- og bygningsloven som gjaldt
+tiltak i ikke-fredete byggverk oppført før 1850. 
+45 654 543 434 645
+7. Antall vedtak etter plan- og bygningsloven som gjaldt
+tiltak i fredete byggverk uansett oppføringsår. 
+34 53 545 35 35
+D2. Resultat av behandling av søknader i rapporteringsåret om opprettelse og endring av eiendom,
+matrikuleringer uten fullført oppmålingsforretning (MUF) og seksjoneringer.
+a.
+Vedtak
+i alt 
+b.
+Herav:
+Innvilget
+i alt 
+b1.
+Herav:
+Innvilget
+gjennom
+vedtak
+i samsvar
+med
+plan 
+b2.
+Herav:
+Innvilget
+gjennom
+vedtak
+om
+dispen-
+sasjon
+fra plan 
+c.
+Herav:
+Vedtak
+om
+avslag 
+1. Søknader om opprettelse og endring av eiendom
+(pbl § 20-1 bokstav m)  45 35 435 34 45
+2. Søknader om matrikulering uten fullført
+oppmålingsforretning (MUF)
+(matrikkelloven § 6 andre ledd) 
+453 3543 35
+3. Søknader om seksjonering, reseksjonering og
+opphevelse av seksjonering
+(eierseksjonsloven § 4 bokstavene j og k) 
+579 435 34
+D1 - D2. Resultat av byggesøknadsbehandlig. Om eKOSTRA for 2024
+Digitalisering av kommunale fagsystemer gjennom eByggesak, danner grunnlaget for eKOSTRA.
+Hensikten med eKOSTRA er en tidsbesparende automatisering av kommunens rapportering til SSB,
+med mål om å heve kvaliteten på KOSTRA-statistikkene. For mer informasjon, se veiledning.
+Har kommunen tatt i bruk eByggesak for rapportering om: Resultat av saksbehandling for
+byggesøknader og andre søknader fra 1.1.2024?  
+ Ja
+ Nei
+Eventuelle kommentarer:
+ 
+E Klagesaksbehandling: Omfang, resultat og saksbehandlingstid
+E0a. Har kommunen mottatt eller behandlet klager i rapporteringsåret? 
+*
+Ja
+ Nei
+E0b. Har statsforvalteren behandlet kommunale vedtak ang. klager fra kommunen i
+rapporteringsåret? 
+*
+Ja
+ Nei
+E1. Antall klagesaker behandlet i kommunen
+Klagesaksbehandling
+- omfang og utfall 
+Klagesaksbehandling
+- omfang og utfall 
+Klagesaksbehandling
+- omfang og utfall 
+Tid
+(kalenderdager) 
+Saker overskredet
+saksbehandlingsfrist 
+b.
+Antall
+vedtak
+i alt 
+b1.
+Herav:
+Antall klagesaker som
+ble
+tatt til følge av
+kommunen 
+b2.
+Herav:
+Antall klagesaker som
+ble oversendt forval-
+teren 
+c.
+Gjennom-
+snittlig
+saks-
+behandlings-
+tid i kommunen, 
+d.
+Antall klagesaker med
+behandlings-tid over
+lovpålagt
+frist 
+1. Klagesaker i alt
+ 
+1353 1117 3247 1644 12351
+2. Klagesaker på
+gebyrer
+ 
+345 345 67 3124 656
+3. Klagesaker på
+utfall av
+søknadsbehandling
+972 408 2617 1152 5350
+
+=====PAGE=====
+ 
+3a. Klagesaker på
+byggesøknader  * 46 34 562 5622 4678
+3b. Klagesaker på
+søknader om
+opprettelse og
+endring av eiendom 
+875 275 725 752 45
+3c. Klagesaker på
+oppmålingssaker  26 45 656 654 54
+3d. Klagesaker på
+seksjoneringssaker  25 54 674 7467 573
+4. Klagesaker ifm
+tilsyn og
+ulovlighetsoppfølging
+ 
+36 364 563 765 6345
+E2. Klagesaker oversendt fra kommunen og behandlet av Statsforvalteren
+Klagesaker behandlet av
+statsforvalteren 
+e.
+Antall
+kommunale
+vedtak som
+Statsfor-
+valteren
+har fattet
+vedtak om
+i alt 
+e1.
+Antall
+kommunale
+vedtak
+som ble
+STADFESTET 
+e2.
+Antall
+kommunale
+vedtak som
+IKKE
+BLE
+OPPRETT-
+HOLDT 
+e2a.
+Herav:
+Antall
+kommunale
+vedtak som ble
+OMGJORT 
+e2b.
+Herav:
+Antall kommunale
+vedtak som ble
+OPPHEVET OG
+SENDT TILBAKE
+TIL KOMMUNEN
+for ny behandling 
+1. Klagesaker behandlet av
+Statsforvalteren i alt  5930 2863 10632 5552 2057
+2. Klagesaker på gebyrer  735 45 908 543 365
+3. Klagesaker på utfall av
+søknadsbehandlingen  4756 1880 8425 4154 1248
+3a. Klagesaker på
+byggesøknader  3356 56 78 56 22
+3b. Klagesaker på søknader om
+opprettelse og endring av
+eiendom 
+958 491 433 230 203
+3c. Klagesaker på
+oppmålingssaker  348 393 3023 2930 093
+3d. Klagesaker på
+seksjoneringssaker  94 940 1868 938 930
+4. Klagesaker ifm. tilsyn og
+ulovlighetsoppfølging  439 938 1299 855 444
+F Utøvelse av tilsyn ved tiltak (i byggesaker)
+F0a. Er det utført tilsyn med tiltak i rapporteringsåret? 
+*
+Ja
+ Nei
+F1. Antall tiltak som det er ført tilsyn med
+a.
+Antall tilsyn
+med tiltak i
+alt 
+b.
+Herav:
+Antall tilsyn
+med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall tilsyn
+med nye
+tiltak 
+d.
+Herav:
+Antall tilsyn
+på
+byggverket 
+a. Antall byggesaker hvor det er utført tilsyn (ett eller
+flere), jf. pbl §25-1  * 375 23 12 456
+b. Antall tiltak hvor det er utført
+ulovlighetsoppfølgning, jf pbl § 1-4  347 83484 11 83
+c. Antall tilsyn med eksisterende byggverk og arealer,
+jf pbl § 25-4  38
+F2. Antall tilsyn og ulovlighetsoppfølginger
+a.
+Antall tilsyn
+i alt 
+b.
+Herav:
+Antall tilsyn
+med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall tilsyn
+med nye
+tiltak 
+d.
+Herav:
+Antall tilsyn
+på
+byggverket 
+a. Antall gjennomførte tilsyn i alt (tilsyn med
+tilsynsrapport og enkle tilsyn som kun er oppført i
+samlerapport) 
+* 55 601 127 958
+a1. Antall tilsyn med omsøkte tiltak (byggesaker)  345 345 83 923
+
+=====PAGE=====
+a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak
+og ulovligheter)  566 256 44 35
+a2a. Antall tilsyn med tiltak som er unntatt fra
+søknadsplikt  38 234 23 22
+a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)  22 22 21 13
+F3. Antall utførte tilsyn fordelt på tema
+Antall
+tilsyn 
+a. Antall tilsyn i alt, med fokus på følgende tema fra byggteknisk forskrift og
+byggesaksforskriften til plan- og bygningsloven:  945
+a1. Produkter til byggverk (TEK17 kap. 3 og DOK)  3
+a2. Sikkerhet ved brann (TEK17 kap. 11)  2
+a3. Sikkerhet og bæreevne (TEK17 kap. 10)  5
+a4. Plassering av tiltak (pbl. § 29-4, tillatelsen, TEK17 kap. 5 og 6)  6
+a5. Energi (TEK17 kap. 14)  7
+a6. Miljø og helse (TEK17 kap. 11)  8
+a7. Ytre miljø (TEK17 kap. 9)  9
+a8. Installasjoner og anlegg (TEK17 kap. 15)  1
+a9. Utearealer / Universell utforming (TEK17 kap. 8)  22
+a10. Planløsning / Universell utforming (TEK17 kap. 12)  11
+a11. Dokumentasjon FDV (TEK17 kap. 4)  33
+a12. Sluttdokumentasjon  65
+a13. Avfallsplaner og miljøsanering (TEK17 § 9-6, 9-7, 9-8, 9-9)  99
+a14. Kulturminner og kulturmiljøer  88
+a15. Kvalifikasjoner i tiltak (SAK10 kap. 9, 10 11)  76
+a16. Sikkerhet mot naturpåkjenninger (TEK17 kap. 7)  56
+a17. Inneklima og helse (TEK17 kap. 13)  75
+a18. Klima og livsløp (TEK17 kap. 17)  72
+a19.Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Dokumentasjon for sikkerhet mot
+naturfarer  123
+a20. Prioritert fokusområde 2025 og 2026, jf. SAK10 § 15-3: Etablering av hybler og boenheter  73
+a21. Annet  111
+F4. Konklusjon av tilsynet
+Antall tilsyn  
+1. Antall tilsyn der alt var ok. Ingen feil/mangler påvist  123
+2. Antall tilsyn som avdekket ulovlighet/forhold som krever oppfølging  324
+G Pålegg, sanksjoner og andre virkemidler etter tilsyn og ulovlighetsoppfølgning
+G0. Er det gitt pålegg, brukt sanksjoner eller andre virkemidler i rapporteringsåret? 
+*
+Ja
+ Nei
+G1. Antall pålegg gitt i rapporteringsåret
+a.
+Antall
+pålegg
+i alt 
+b.
+Herav:
+Antall pålegg med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall pålegg
+med nye
+tiltak 
+a. Antall pålegg gitt i rapporteringsåret, i alt for alle
+tilsynstema og brudd på plan- og bygningslovgivningen  * 4345 20 40
+b. – Pålegg som er gitt 
+b1. Pålegg om retting (pbl § 32-3)  23 44 54
+b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)  42 41 43
+b3. Pålegg om stans (pbl § 32-3 og § 32-4)  22 87 67
+G2. Antall oppfølginger av gitte pålegg
+a.
+Antall
+oppfølginger
+i alt 
+b.
+Herav:
+Antall
+oppfølginger
+med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall
+oppfølginger
+med nye
+tiltak 
+
+=====PAGE=====
+a. Utfallet av pålegg gitt i rapporteringsåret:  * 45 120 221
+a1. Antallet pålegg der forholdet ble rettet opp  39 31 76
+a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp
+videre  34 63 73
+a3. Antallet pålegg med annet utfall  874 26 72
+b. Oppfølging av pålegg: 
+b1. Forelegg  78 98 91
+b2. Tvangsmulkt   38 92 93
+b3. Tvangsfullbyrdelse   11 94 95
+G3. Antall sanksjoner brukt
+a.
+Antall
+sanksjoner
+i alt 
+b.
+Herav:
+Antall
+sanksjoner
+med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall
+sanksjoner
+med nye tiltak 
+a. Antall sanksjoner brukt i rapporteringsåret,
+i alt  98 87 76
+a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl.
+§ 32-8a)  90 87 76
+G4. Antall andre virkemidler nyttet ved manglende oppoverholdelse av plan- og bygningslovgivningen
+a.
+Antall andre
+virkemidler
+i alt 
+b.
+Herav:
+Antall andre
+virkemidler
+med
+eksisterende
+tiltak 
+c.
+Herav:
+Antall andre
+virkemidler
+med nye
+tiltak 
+a. Antall andre virkemidler brukt i rapporteringsåret,i alt * 43 152 157
+a1. Herav: Advarsel 99 34 35
+a2. Herav: Tilbaketrekking av ansvarsrett 90 36 37
+a3. Herav: Rapport til den sentrale godkjenningsordningen 765 38 39
+a4. Herav: Anmeldelse til politiet 78 21 22
+a5. Herav: Pålegg/krav om uavhengig kontroll 53 23 24
+H Kommentarer og merknader til skjemaet
+Dette er et åpent felt til eventuelle kommentarer til ting som er uklare, type opplysninger som innhentes, omfang,
+utforming av skjemaet o.l. som kan bidra til å gjøre skjema og spørsmål bedre
+(maks. 999 tegn).
+dett er enkommentar
+I Grunnlag for rapportering og tid for utfylling av skjemaet
+1. Er elektronisk sakssystem brukt som grunnlag for store deler av rapporteringen?
+Ja
+ Nei
+1a. Hvis "Ja" i spørsmålet over: Er tallene i utfyllingen av skjema framkommet som resultat av
+maskinelle opptellinger/summeringer?
+ Ja
+ Nei
+2. Antall timer det tok å rapportere - totalt 32
+2a. Antall timer det tok å fylle ut skjemaet. 21
+2b. Antall timer det tok å framskaffe informasjonen for utfylling. 11

@@ -3,10 +3,12 @@
 module Main where
 
 import System.Exit (exitFailure, exitSuccess)
-import Data.Aeson (Value(..))
+import Data.Aeson (Value(..), encode)
+import qualified Data.ByteString.Lazy.Char8 as BLC
 import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Vector as V
 import qualified Data.Text as T
+import qualified Data.Map.Strict as M
 import SchemaDSL
 
 main :: IO ()
@@ -23,8 +25,148 @@ main = do
   testCompileKostra51AllSidesToAltinn
   testBolkRoundTripAndCompilation
   testEvolutionPageOrdering
+  testRulesRoundTrip
+  testRulesBackwardCompatibleJSON
+  testEvalCalculationsAndConstraints
+  testValidateRules
+  testCompileRulesToAltinn
+  testNumericConditions
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
+
+-- | Budget split into parts: total is entered, remainder is derived, parts must not exceed total
+budgetDialogue :: Dialogue
+budgetDialogue = Dialogue
+  { dialogueId   = "budget-test"
+  , title        = "Budget split"
+  , context      = Nothing
+  , calculations =
+      [ Calculation "rest" (Sub (Field "total") (Field "delSum"))
+      , Calculation "delSum" (sumOf ["delA", "delB"])
+      ]
+  , constraints  =
+      [ Constraint
+          { constraintId        = "deler-innenfor-total"
+          , constraintLeft      = Field "delSum"
+          , comparison          = CmpLte
+          , constraintRight     = Field "total"
+          , message             = "Delene kan ikke overstige totalen."
+          , severity            = SevError
+          , constraintCondition = Nothing
+          , reportOn            = []
+          }
+      , Constraint
+          { constraintId        = "ingen-rest"
+          , constraintLeft      = Field "rest"
+          , comparison          = CmpEq
+          , constraintRight     = Const 0
+          , message             = "Delene skal summere til totalen."
+          , severity            = SevWarning
+          , constraintCondition = Just (IsTrue "fordelt")
+          , reportOn            = ["rest"]
+          }
+      ]
+  , steps        = map QuestionStep
+      [ numQ "total" QDecimal, numQ "delA" QDecimal, numQ "delB" QDecimal
+      , numQ "delSum" QDecimal, numQ "rest" QDecimal
+      , (numQ "fordelt" QBoolean)
+      ]
+  }
+  where
+    numQ fid qt = Question fid (Prompt fid Nothing) qt False Nothing Nothing
+
+expect :: Bool -> String -> IO ()
+expect ok msg
+  | ok        = putStrLn ("[PASS] " ++ msg)
+  | otherwise = putStrLn ("[FAIL] " ++ msg) >> exitFailure
+
+-- | Test 11: Calculations and constraints survive JSON round-trip
+testRulesRoundTrip :: IO ()
+testRulesRoundTrip =
+  expect (decodeDialogue (encodeDialogue budgetDialogue) == Right budgetDialogue
+          && decodeDialogue (encodeDialogue trial4ByggesakDialogue) == Right trial4ByggesakDialogue)
+         "Calculations and constraints JSON round-trip verified."
+
+-- | Test 12: Dialogues without rules still decode, and encode without rule keys
+testRulesBackwardCompatibleJSON :: IO ()
+testRulesBackwardCompatibleJSON = do
+  let legacy = "{\"dialogueId\": \"x\", \"title\": \"X\", \"steps\": []}"
+      encoded = encodeDialogue helloWorldDialogue
+  expect (fmap calculations (decodeDialogue legacy) == Right []
+          && not ("calculations" `T.isInfixOf` T.pack (BLC.unpack encoded)))
+         "Dialogues without rules decode and encode unchanged."
+
+-- | Test 13: Reference evaluator derives remainders and detects violations
+testEvalCalculationsAndConstraints :: IO ()
+testEvalCalculationsAndConstraints = do
+  let answers = M.fromList [("total", "100"), ("delA", "60,5"), ("delB", "30")]
+      derived = applyCalculations budgetDialogue answers
+      violatedIds as = map (constraintId . violatedConstraint) (checkConstraints budgetDialogue as)
+  expect (M.lookup "delSum" derived == Just "90.5" && M.lookup "rest" derived == Just "9.5")
+         "Calculations evaluate in dependency order (sum, then remainder)."
+  expect (violatedIds answers == []
+          && violatedIds (M.insert "fordelt" "true" answers) == ["ingen-rest"]
+          && violatedIds (M.insert "delB" "50" answers) == ["deler-innenfor-total"])
+         "Constraints respect comparisons, conditions and tolerance."
+  expect (violatedIds (M.fromList [("fordelt", "true"), ("total", "0.3"), ("delA", "0.1"), ("delB", "0.2")]) == [])
+         "Equality constraints tolerate floating point rounding."
+  expect (map violationFields (checkConstraints budgetDialogue (M.insert "delB" "50" answers)) == [["delA", "delB", "total"]])
+         "Violations report on entered fields by default."
+
+-- | Test 14: Static rule checks pass for all examples and catch broken rules
+testValidateRules :: IO ()
+testValidateRules = do
+  let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
+                 , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, budgetDialogue, rulesDemoDialogue ]
+      problems = concatMap validateRules examples
+      broken = budgetDialogue
+        { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
+  expect (null problems) ("All example rules are well-formed. " ++ show problems)
+  expect (length (validateRules broken) >= 4) "Rule checks catch unknown fields and calculation cycles."
+
+-- | Test 15: Rules compile to Altinn Number components and expression validations
+testCompileRulesToAltinn :: IO ()
+testCompileRulesToAltinn = do
+  let artifacts = compileToAltinn trial4ByggesakDialogue
+      layoutTxt = BLC.unpack (encode (pageLayout artifacts))
+      paths = map fst (validations artifacts)
+  expect ("t4_timerTotalt-number" `T.isInfixOf` T.pack layoutTxt
+          && not ("t4_timerTotalt-input" `T.isInfixOf` T.pack layoutTxt))
+         "Calculated fields compile to display-only Number components."
+  expect ("SkjemaData.trial4_byggesak.t4_e1_klagerKommuneAlt" `elem` paths
+          && "SkjemaData.trial4_byggesak.t4_c10_delingBehandlet" `elem` paths
+          && any ((== "lang.trial4_byggesak.constraint.t4_e1_herav") . fst) (textResources artifacts))
+         "Constraints compile to expression validations with text resources."
+  let budget = compileToAltinn budgetDialogue
+      budgetPaths = map fst (validations budget)
+  expect (lookup "SkjemaData.budget_test.delA" (validations budget) /= Nothing
+          && "SkjemaData.budget_test.rest" `notElem` budgetPaths
+          && fmap length (lookup "SkjemaData.budget_test.total" (validations budget)) == Just 2)
+         "Messages on calculated fields move to their entered inputs in Altinn."
+
+-- | Test 16: Numeric conditions (cells that open when another field is > 0)
+testNumericConditions :: IO ()
+testNumericConditions = do
+  let opened = Compare (Field "mottatt") CmpGt (Const 0)
+      numQ fid cond = Question fid (Prompt fid Nothing) QInteger False cond Nothing
+      d = Dialogue
+        { dialogueId = "numeric-cond", title = "Numeric", context = Nothing
+        , calculations = [], constraints = []
+        , steps = map QuestionStep [ numQ "mottatt" Nothing, numQ "mangelfulle" (Just opened) ]
+        }
+      layoutTxt = T.pack (BLC.unpack (encode (pageLayout (compileToAltinn d))))
+  expect (decodeDialogue (encodeDialogue d) == Right d) "Numeric condition JSON round-trip verified."
+  expect (not (evalPredicate M.empty opened)
+          && evalPredicate (M.fromList [("mottatt", "3")]) opened
+          && not (evalPredicate (M.fromList [("mottatt", "0")]) opened)
+          && evalPredicate (M.fromList [("a", "0.30000001")]) (Compare (Field "a") CmpEq (Const 0.3)))
+         "Numeric conditions evaluate with empty-as-zero and tolerance."
+  expect ("\"hidden\":[\"not\",[\"greaterThan\"" `T.isInfixOf` layoutTxt)
+         "Numeric conditions compile to Altinn hidden expressions."
+  expect (validateRules d { steps = [ QuestionStep (numQ "x" (Just (Compare (Field "nope") CmpGt (Const 0)))) ] }
+            == ["Condition on x references unknown field: nope"])
+         "Rule checks catch unknown fields in conditions."
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()
@@ -201,6 +343,8 @@ testRoundTripWithChoice = do
         { dialogueId = "choice-test"
         , title      = "Choice Dialogue Test"
         , context    = Nothing
+        , calculations = []
+        , constraints  = []
         , steps      =
             [ QuestionStep Question
                 { fieldId      = "category"

@@ -152,6 +152,10 @@
       display: block;
     }
     .req-mark { color: var(--danger); margin-left: 0.25rem; }
+    .rule-msg { margin-top: 0.75rem; padding: 0.6rem 0.8rem; border-radius: 4px; font-size: 0.9rem; border-left: 4px solid; }
+    .rule-msg.error { background: #FDECEA; border-color: var(--danger); color: #8A1C1C; }
+    .rule-msg.warning { background: #FFF6E0; border-color: #C98A00; color: #6B4A00; }
+    .text-input[readonly] { background: var(--bg-page); color: var(--text-muted); }
     .help-text {
       font-size: 0.85rem;
       color: var(--text-muted);
@@ -326,7 +330,7 @@
     // Schemas loaded dynamically from dsl single source of truth (schemas.js)
     const availableSchemas = window.SSB_SCHEMAS || {};
 
-    let activeSchemaKey = "kostra51-full";
+    let activeSchemaKey = new URLSearchParams(window.location.search).get("schema") || "kostra51-full";
     let activeSchema = availableSchemas[activeSchemaKey] || Object.values(availableSchemas)[0] || {
       title: "Laster skjema...",
       context: { organization: "SSB", surveyCode: "" },
@@ -334,6 +338,7 @@
     };
     let visibleSteps = [];
     let currentStepIndex = 0;
+    let warnedStepIndex = -1;
     const formData = {};
 
     function flattenSchemaSteps(schema) {
@@ -379,9 +384,132 @@
       if (cond.op === "equals") return formData[cond.fieldId] === cond.value;
       if (cond.op === "notEquals") return formData[cond.fieldId] !== cond.value;
       if (cond.op === "isTrue") return formData[cond.fieldId] === "true" || formData[cond.fieldId] === true;
+      if (cond.op === "compare") {
+        const l = evalExpr(cond.left), r = evalExpr(cond.right);
+        return l !== null && r !== null && compareValues(cond.comparison, l, r);
+      }
       if (cond.op === "and") return cond.conditions.every(evaluateCondition);
       if (cond.op === "or") return cond.conditions.some(evaluateCondition);
       return true;
+    }
+
+    // ---- Rules: same semantics as SchemaDSL.Eval (empty fields count as 0, div by zero has no value) ----
+    function parseNumber(v) {
+      if (v === undefined || v === null) return null;
+      const s = String(v).replace(/,/g, ".").replace(/\s/g, "");
+      if (s === "") return null;
+      const n = Number(s);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function evalExpr(e) {
+      switch (e.op) {
+        case "field": { const n = parseNumber(formData[e.fieldId]); return n === null ? 0 : n; }
+        case "const": return e.value;
+        case "add": { const xs = e.terms.map(evalExpr); return xs.includes(null) ? null : xs.reduce((a, b) => a + b, 0); }
+        case "mul": { const xs = e.terms.map(evalExpr); return xs.includes(null) ? null : xs.reduce((a, b) => a * b, 1); }
+        case "sub": { const a = evalExpr(e.left), b = evalExpr(e.right); return a === null || b === null ? null : a - b; }
+        case "div": { const a = evalExpr(e.left), b = evalExpr(e.right); return a === null || b === null || b === 0 ? null : a / b; }
+        default: return null;
+      }
+    }
+
+    function exprFields(e) {
+      if (e.op === "field") return [e.fieldId];
+      if (e.terms) return e.terms.flatMap(exprFields);
+      if (e.left) return exprFields(e.left).concat(exprFields(e.right));
+      return [];
+    }
+
+    function formatNumber(v) {
+      return Number.isInteger(v) ? String(v) : String(Number(v.toFixed(6)));
+    }
+
+    function calculatedFieldIds() {
+      return new Set((activeSchema.calculations || []).map(c => c.fieldId));
+    }
+
+    function applyCalculations() {
+      const pending = [...(activeSchema.calculations || [])];
+      const targets = new Set(pending.map(c => c.fieldId));
+      const done = new Set();
+      let progressed = true;
+      while (pending.length && progressed) {
+        progressed = false;
+        for (let i = 0; i < pending.length; i++) {
+          const c = pending[i];
+          if (exprFields(c.expr).every(f => !targets.has(f) || done.has(f))) {
+            const v = evalExpr(c.expr);
+            if (v === null) delete formData[c.fieldId]; else formData[c.fieldId] = formatNumber(v);
+            done.add(c.fieldId);
+            pending.splice(i--, 1);
+            progressed = true;
+          }
+        }
+      }
+    }
+
+    function constraintHolds(c) {
+      if (c.condition && !evaluateCondition(c.condition)) return true;
+      const l = evalExpr(c.left), r = evalExpr(c.right);
+      if (l === null || r === null) return true;
+      return compareValues(c.comparison, l, r);
+    }
+
+    // Numeric comparison tolerating floating point noise, as SchemaDSL.Eval.compareValues
+    function compareValues(cmp, l, r) {
+      const eps = 1e-6;
+      switch (cmp) {
+        case "eq": return Math.abs(l - r) < eps;
+        case "notEq": return Math.abs(l - r) >= eps;
+        case "lt": return l < r - eps;
+        case "lte": return l <= r + eps;
+        case "gt": return l > r + eps;
+        case "gte": return l >= r - eps;
+        default: return true;
+      }
+    }
+
+    function enteredInputs(fid, seen = new Set()) {
+      const calc = (activeSchema.calculations || []).find(c => c.fieldId === fid);
+      if (!calc) return [fid];
+      if (seen.has(fid)) return [];
+      seen.add(fid);
+      return exprFields(calc.expr).flatMap(f => enteredInputs(f, seen));
+    }
+
+    // A constraint is checked on the last visible step among the fields it depends on,
+    // so that e.g. "parts <= total" is not reported before the total has been answered.
+    function violationsAtStep(stepIndex) {
+      const order = new Map(visibleSteps.map((s, i) => [s.fieldId, i]));
+      return (activeSchema.constraints || []).filter(c => {
+        const deps = [...exprFields(c.left), ...exprFields(c.right)].flatMap(f => enteredInputs(f))
+          .concat(c.reportOn || [], c.condition ? predicateFields(c.condition) : []);
+        const positions = deps.map(f => order.get(f)).filter(i => i !== undefined);
+        return positions.length > 0 && Math.max(...positions) === stepIndex && !constraintHolds(c);
+      });
+    }
+
+    function predicateFields(p) {
+      if (p.conditions) return p.conditions.flatMap(predicateFields);
+      if (p.op === "compare") return exprFields(p.left).concat(exprFields(p.right));
+      return [p.fieldId];
+    }
+
+    function allViolations() {
+      return (activeSchema.constraints || []).filter(c => !constraintHolds(c));
+    }
+
+    function showRuleMessages(violations) {
+      const qBlock = document.querySelector("#step-container .question-block");
+      if (!qBlock) return;
+      qBlock.querySelectorAll(".rule-msg").forEach(el => el.remove());
+      violations.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "rule-msg " + (c.severity === "warning" ? "warning" : "error");
+        div.textContent = (c.severity === "warning" ? "Advarsel: " : "Feil: ") + c.message;
+        qBlock.appendChild(div);
+      });
     }
 
     function recomputeVisibleSteps() {
@@ -520,8 +648,17 @@
         input.className = "text-input";
         input.placeholder = (step.annotations && step.annotations.placeholder) || "";
         input.value = formData[step.fieldId] || "";
+        if (calculatedFieldIds().has(step.fieldId)) {
+          input.readOnly = true;
+          input.type = "text";
+          input.value = formData[step.fieldId] || "";
+          input.placeholder = "Beregnes automatisk";
+        }
         input.oninput = (e) => {
           formData[step.fieldId] = e.target.value;
+          applyCalculations();
+          warnedStepIndex = -1;
+          showRuleMessages([]);
           updatePreview();
         };
         qBlock.appendChild(input);
@@ -638,6 +775,20 @@
       if (direction > 0 && step && step.required && (!formData[step.fieldId] || (Array.isArray(formData[step.fieldId]) && formData[step.fieldId].length === 0))) {
         alert("Dette feltet er påkrevd.");
         return;
+      }
+
+      if (direction > 0) {
+        applyCalculations();
+        const isLast = currentStepIndex === visibleSteps.length - 1;
+        const violations = isLast ? allViolations() : violationsAtStep(currentStepIndex);
+        const errors = violations.filter(c => c.severity !== "warning");
+        const warnings = violations.filter(c => c.severity === "warning");
+        if (errors.length || (warnings.length && warnedStepIndex !== currentStepIndex)) {
+          showRuleMessages(violations);
+          warnedStepIndex = errors.length ? -1 : currentStepIndex;
+          return;
+        }
+        warnedStepIndex = -1;
       }
 
       if (direction > 0 && currentStepIndex === visibleSteps.length - 1) {

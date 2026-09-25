@@ -16,6 +16,7 @@ library
     exposed-modules:
         SchemaDSL
         SchemaDSL.Types
+        SchemaDSL.Eval
         SchemaDSL.Examples
         SchemaDSL.Examples.Hackday
         SchemaDSL.Examples.Kostra51
@@ -29,6 +30,7 @@ library
         SchemaDSL.Altinn.Inject
     build-depends:
         base >= 4.14 && < 5.0,
+        containers >= 0.6,
         aeson >= 2.0,
         aeson-pretty >= 0.8,
         text >= 1.2,
@@ -61,6 +63,7 @@ test-suite schema-dsl-test
     main-is:          Spec.hs
     build-depends:
         base >= 4.14 && < 5.0,
+        containers >= 0.6,
         schema-dsl,
         aeson >= 2.0,
         bytestring >= 0.10,

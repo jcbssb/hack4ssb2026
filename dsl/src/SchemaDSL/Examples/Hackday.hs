@@ -4,6 +4,7 @@
 module SchemaDSL.Examples.Hackday
   ( helloWorldDialogue
   , syntheticHackDialogue
+  , rulesDemoDialogue
   ) where
 
 import Data.Aeson (Value(..))
@@ -20,6 +21,8 @@ helloWorldDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       [ QuestionStep Question
           { fieldId      = "teamName"
@@ -62,6 +65,8 @@ syntheticHackDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Dette er et syntetisk SSB-skjema som demonstrerer full dekning av Dialogue DSL-semantikk på Altinn 3."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       [ QuestionStep Question
           { fieldId      = "lagNavn"
@@ -139,3 +144,103 @@ syntheticHackDialogue = Dialogue
           }
       ]
   }
+
+-- | Small demo of calculations and constraints: a budget split into parts,
+-- with a derived sum, remainder and share, and rules relating them.
+rulesDemoDialogue :: Dialogue
+rulesDemoDialogue = Dialogue
+  { dialogueId = "hack4ssb-rules"
+  , title      = "Regler-demo: Fordeling av budsjett"
+  , context    = Just SurveyContext
+      { surveyCode   = Just "HACK-2026-RULES"
+      , organization = Just "Statistisk sentralbyrå"
+      , legalNotice  = Just "Demonstrerer beregnede felt (sum, rest, andel) og kontroller mellom felt."
+      }
+  , calculations =
+      [ Calculation "sumDeler" (sumOf ["personell", "drift", "investering"])
+      , Calculation "rest" (Sub (Field "totalBudsjett") (Field "sumDeler"))
+      , Calculation "andelPersonell" (Mul [Div (Field "personell") (Field "totalBudsjett"), Const 100])
+      ]
+  , constraints  =
+      [ Constraint
+          { constraintId        = "total-positiv"
+          , constraintLeft      = Field "totalBudsjett"
+          , comparison          = CmpGt
+          , constraintRight     = Const 0
+          , message             = "Totalbudsjettet må være større enn 0."
+          , severity            = SevError
+          , constraintCondition = Nothing
+          , reportOn            = []
+          }
+      , Constraint
+          { constraintId        = "deler-innenfor-total"
+          , constraintLeft      = Field "sumDeler"
+          , comparison          = CmpLte
+          , constraintRight     = Field "totalBudsjett"
+          , message             = "Summen av personell, drift og investering kan ikke overstige totalbudsjettet."
+          , severity            = SevError
+          , constraintCondition = Nothing
+          , reportOn            = []
+          }
+      , Constraint
+          { constraintId        = "fullt-fordelt"
+          , constraintLeft      = Field "rest"
+          , comparison          = CmpEq
+          , constraintRight     = Const 0
+          , message             = "Du har svart at hele budsjettet er fordelt, men det gjenstår et restbeløp."
+          , severity            = SevWarning
+          , constraintCondition = Just (IsTrue "heltFordelt")
+          , reportOn            = []
+          }
+      ]
+  , steps      =
+      [ BolkStep Bolk
+          { bolkId          = "budsjett"
+          , bolkTitle       = "Budsjett og fordeling"
+          , bolkDescription = Just "Oppgi totalbudsjett og hvordan det fordeles. Sum, rest og andel beregnes automatisk."
+          , bolkCondition   = Nothing
+          , bolkQuestions   =
+              [ amount "totalBudsjett" "Totalbudsjett (1000 kr)" True
+              , amount "personell" "Herav personell (1000 kr)" False
+              , amount "drift" "Herav drift (1000 kr)" False
+              , amount "investering" "Herav investering (1000 kr)" False
+              , derived "sumDeler" "Sum fordelt (beregnet)"
+              , derived "rest" "Rest som ikke er fordelt (beregnet)"
+              , derived "andelPersonell" "Andel personell i prosent (beregnet)"
+              , Question
+                  { fieldId      = "restBegrunnelse"
+                  , prompt       = Prompt "Hvorfor er ikke hele budsjettet fordelt?" (Just "Vises bare når resten er større enn 0.")
+                  , questionType = QTextArea
+                  , required     = False
+                  , condition    = Just (Compare (Field "rest") CmpGt (Const 0))
+                  , annotations  = Nothing
+                  }
+              , Question
+                  { fieldId      = "heltFordelt"
+                  , prompt       = Prompt "Er hele budsjettet fordelt?" (Just "Svarer du ja, kontrolleres det at resten er 0.")
+                  , questionType = QBoolean
+                  , required     = True
+                  , condition    = Nothing
+                  , annotations  = Nothing
+                  }
+              ]
+          }
+      ]
+  }
+  where
+    amount fid lbl req = Question
+      { fieldId      = fid
+      , prompt       = Prompt lbl (Just "Hele tusen kroner. Tomt felt regnes som 0.")
+      , questionType = QDecimal
+      , required     = req
+      , condition    = Nothing
+      , annotations  = Just (KM.fromList [("decimalScale", Number 0)])
+      }
+    derived fid lbl = Question
+      { fieldId      = fid
+      , prompt       = Prompt lbl Nothing
+      , questionType = QDecimal
+      , required     = False
+      , condition    = Nothing
+      , annotations  = Just (KM.fromList [("readOnly", Bool True), ("decimalScale", Number 1)])
+      }

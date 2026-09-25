@@ -23,6 +23,8 @@ trial1ByggesakDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A: Kontaktinformasjon og veiledning. Del B: Gebyrer."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Bolk A: Opplysninger om skjema og kontaktinformasjon
       [ BolkStep Bolk
@@ -129,6 +131,8 @@ trial2ByggesakDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A-I. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Seksjon A: Kontaktinformasjon
       [ BolkStep Bolk
@@ -745,6 +749,8 @@ trial3ByggesakDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A-I med automatisk summering, validering og responsiv rutenettoppstilling."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Seksjon A: Kontaktinformasjon med 2-kolonne oppsett for telefon/e-post
       [ BolkStep Bolk
@@ -1375,6 +1381,49 @@ trial4ByggesakDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Fullverdig Del A-I med kryssvalidering, automatiske summeringer og full Altinn 3 produksjonslayout."
       }
+  , calculations =
+      [ Calculation "t4_timerTotalt" (sumOf ["t4_timerFremskaffe", "t4_timerUtfylling"])
+      ]
+  , constraints  =
+      [ Constraint
+          { constraintId        = "t4_e1_herav"
+          , constraintLeft      = sumOf ["t4_e1_klagerTattTilFoelge", "t4_e1_klagerOversendtStatsforvalter"]
+          , comparison          = CmpLte
+          , constraintRight     = Field "t4_e1_klagerKommuneAlt"
+          , message             = "Klager tatt til følge og oversendt Statsforvalteren kan til sammen ikke overstige klagesaker i alt (E1.1)."
+          , severity            = SevError
+          , constraintCondition = Nothing
+          , reportOn            = []
+          }
+      , Constraint
+          { constraintId        = "t4_f_herav"
+          , constraintLeft      = sumOf ["t4_f3_tilsynAvsluttetUtenAvvik", "t4_f4_tilsynAvdekketUlovlighet"]
+          , comparison          = CmpLte
+          , constraintRight     = Field "t4_f2_tilsynAlt"
+          , message             = "Tilsyn uten avvik (F3.2) og tilsyn med ulovlighet (F4.2) kan til sammen ikke overstige antall tilsyn i alt (F2.a)."
+          , severity            = SevError
+          , constraintCondition = Just (IsTrue "t4_f0a_erUtfoertTilsyn")
+          , reportOn            = []
+          }
+      ] ++
+      [ Constraint
+          { constraintId        = "t4_c10_" ++ kategori ++ "_behandlet"
+          , constraintLeft      = Field ("t4_c10_" ++ kategori ++ "Behandlet")
+          , comparison          = CmpLte
+          , constraintRight     = Field ("t4_c10_" ++ kategori ++ "Mottatt")
+          , message             = "Flere " ++ navn ++ " behandlet enn mottatt. Kontroller tallene, eller forklar avviket i kommentarfeltet."
+          , severity            = SevWarning
+          , constraintCondition = Nothing
+          , reportOn            = ["t4_c10_" ++ kategori ++ "Behandlet"]
+          }
+      | (kategori, navn) <-
+          [ ("rammesoknader", "rammesøknader")
+          , ("ettTrinnMedAnsvar", "ett-trinnssøknader med ansvarsrett")
+          , ("ettTrinnUtenAnsvar", "ett-trinnssøknader uten ansvarsrett")
+          , ("dispensasjon", "dispensasjonssøknader")
+          , ("deling", "delingssøknader")
+          ]
+      ]
   , steps      =
       -- Seksjon A: Kontaktinformasjon
       [ BolkStep Bolk

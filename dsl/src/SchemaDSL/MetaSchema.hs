@@ -41,6 +41,16 @@ baselineMetaSchema = object
               , "legalNotice" .= object [ "type" .= ("string" :: String) ]
               ]
           ]
+      , "calculations" .= object
+          [ "type" .= ("array" :: String)
+          , "description" .= ("Derived fields whose value is always given by an expression (totals, remainders)" :: String)
+          , "items" .= object [ "$ref" .= ("#/$defs/Calculation" :: String) ]
+          ]
+      , "constraints" .= object
+          [ "type" .= ("array" :: String)
+          , "description" .= ("Cross-field rules that must hold, e.g. parts adding up to a total" :: String)
+          , "items" .= object [ "$ref" .= ("#/$defs/Constraint" :: String) ]
+          ]
       , "steps" .= object
           [ "type" .= ("array" :: String)
           , "items" .= object
@@ -120,15 +130,76 @@ baselineMetaSchema = object
               ]
           , "required" .= (["fieldId", "prompt", "questionType", "required"] :: [String])
           ]
+      , "Expr" .= object
+          [ "type" .= ("object" :: String)
+          , "description" .= ("Numeric expression over field values. Empty fields count as 0; division by zero has no value." :: String)
+          , "properties" .= object
+              [ "op" .= object
+                  [ "type" .= ("string" :: String)
+                  , "enum" .= (["field", "const", "add", "sub", "mul", "div"] :: [String])
+                  ]
+              , "fieldId" .= object [ "type" .= ("string" :: String) ]
+              , "value" .= object [ "type" .= ("number" :: String) ]
+              , "terms" .= object
+                  [ "type" .= ("array" :: String)
+                  , "items" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+                  ]
+              , "left" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              , "right" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              ]
+          , "required" .= (["op"] :: [String])
+          ]
+      , "Calculation" .= object
+          [ "type" .= ("object" :: String)
+          , "properties" .= object
+              [ "fieldId" .= object [ "type" .= ("string" :: String), "description" .= ("Numeric question receiving the computed value" :: String) ]
+              , "expr" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              ]
+          , "required" .= (["fieldId", "expr"] :: [String])
+          ]
+      , "Constraint" .= object
+          [ "type" .= ("object" :: String)
+          , "properties" .= object
+              [ "constraintId" .= object [ "type" .= ("string" :: String) ]
+              , "left" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              , "comparison" .= object
+                  [ "type" .= ("string" :: String)
+                  , "enum" .= (["eq", "notEq", "lt", "lte", "gt", "gte"] :: [String])
+                  ]
+              , "right" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              , "message" .= object [ "type" .= ("string" :: String), "description" .= ("Shown to the respondent when the rule does not hold" :: String) ]
+              , "severity" .= object
+                  [ "type" .= ("string" :: String)
+                  , "enum" .= (["error", "warning"] :: [String])
+                  , "default" .= ("error" :: String)
+                  ]
+              , "condition" .= object
+                  [ "$ref" .= ("#/$defs/Predicate" :: String)
+                  , "description" .= ("Only check the rule when this predicate holds" :: String)
+                  ]
+              , "reportOn" .= object
+                  [ "type" .= ("array" :: String)
+                  , "description" .= ("Fields that show the message; defaults to the entered (non-calculated) fields referenced" :: String)
+                  , "items" .= object [ "type" .= ("string" :: String) ]
+                  ]
+              ]
+          , "required" .= (["constraintId", "left", "comparison", "right", "message"] :: [String])
+          ]
       , "Predicate" .= object
           [ "type" .= ("object" :: String)
           , "properties" .= object
               [ "op" .= object
                   [ "type" .= ("string" :: String)
-                  , "enum" .= (["equals", "notEquals", "isTrue", "and", "or"] :: [String])
+                  , "enum" .= (["equals", "notEquals", "isTrue", "compare", "and", "or"] :: [String])
                   ]
               , "fieldId" .= object [ "type" .= ("string" :: String) ]
               , "value" .= object [ "type" .= ("string" :: String) ]
+              , "left" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              , "comparison" .= object
+                  [ "type" .= ("string" :: String)
+                  , "enum" .= (["eq", "notEq", "lt", "lte", "gt", "gte"] :: [String])
+                  ]
+              , "right" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
               , "conditions" .= object
                   [ "type" .= ("array" :: String)
                   , "items" .= object [ "$ref" .= ("#/$defs/Predicate" :: String) ]

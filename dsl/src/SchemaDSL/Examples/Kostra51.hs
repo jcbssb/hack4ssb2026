@@ -14,7 +14,6 @@ module SchemaDSL.Examples.Kostra51
 
 import Data.Aeson (Value(..))
 import qualified Data.Aeson.KeyMap as KM
-import qualified Data.Vector as V
 import SchemaDSL.Types
 
 -- Reverse engineered from screenshots/bilde.png (Bolk B1)
@@ -27,6 +26,10 @@ kostra51KulturminneDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "B1. Tid brukt til arbeid med kulturminner i fylkeskommunen. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 dersom det ikke har vært aktivitet."
       }
+  , calculations =
+      [ Calculation "aarsverkKulturminnerAlt" (sumOf ["aarsverkArkeologi", "aarsverkNyereTid", "aarsverkArealplan", "aarsverkAnnet"])
+      ]
+  , constraints  = []
   , steps      =
       [ BolkStep Bolk
           { bolkId      = "bolk_b1"
@@ -44,7 +47,6 @@ kostra51KulturminneDialogue = Dialogue
                       [ ("readOnly", Bool True)
                       , ("decimalScale", Number 1)
                       , ("unit", String "Antall årsverk")
-                      , ("calculatedSumOf", Array (V.fromList [String "aarsverkArkeologi", String "aarsverkNyereTid", String "aarsverkArealplan", String "aarsverkAnnet"]))
                       ])
                   }
               , Question
@@ -103,6 +105,10 @@ kostra51Side1Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "A. Opplysninger om fylket og ansvarlig for rapporteringen. DEL I: Planarbeid og saksbehandling for kulturminner (Bolk B1, C11, C12). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }
+  , calculations =
+      [ Calculation "b1_aarsverkKulturminnerAlt" (sumOf ["b1_aarsverkArkeologi", "b1_aarsverkNyereTid", "b1_aarsverkArealplan", "b1_aarsverkAnnet"])
+      ]
+  , constraints  = []
   , steps      =
       -- Bolk A: Opplysninger om fylket og skjemaansvarlig
       [ BolkStep Bolk
@@ -171,7 +177,6 @@ kostra51Side1Dialogue = Dialogue
                       [ ("readOnly", Bool True)
                       , ("decimalScale", Number 1)
                       , ("unit", String "Antall årsverk")
-                      , ("calculatedSumOf", Array (V.fromList [String "b1_aarsverkArkeologi", String "b1_aarsverkNyereTid", String "b1_aarsverkArealplan", String "b1_aarsverkAnnet"]))
                       ])
                   }
               , Question
@@ -289,6 +294,8 @@ kostra51Side2Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL I: C12 forts., D1 Tiltak/søknader, E Politianmeldelser, F1 Automatisk fredete kulturminner."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Bolk C12 forts: Områdereguleringsplaner og Detaljreguleringsplaner
       [ BolkStep Bolk
@@ -494,6 +501,8 @@ kostra51Side3Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL I: F2 Arkeologiske registreringer, F3 Skjøtsel, F4 Kostnader. DEL II: B2 Årsverk plan/folkehelse, C21 Egen planlegging."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Bolk F2: Arkeologiske registreringer
       [ BolkStep Bolk
@@ -701,6 +710,8 @@ kostra51Side4Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL II: C22 Temaplaner etter pbl vedtatt av fylkeskommunen, C23 Behandling av kommunale planer samlet."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Bolk C22: 14 Temaplaner (Ja/Nei + Hvis Ja hvilket år)
       [ BolkStep Bolk
@@ -1030,6 +1041,8 @@ kostra51Side5Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL II: D2 Dispensasjonsbehandling (unntatt kulturminner). DEL III: G Merknader, H Tidsbruk."
       }
+  , calculations = []
+  , constraints  = []
   , steps      =
       -- Bolk D2.1: § 1-8 Strandsonen og vassdrag
       [ BolkStep Bolk
@@ -1356,6 +1369,10 @@ kostra51Side6Dialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL III: Bolk H Tidsbruk for rapportering."
       }
+  , calculations =
+      [ Calculation "h2_timerTotalt" (sumOf ["h2a_timerFramskaffe", "h2b_timerFylleUt"])
+      ]
+  , constraints  = []
   , steps      =
       [ BolkStep Bolk
           { bolkId      = "bolk_h2"
@@ -1372,7 +1389,6 @@ kostra51Side6Dialogue = Dialogue
                   , annotations  = Just (KM.fromList
                       [ ("readOnly", Bool True)
                       , ("unit", String "Timer")
-                      , ("calculatedSumOf", Array (V.fromList [String "h2a_timerFramskaffe", String "h2b_timerFylleUt"]))
                       ])
                   }
               , Question
@@ -1406,6 +1422,14 @@ kostra51FullDialogue = Dialogue
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Samlet rapportering for planbehandling, miljø- og kulturminneforvaltning (Side 1 til 6). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }
+  , calculations = concatMap calculations
+      [ kostra51Side1Dialogue, kostra51Side2Dialogue, kostra51Side3Dialogue
+      , kostra51Side4Dialogue, kostra51Side5Dialogue, kostra51Side6Dialogue
+      ]
+  , constraints  = concatMap constraints
+      [ kostra51Side1Dialogue, kostra51Side2Dialogue, kostra51Side3Dialogue
+      , kostra51Side4Dialogue, kostra51Side5Dialogue, kostra51Side6Dialogue
+      ]
   , steps      = concat
       [ steps kostra51Side1Dialogue
       , steps kostra51Side2Dialogue

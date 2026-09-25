@@ -5,6 +5,7 @@ module SchemaDSL.Altinn.Inject
   , updateSettingsPageOrder
   , enforceEvolutionPageOrder
   , mergeTextResources
+  , mergeValidations
   , stripBOM
   ) where
 
@@ -18,6 +19,7 @@ import Data.Aeson
   , decode
   )
 import Data.Aeson.Encode.Pretty (encodePretty)
+import Data.Aeson.Key (fromText, toText)
 import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Vector as V
 import qualified Data.Text as T
@@ -93,6 +95,24 @@ injectIntoAltinnApp targetDir d = do
   -- 6. Update Data Models: JSON Schema & C# definitions for SkjemaData
   updateJsonSchemaModel modelsDir d
   updateCSharpModel modelsDir d
+
+  -- 7. Merge constraint validations into App/models/A3_RA-1000_M.validation.json
+  let validationPath = modelsDir </> "A3_RA-1000_M.validation.json"
+      dataPrefix = T.pack ("SkjemaData." ++ sanitizeName (dialogueId d) ++ ".")
+  vExists <- doesFileExist validationPath
+  existing <- if vExists
+    then do
+      content <- BL.readFile validationPath
+      pure $ case decode (stripBOM content) of
+        Just (Object obj) -> obj
+        _                 -> KM.empty
+    else pure KM.empty
+  let mergedValidations = mergeValidations dataPrefix (validations artifacts) existing
+  if null (validations artifacts) && not vExists
+    then pure ()
+    else do
+      BL.writeFile validationPath (encodePretty (Object mergedValidations))
+      putStrLn $ "  [+] Wrote " ++ show (length (validations artifacts)) ++ " validated fields to: " ++ validationPath
 
   putStrLn "Successfully completed Altinn schema injection!"
 
@@ -195,3 +215,14 @@ mergeTextResources newRes km =
           allRes = existingList ++ newEntries
       in KM.insert "resources" (Array (V.fromList allRes)) km
     _ -> km
+
+-- | Replace this dialogue's expression validations (keys under dataPrefix), keeping all others
+mergeValidations :: T.Text -> [(String, [Value])] -> KM.KeyMap Value -> KM.KeyMap Value
+mergeValidations dataPrefix newRules km =
+  let existingRules = case KM.lookup "validations" km of
+        Just (Object o) -> o
+        _               -> KM.empty
+      kept = KM.filterWithKey (\k _ -> not (dataPrefix `T.isPrefixOf` toText k)) existingRules
+      added = KM.fromList [ (fromText (T.pack path), Array (V.fromList rules)) | (path, rules) <- newRules ]
+  in KM.insert "$schema" (String "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json")
+       (KM.insert "validations" (Object (KM.union added kept)) km)

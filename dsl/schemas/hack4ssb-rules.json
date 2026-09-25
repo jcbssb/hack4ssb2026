@@ -1,0 +1,262 @@
+{
+    "$schema": "./baseline-schema-meta.json",
+    "calculations": [
+        {
+            "expr": {
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "personell",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "drift",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "investering",
+                        "op": "field"
+                    }
+                ]
+            },
+            "fieldId": "sumDeler"
+        },
+        {
+            "expr": {
+                "left": {
+                    "fieldId": "totalBudsjett",
+                    "op": "field"
+                },
+                "op": "sub",
+                "right": {
+                    "fieldId": "sumDeler",
+                    "op": "field"
+                }
+            },
+            "fieldId": "rest"
+        },
+        {
+            "expr": {
+                "op": "mul",
+                "terms": [
+                    {
+                        "left": {
+                            "fieldId": "personell",
+                            "op": "field"
+                        },
+                        "op": "div",
+                        "right": {
+                            "fieldId": "totalBudsjett",
+                            "op": "field"
+                        }
+                    },
+                    {
+                        "op": "const",
+                        "value": 100
+                    }
+                ]
+            },
+            "fieldId": "andelPersonell"
+        }
+    ],
+    "constraints": [
+        {
+            "comparison": "gt",
+            "constraintId": "total-positiv",
+            "left": {
+                "fieldId": "totalBudsjett",
+                "op": "field"
+            },
+            "message": "Totalbudsjettet må være større enn 0.",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "lte",
+            "constraintId": "deler-innenfor-total",
+            "left": {
+                "fieldId": "sumDeler",
+                "op": "field"
+            },
+            "message": "Summen av personell, drift og investering kan ikke overstige totalbudsjettet.",
+            "right": {
+                "fieldId": "totalBudsjett",
+                "op": "field"
+            },
+            "severity": "error"
+        },
+        {
+            "comparison": "eq",
+            "condition": {
+                "fieldId": "heltFordelt",
+                "op": "isTrue"
+            },
+            "constraintId": "fullt-fordelt",
+            "left": {
+                "fieldId": "rest",
+                "op": "field"
+            },
+            "message": "Du har svart at hele budsjettet er fordelt, men det gjenstår et restbeløp.",
+            "right": {
+                "op": "const",
+                "value": 0
+            },
+            "severity": "warning"
+        }
+    ],
+    "context": {
+        "legalNotice": "Demonstrerer beregnede felt (sum, rest, andel) og kontroller mellom felt.",
+        "organization": "Statistisk sentralbyrå",
+        "surveyCode": "HACK-2026-RULES"
+    },
+    "dialogueId": "hack4ssb-rules",
+    "steps": [
+        {
+            "bolkId": "budsjett",
+            "description": "Oppgi totalbudsjett og hvordan det fordeles. Sum, rest og andel beregnes automatisk.",
+            "questions": [
+                {
+                    "annotations": {
+                        "decimalScale": 0
+                    },
+                    "fieldId": "totalBudsjett",
+                    "prompt": {
+                        "helpText": "Hele tusen kroner. Tomt felt regnes som 0.",
+                        "label": "Totalbudsjett (1000 kr)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": true
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 0
+                    },
+                    "fieldId": "personell",
+                    "prompt": {
+                        "helpText": "Hele tusen kroner. Tomt felt regnes som 0.",
+                        "label": "Herav personell (1000 kr)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 0
+                    },
+                    "fieldId": "drift",
+                    "prompt": {
+                        "helpText": "Hele tusen kroner. Tomt felt regnes som 0.",
+                        "label": "Herav drift (1000 kr)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 0
+                    },
+                    "fieldId": "investering",
+                    "prompt": {
+                        "helpText": "Hele tusen kroner. Tomt felt regnes som 0.",
+                        "label": "Herav investering (1000 kr)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "readOnly": true
+                    },
+                    "fieldId": "sumDeler",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Sum fordelt (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "readOnly": true
+                    },
+                    "fieldId": "rest",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Rest som ikke er fordelt (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "annotations": {
+                        "decimalScale": 1,
+                        "readOnly": true
+                    },
+                    "fieldId": "andelPersonell",
+                    "prompt": {
+                        "helpText": null,
+                        "label": "Andel personell i prosent (beregnet)"
+                    },
+                    "questionType": {
+                        "type": "decimal"
+                    },
+                    "required": false
+                },
+                {
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "rest",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
+                    "fieldId": "restBegrunnelse",
+                    "prompt": {
+                        "helpText": "Vises bare når resten er større enn 0.",
+                        "label": "Hvorfor er ikke hele budsjettet fordelt?"
+                    },
+                    "questionType": {
+                        "type": "textarea"
+                    },
+                    "required": false
+                },
+                {
+                    "fieldId": "heltFordelt",
+                    "prompt": {
+                        "helpText": "Svarer du ja, kontrolleres det at resten er 0.",
+                        "label": "Er hele budsjettet fordelt?"
+                    },
+                    "questionType": {
+                        "type": "boolean"
+                    },
+                    "required": true
+                }
+            ],
+            "title": "Budsjett og fordeling",
+            "type": "bolk"
+        }
+    ],
+    "title": "Regler-demo: Fordeling av budsjett"
+}
