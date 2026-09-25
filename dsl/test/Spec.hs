@@ -35,7 +35,8 @@ main = do
   testNumericConditions
   testMatrixColumnsFromPdf
   testMatrixRowsFromPdf
-  testTrial5AgainstPdf
+  testTrialAgainstPdf "Trial 5" "t5" trial5ByggesakDialogue
+  testTrialAgainstPdf "Trial 6" "t6" trial6ByggesakDialogue
   testMatrixDemo
   testPagedAltinn
   testCSharpClassRemoval
@@ -126,7 +127,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -283,12 +284,11 @@ testMatrixRowsFromPdf = do
           && null (validateRules d))
          "Row formulas skip non-summable columns such as averages."
 
--- | Test 19: Trial 5 reproduces the calculated cells printed in the filled-in 20Byggesak PDF
+-- | Test 19: Trials 5 and 6 reproduce the calculated cells printed in the filled-in 20Byggesak PDF
 -- (research/20byggesak-pdf-tekst.txt). Entered values are the sample values from the PDF.
-testTrial5AgainstPdf :: IO ()
-testTrial5AgainstPdf = do
-  let d = trial5ByggesakDialogue
-      cells prefix rows = [ (cellId prefix r c, v) | (r, cvs) <- rows, (c, v) <- cvs ]
+testTrialAgainstPdf :: String -> String -> Dialogue -> IO ()
+testTrialAgainstPdf name p d = do
+  let cells prefix rows = [ (cellId (p ++ drop 2 prefix) r c, v) | (r, cvs) <- rows, (c, v) <- cvs ]
       entered = M.fromList $ concat
         [ cells "t5_c10" [ ("1", zip ["b", "c", "d", "e", "f"] ["100", "234", "12", "23", "12"])
                          , ("2", zip ["b", "c", "d", "e", "f"] ["100", "10", "12", "3", "45"]) ]
@@ -306,7 +306,7 @@ testTrial5AgainstPdf = do
                                      , ("3d", ["25", "54", "674", "7467", "573"]), ("4", ["36", "364", "563", "765", "6345"]) ] ]
         , cells "t5_f3" [ ('a' : show i, [("antall", v)])
                         | (i, v) <- zip [1 :: Int ..] (words "3 2 5 6 7 8 9 1 22 11 33 65 99 88 76 56 75 72 123 73 111") ]
-        , [ ("t5_timerUtfylling", "21"), ("t5_timerFremskaffe", "11") ]
+        , [ (p ++ "_timerUtfylling", "21"), (p ++ "_timerFremskaffe", "11") ]
         ]
       printed = concat
         [ cells "t5_c11" [ ("1", [("a", "100"), ("c", "56")]), ("2", [("a", "100"), ("c", "-24")]), ("2.1", [("c", "1556")]) ]
@@ -327,12 +327,12 @@ testTrial5AgainstPdf = do
         , cells "t5_e1" [ ("1", zip ["b", "b1", "b2", "d"] ["1353", "1117", "3247", "12351"])
                         , ("3", zip ["b", "b1", "b2", "d"] ["972", "408", "2617", "5350"]) ]
         , cells "t5_f3" [ ("a", [("antall", "945")]) ]
-        , [ ("t5_timerTotalt", "32") ]
+        , [ (p ++ "_timerTotalt", "32") ]
         ]
       derived = applyCalculations d entered
       mismatches = [ (fid, v, M.lookup fid derived) | (fid, v) <- printed, M.lookup fid derived /= Just v ]
-  expect (null (validateRules d)) ("Trial 5 rules are well-formed. " ++ show (validateRules d))
-  expect (null mismatches) ("Trial 5 reproduces " ++ show (length printed) ++ " calculated cells printed in the PDF. " ++ show mismatches)
+  expect (null (validateRules d)) (name ++ " rules are well-formed. " ++ show (validateRules d))
+  expect (null mismatches) (name ++ " reproduces " ++ show (length printed) ++ " calculated cells printed in the PDF. " ++ show mismatches)
 
 -- | Test 20: The matrix demo computes totals, averages, copied cells and rules
 testMatrixDemo :: IO ()

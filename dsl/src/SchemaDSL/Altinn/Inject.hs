@@ -184,6 +184,7 @@ baseRank p
   | p == "S05_trial3_byggesak"         = 53  -- v5.3: 20Byggesak Trial 3
   | p == "S05_trial4_byggesak"         = 54  -- v5.4: 20Byggesak Trial 4
   | p == "S05_trial5_byggesak"         = 55  -- v5.5: 20Byggesak Trial 5 (full PDF rebuild with rules, one page per bolk)
+  | p == "S05_trial6_byggesak"         = 56  -- v5.6: 20Byggesak Trial 6 (Trial 5 on the untouched SSB base app)
   | p == "S05_hack4ssb_matrix"         = 60  -- Matrix builder demo
   | otherwise                          = 999 -- Other / custom pages
 
