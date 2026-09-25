@@ -17,6 +17,7 @@ library
         SchemaDSL
         SchemaDSL.Types
         SchemaDSL.Eval
+        SchemaDSL.Builders
         SchemaDSL.Examples
         SchemaDSL.Examples.Hackday
         SchemaDSL.Examples.Kostra51

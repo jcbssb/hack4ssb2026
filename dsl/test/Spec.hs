@@ -31,6 +31,8 @@ main = do
   testValidateRules
   testCompileRulesToAltinn
   testNumericConditions
+  testMatrixColumnsFromPdf
+  testMatrixRowsFromPdf
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -167,6 +169,108 @@ testNumericConditions = do
   expect (validateRules d { steps = [ QuestionStep (numQ "x" (Just (Compare (Field "nope") CmpGt (Const 0)))) ] }
             == ["Condition on x references unknown field: nope"])
          "Rule checks catch unknown fields in conditions."
+
+-- | Wrap form parts in a single-bolk dialogue
+partsDialogue :: String -> FormParts -> Dialogue
+partsDialogue did (qs, calcs, cons) = Dialogue
+  { dialogueId = did, title = did, context = Nothing
+  , calculations = calcs, constraints = cons
+  , steps = [ BolkStep (Bolk "b" did Nothing Nothing qs) ]
+  }
+
+-- | Byggesak C12 (ett-trinnssøknader med ansvarsrett): calculated columns and row subsets
+c12Matrix :: Matrix
+c12Matrix = Matrix
+  { matrixPrefix = "t4_c12"
+  , matrixRows =
+      [ matrixRow "1" "1. Antall søknader mottatt"
+      , (matrixRow "1.1" "1.1 Herav mangelfulle søknader")
+          { rowCols = Just ["a"]
+          , rowCondition = Just (\cell -> Compare (cell "1" "a") CmpGt (Const 0)) }
+      , matrixRow "2" "2. Antall søknader behandlet"
+      , matrixRow "2.1" "2.1 Herav over lovpålagt frist"
+      ]
+  , matrixCols =
+      [ matrixCol "a" "a. I alt"
+      , matrixCol "b" "b. I samsvar med plan, i alt"
+      , matrixCol "b1" "b1. Herav 3 ukers frist"
+      , (matrixCol "b2" "b2. Herav 12 ukers frist") { colFormula = Just (\c -> Sub (c "b") (c "b1")) }
+      , (matrixCol "c" "c. Ikke i samsvar med plan") { colFormula = Just (\c -> Sub (c "a") (c "b")) }
+      , (matrixCol "d" "d. 12 ukers frist i alt") { colFormula = Just (\c -> Add [c "c", c "b2"]) }
+      ]
+  , matrixRules =
+      [ atLeastZero "ikkeNegativ" EachRow "c" "Søknader i samsvar med plan kan ikke overstige søknader i alt"
+      , partsAtMost "mangelfulle" EachColumn ["1.1"] "1" "Mangelfulle søknader kan ikke overstige mottatte"
+      , partsAtMost "overFrist" EachColumn ["2.1"] "2" "Søknader over frist kan ikke overstige behandlede"
+      ]
+  }
+
+-- | Test 17: Column formulas reproduce the printed C12 values in the filled-in PDF
+testMatrixColumnsFromPdf :: IO ()
+testMatrixColumnsFromPdf = do
+  let parts@(qs, calcs, _) = matrix c12Matrix
+      d = partsDialogue "c12" parts
+      entered = M.fromList
+        [ (cellId "t4_c12" r c, v)
+        | (r, vals) <- [ ("1", ["234", "34", "23"]), ("2", ["10", "546", "343"]), ("2.1", ["5646", "43", "35465"]) ]
+        , (c, v) <- zip ["a", "b", "b1"] vals ]
+        `M.union` M.fromList [ (cellId "t4_c12" "1.1" "a", "34") ]
+      derived = applyCalculations d entered
+      row r = [ M.lookup (cellId "t4_c12" r c) derived | c <- ["b2", "c", "d"] ]
+      violated = map (constraintId . violatedConstraint) (checkConstraints d entered)
+  expect (length qs == 19 && length calcs == 9 && null (validateRules d))
+         "Matrix expands to cells for present columns only, with column calculations."
+  expect (row "1" == map Just ["11", "200", "211"]
+          && row "2" == map Just ["203", "-536", "-333"]
+          && row "2.1" == map Just ["-35422", "5603", "-29819"])
+         "Column formulas reproduce the C12 values printed in the PDF."
+  expect ("t4_c12_ikkeNegativ_2" `elem` violated
+          && "t4_c12_overFrist_a" `elem` violated
+          && "t4_c12_mangelfulle_a" `notElem` violated
+          && "t4_c12_ikkeNegativ_1" `notElem` violated)
+         "Matrix rules are instantiated per row and column."
+  expect (fmap (evalPredicate entered) (condition =<< lookup (cellId "t4_c12" "1.1" "a") [ (fieldId q, q) | q <- qs ]) == Just True)
+         "Row conditions refer to other cells."
+
+-- | Test 18: Row formulas reproduce the printed E1 sums, skipping the average column
+testMatrixRowsFromPdf :: IO ()
+testMatrixRowsFromPdf = do
+  let e1 = Matrix
+        { matrixPrefix = "t4_e1"
+        , matrixRows =
+            [ (matrixRow "1" "1. Klagesaker i alt") { rowFormula = Just (sumOfKeys ["2", "3", "4"]) }
+            , matrixRow "2" "2. Klagesaker på gebyrer"
+            , (matrixRow "3" "3. Klagesaker på utfall av søknadsbehandling") { rowFormula = Just (sumOfKeys ["3a", "3b", "3c", "3d"]) }
+            , matrixRow "3a" "3a. Byggesøknader"
+            , matrixRow "3b" "3b. Opprettelse og endring av eiendom"
+            , matrixRow "3c" "3c. Oppmålingssaker"
+            , matrixRow "3d" "3d. Seksjoneringssaker"
+            , matrixRow "4" "4. Tilsyn og ulovlighetsoppfølging"
+            ]
+        , matrixCols =
+            [ matrixCol "b" "b. Vedtak i alt"
+            , matrixCol "b1" "b1. Tatt til følge"
+            , matrixCol "b2" "b2. Oversendt Statsforvalteren"
+            , (matrixCol "c" "c. Gjennomsnittlig saksbehandlingstid") { colSummable = False }
+            , matrixCol "d" "d. Over lovpålagt frist"
+            ]
+        , matrixRules = [ partsAtMost "herav" EachRow ["b1", "b2"] "b" "Tatt til følge og oversendt kan ikke overstige vedtak i alt" ]
+        }
+      d = partsDialogue "e1" (matrix e1)
+      entered = M.fromList
+        [ (cellId "t4_e1" r c, v)
+        | (r, vals) <- [ ("2", ["345", "345", "67", "3124", "656"]), ("3a", ["46", "34", "562", "5622", "4678"])
+                       , ("3b", ["875", "275", "725", "752", "45"]), ("3c", ["26", "45", "656", "654", "54"])
+                       , ("3d", ["25", "54", "674", "7467", "573"]), ("4", ["36", "364", "563", "765", "6345"]) ]
+        , (c, v) <- zip ["b", "b1", "b2", "c", "d"] vals ]
+      derived = applyCalculations d entered
+      row r = [ M.lookup (cellId "t4_e1" r c) derived | c <- ["b", "b1", "b2", "d"] ]
+  expect (row "3" == map Just ["972", "408", "2617", "5350"]
+          && row "1" == map Just ["1353", "1117", "3247", "12351"])
+         "Row formulas reproduce the E1 sums printed in the PDF (nested rows)."
+  expect (cellId "t4_e1" "1" "c" `notElem` map calcTarget (calculations d)
+          && null (validateRules d))
+         "Row formulas skip non-summable columns such as averages."
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

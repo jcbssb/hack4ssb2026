@@ -56,6 +56,26 @@ Targets:
 - **Simulator**: evaluates the same rules live. A constraint is checked on the last visible
   step it depends on.
 
+## Matrices (authoring helper)
+
+`SchemaDSL.Builders` expands tables of numeric cells into plain questions, calculations and
+constraints (the JSON format is unchanged). Cells get ids `<prefix>_<row>_<col>`, formulas refer
+to cells by key, and parts combine with `mconcat`:
+
+```haskell
+matrix Matrix
+  { matrixPrefix = "t4_c12"
+  , matrixRows   = [ matrixRow "1" "Mottatt", (matrixRow "1.1" "Herav mangelfulle") { rowCols = Just ["a"] } ]
+  , matrixCols   = [ matrixCol "a" "I alt", matrixCol "b" "I samsvar med plan"
+                   , (matrixCol "c" "Ikke i samsvar") { colFormula = Just (\c -> Sub (c "a") (c "b")) } ]
+  , matrixRules  = [ atLeastZero "ikkeNegativ" EachRow "c" "Kan ikke være negativ"
+                   , partsAtMost "mangelfulle" EachColumn ["1.1"] "1" "Herav kan ikke overstige i alt" ]
+  }
+```
+
+Column formulas compute a cell from its row, row formulas from its column (skipping columns
+with `colSummable = False`, e.g. averages). Rules are generated wherever all their cells exist.
+
 ## Building and Running Tests
 
 ```bash

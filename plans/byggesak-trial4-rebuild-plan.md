@@ -24,7 +24,7 @@ ingen ny OCR/skjermbildeanalyse.
   og `compilePredicate` (via `compileExpr`), simulatorens `evaluateCondition`.
 - Tester: round-trip, evaluering, Altinn-uttrykk.
 
-### 1b. Matrise-hjelper (kun Haskell-byggeklosser, JSON-formatet uendret)
+### 1b. Matrise-hjelper (kun Haskell-byggeklosser, JSON-formatet uendret) ✅ (implementert)
 Ny modul `SchemaDSL/Builders.hs`:
 
 ```haskell
@@ -35,6 +35,11 @@ data RowKind = EnteredRow | SumOfRows [String]
 
 matrix :: String -> [Row] -> [Column] -> ([Question], [Calculation], [Constraint])
 ```
+
+Implementert som `Matrix`/`MatrixRow`/`MatrixCol`/`MatrixRule` i `SchemaDSL/Builders.hs`;
+formler er funksjoner fra celle-nøkkel til `Expr`, rader kan ha et utvalg kolonner og egne
+betingelser, og radformler hopper over kolonner med `colSummable = False` (gjennomsnitt).
+Testene reproduserer de trykte verdiene i PDF-en for C12 og E1.
 
 - Genererer én `Question` per celle (`t4_c12_r2_b1`), med `gridXs` for rutenettvisning.
 - Beregnede kolonner/rader blir `Calculation`s (f.eks. `c = a − b`, `d = c + b2`).
@@ -50,7 +55,7 @@ matrix :: String -> [Row] -> [Column] -> ([Question], [Calculation], [Constraint
 | B | 1a/1b, 2a/2b gebyr (kr) | – | ≥ 0 |
 | C10 | 2 rader × a–f | a = b + c + d | alle celler påkrevd; behandlet ≤ mottatt (advarsel) |
 | C11 | rader 1, 1.1, 2, 2.1, 2.2 × a–c | c = a − b (100 − 44 = 56) | c ≥ 0 (feil); 1.1 ≤ 1a; 2.1 ≤ 2a |
-| C12, C13, C2 | 5 rader × a, b, b1, b2, c, d | b = b1 + b2, c = a − b, d = c + b2 | c ≥ 0; herav ≤ i alt |
+| C12, C13, C2 | 5 rader × a, b, b1, b2, c, d | b2 = b − b1, c = a − b, d = c + b2 (alle tre rader i C12 og rad 1 i C13 stemmer) | c ≥ 0; herav ≤ i alt |
 | C14 | summeringskontroll | alle celler = C11 + C12 + C13 (bekreftes i veiledning) | – |
 | C15 | 5 rader × a–c | c = a − b (23 − 233 = −210) | c ≥ 0 |
 | C16 | 2 rader × a–c | – | – |
