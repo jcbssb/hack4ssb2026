@@ -17,7 +17,8 @@ helloWorldDialogue = Dialogue
   { dialogueId = "hack4ssb-hello"
   , title      = "SSB Hackday 2026 - Registrering"
   , context    = Just SurveyContext
-      { surveyCode   = Just "HACK-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "HACK-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Dette skjemaet samler inn teamregistreringer for Hackday 2026."
       }
@@ -61,7 +62,8 @@ syntheticHackDialogue = Dialogue
   { dialogueId = "hack4ssb-comprehensive"
   , title      = "SSB Hackday 2026 - Teamregistrering & Kartlegging"
   , context    = Just SurveyContext
-      { surveyCode   = Just "HACK-SSB-2026-SYNTH"
+      { formName     = Nothing
+      , surveyCode   = Just "HACK-SSB-2026-SYNTH"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Dette er et syntetisk SSB-skjema som demonstrerer full dekning av Dialogue DSL-semantikk på Altinn 3."
       }
@@ -152,7 +154,8 @@ rulesDemoDialogue = Dialogue
   { dialogueId = "hack4ssb-rules"
   , title      = "Regler-demo: Fordeling av budsjett"
   , context    = Just SurveyContext
-      { surveyCode   = Just "HACK-2026-RULES"
+      { formName     = Nothing
+      , surveyCode   = Just "HACK-2026-RULES"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Demonstrerer beregnede felt (sum, rest, andel) og kontroller mellom felt."
       }

@@ -5870,6 +5870,7 @@
         }
     ],
     "context": {
+        "formName": "20Byggesak. Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026",
         "legalNotice": "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Celler med beregninger fylles ikke ut. Celler åpnes når det er svart Ja på et inngangsspørsmål eller fylt inn et tall større enn 0.",
         "organization": "Statistisk sentralbyrå",
         "surveyCode": "KOSTRA-20-2026"

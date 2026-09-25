@@ -21,7 +21,8 @@ matrixDemoDialogue = Dialogue
   { dialogueId   = "hack4ssb-matrix"
   , title        = "Matrise-demo: Bibliotekstatistikk"
   , context      = Just SurveyContext
-      { surveyCode   = Just "HACK-2026-MATRISE"
+      { formName     = Nothing
+      , surveyCode   = Just "HACK-2026-MATRISE"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Viser hovedbruken av matrise-hjelperen: summer, rest, snitt, betingede celler, herav-kontroller og celler hentet fra andre tabeller."
       }

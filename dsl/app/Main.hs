@@ -20,6 +20,11 @@ main :: IO ()
 main = do
   args <- getArgs
   case args of
+    -- Any paged inject command followed by --set-app-title also sets the app title
+    [cmd, targetPath, "--set-app-title"] | Just d <- lookup cmd pagedInjectCommands -> do
+      injectIntoAltinnAppPaged targetPath d
+      setAppTitle targetPath d
+
     ["--update-baseline"] -> do
       let outPath = "baseline-schema.json"
       BL.writeFile outPath (encodePretty helloWorldDialogue)
@@ -200,6 +205,7 @@ main = do
       putStrLn "  cabal run schema-dsl-cli -- --inject-synthetic <DIR># Compile and inject comprehensive synthetic schema into Altinn App repo"
       putStrLn "  cabal run schema-dsl-cli -- --inject-trial5 <DIR>    # Inject Byggesak Trial 5, one Altinn page per bolk"
       putStrLn "  cabal run schema-dsl-cli -- --inject-trial6 <DIR>    # Inject Byggesak Trial 6, one Altinn page per bolk"
+      putStrLn "      (add --set-app-title after <DIR> to --inject-trial5/6 or --inject-matrix-demo to set the app title from the form name)"
       putStrLn "  cabal run schema-dsl-cli -- --inject-matrix-demo <DIR># Inject the matrix demo, one Altinn page per bolk"
       putStrLn "  cabal run schema-dsl-cli -- --reorder-evolution <DIR> # Reorder Altinn pages by schema evolution progression"
       putStrLn "  cabal run schema-dsl-cli -- --print-altinn-layout   # Print compiled Altinn layout JSON"
@@ -229,3 +235,11 @@ stampSchemasScript version path = do
         else do
           BS.writeFile path (BS.concat [before, "<script src=\"schemas.js?v=", BS.pack version, after])
           putStrLn $ "  [+] Stamped schemas.js?v=" ++ version ++ " in " ++ path
+
+-- | Inject commands that compile one Altinn page per bolk
+pagedInjectCommands :: [(String, Dialogue)]
+pagedInjectCommands =
+  [ ("--inject-trial5", trial5ByggesakDialogue)
+  , ("--inject-trial6", trial6ByggesakDialogue)
+  , ("--inject-matrix-demo", matrixDemoDialogue)
+  ]

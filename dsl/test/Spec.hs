@@ -40,6 +40,7 @@ main = do
   testMatrixDemo
   testPagedAltinn
   testCSharpClassRemoval
+  testAppTitle
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -418,6 +419,23 @@ testCSharpClassRemoval = do
           && removeCSharpClass "b_dialog" "B_dialog" withAB == withA
           && not ("}  public class" `T.isInfixOf` T.pack withoutA))
          "Removing injected C# classes restores the model, wherever the class sits."
+
+-- | Test 23: The app title comes from formName (or title) and replaces only the title object
+testAppTitle :: IO ()
+testAppTitle = do
+  let meta = T.unlines
+        [ "{", "  \"id\": \"ssb/app\",", "  \"title\": {", "    \"nb\": \"old\"", "  },", "  \"org\": \"ssb\"", "}" ]
+      name = dialogueFormName trial6ByggesakDialogue
+      replaced = replaceAppTitle name meta
+  expect (name == "20Byggesak. Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026"
+          && dialogueFormName trial5ByggesakDialogue == title trial5ByggesakDialogue
+          && decodeDialogue (encodeDialogue trial6ByggesakDialogue) == Right trial6ByggesakDialogue)
+         "Form name comes from formName, falling back to title, and survives JSON round-trip."
+  expect (fmap (T.isInfixOf "\"en\": \"20Byggesak.") replaced == Just True
+          && fmap (T.isPrefixOf "{\n  \"id\": \"ssb/app\",") replaced == Just True
+          && fmap (T.isSuffixOf "  },\n  \"org\": \"ssb\"\n}\n") replaced == Just True
+          && replaceAppTitle name "{}" == Nothing)
+         "App title replacement keeps the rest of applicationmetadata.json untouched."
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

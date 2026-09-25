@@ -19,6 +19,7 @@ module SchemaDSL.Types
   , Bolk(..)
   , Step(..)
   , SurveyContext(..)
+  , dialogueFormName
   , Dialogue(..)
   , allDialogueQuestions
   ) where
@@ -362,14 +363,17 @@ allDialogueQuestions d = concatMap stepQuestions (steps d)
 
 -- | Context metadata (survey code, organization, legal notice)
 data SurveyContext = SurveyContext
-  { surveyCode   :: Maybe String
+  { formName     :: Maybe String  -- ^ official name of the form, e.g. from the paper/PDF heading
+  , surveyCode   :: Maybe String
   , organization :: Maybe String
   , legalNotice  :: Maybe String
   } deriving (Show, Eq, Generic)
 
 instance ToJSON SurveyContext where
-  toJSON (SurveyContext sc org ln) =
-    object
+  toJSON (SurveyContext fn sc org ln) =
+    object $
+      [ "formName" .= n | Just n <- [fn] ]
+      ++
       [ "surveyCode"   .= sc
       , "organization" .= org
       , "legalNotice"  .= ln
@@ -377,9 +381,14 @@ instance ToJSON SurveyContext where
 
 instance FromJSON SurveyContext where
   parseJSON = withObject "SurveyContext" $ \o ->
-    SurveyContext <$> o .:? "surveyCode"
+    SurveyContext <$> o .:? "formName"
+                  <*> o .:? "surveyCode"
                   <*> o .:? "organization"
                   <*> o .:? "legalNotice"
+
+-- | Name of the form: the context's formName, or else the dialogue title
+dialogueFormName :: Dialogue -> String
+dialogueFormName d = maybe (title d) id (context d >>= formName)
 
 -- | Top-level semantic dialogue specification
 data Dialogue = Dialogue

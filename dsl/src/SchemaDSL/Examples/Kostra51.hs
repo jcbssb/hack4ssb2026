@@ -22,7 +22,8 @@ kostra51KulturminneDialogue = Dialogue
   { dialogueId = "kostra51-kulturminner"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "B1. Tid brukt til arbeid med kulturminner i fylkeskommunen. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 dersom det ikke har vært aktivitet."
       }
@@ -101,7 +102,8 @@ kostra51Side1Dialogue = Dialogue
   { dialogueId = "kostra51-side1"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 1)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "A. Opplysninger om fylket og ansvarlig for rapporteringen. DEL I: Planarbeid og saksbehandling for kulturminner (Bolk B1, C11, C12). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }
@@ -290,7 +292,8 @@ kostra51Side2Dialogue = Dialogue
   { dialogueId = "kostra51-side2"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 2)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL I: C12 forts., D1 Tiltak/søknader, E Politianmeldelser, F1 Automatisk fredete kulturminner."
       }
@@ -497,7 +500,8 @@ kostra51Side3Dialogue = Dialogue
   { dialogueId = "kostra51-side3"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 3)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL I: F2 Arkeologiske registreringer, F3 Skjøtsel, F4 Kostnader. DEL II: B2 Årsverk plan/folkehelse, C21 Egen planlegging."
       }
@@ -706,7 +710,8 @@ kostra51Side4Dialogue = Dialogue
   { dialogueId = "kostra51-side4"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 4)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL II: C22 Temaplaner etter pbl vedtatt av fylkeskommunen, C23 Behandling av kommunale planer samlet."
       }
@@ -1037,7 +1042,8 @@ kostra51Side5Dialogue = Dialogue
   { dialogueId = "kostra51-side5"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 5)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL II: D2 Dispensasjonsbehandling (unntatt kulturminner). DEL III: G Merknader, H Tidsbruk."
       }
@@ -1365,7 +1371,8 @@ kostra51Side6Dialogue = Dialogue
   { dialogueId = "kostra51-side6"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Side 6)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "DEL III: Bolk H Tidsbruk for rapportering."
       }
@@ -1418,7 +1425,8 @@ kostra51FullDialogue = Dialogue
   { dialogueId = "kostra51-full"
   , title      = "51. Planbehandling, miljø- og kulturminneforvaltning 2026 (Komplett undersøkelse)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-51-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-51-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Samlet rapportering for planbehandling, miljø- og kulturminneforvaltning (Side 1 til 6). Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }

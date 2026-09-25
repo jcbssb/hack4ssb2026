@@ -4,6 +4,8 @@ module SchemaDSL.Altinn.Inject
   ( injectIntoAltinnApp
   , injectIntoAltinnAppPaged
   , isOwnPage
+  , setAppTitle
+  , replaceAppTitle
   , updateSettingsPageOrder
   , enforceEvolutionPageOrder
   , mergeTextResources
@@ -11,7 +13,9 @@ module SchemaDSL.Altinn.Inject
   , stripBOM
   ) where
 
+import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BL
+import qualified Data.Text.Encoding as TE
 import Data.List (sortBy)
 import Data.Ord (comparing)
 import Data.Aeson
@@ -19,6 +23,7 @@ import Data.Aeson
   , object
   , (.=)
   , decode
+  , encode
   )
 import Data.Aeson.Encode.Pretty (encodePretty)
 import Data.Aeson.Key (fromText, toText)
@@ -96,7 +101,7 @@ injectArtifacts targetDir d artifacts = do
   settingsExist <- doesFileExist settingsPath
   if settingsExist
     then do
-      content <- BL.readFile settingsPath
+      content <- readFileStrict settingsPath
       case decode (stripBOM content) of
         Just (Object obj) -> do
           let updated = updateSettingsPages base newNames obj
@@ -112,7 +117,7 @@ injectArtifacts targetDir d artifacts = do
     tExists <- doesFileExist textPath
     if tExists
       then do
-        content <- BL.readFile textPath
+        content <- readFileStrict textPath
         case decode (stripBOM content) of
           Just (Object obj) -> do
             let updated = mergeTextResources (textResources artifacts) obj
@@ -132,7 +137,7 @@ injectArtifacts targetDir d artifacts = do
   vExists <- doesFileExist validationPath
   existing <- if vExists
     then do
-      content <- BL.readFile validationPath
+      content <- readFileStrict validationPath
       pure $ case decode (stripBOM content) of
         Just (Object obj) -> obj
         _                 -> KM.empty
@@ -150,6 +155,55 @@ stripJsonSuffix :: FilePath -> Maybe String
 stripJsonSuffix f =
   let n = length f - length (".json" :: String)
   in if n > 0 && drop n f == ".json" then Just (take n f) else Nothing
+
+-- | Set the application title from the dialogue's form name (formName, or else title):
+-- the "title" in App/config/applicationmetadata.json and the "appName" text in nb/nn/en.
+-- Opt-in, since an app can hold several dialogues.
+setAppTitle :: FilePath -> Dialogue -> IO ()
+setAppTitle targetDir d = do
+  let name = dialogueFormName d
+      configDir = targetDir </> "App" </> "config"
+      metaPath = configDir </> "applicationmetadata.json"
+  metaExists <- doesFileExist metaPath
+  if not metaExists
+    then putStrLn $ "  [!] Warning: applicationmetadata.json not found at " ++ metaPath
+    else do
+      content <- BS.readFile metaPath
+      case replaceAppTitle name (TE.decodeUtf8 (BL.toStrict (stripBOM (BL.fromStrict content)))) of
+        Just updated -> do
+          BS.writeFile metaPath (TE.encodeUtf8 updated)
+          putStrLn $ "  [+] Set application title in: " ++ metaPath
+        Nothing -> putStrLn $ "  [!] Warning: no top-level \"title\" object in " ++ metaPath
+  mapM_ (\lang -> do
+    let textPath = configDir </> "texts" </> ("resource." ++ lang ++ ".json")
+    tExists <- doesFileExist textPath
+    if not tExists then pure () else do
+      tContent <- readFileStrict textPath
+      case decode (stripBOM tContent) of
+        Just (Object obj) -> do
+          BL.writeFile textPath (encodePretty (Object (mergeTextResources [("appName", name)] obj)))
+          putStrLn $ "  [+] Set appName in: " ++ textPath
+        _ -> putStrLn $ "  [!] Warning: Failed to parse text resource at " ++ textPath
+    ) ["nb", "nn", "en"]
+  putStrLn $ "Application title set to: " ++ name
+
+-- | Replace the top-level "title" object of applicationmetadata.json in place,
+-- keeping the rest of the file (key order, indentation) untouched. The result
+-- must still parse as JSON.
+replaceAppTitle :: String -> T.Text -> Maybe T.Text
+replaceAppTitle name content = do
+  let start = "\n  \"title\": {"
+      (before, rest) = T.breakOn start content
+  if T.null rest then Nothing else Just ()
+  let afterStart = T.drop (T.length start) rest
+      (_, closing) = T.breakOn "\n  }" afterStart
+  if T.null closing then Nothing else Just ()
+  let value = TE.decodeUtf8 (BL.toStrict (encode (String (T.pack name))))
+      entries = T.intercalate "," [ "\n    \"" <> lang <> "\": " <> value | lang <- ["nb", "nn", "en"] ]
+      updated = before <> start <> entries <> closing
+  case (decode (BL.fromStrict (TE.encodeUtf8 updated)) :: Maybe Value) of
+    Just _  -> Just updated
+    Nothing -> Nothing
 
 -- | Strip UTF-8 Byte Order Mark (EF BB BF) if present
 stripBOM :: BL.ByteString -> BL.ByteString
@@ -307,3 +361,7 @@ mergeValidations dataPrefix newRules km =
       added = KM.fromList [ (fromText (T.pack path), Array (V.fromList rules)) | (path, rules) <- newRules ]
   in KM.insert "$schema" (String "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json")
        (KM.insert "validations" (Object (KM.union added kept)) km)
+
+-- | Read a whole file before returning, so it is closed before it is written again
+readFileStrict :: FilePath -> IO BL.ByteString
+readFileStrict path = BL.fromStrict <$> BS.readFile path

@@ -7,6 +7,7 @@ module SchemaDSL.Altinn.DataModel
   , removeCSharpClass
   ) where
 
+import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as BL
 import Data.Aeson
   ( Value(..)
@@ -32,7 +33,7 @@ updateJsonSchemaModel modelsDir d = do
   if not exists
     then putStrLn $ "  [!] Warning: Data model JSON schema not found at " ++ schemaPath
     else do
-      content <- BL.readFile schemaPath
+      content <- readFileStrict schemaPath
       case decode content of
         Just (Object rootObj) -> do
           let dIdClean = sanitizeName (dialogueId d)
@@ -194,3 +195,7 @@ qTypeToCSharp qt = case qt of
   QBoolean       -> "bool?"
   QChoice _      -> "string"
   QMultiChoice _ -> "string"
+
+-- | Read a whole file before returning, so it is closed before it is written again
+readFileStrict :: FilePath -> IO BL.ByteString
+readFileStrict path = BL.fromStrict <$> BS.readFile path

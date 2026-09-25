@@ -36,7 +36,11 @@ baselineMetaSchema = object
       , "context" .= object
           [ "type" .= ("object" :: String)
           , "properties" .= object
-              [ "surveyCode" .= object [ "type" .= ("string" :: String) ]
+              [ "formName" .= object
+                  [ "type" .= ("string" :: String)
+                  , "description" .= ("Official name of the form, e.g. the heading of the paper/PDF form. Targets use it as the application title; defaults to title." :: String)
+                  ]
+              , "surveyCode" .= object [ "type" .= ("string" :: String) ]
               , "organization" .= object [ "type" .= ("string" :: String) ]
               , "legalNotice" .= object [ "type" .= ("string" :: String) ]
               ]

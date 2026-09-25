@@ -19,7 +19,8 @@ trial1ByggesakDialogue = Dialogue
   { dialogueId = "trial1-byggesak"
   , title      = "20. Byggesak 2026 (Trial 1: Grunnlagsdata og kontaktinfo)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-20-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-20-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A: Kontaktinformasjon og veiledning. Del B: Gebyrer."
       }
@@ -127,7 +128,8 @@ trial2ByggesakDialogue = Dialogue
   { dialogueId = "trial2-byggesak"
   , title      = "20. Byggesak 2026 (Trial 2: Fullstendig undersøkelse Side 1-9)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-20-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-20-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A-I. Skjemaet skal leveres med færrest mulig ubesvarte celler. Oppgi 0 ved ingen forekomster."
       }
@@ -745,7 +747,8 @@ trial3ByggesakDialogue = Dialogue
   { dialogueId = "trial3-byggesak"
   , title      = "20. Byggesak 2026 (Trial 3: Produksjonssemantikk & Rutenett-ergonomi)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-20-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-20-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Del A-I med automatisk summering, validering og responsiv rutenettoppstilling."
       }
@@ -1377,7 +1380,8 @@ trial4ByggesakDialogue = Dialogue
   { dialogueId = "trial4-byggesak"
   , title      = "20. Byggesak 2026 (Trial 4: Komplett Produksjonsversjon med Kryssvalidering)"
   , context    = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-20-2026"
+      { formName     = Nothing
+      , surveyCode   = Just "KOSTRA-20-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Fullverdig Del A-I med kryssvalidering, automatiske summeringer og full Altinn 3 produksjonslayout."
       }

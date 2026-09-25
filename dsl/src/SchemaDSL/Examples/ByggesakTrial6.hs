@@ -28,7 +28,8 @@ trial6ByggesakDialogue = Dialogue
   { dialogueId   = "trial6-byggesak"
   , title        = "20. Byggesak 2026 (Trial 6: Byggesak på uberørt SSB-app)"
   , context      = Just SurveyContext
-      { surveyCode   = Just "KOSTRA-20-2026"
+      { formName     = Just "20Byggesak. Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026"
+      , surveyCode   = Just "KOSTRA-20-2026"
       , organization = Just "Statistisk sentralbyrå"
       , legalNotice  = Just "Byggesaksbehandling, opprettelse og endring av eiendom, oppmåling og seksjonering 2026. Celler med beregninger fylles ikke ut. Celler åpnes når det er svart Ja på et inngangsspørsmål eller fylt inn et tall større enn 0."
       }
