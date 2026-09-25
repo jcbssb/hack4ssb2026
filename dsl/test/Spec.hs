@@ -11,6 +11,7 @@ import qualified Data.Text as T
 import qualified Data.Map.Strict as M
 import Data.List (nub)
 import SchemaDSL
+import SchemaDSL.Altinn.DataModel (injectCSharpClass, removeCSharpClass)
 
 main :: IO ()
 main = do
@@ -37,6 +38,7 @@ main = do
   testTrial5AgainstPdf
   testMatrixDemo
   testPagedAltinn
+  testCSharpClassRemoval
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -400,6 +402,22 @@ testPagedAltinn = do
           && isOwnPage "S05_trial5_byggesak" "S05_trial5_byggesak_12"
           && not (isOwnPage "S05_trial5_byggesak" "S05_trial5_byggesak_x1"))
          ("Numbered pages rank with their dialogue in the evolution order. " ++ show (orderOf reordered))
+
+-- | Test 22: Removing an injected C# class restores the file, also between other classes
+testCSharpClassRemoval :: IO ()
+testCSharpClassRemoval = do
+  let base = unlines
+        [ "namespace Altinn.App.Models", "{", "  public class SkjemaData", "  {"
+        , "    public string skjemafelt1 { get; set; }", "  }", "" , "}" ]
+      qs = allDialogueQuestions helloWorldDialogue
+      withA = injectCSharpClass "a_dialog" "A_dialog" qs base
+      withAB = injectCSharpClass "b_dialog" "B_dialog" qs withA
+      withoutA = removeCSharpClass "a_dialog" "A_dialog" withAB
+  expect (removeCSharpClass "a_dialog" "A_dialog" withA == base
+          && removeCSharpClass "b_dialog" "B_dialog" withoutA == base
+          && removeCSharpClass "b_dialog" "B_dialog" withAB == withA
+          && not ("}  public class" `T.isInfixOf` T.pack withoutA))
+         "Removing injected C# classes restores the model, wherever the class sits."
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

@@ -126,7 +126,8 @@ removeCSharpClass dIdClean className content =
   in case breakOn classStart withoutProp of
        (before, rest) | not (null rest) ->
          case breakOn "\n  }\n" (drop (length classStart) rest) of
-           (_, after) | not (null after) -> before ++ drop (length ("\n  }\n" :: String)) after
+           -- `before` stops just before the newline that preceded the class
+           (_, after) | not (null after) -> before ++ "\n" ++ drop (length ("\n  }\n" :: String)) after
            _ -> withoutProp
        _ -> withoutProp
   where
