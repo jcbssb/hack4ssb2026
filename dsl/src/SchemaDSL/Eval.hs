@@ -45,6 +45,7 @@ evalExpr answers e = case e of
     x <- evalExpr answers a
     y <- evalExpr answers b
     if y == 0 then Nothing else Just (x / y)
+  Floor a   -> (\x -> fromIntegral (floor x :: Integer)) <$> evalExpr answers a
   where
     fieldValue fid = maybe 0 id (M.lookup fid answers >>= parseNumber)
 

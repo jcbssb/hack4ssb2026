@@ -503,6 +503,8 @@ compileExpr dIdClean calcs e = case e of
   Mul [x]  -> go x
   Mul xs   -> expr (String "multiply" : map go xs)
   Div a b  -> expr [ String "divide", go a, go b ]
+  -- Altinn has no floor: round(x - 0.4999999) equals floor(x) except within 1e-7 below a whole number
+  Floor a  -> expr [ String "round", expr [ String "minus", go a, Number 0.4999999 ], Number 0 ]
   where
     go = compileExpr dIdClean calcs
 

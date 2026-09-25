@@ -476,10 +476,8 @@ testTrial7AuditFixes = do
         , cells "t7_g4" [ ("a", [("b", "152"), ("c", "157")]) ]
         ]
       derived = applyCalculations d entered
-      -- The PDF truncates averages to whole days (622.69 is printed as 622)
-      sameNumber v got = case (reads v :: [(Double, String)], got >>= \g -> case reads g :: [(Double, String)] of { [(x, "")] -> Just x; _ -> Nothing }) of
-        ([(x, "")], Just y) -> (truncate x :: Integer) == truncate y
-        _ -> False
+      -- Averages are rounded down to whole days, as printed in the PDF (622.69 as 622)
+      sameNumber v got = got == Just v
       mismatches = [ (fid, v, M.lookup fid derived) | (fid, v) <- printed, not (sameNumber v (M.lookup fid derived)) ]
       violated = map (constraintId . violatedConstraint) (checkConstraints d entered)
       bCell = [ q | q <- allDialogueQuestions d, fieldId q == cellId "t7_b" "1" "b" ]

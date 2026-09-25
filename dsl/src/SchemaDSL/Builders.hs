@@ -25,6 +25,7 @@ module SchemaDSL.Builders
   , RuleScope(..)
   , FormParts
   , matrix
+  , matrixOpening
   , matrixRow
   , matrixCol
   , matrixCells
@@ -38,6 +39,7 @@ module SchemaDSL.Builders
 
 import Data.Aeson (Value(..), object, (.=))
 import qualified Data.Aeson.KeyMap as KM
+import qualified Data.Text as T
 import SchemaDSL.Types
 
 -- | Questions plus the rules that belong to them; combine with 'mconcat'
@@ -135,6 +137,29 @@ atLeastZero rid scope key msg =
 -- | Plain questions without rules, to combine with matrices via 'mconcat'
 questionsOnly :: [Question] -> FormParts
 questionsOnly qs = (qs, [], [])
+
+-- | Expand a matrix and give some of its entered cells an extra condition, like the
+-- light grey cells of paper forms that open when a total above them is greater than 0.
+-- `opens row col` gives the condition for a cell; calculated cells are left alone and an
+-- existing row condition is kept (both must hold).
+matrixOpening :: Matrix -> (String -> String -> Maybe Predicate) -> FormParts
+matrixOpening m opens = (map withOpening qs, calcs, cons)
+  where
+    (qs, calcs, cons) = matrix m
+    calculated = map calcTarget calcs
+    withOpening q = case matrixCellKeys q of
+      Just (r, c) | fieldId q `notElem` calculated, Just p <- opens r c ->
+        q { condition = Just (maybe p (\old -> And [old, p]) (condition q)) }
+      _ -> q
+
+-- | (row key, column key) of a matrix cell question
+matrixCellKeys :: Question -> Maybe (String, String)
+matrixCellKeys q = do
+  anns <- annotations q
+  Object m <- KM.lookup "matrix" anns
+  String r <- KM.lookup "row" m
+  String c <- KM.lookup "col" m
+  pure (T.unpack r, T.unpack c)
 
 -- | Expand a matrix into cell questions, calculations and constraints
 matrix :: Matrix -> FormParts

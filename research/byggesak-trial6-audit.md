@@ -100,29 +100,32 @@ Stemmer med PDF-en for A, C10 og «i alt»-cellene i F1, F2, G1, G2 og G4, borts
 
 ## Status i Trial 7
 
-Funn 1, 2 og 4 er rettet i `trial7ByggesakDialogue` (`ByggesakTrial7.hs`). Samme
-sammenligning mot PDF-en gir nå:
+Alle fire funn er rettet i `trial7ByggesakDialogue` (`ByggesakTrial7.hs`):
+
+- Funn 1 og 4: celletyper, kopierte celler, summer, radformer og påkrevd-flagg.
+- Funn 2: vektede gjennomsnitt, rundet *ned* til hele dager som i PDF-en (622,69 vises
+  som 622) med det nye `Floor`-uttrykket i DSL-en.
+- Funn 3: lys grå celler åpnes når radens totalkolonne er større enn 0, og celler i
+  underrader når «i alt»-raden over er større enn 0 (`matrixOpening` i matrise-hjelperen).
+
+Samme sammenligning mot PDF-en gir nå:
 
 | | Celler |
 |---|---|
 | Sammenlignet | 431 (ingen mangler eller ekstra celler) |
-| Mørk grå i PDF, ikke beregnet eller forhåndsutfylt | 0 |
-| Lys grå i PDF uten betingelse (funn 3, venter på åpningsregel) | 172 |
-| Vanlig felt i PDF, betinget i Trial 7 | 2 (C12 1.1 a og 2.1 a, PDF-en er ikke konsekvent) |
+| Samme type som i PDF-en | 428 |
+| Avvik der PDF-en ikke er konsekvent | 3: C12 1.1 a og 2.1 a (hvite, men lys grå i C13), E2 2 e (lys grå, men hvit i radene under) |
 
 `testTrial7AuditFixes` gjengir 30 flere trykte verdier fra PDF-en (kopierte celler,
-summer, b2 = b i D1 og vektede gjennomsnitt).
-
-Åpent punkt: PDF-en *avkorter* gjennomsnitt til hele dager (622,69 vises som 622, 412,39
-som 412). Trial 7 beregner med desimaler, og Altinn viser dem avrundet (623). DSL-en har
-ingen avkortingsfunksjon ennå.
+summer, b2 = b i D1 og gjennomsnitt i hele dager).
 
 ## Anbefalt rekkefølge
 
 1. Funn 1: rett formler og celletyper. Trenger ingen nye DSL-funksjoner, bare
    `matrixCellFormulas`, `rowCols` og kolonneformler per rad.
 2. Funn 2: vektede gjennomsnitt, med en liten utvidelse av matrise-hjelperen.
-3. Funn 3: betingelser for lys grå celler, etter at åpningsregelen er bekreftet.
+3. Funn 3: betingelser for lys grå celler (regelen «total > 0» er valgt; kan justeres
+   hvis veiledningen sier noe annet).
 4. Funn 4: påkrevd-flagg i B og C10.
 
 Hver rettelse kan testes som i dag: legg eksempeltallene fra PDF-en inn som svar og sjekk

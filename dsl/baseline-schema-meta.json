@@ -106,6 +106,9 @@
         "Expr": {
             "description": "Numeric expression over field values. Empty fields count as 0; division by zero has no value.",
             "properties": {
+                "arg": {
+                    "$ref": "#/$defs/Expr"
+                },
                 "fieldId": {
                     "type": "string"
                 },
@@ -119,7 +122,8 @@
                         "add",
                         "sub",
                         "mul",
-                        "div"
+                        "div",
+                        "floor"
                     ],
                     "type": "string"
                 },

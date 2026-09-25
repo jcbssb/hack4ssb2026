@@ -340,7 +340,7 @@
     </section>
   </main>
 
-  <script src="schemas.js?v=dd245ef3"></script>
+  <script src="schemas.js?v=a41f3b4"></script>
   <script>
     // Schemas loaded dynamically from dsl single source of truth (schemas.js)
     const availableSchemas = window.SSB_SCHEMAS || {};
@@ -426,6 +426,7 @@
         case "mul": { const xs = e.terms.map(evalExpr); return xs.includes(null) ? null : xs.reduce((a, b) => a * b, 1); }
         case "sub": { const a = evalExpr(e.left), b = evalExpr(e.right); return a === null || b === null ? null : a - b; }
         case "div": { const a = evalExpr(e.left), b = evalExpr(e.right); return a === null || b === null || b === 0 ? null : a / b; }
+        case "floor": { const a = evalExpr(e.arg); return a === null ? null : Math.floor(a); }
         default: return null;
       }
     }
@@ -434,6 +435,7 @@
       if (e.op === "field") return [e.fieldId];
       if (e.terms) return e.terms.flatMap(exprFields);
       if (e.left) return exprFields(e.left).concat(exprFields(e.right));
+      if (e.arg) return exprFields(e.arg);
       return [];
     }
 

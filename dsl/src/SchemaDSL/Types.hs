@@ -144,6 +144,7 @@ data Expr
   | Sub Expr Expr
   | Mul [Expr]
   | Div Expr Expr
+  | Floor Expr  -- ^ round down to a whole number, e.g. averages reported in whole days
   deriving (Show, Eq, Generic)
 
 instance ToJSON Expr where
@@ -153,6 +154,7 @@ instance ToJSON Expr where
   toJSON (Sub a b)   = object [ "op" .= ("sub" :: String), "left" .= a, "right" .= b ]
   toJSON (Mul es)    = object [ "op" .= ("mul" :: String), "terms" .= es ]
   toJSON (Div a b)   = object [ "op" .= ("div" :: String), "left" .= a, "right" .= b ]
+  toJSON (Floor a)   = object [ "op" .= ("floor" :: String), "arg" .= a ]
 
 instance FromJSON Expr where
   parseJSON = withObject "Expr" $ \o -> do
@@ -164,6 +166,7 @@ instance FromJSON Expr where
       "sub"   -> Sub <$> o .: "left" <*> o .: "right"
       "mul"   -> Mul <$> o .: "terms"
       "div"   -> Div <$> o .: "left" <*> o .: "right"
+      "floor" -> Floor <$> o .: "arg"
       other   -> fail $ "Unknown expression operation: " ++ other
 
 -- | Sum of a list of fields, e.g. a total over its parts
@@ -179,6 +182,7 @@ exprFields e = case e of
   Sub a b   -> exprFields a ++ exprFields b
   Mul es    -> concatMap exprFields es
   Div a b   -> exprFields a ++ exprFields b
+  Floor a   -> exprFields a
 
 -- | All fields referenced by a predicate
 predicateFields :: Predicate -> [FieldId]

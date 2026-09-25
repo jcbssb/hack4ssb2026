@@ -61,25 +61,25 @@ bolker =
   , bolk "bolk_b" "B. Gebyrer" (Just "Gebyrer i kroner eksklusive mva. Gebyret i rapporteringsåret er forhåndsutfylt av SSB.") Nothing [ matrix bGebyr ]
   , bolk "bolk_c10" "C10. Antall byggesøknader, dispensasjonssøknader og søknader om opprettelse og endring av grunneiendom. Hovedtall"
       (Just "Du må fylle ut ALLE cellene i denne bolken for å kunne sende inn skjema. Kolonne a skal være lik summen av b, c og d. Tallene overføres til kolonne a i C11-C13, C15 og C2.")
-      Nothing [ matrix c10 ]
-  , bolk "bolk_c11" "C11. Rammesøknader. Antall og saksbehandlingstid" Nothing Nothing [ matrix c11 ]
-  , bolk "bolk_c12" "C12. Ett-trinnssøknader MED ansvarsrett. Antall og saksbehandlingstid" Nothing Nothing [ matrix c12 ]
-  , bolk "bolk_c13" "C13. Ett-trinnssøknader UTEN ansvarsrett. Antall og saksbehandlingstid" Nothing Nothing [ matrix c13 ]
+      Nothing [ matrixOpening c10 (opensC10) ]
+  , bolk "bolk_c11" "C11. Rammesøknader. Antall og saksbehandlingstid" Nothing Nothing [ matrixOpening c11 (opensC11) ]
+  , bolk "bolk_c12" "C12. Ett-trinnssøknader MED ansvarsrett. Antall og saksbehandlingstid" Nothing Nothing [ matrixOpening c12 (opensC12) ]
+  , bolk "bolk_c13" "C13. Ett-trinnssøknader UTEN ansvarsrett. Antall og saksbehandlingstid" Nothing Nothing [ matrixOpening c13 (opensC13) ]
   , bolk "bolk_c14" "C14. Til summeringskontroll: Byggesøknader i alt og fordelt på 3- og 12-ukers frister"
       (Just "Feltene oppdateres kontinuerlig fra C11, C12 og C13 og er sperret for skriving. Feil i summene rettes i C11-C13.")
       Nothing [ matrix c14 ]
-  , bolk "bolk_c15" "C15. Dispensasjonssøknader. Antall og saksbehandlingstid" Nothing Nothing [ matrix c15 ]
+  , bolk "bolk_c15" "C15. Dispensasjonssøknader. Antall og saksbehandlingstid" Nothing Nothing [ matrixOpening c15 (opensC15) ]
   , bolk "bolk_c16" "C16. Igangsettingstillatelser, midlertidige brukstillatelser og ferdigattester. Antall og saksbehandlingstid" Nothing Nothing [ matrix c16 ]
-  , bolk "bolk_c2" "C2. Oppretting og endring av eiendom (deling)" Nothing Nothing [ matrix c2 ]
+  , bolk "bolk_c2" "C2. Oppretting og endring av eiendom (deling)" Nothing Nothing [ matrixOpening c2 (opensC2) ]
   , bolk "bolk_c_ekostra" "C11-C2. Om eKOSTRA"
       (Just "Digitalisering av kommunale fagsystemer gjennom eByggesak danner grunnlaget for eKOSTRA, en tidsbesparende automatisering av kommunens rapportering til SSB.")
       Nothing
       [ questionsOnly (eKostra "t7_c_eByggesak" "Har kommunen tatt i bruk eByggesak for rapportering av omfang og saksbehandlingstid for byggesøknader, dispensasjonssøknader og søknader om opprettelse/endring av grunneiendom fra 1.1.2024?") ]
-  , bolk "bolk_c3" "C3. Oppmålingsforretninger. Antall og saksbehandlingstid" Nothing Nothing [ matrix c3 ]
+  , bolk "bolk_c3" "C3. Oppmålingsforretninger. Antall og saksbehandlingstid" Nothing Nothing [ matrixOpening c3 (opensC3) ]
   , bolk "bolk_c4" "C4. Eierseksjoneringssaker. Antall og saksbehandlingstid" Nothing Nothing [ matrix c4 ]
-  , bolk "bolk_d1" "D1. Resultat av byggesaksbehandling i alt og i særskilt område" (Just "Antall vedtak.") Nothing [ matrix d1 ]
+  , bolk "bolk_d1" "D1. Resultat av byggesaksbehandling i alt og i særskilt område" (Just "Antall vedtak.") Nothing [ matrixOpening d1 (opensD1) ]
   , bolk "bolk_d2" "D2. Resultat av behandling av søknader om opprettelse og endring av eiendom, matrikuleringer uten fullført oppmålingsforretning (MUF) og seksjoneringer"
-      (Just "Antall vedtak i rapporteringsåret.") Nothing [ matrix d2 ]
+      (Just "Antall vedtak i rapporteringsåret.") Nothing [ matrixOpening d2 (opensD2) ]
   , bolk "bolk_d_ekostra" "D1-D2. Om eKOSTRA" Nothing Nothing
       [ questionsOnly (eKostra "t7_d_eByggesak" "Har kommunen tatt i bruk eByggesak for rapportering om resultat av saksbehandling for byggesøknader og andre søknader fra 1.1.2024?") ]
   , bolk "bolk_e0" "E. Klagesaksbehandling: Omfang, resultat og saksbehandlingstid" Nothing Nothing
@@ -88,20 +88,20 @@ bolker =
           , field "t7_e0b_statsforvalterBehandlet" "E0b. Har Statsforvalteren behandlet kommunale vedtak angående klager fra kommunen i rapporteringsåret?" Nothing QBoolean True Nothing []
           ]
       ]
-  , bolk "bolk_e1" "E1. Antall klagesaker behandlet i kommunen" Nothing (Just (IsTrue "t7_e0a_klagerMottattEllerBehandlet")) [ matrix e1 ]
-  , bolk "bolk_e2" "E2. Klagesaker oversendt fra kommunen og behandlet av Statsforvalteren" Nothing (Just (IsTrue "t7_e0b_statsforvalterBehandlet")) [ matrix e2 ]
+  , bolk "bolk_e1" "E1. Antall klagesaker behandlet i kommunen" Nothing (Just (IsTrue "t7_e0a_klagerMottattEllerBehandlet")) [ matrixOpening e1 (opensE1) ]
+  , bolk "bolk_e2" "E2. Klagesaker oversendt fra kommunen og behandlet av Statsforvalteren" Nothing (Just (IsTrue "t7_e0b_statsforvalterBehandlet")) [ matrixOpening e2 (opensE2) ]
   , bolk "bolk_f0" "F. Utøvelse av tilsyn ved tiltak (i byggesaker)" Nothing Nothing
       [ questionsOnly [ field "t7_f0a_erUtfoertTilsyn" "F0a. Er det utført tilsyn med tiltak i rapporteringsåret?" Nothing QBoolean True Nothing [] ] ]
-  , bolk "bolk_f1" "F1. Antall tiltak som det er ført tilsyn med" Nothing tilsyn [ matrix f1 ]
-  , bolk "bolk_f2" "F2. Antall tilsyn og ulovlighetsoppfølginger" Nothing tilsyn [ matrix f2 ]
+  , bolk "bolk_f1" "F1. Antall tiltak som det er ført tilsyn med" Nothing tilsyn [ matrixOpening f1 (opensF1) ]
+  , bolk "bolk_f2" "F2. Antall tilsyn og ulovlighetsoppfølginger" Nothing tilsyn [ matrixOpening f2 (opensF2) ]
   , bolk "bolk_f3" "F3. Antall utførte tilsyn fordelt på tema" Nothing tilsyn [ matrix f3 ]
   , bolk "bolk_f4" "F4. Konklusjon av tilsynet" Nothing tilsyn [ f4 ]
   , bolk "bolk_g0" "G. Pålegg, sanksjoner og andre virkemidler etter tilsyn og ulovlighetsoppfølging" Nothing Nothing
       [ questionsOnly [ field "t7_g0_erGittPaaleggEllerSanksjoner" "G0. Er det gitt pålegg, brukt sanksjoner eller andre virkemidler i rapporteringsåret?" Nothing QBoolean True Nothing [] ] ]
-  , bolk "bolk_g1" "G1. Antall pålegg gitt i rapporteringsåret" Nothing paalegg [ matrix g1 ]
-  , bolk "bolk_g2" "G2. Antall oppfølginger av gitte pålegg" Nothing paalegg [ matrix g2 ]
-  , bolk "bolk_g3" "G3. Antall sanksjoner brukt" Nothing paalegg [ matrix g3 ]
-  , bolk "bolk_g4" "G4. Antall andre virkemidler nyttet ved manglende overholdelse av plan- og bygningslovgivningen" Nothing paalegg [ matrix g4 ]
+  , bolk "bolk_g1" "G1. Antall pålegg gitt i rapporteringsåret" Nothing paalegg [ matrixOpening g1 (opensG1) ]
+  , bolk "bolk_g2" "G2. Antall oppfølginger av gitte pålegg" Nothing paalegg [ matrixOpening g2 (opensG2) ]
+  , bolk "bolk_g3" "G3. Antall sanksjoner brukt" Nothing paalegg [ matrixOpening g3 (opensG3) ]
+  , bolk "bolk_g4" "G4. Antall andre virkemidler nyttet ved manglende overholdelse av plan- og bygningslovgivningen" Nothing paalegg [ matrixOpening g4 (opensG4) ]
   , bolk "bolk_h" "H. Kommentarer og merknader til skjemaet"
       (Just "Åpent felt til kommentarer om ting som er uklare, type opplysninger som innhentes, omfang, utforming av skjemaet o.l.")
       Nothing
@@ -132,6 +132,67 @@ eKostra fid lbl =
   [ field fid lbl Nothing QBoolean False Nothing []
   , field (fid ++ "Kommentar") "Eventuelle kommentarer" Nothing QTextArea False Nothing [("gridXs", Number 12)]
   ]
+
+-- ---------------------------------------------------------------------------
+-- Light grey cells: the PDF shows cells that open only when a total is above 0.
+-- A cell opens when its row's total column is > 0; cells in sub-rows open when the
+-- "i alt" row above them is > 0. (Rows 1.1, 2.1 and 2.2 already open via caseRows.)
+
+-- | Opens when the cell (row, column) of matrix `prefix` is greater than 0
+above0 :: String -> String -> String -> Maybe Predicate
+above0 prefix r c = Just (gtZero (cellIn prefix r c))
+
+opensC10, opensC11, opensC12, opensC13, opensC15, opensC2, opensC3 :: String -> String -> Maybe Predicate
+opensC10 r c | r `elem` ["1", "2"], c `elem` ["b", "c", "d"] = above0 "t7_c10" r "a"
+opensC10 _ _ = Nothing
+opensC11 = totalOpensB "t7_c11"
+opensC15 = totalOpensB "t7_c15"
+opensC3  = totalOpensB "t7_c3"
+opensC12 r c | r `elem` ["1", "2"], c == "b1" = above0 "t7_c12" r "b"
+opensC12 _ _ = Nothing
+opensC13 = deadlineOpens "t7_c13"
+opensC2  = deadlineOpens "t7_c2"
+
+-- | Column b of rows 1 and 2 opens when the total (a) is above 0
+totalOpensB :: String -> String -> String -> Maybe Predicate
+totalOpensB prefix r c | r `elem` ["1", "2"], c == "b" = above0 prefix r "a"
+totalOpensB _ _ _ = Nothing
+
+-- | C13 and C2: b opens on a, b1 on b (in C12 the PDF shows b as a normal field)
+deadlineOpens :: String -> String -> String -> Maybe Predicate
+deadlineOpens prefix r c
+  | r `elem` ["1", "2"], c == "b"  = above0 prefix r "a"
+  | r `elem` ["1", "2"], c == "b1" = above0 prefix r "b"
+deadlineOpens _ _ _ = Nothing
+
+opensD1, opensD2, opensE1, opensE2, opensF1, opensF2, opensG1, opensG2, opensG3, opensG4 :: String -> String -> Maybe Predicate
+opensD1 r c
+  | c == "a", r == "2a"             = above0 "t7_d1" "2" "a"
+  | c == "a", r `elem` ["4a", "4b"] = above0 "t7_d1" "4" "a"
+  | c /= "a"                        = above0 "t7_d1" r "a"
+opensD1 _ _ = Nothing
+opensD2 r c | c /= "a" = above0 "t7_d2" r "a"
+opensD2 _ _ = Nothing
+opensE1 r c | c /= "b" = above0 "t7_e1" r "b"
+opensE1 _ _ = Nothing
+opensE2 r c | c `elem` ["e1", "e2a", "e2b"] = above0 "t7_e2" r "e"
+opensE2 _ _ = Nothing
+opensF1 r c | r `elem` ["a", "b"], c /= "a" = above0 "t7_f1" r "a"
+opensF1 _ _ = Nothing
+opensF2 r _
+  | r `elem` ["a1", "a2"]   = above0 "t7_f2" "a" "a"
+  | r `elem` ["a2a", "a2b"] = above0 "t7_f2" "a2" "a"
+opensF2 _ _ = Nothing
+opensG1 r c | c /= "a" = above0 "t7_g1" r "a"
+opensG1 _ _ = Nothing
+opensG2 r _ | r /= "a" = above0 "t7_g2" "a" "a"
+opensG2 _ _ = Nothing
+opensG3 r c
+  | r == "a", c == "a" = Just (IsTrue "t7_g0_erGittPaaleggEllerSanksjoner")
+  | r /= "a"           = above0 "t7_g3" "a" "a"
+opensG3 _ _ = Nothing
+opensG4 r _ | r /= "a" = above0 "t7_g4" "a" "a"
+opensG4 _ _ = Nothing
 
 -- ---------------------------------------------------------------------------
 -- Shared shapes
@@ -181,7 +242,11 @@ cellIn prefix r c = Field (cellId prefix r c)
 -- Verified: C12 2.2 b = (334*343 + 545*203) / 546 = 412, C4 2.2 a = 622.
 avgOf :: String -> String -> [String] -> ((String, String), Expr)
 avgOf prefix col parts =
-  (("2.2", col), weightedAverage [ (cellIn prefix "2.2" p, cellIn prefix "2" p) | p <- parts ])
+  (("2.2", col), wholeDays (weightedAverage [ (cellIn prefix "2.2" p, cellIn prefix "2" p) | p <- parts ]))
+
+-- | The PDF truncates averages to whole days (622.69 is shown as 622)
+wholeDays :: Expr -> Expr
+wholeDays = Floor
 
 -- | Columns of C12, C13, C2 and C14: plan / not plan split with 3- and 12-week deadlines.
 -- Verified: b2 = b - b1, c = a - b, d = c + b2 reproduce every printed row of C12.
@@ -307,8 +372,8 @@ c14 = Matrix
       , (r, c) `notElem` [("1", "a"), ("2", "a")]
       ]
       ++
-      [ (("2.2", c), weightedAverage [ (cellIn (matrixPrefix m) "2.2" c, cellIn (matrixPrefix m) "2" c)
-                                     | m <- parts, ("2.2", c) `elem` matrixCells m ])
+      [ (("2.2", c), wholeDays (weightedAverage [ (cellIn (matrixPrefix m) "2.2" c, cellIn (matrixPrefix m) "2" c)
+                                                | m <- parts, ("2.2", c) `elem` matrixCells m ]))
       | c <- ["a", "b", "b1", "b2", "c", "d"]
       ]
   }
@@ -486,8 +551,8 @@ e1 = Matrix
       ]
   , matrixCellFormulas =
       -- Verified: 1644 and 1152 in the PDF
-      [ (("1", "c"), weightedAverage [ (cellIn "t7_e1" r "c", cellIn "t7_e1" r "b") | r <- ["2", "3", "4"] ])
-      , (("3", "c"), weightedAverage [ (cellIn "t7_e1" r "c", cellIn "t7_e1" r "b") | r <- ["3a", "3b", "3c", "3d"] ])
+      [ (("1", "c"), wholeDays (weightedAverage [ (cellIn "t7_e1" r "c", cellIn "t7_e1" r "b") | r <- ["2", "3", "4"] ]))
+      , (("3", "c"), wholeDays (weightedAverage [ (cellIn "t7_e1" r "c", cellIn "t7_e1" r "b") | r <- ["3a", "3b", "3c", "3d"] ]))
       ]
   }
 

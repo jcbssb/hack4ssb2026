@@ -140,7 +140,7 @@ baselineMetaSchema = object
           , "properties" .= object
               [ "op" .= object
                   [ "type" .= ("string" :: String)
-                  , "enum" .= (["field", "const", "add", "sub", "mul", "div"] :: [String])
+                  , "enum" .= (["field", "const", "add", "sub", "mul", "div", "floor"] :: [String])
                   ]
               , "fieldId" .= object [ "type" .= ("string" :: String) ]
               , "value" .= object [ "type" .= ("number" :: String) ]
@@ -150,6 +150,7 @@ baselineMetaSchema = object
                   ]
               , "left" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
               , "right" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
+              , "arg" .= object [ "$ref" .= ("#/$defs/Expr" :: String) ]
               ]
           , "required" .= (["op"] :: [String])
           ]

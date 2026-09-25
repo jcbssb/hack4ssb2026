@@ -1809,51 +1809,54 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c11_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c11_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c11_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c11_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c11_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c11_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c11_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c11_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c11_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c11_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c11_2_2_a"
         },
@@ -2005,151 +2008,160 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c12_2_2_a"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b1",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b1",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b1",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b1",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_b1",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_b1",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c12_2_2_b"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c12_2_2_d"
         },
@@ -2301,151 +2313,160 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c13_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c13_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c13_2_2_a"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b1",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b1",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b1",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b1",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c13_2_b1",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c13_2_b1",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c13_2_2_b"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c13_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c13_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c13_2_2_d"
         },
@@ -2763,352 +2784,370 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c11_2_2_a",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c11_2_a",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_a",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_a",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_a",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_a",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c11_2_2_a",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_a",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_a",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_a",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_a",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_a",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c11_2_a",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_a",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_a",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c11_2_a",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_a",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_a",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_a"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c11_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c11_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c11_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c11_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_b",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c11_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_b",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_b"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b1",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b1",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b1",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b1",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b1",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b1",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b1",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b1",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_b1",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_b1",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_b1",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_b1",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_b1"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_b2",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_b2",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_b2"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c11_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c11_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c11_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c11_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c12_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c11_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c12_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_c"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c12_2_2_d",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c12_2_d",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c13_2_2_d",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c13_2_d",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c12_2_2_d",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c12_2_d",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c13_2_2_d",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c13_2_d",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c12_2_d",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c13_2_d",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c12_2_d",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c13_2_d",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c14_2_2_d"
         },
@@ -3170,51 +3209,54 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c15_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c15_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c15_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c15_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c15_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c15_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c15_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c15_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c15_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c15_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c15_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c15_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c15_2_2_a"
         },
@@ -3366,151 +3408,160 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c2_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c2_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c2_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c2_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c2_2_2_a"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_b1",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_b1",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_b1",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_b1",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c2_2_b1",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c2_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c2_2_b1",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c2_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c2_2_2_b"
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c2_2_2_b2",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c2_2_b2",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c2_2_2_b2",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c2_2_b2",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c2_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c2_2_b2",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c2_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c2_2_b2",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c2_2_2_d"
         },
@@ -3558,51 +3609,54 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c3_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c3_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c3_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c3_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c3_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c3_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c3_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c3_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c3_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c3_2_c",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c3_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c3_2_c",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c3_2_2_a"
         },
@@ -3688,68 +3742,71 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c4_2_2_b",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c4_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c4_2_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c4_2_c",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_c4_2_2_d",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_c4_2_d",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c4_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c4_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c4_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c4_2_c",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_c4_2_2_d",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c4_2_d",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_c4_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c4_2_c",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_c4_2_d",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_c4_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c4_2_c",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_c4_2_d",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_c4_2_2_a"
         },
@@ -4020,68 +4077,71 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_2_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_2_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_3_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_3_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_4_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_4_b",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_3_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_3_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_4_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_4_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_e1_2_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_e1_3_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_e1_4_b",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_e1_2_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_e1_3_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_e1_4_b",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_e1_1_c"
         },
@@ -4179,85 +4239,88 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_3a_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_3a_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_3b_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_3b_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_3c_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_3c_b",
-                                    "op": "field"
-                                }
-                            ]
-                        },
-                        {
-                            "op": "mul",
-                            "terms": [
-                                {
-                                    "fieldId": "t7_e1_3d_c",
-                                    "op": "field"
-                                },
-                                {
-                                    "fieldId": "t7_e1_3d_b",
-                                    "op": "field"
-                                }
-                            ]
-                        }
-                    ]
+                "arg": {
+                    "left": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_3a_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_3a_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_3b_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_3b_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_3c_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_3c_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
+                                        "fieldId": "t7_e1_3d_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_e1_3d_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "op": "div",
+                    "right": {
+                        "op": "add",
+                        "terms": [
+                            {
+                                "fieldId": "t7_e1_3a_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_e1_3b_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_e1_3c_b",
+                                "op": "field"
+                            },
+                            {
+                                "fieldId": "t7_e1_3d_b",
+                                "op": "field"
+                            }
+                        ]
+                    }
                 },
-                "op": "div",
-                "right": {
-                    "op": "add",
-                    "terms": [
-                        {
-                            "fieldId": "t7_e1_3a_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_e1_3b_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_e1_3c_b",
-                            "op": "field"
-                        },
-                        {
-                            "fieldId": "t7_e1_3d_b",
-                            "op": "field"
-                        }
-                    ]
-                }
+                "op": "floor"
             },
             "fieldId": "t7_e1_3_c"
         },
@@ -9131,6 +9194,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c10_1_b",
                     "prompt": {
                         "helpText": null,
@@ -9151,6 +9226,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c10_1_c",
                     "prompt": {
                         "helpText": null,
@@ -9169,6 +9256,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c10",
                             "row": "1",
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c10_1_d",
@@ -9251,6 +9350,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c10_2_b",
                     "prompt": {
                         "helpText": null,
@@ -9271,6 +9382,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c10_2_c",
                     "prompt": {
                         "helpText": null,
@@ -9289,6 +9412,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c10",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet/vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c10_2_d",
@@ -9377,6 +9512,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c11",
                             "row": "1",
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c11_1_b",
@@ -9471,6 +9618,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c11",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c11_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c11_2_b",
@@ -9756,6 +9915,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_1_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c12_1_b1",
                     "prompt": {
                         "helpText": null,
@@ -9910,6 +10081,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c12",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c12_2_b1",
@@ -10413,6 +10596,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c13_1_b",
                     "prompt": {
                         "helpText": null,
@@ -10431,6 +10626,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c13",
                             "row": "1",
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_1_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c13_1_b1",
@@ -10569,6 +10776,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c13_2_b",
                     "prompt": {
                         "helpText": null,
@@ -10587,6 +10806,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c13",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c13_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c13_2_b1",
@@ -11779,6 +12010,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c15_1_b",
                     "prompt": {
                         "helpText": null,
@@ -11871,6 +12114,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c15",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c15_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c15_2_b",
@@ -12299,6 +12554,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c2_1_b",
                     "prompt": {
                         "helpText": null,
@@ -12317,6 +12584,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c2",
                             "row": "1",
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_1_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c2_1_b1",
@@ -12455,6 +12734,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c2_2_b",
                     "prompt": {
                         "helpText": null,
@@ -12473,6 +12764,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c2",
                             "row": "2",
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c2_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c2_2_b1",
@@ -13008,6 +13311,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall rekvisisjoner mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c3_1_b",
                     "prompt": {
                         "helpText": null,
@@ -13099,6 +13414,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_c3",
                             "row": "2",
                             "rowLabel": "2. Antall rekvisisjoner behandlet i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_c3_2_b",
@@ -13921,6 +14248,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_1a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_1a_b",
                     "prompt": {
                         "helpText": null,
@@ -13939,6 +14278,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "1a",
                             "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_1a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_1a_b1",
@@ -13961,6 +14312,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_1a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_1a_b2",
                     "prompt": {
                         "helpText": null,
@@ -13979,6 +14342,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "1a",
                             "rowLabel": "1a. Antall byggesøknader i alt vedtatt i rapporteringsåret"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_1a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_1a_c",
@@ -14126,6 +14501,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_2_b",
                     "prompt": {
                         "helpText": null,
@@ -14144,6 +14531,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "2",
                             "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_2_b1",
@@ -14166,6 +14565,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_2_b2",
                     "prompt": {
                         "helpText": null,
@@ -14184,6 +14595,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "2",
                             "rowLabel": "2. Antall vedtak som gjaldt nye byggverk i LNF/LNFR-områder utenfor 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_2_c",
@@ -14206,6 +14629,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_2a_a",
                     "prompt": {
                         "helpText": null,
@@ -14224,6 +14659,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "2a",
                             "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_2a_b",
@@ -14267,6 +14714,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2a. Herav antall vedtak i LNF/LNFR-områder med byggeforbud langs ferskvann i kommuneplanen, jf. PBL-08 § 1-8"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_2a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_2a_c",
                     "prompt": {
                         "helpText": null,
@@ -14307,6 +14766,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_3_b",
                     "prompt": {
                         "helpText": null,
@@ -14325,6 +14796,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "3",
                             "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_3_b1",
@@ -14347,6 +14830,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_3_b2",
                     "prompt": {
                         "helpText": null,
@@ -14365,6 +14860,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "3",
                             "rowLabel": "3. Antall vedtak som gjaldt nye byggverk i 100-metersbeltet langs saltvann"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_3_c",
@@ -14405,6 +14912,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "4",
                             "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_4_b",
@@ -14448,6 +14967,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4. Antall dispensasjonsvedtak i alt angående universell utforming og tilgjengelighet"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_4_c",
                     "prompt": {
                         "helpText": null,
@@ -14468,6 +14999,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_4a_a",
                     "prompt": {
                         "helpText": null,
@@ -14486,6 +15029,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "4a",
                             "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_4a_b",
@@ -14529,6 +15084,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4a. Herav antall vedtak med hjemmel i pbl § 19-1 (generelle dispensasjonsbestemmelse)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_4a_c",
                     "prompt": {
                         "helpText": null,
@@ -14549,6 +15116,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_4b_a",
                     "prompt": {
                         "helpText": null,
@@ -14567,6 +15146,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "4b",
                             "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4b_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_4b_b",
@@ -14610,6 +15201,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4b. Herav antall vedtak med hjemmel i pbl § 31-2, siste ledd (unntak vedrørende eksisterende byggverk)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_4b_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_4b_c",
                     "prompt": {
                         "helpText": null,
@@ -14650,6 +15253,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_5_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_5_b",
                     "prompt": {
                         "helpText": null,
@@ -14668,6 +15283,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "5",
                             "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_5_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_5_b1",
@@ -14690,6 +15317,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_5_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_5_b2",
                     "prompt": {
                         "helpText": null,
@@ -14708,6 +15347,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "5",
                             "rowLabel": "5. Antall vedtak om tiltak i områder med bevaringsstatus i reguleringsplan"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_5_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_5_c",
@@ -14750,6 +15401,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_6_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_6_b",
                     "prompt": {
                         "helpText": null,
@@ -14768,6 +15431,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "6",
                             "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_6_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_6_b1",
@@ -14790,6 +15465,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_6_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_6_b2",
                     "prompt": {
                         "helpText": null,
@@ -14808,6 +15495,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "6",
                             "rowLabel": "6. Antall vedtak som gjaldt tiltak i ikke-fredete byggverk oppført før 1850"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_6_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_6_c",
@@ -14850,6 +15549,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_7_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_7_b",
                     "prompt": {
                         "helpText": null,
@@ -14868,6 +15579,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "7",
                             "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_7_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_7_b1",
@@ -14890,6 +15613,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_7_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d1_7_b2",
                     "prompt": {
                         "helpText": null,
@@ -14908,6 +15643,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d1",
                             "row": "7",
                             "rowLabel": "7. Antall vedtak som gjaldt tiltak i fredete byggverk uansett oppføringsår"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d1_7_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d1_7_c",
@@ -14959,6 +15706,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_1_b",
                     "prompt": {
                         "helpText": null,
@@ -14977,6 +15736,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d2",
                             "row": "1",
                             "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d2_1_b1",
@@ -14999,6 +15770,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_1_b2",
                     "prompt": {
                         "helpText": null,
@@ -15017,6 +15800,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d2",
                             "row": "1",
                             "rowLabel": "1. Søknader om opprettelse og endring av eiendom (pbl § 20-1 bokstav m)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d2_1_c",
@@ -15059,6 +15854,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_2_b",
                     "prompt": {
                         "helpText": null,
@@ -15077,6 +15884,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d2",
                             "row": "2",
                             "rowLabel": "2. Søknader om matrikulering uten fullført oppmålingsforretning (MUF) (matrikkelloven § 6 andre ledd)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d2_2_c",
@@ -15120,6 +15939,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_3_b",
                     "prompt": {
                         "helpText": null,
@@ -15138,6 +15969,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_d2",
                             "row": "3",
                             "rowLabel": "3. Søknader om seksjonering, reseksjonering og opphevelse av seksjonering (eierseksjonsloven § 4 bokstavene j og k)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_d2_3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_d2_3_c",
@@ -15357,6 +16200,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Klagesaker på gebyrer"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_2_b1",
                     "prompt": {
                         "helpText": null,
@@ -15375,6 +16230,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "2",
                             "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_2_b2",
@@ -15397,6 +16264,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Klagesaker på gebyrer"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_2_c",
                     "prompt": {
                         "helpText": null,
@@ -15415,6 +16294,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "2",
                             "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_2_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_2_d",
@@ -15562,6 +16453,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3a. Klagesaker på byggesøknader"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3a_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3a_b1",
                     "prompt": {
                         "helpText": null,
@@ -15580,6 +16483,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3a",
                             "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3a_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3a_b2",
@@ -15602,6 +16517,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3a. Klagesaker på byggesøknader"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3a_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3a_c",
                     "prompt": {
                         "helpText": null,
@@ -15620,6 +16547,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3a",
                             "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3a_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3a_d",
@@ -15662,6 +16601,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3b_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3b_b1",
                     "prompt": {
                         "helpText": null,
@@ -15680,6 +16631,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3b",
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3b_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3b_b2",
@@ -15702,6 +16665,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3b_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3b_c",
                     "prompt": {
                         "helpText": null,
@@ -15720,6 +16695,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3b",
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3b_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3b_d",
@@ -15762,6 +16749,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3c_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3c_b1",
                     "prompt": {
                         "helpText": null,
@@ -15780,6 +16779,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3c",
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3c_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3c_b2",
@@ -15802,6 +16813,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3c_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3c_c",
                     "prompt": {
                         "helpText": null,
@@ -15820,6 +16843,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3c",
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3c_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3c_d",
@@ -15862,6 +16897,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3d_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3d_b1",
                     "prompt": {
                         "helpText": null,
@@ -15880,6 +16927,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3d",
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3d_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3d_b2",
@@ -15902,6 +16961,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3d_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_3d_c",
                     "prompt": {
                         "helpText": null,
@@ -15920,6 +16991,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "3d",
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_3d_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_3d_d",
@@ -15962,6 +17045,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_4_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_4_b1",
                     "prompt": {
                         "helpText": null,
@@ -15980,6 +17075,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "4",
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_4_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_4_b2",
@@ -16002,6 +17109,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_4_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e1_4_c",
                     "prompt": {
                         "helpText": null,
@@ -16020,6 +17139,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e1",
                             "row": "4",
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e1_4_b",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e1_4_d",
@@ -16178,6 +17309,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Klagesaker på gebyrer"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_2_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_2_e1",
                     "prompt": {
                         "helpText": null,
@@ -16219,6 +17362,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Klagesaker på gebyrer"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_2_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_2_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16237,6 +17392,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "2",
                             "rowLabel": "2. Klagesaker på gebyrer"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_2_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_2_e2b",
@@ -16384,6 +17551,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3a. Klagesaker på byggesøknader"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3a_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_3a_e1",
                     "prompt": {
                         "helpText": null,
@@ -16425,6 +17604,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3a. Klagesaker på byggesøknader"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3a_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_3a_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16443,6 +17634,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3a",
                             "rowLabel": "3a. Klagesaker på byggesøknader"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3a_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3a_e2b",
@@ -16483,6 +17686,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3b",
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3b_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3b_e1",
@@ -16526,6 +17741,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3b_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_3b_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16544,6 +17771,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3b",
                             "rowLabel": "3b. Klagesaker på søknader om opprettelse og endring av eiendom"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3b_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3b_e2b",
@@ -16584,6 +17823,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3c",
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3c_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3c_e1",
@@ -16627,6 +17878,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3c_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_3c_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16645,6 +17908,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3c",
                             "rowLabel": "3c. Klagesaker på oppmålingssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3c_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3c_e2b",
@@ -16685,6 +17960,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3d",
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3d_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3d_e1",
@@ -16728,6 +18015,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3d_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_3d_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16746,6 +18045,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "3d",
                             "rowLabel": "3d. Klagesaker på seksjoneringssaker"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_3d_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_3d_e2b",
@@ -16786,6 +18097,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "4",
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_4_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_4_e1",
@@ -16829,6 +18152,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_4_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_e2_4_e2a",
                     "prompt": {
                         "helpText": null,
@@ -16847,6 +18182,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_e2",
                             "row": "4",
                             "rowLabel": "4. Klagesaker i forbindelse med tilsyn og ulovlighetsoppfølging"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_e2_4_e",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_e2_4_e2b",
@@ -16918,6 +18265,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f1_a_b",
                     "prompt": {
                         "helpText": null,
@@ -16938,6 +18297,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f1_a_c",
                     "prompt": {
                         "helpText": null,
@@ -16956,6 +18327,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f1",
                             "row": "a",
                             "rowLabel": "a. Antall byggesaker hvor det er utført tilsyn (ett eller flere), jf. pbl § 25-1"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f1_a_d",
@@ -16998,6 +18381,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_b_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f1_b_b",
                     "prompt": {
                         "helpText": null,
@@ -17018,6 +18413,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_b_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f1_b_c",
                     "prompt": {
                         "helpText": null,
@@ -17036,6 +18443,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f1",
                             "row": "b",
                             "rowLabel": "b. Antall tiltak hvor det er utført ulovlighetsoppfølging, jf. pbl § 1-4"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f1_b_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f1_b_d",
@@ -17172,6 +18591,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a1_a",
                     "prompt": {
                         "helpText": null,
@@ -17190,6 +18621,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a1",
                             "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a1_b",
@@ -17212,6 +18655,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a1_c",
                     "prompt": {
                         "helpText": null,
@@ -17232,6 +18687,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Antall tilsyn med omsøkte tiltak (byggesaker)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a1_d",
                     "prompt": {
                         "helpText": null,
@@ -17250,6 +18717,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a2",
                             "rowLabel": "a2. Antall tilsyn i alt med ikke omsøkte tiltak (unntak og ulovligheter)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a2_a",
@@ -17335,6 +18814,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a2a_a",
                     "prompt": {
                         "helpText": null,
@@ -17353,6 +18844,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a2a",
                             "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a2a_b",
@@ -17375,6 +18878,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a2a_c",
                     "prompt": {
                         "helpText": null,
@@ -17393,6 +18908,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a2a",
                             "rowLabel": "a2a. Antall tilsyn med tiltak som er unntatt fra søknadsplikt"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a2a_d",
@@ -17415,6 +18942,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a2b_a",
                     "prompt": {
                         "helpText": null,
@@ -17433,6 +18972,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a2b",
                             "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a2b_b",
@@ -17455,6 +19006,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a2b_c",
                     "prompt": {
                         "helpText": null,
@@ -17473,6 +19036,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_f2",
                             "row": "a2b",
                             "rowLabel": "a2b. Ulovlighetsoppfølginger (ved ikke omsøkte tiltak)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_f2_a2b_d",
@@ -18035,6 +19610,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g1_a_b",
                     "prompt": {
                         "helpText": null,
@@ -18053,6 +19640,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g1",
                             "row": "a",
                             "rowLabel": "a. Antall pålegg gitt i rapporteringsåret, i alt for alle tilsynstema og brudd på plan- og bygningslovgivningen"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g1_a_c",
@@ -18095,6 +19694,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g1_b1_b",
                     "prompt": {
                         "helpText": null,
@@ -18113,6 +19724,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g1",
                             "row": "b1",
                             "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g1_b1_c",
@@ -18155,6 +19778,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g1_b2_b",
                     "prompt": {
                         "helpText": null,
@@ -18173,6 +19808,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g1",
                             "row": "b2",
                             "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g1_b2_c",
@@ -18215,6 +19862,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g1_b3_b",
                     "prompt": {
                         "helpText": null,
@@ -18233,6 +19892,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g1",
                             "row": "b3",
                             "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g1_b3_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g1_b3_c",
@@ -18328,6 +19999,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_a1_a",
                     "prompt": {
                         "helpText": null,
@@ -18346,6 +20029,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "a1",
                             "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_a1_b",
@@ -18368,6 +20063,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Antallet pålegg der forholdet ble rettet opp"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_a1_c",
                     "prompt": {
                         "helpText": null,
@@ -18386,6 +20093,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "a2",
                             "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_a2_a",
@@ -18408,6 +20127,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_a2_b",
                     "prompt": {
                         "helpText": null,
@@ -18426,6 +20157,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "a2",
                             "rowLabel": "a2. Antallet pålegg der forholdet ikke ble rettet opp og ikke fulgt opp videre"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_a2_c",
@@ -18448,6 +20191,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a3. Antallet pålegg med annet utfall"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_a3_a",
                     "prompt": {
                         "helpText": null,
@@ -18466,6 +20221,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "a3",
                             "rowLabel": "a3. Antallet pålegg med annet utfall"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_a3_b",
@@ -18488,6 +20255,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a3. Antallet pålegg med annet utfall"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_a3_c",
                     "prompt": {
                         "helpText": null,
@@ -18506,6 +20285,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "b1",
                             "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_b1_a",
@@ -18528,6 +20319,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_b1_b",
                     "prompt": {
                         "helpText": null,
@@ -18546,6 +20349,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "b1",
                             "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_b1_c",
@@ -18568,6 +20383,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_b2_a",
                     "prompt": {
                         "helpText": null,
@@ -18586,6 +20413,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "b2",
                             "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_b2_b",
@@ -18608,6 +20447,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_b2_c",
                     "prompt": {
                         "helpText": null,
@@ -18626,6 +20477,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "b3",
                             "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_b3_a",
@@ -18648,6 +20511,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g2_b3_b",
                     "prompt": {
                         "helpText": null,
@@ -18666,6 +20541,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g2",
                             "row": "b3",
                             "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g2_b3_c",
@@ -18698,6 +20585,10 @@ window.SSB_SCHEMAS = {
                             "row": "a",
                             "rowLabel": "a. Antall sanksjoner brukt i rapporteringsåret, i alt"
                         }
+                    },
+                    "condition": {
+                        "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
+                        "op": "isTrue"
                     },
                     "fieldId": "t7_g3_a_a",
                     "prompt": {
@@ -18761,6 +20652,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g3_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g3_a1_a",
                     "prompt": {
                         "helpText": null,
@@ -18781,6 +20684,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g3_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g3_a1_b",
                     "prompt": {
                         "helpText": null,
@@ -18799,6 +20714,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g3",
                             "row": "a1",
                             "rowLabel": "a1. Overtredelsesgebyr (pbl § 32-8 og SAK10 kap. 16, pbl. § 32-8a)"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g3_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g3_a1_c",
@@ -18894,6 +20821,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Herav advarsel"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a1_a",
                     "prompt": {
                         "helpText": null,
@@ -18912,6 +20851,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a1",
                             "rowLabel": "a1. Herav advarsel"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a1_b",
@@ -18934,6 +20885,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a1. Herav advarsel"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a1_c",
                     "prompt": {
                         "helpText": null,
@@ -18952,6 +20915,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a2",
                             "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a2_a",
@@ -18974,6 +20949,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a2_b",
                     "prompt": {
                         "helpText": null,
@@ -18992,6 +20979,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a2",
                             "rowLabel": "a2. Herav tilbaketrekking av ansvarsrett"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a2_c",
@@ -19014,6 +21013,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a3_a",
                     "prompt": {
                         "helpText": null,
@@ -19032,6 +21043,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a3",
                             "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a3_b",
@@ -19054,6 +21077,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a3. Herav rapport til den sentrale godkjenningsordningen"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a3_c",
                     "prompt": {
                         "helpText": null,
@@ -19072,6 +21107,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a4",
                             "rowLabel": "a4. Herav anmeldelse til politiet"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a4_a",
@@ -19094,6 +21141,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a4. Herav anmeldelse til politiet"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a4_b",
                     "prompt": {
                         "helpText": null,
@@ -19112,6 +21171,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a4",
                             "rowLabel": "a4. Herav anmeldelse til politiet"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a4_c",
@@ -19134,6 +21205,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a5_a",
                     "prompt": {
                         "helpText": null,
@@ -19154,6 +21237,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_g4_a5_b",
                     "prompt": {
                         "helpText": null,
@@ -19172,6 +21267,18 @@ window.SSB_SCHEMAS = {
                             "id": "t7_g4",
                             "row": "a5",
                             "rowLabel": "a5. Herav pålegg/krav om uavhengig kontroll"
+                        }
+                    },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_g4_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
                         }
                     },
                     "fieldId": "t7_g4_a5_c",
