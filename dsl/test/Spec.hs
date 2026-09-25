@@ -33,6 +33,7 @@ main = do
   testNumericConditions
   testMatrixColumnsFromPdf
   testMatrixRowsFromPdf
+  testTrial5AgainstPdf
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -120,7 +121,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, budgetDialogue, rulesDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, budgetDialogue, rulesDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -133,12 +134,15 @@ testCompileRulesToAltinn = do
   let artifacts = compileToAltinn trial4ByggesakDialogue
       layoutTxt = BLC.unpack (encode (pageLayout artifacts))
       paths = map fst (validations artifacts)
+      paths5 = map fst (validations (compileToAltinn trial5ByggesakDialogue))
   expect ("t4_timerTotalt-number" `T.isInfixOf` T.pack layoutTxt
           && not ("t4_timerTotalt-input" `T.isInfixOf` T.pack layoutTxt))
          "Calculated fields compile to display-only Number components."
   expect ("SkjemaData.trial4_byggesak.t4_e1_klagerKommuneAlt" `elem` paths
           && "SkjemaData.trial4_byggesak.t4_c10_delingBehandlet" `elem` paths
-          && any ((== "lang.trial4_byggesak.constraint.t4_e1_herav") . fst) (textResources artifacts))
+          && any ((== "lang.trial4_byggesak.constraint.t4_e1_herav") . fst) (textResources artifacts)
+          && "SkjemaData.trial5_byggesak.t5_e1_2_b1" `elem` paths5
+          && "SkjemaData.trial5_byggesak.t5_e1_1_b" `notElem` paths5)
          "Constraints compile to expression validations with text resources."
   let budget = compileToAltinn budgetDialogue
       budgetPaths = map fst (validations budget)
@@ -186,7 +190,7 @@ c12Matrix = Matrix
       [ matrixRow "1" "1. Antall søknader mottatt"
       , (matrixRow "1.1" "1.1 Herav mangelfulle søknader")
           { rowCols = Just ["a"]
-          , rowCondition = Just (\cell -> Compare (cell "1" "a") CmpGt (Const 0)) }
+          , rowCondition = Just (\cell _ -> Compare (cell "1" "a") CmpGt (Const 0)) }
       , matrixRow "2" "2. Antall søknader behandlet"
       , matrixRow "2.1" "2.1 Herav over lovpålagt frist"
       ]
@@ -203,6 +207,7 @@ c12Matrix = Matrix
       , partsAtMost "mangelfulle" EachColumn ["1.1"] "1" "Mangelfulle søknader kan ikke overstige mottatte"
       , partsAtMost "overFrist" EachColumn ["2.1"] "2" "Søknader over frist kan ikke overstige behandlede"
       ]
+  , matrixCellFormulas = []
   }
 
 -- | Test 17: Column formulas reproduce the printed C12 values in the filled-in PDF
@@ -255,6 +260,7 @@ testMatrixRowsFromPdf = do
             , matrixCol "d" "d. Over lovpålagt frist"
             ]
         , matrixRules = [ partsAtMost "herav" EachRow ["b1", "b2"] "b" "Tatt til følge og oversendt kan ikke overstige vedtak i alt" ]
+        , matrixCellFormulas = []
         }
       d = partsDialogue "e1" (matrix e1)
       entered = M.fromList
@@ -271,6 +277,57 @@ testMatrixRowsFromPdf = do
   expect (cellId "t4_e1" "1" "c" `notElem` map calcTarget (calculations d)
           && null (validateRules d))
          "Row formulas skip non-summable columns such as averages."
+
+-- | Test 19: Trial 5 reproduces the calculated cells printed in the filled-in 20Byggesak PDF
+-- (research/20byggesak-pdf-tekst.txt). Entered values are the sample values from the PDF.
+testTrial5AgainstPdf :: IO ()
+testTrial5AgainstPdf = do
+  let d = trial5ByggesakDialogue
+      cells prefix rows = [ (cellId prefix r c, v) | (r, cvs) <- rows, (c, v) <- cvs ]
+      entered = M.fromList $ concat
+        [ cells "t5_c10" [ ("1", zip ["b", "c", "d", "e", "f"] ["100", "234", "12", "23", "12"])
+                         , ("2", zip ["b", "c", "d", "e", "f"] ["100", "10", "12", "3", "45"]) ]
+        , cells "t5_c11" [ ("1", [("b", "44")]), ("1.1", [("a", "444")]), ("2", [("b", "124")])
+                         , ("2.1", [("a", "2000"), ("b", "444")]) ]
+        , cells "t5_c12" [ ("1", [("b", "34"), ("b1", "23")]), ("1.1", [("a", "34")]), ("2", [("b", "546"), ("b1", "343")])
+                         , ("2.1", [("a", "5646"), ("b", "43"), ("b1", "35465")]) ]
+        , cells "t5_c13" [ ("1", [("b", "345"), ("b1", "30")]), ("1.1", [("a", "13")]), ("2", [("b", "345"), ("b1", "435")])
+                         , ("2.1", [("a", "24"), ("b", "54"), ("b1", "45")]) ]
+        , cells "t5_c3" [ ("1", [("a", "897"), ("b", "89")]) ]
+        , cells "t5_c4" [ ("1", zip ["b", "c", "d"] ["435", "564", "65"]), ("1.1", zip ["b", "c", "d"] ["45", "65", "7657"]) ]
+        , cells "t5_e1" [ (r, zip ["b", "b1", "b2", "c", "d"] vs)
+                        | (r, vs) <- [ ("2", ["345", "345", "67", "3124", "656"]), ("3a", ["46", "34", "562", "5622", "4678"])
+                                     , ("3b", ["875", "275", "725", "752", "45"]), ("3c", ["26", "45", "656", "654", "54"])
+                                     , ("3d", ["25", "54", "674", "7467", "573"]), ("4", ["36", "364", "563", "765", "6345"]) ] ]
+        , cells "t5_f3" [ ('a' : show i, [("antall", v)])
+                        | (i, v) <- zip [1 :: Int ..] (words "3 2 5 6 7 8 9 1 22 11 33 65 99 88 76 56 75 72 123 73 111") ]
+        , [ ("t5_timerUtfylling", "21"), ("t5_timerFremskaffe", "11") ]
+        ]
+      printed = concat
+        [ cells "t5_c11" [ ("1", [("a", "100"), ("c", "56")]), ("2", [("a", "100"), ("c", "-24")]), ("2.1", [("c", "1556")]) ]
+        , cells "t5_c12" [ ("1", zip ["a", "b2", "c", "d"] ["234", "11", "200", "211"])
+                         , ("2", zip ["a", "b2", "c", "d"] ["10", "203", "-536", "-333"])
+                         , ("2.1", zip ["b2", "c", "d"] ["-35422", "5603", "-29819"]) ]
+        , cells "t5_c13" [ ("1", zip ["a", "b2", "c", "d"] ["12", "315", "-333", "-18"])
+                         , ("2", zip ["a", "b2", "c", "d"] ["12", "-90", "-333", "-423"])
+                         , ("2.1", zip ["b2", "c", "d"] ["9", "-30", "-21"]) ]
+        , cells "t5_c14" [ ("1", zip ["b", "b1", "b2", "c", "d"] ["423", "53", "370", "-77", "293"])
+                         , ("1.1", [("a", "491")])
+                         , ("2", zip ["b", "b1", "b2", "c", "d"] ["1015", "778", "237", "-893", "-656"])
+                         , ("2.1", zip ["a", "b", "b1", "b2", "c", "d"] ["7670", "541", "35510", "-34969", "7129", "-27840"]) ]
+        , cells "t5_c15" [ ("1", [("a", "23")]), ("2", [("a", "3")]) ]
+        , cells "t5_c2" [ ("1", [("a", "12")]), ("2", [("a", "45")]) ]
+        , cells "t5_c3" [ ("1", [("c", "808")]) ]
+        , cells "t5_c4" [ ("1", [("a", "1064")]), ("1.1", [("a", "7767")]) ]
+        , cells "t5_e1" [ ("1", zip ["b", "b1", "b2", "d"] ["1353", "1117", "3247", "12351"])
+                        , ("3", zip ["b", "b1", "b2", "d"] ["972", "408", "2617", "5350"]) ]
+        , cells "t5_f3" [ ("a", [("antall", "945")]) ]
+        , [ ("t5_timerTotalt", "32") ]
+        ]
+      derived = applyCalculations d entered
+      mismatches = [ (fid, v, M.lookup fid derived) | (fid, v) <- printed, M.lookup fid derived /= Just v ]
+  expect (null (validateRules d)) ("Trial 5 rules are well-formed. " ++ show (validateRules d))
+  expect (null mismatches) ("Trial 5 reproduces " ++ show (length printed) ++ " calculated cells printed in the PDF. " ++ show mismatches)
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

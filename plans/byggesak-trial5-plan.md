@@ -1,9 +1,9 @@
-# Plan: Trial 4 for 20Byggesak – ny oppbygging fra PDF med beregninger og kontroller
+# Plan: Trial 5 for 20Byggesak – ny oppbygging fra PDF med beregninger og kontroller
 
 ## Beslutning
 
-Trial 4 bygges på nytt fra `screenshots/20Byggesak (utfylt).pdf` i stedet for å videreføre
-Trial 3/4. Begrunnelse:
+Trial 5 bygges på nytt fra `screenshots/20Byggesak (utfylt).pdf` i stedet for å videreføre
+Trial 3/4. Trial 4 beholdes uendret for sporbarhet. Begrunnelse:
 
 - Eksisterende trials dekker ca. 15 % av skjemaets ~400 celler (Trial 3: 62 felt, Trial 4: 49).
 - Dagens Trial 4 inneholder felt som ikke finnes i skjemaet (B3/B4 «selvkostgrad»,
@@ -12,7 +12,7 @@ Trial 3/4. Begrunnelse:
   KRITISK FEIL/ADVARSEL) passer direkte på de nye `calculations`/`constraints` i DSL-en.
 
 Det gjenbrukes fra Trial 3: bolk A, B (1a/1b/2a/2b), H og I, samt feltnavnkonvensjonen
-(`t4_<bolk>_<navn>`). PDF-teksten er ekstrahert (pypdf, uten OCR) til `research/20byggesak-pdf-tekst.txt` og brukes som kilde –
+(`t5_<bolk>_<navn>`). PDF-teksten er ekstrahert (pypdf, uten OCR) til `research/20byggesak-pdf-tekst.txt` og brukes som kilde –
 ingen ny OCR/skjermbildeanalyse.
 
 ## Fase 1 – DSL-utvidelser (generelle, ingen Altinn/dotnet-semantikk i kjernen)
@@ -41,19 +41,19 @@ formler er funksjoner fra celle-nøkkel til `Expr`, rader kan ha et utvalg kolon
 betingelser, og radformler hopper over kolonner med `colSummable = False` (gjennomsnitt).
 Testene reproduserer de trykte verdiene i PDF-en for C12 og E1.
 
-- Genererer én `Question` per celle (`t4_c12_r2_b1`), med `gridXs` for rutenettvisning.
+- Genererer én `Question` per celle (`t5_c12_2_b1`), med `gridXs` for rutenettvisning.
 - Beregnede kolonner/rader blir `Calculation`s (f.eks. `c = a − b`, `d = c + b2`).
 - «Herav ≤ i alt» genereres som `Constraint`s, og rest-kolonner får `rest ≥ 0`.
 - Hjelpefunksjoner for bolker: `bolkWithRules :: ... -> (Step, [Calculation], [Constraint])`
   slik at dialogen samler regler fra alle bolker med `concat`.
 
-## Fase 2 – Innholdskart fra PDF (Trial 4)
+## Fase 2 – Innholdskart fra PDF (Trial 5)
 
 | Bolk | Innhold | Beregnet (verifisert mot utfylte tall) | Kontroller |
 |---|---|---|---|
 | A | 5 kontaktfelt | – | påkrevd |
 | B | 1a/1b, 2a/2b gebyr (kr) | – | ≥ 0 |
-| C10 | 2 rader × a–f | a = b + c + d | alle celler påkrevd; behandlet ≤ mottatt (advarsel) |
+| C10 | 2 rader × a–f | a = b + c + d; b–f kopieres til kolonne a i C11, C12, C13, C15, C2 (verifisert) | alle celler påkrevd; behandlet ≤ mottatt (advarsel, ikke fra PDF) |
 | C11 | rader 1, 1.1, 2, 2.1, 2.2 × a–c | c = a − b (100 − 44 = 56) | c ≥ 0 (feil); 1.1 ≤ 1a; 2.1 ≤ 2a |
 | C12, C13, C2 | 5 rader × a, b, b1, b2, c, d | b2 = b − b1, c = a − b, d = c + b2 (alle tre rader i C12 og rad 1 i C13 stemmer) | c ≥ 0; herav ≤ i alt |
 | C14 | summeringskontroll | alle celler = C11 + C12 + C13 (bekreftes i veiledning) | – |
@@ -79,21 +79,25 @@ avklares mot veiledningen før den kodes som beregning (ellers kun kontroll).
 
 ## Fase 3 – Implementasjon
 
-1. Erstatt `trial4ByggesakDialogue` i `Examples/Byggesak.hs` (samme `dialogueId` og side
-   `S05_trial4_byggesak`), bygget bolk for bolk med matrise-hjelperen.
+Status: steg 1 og 3 ✅ (`Examples/ByggesakTrial5.hs`: 436 felt, 96 beregninger, 195 kontroller). Steg 2 gjenstår.
+
+1. Ny `trial5ByggesakDialogue` i `Examples/ByggesakTrial5.hs` (`dialogueId` `trial5-byggesak`, side
+   `S05_trial5_byggesak`, rang 55), bygget bolk for bolk med matrise-hjelperen. Trial 4 er uendret.
 2. Altinn-injeksjon: `updateCSharpModel` hopper i dag over klasser som finnes. Utvid den til å
-   erstatte eksisterende `Trial4_byggesak`-klasse (ren tekstgenerering, ingen dotnet-avhengighet),
+   erstatte eksisterende klasse ved ny injeksjon (ren tekstgenerering, ingen dotnet-avhengighet),
    ellers mangler nye felt i C#-modellen.
-3. `--update-all` regenererer `dsl/schemas/trial4-byggesak.json` og `simulator/schemas.js`.
+3. `--update-all` regenererer `dsl/schemas/trial5-byggesak.json` og `simulator/schemas.js`.
 
 ## Fase 4 – Verifisering
 
-- **PDF som fasit:** en test med de utfylte verdiene fra PDF-en som `Answers`;
+- ✅ **PDF som fasit** (61 beregnede celler reproduseres, se `testTrial5AgainstPdf`).
+  Avvik i eksempeltallene: kolonne a i C10 og C14 rad 1-2 viser 12, som ikke stemmer med noen sum.
+- **PDF som fasit (opprinnelig beskrivelse):** en test med de utfylte verdiene fra PDF-en som `Answers`;
   `applyCalculations` skal reprodusere de trykte beregnede cellene (C11–C13, C15, C3, C4, E1, F3, I).
 - `validateRules` gir ingen feil; dekningstest: antall felt per bolk mot innholdskartet.
-- Simulator: `?schema=trial4-byggesak`, manuell gjennomgang av et utvalg bolker.
-  (Obs: ett spørsmål per steg blir langt med ~400 felt – vurder senere «én bolk per steg».)
-- Altinn: `--inject-trial4` mot `altinn-skjema-hacking`, sjekk Number-komponenter og
+- Simulator: `?schema=trial5-byggesak`, manuell gjennomgang av et utvalg bolker.
+  ✅ Simulatoren viser nå én bolk per side, med matriser som tabeller og navigasjon per side.
+- Altinn: `--inject-trial5` mot `altinn-skjema-hacking`, sjekk Number-komponenter og
   `A3_RA-1000_M.validation.json` i nettleser.
 
 ## Rekkefølge og omfang

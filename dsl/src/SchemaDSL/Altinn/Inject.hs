@@ -138,6 +138,7 @@ evolutionRank p
   | p == "S05_trial2_byggesak"         = 52  -- v5.2: 20Byggesak Trial 2
   | p == "S05_trial3_byggesak"         = 53  -- v5.3: 20Byggesak Trial 3
   | p == "S05_trial4_byggesak"         = 54  -- v5.4: 20Byggesak Trial 4
+  | p == "S05_trial5_byggesak"         = 55  -- v5.5: 20Byggesak Trial 5 (full PDF rebuild with rules)
   | otherwise                          = 999 -- Other / custom pages
 
 -- | Sort injected pages by schema evolution progression while preserving outer boundary pages

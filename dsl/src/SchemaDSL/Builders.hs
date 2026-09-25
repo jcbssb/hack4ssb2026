@@ -11,9 +11,11 @@
 -- > MatrixCol "c" "Ikke i samsvar med plan" (Just (\cell -> Sub (cell "a") (cell "b")))
 --
 -- A column formula computes a cell from other cells in the same row, a row
--- formula from other cells in the same column. Where both apply, the column
--- formula wins. Row formulas skip columns that are not summable (e.g. averages),
--- which stay entered. The result is a triple of lists, so several parts combine with
+-- formula from other cells in the same column, and a cell formula gives one cell
+-- any expression (e.g. copied from another matrix). Precedence: cell, column, row.
+-- Column formulas skip rows that are not summable and row formulas skip columns
+-- that are not summable (e.g. averages); those cells stay entered, as do cells
+-- whose column or row formula refers to cells missing from the matrix. The result is a triple of lists, so several parts combine with
 -- 'mconcat'.
 module SchemaDSL.Builders
   ( Matrix(..)
@@ -25,6 +27,7 @@ module SchemaDSL.Builders
   , matrix
   , matrixRow
   , matrixCol
+  , matrixCells
   , cellId
   , sumOfKeys
   , partsAtMost
@@ -44,6 +47,7 @@ data Matrix = Matrix
   , matrixRows   :: [MatrixRow]
   , matrixCols   :: [MatrixCol]
   , matrixRules  :: [MatrixRule]
+  , matrixCellFormulas :: [((String, String), Expr)]  -- ^ ((row key, column key), formula)
   }
 
 data MatrixRow = MatrixRow
@@ -52,8 +56,11 @@ data MatrixRow = MatrixRow
   , rowCols      :: Maybe [String]                        -- ^ columns present in this row; Nothing = all
   , rowType      :: QuestionType                          -- ^ QInteger or QDecimal
   , rowFormula   :: Maybe ((String -> Expr) -> Expr)      -- ^ cell from other rows' cells, by row key
-  , rowCondition :: Maybe ((String -> String -> Expr) -> Predicate)
-                                                          -- ^ when the row is shown, by (row key, column key)
+  , rowCondition :: Maybe ((String -> String -> Expr) -> String -> Predicate)
+                                                          -- ^ when a cell is shown, given a (row key, column key)
+                                                          --   cell reference and the cell's column key
+  , rowSummable  :: Bool                                  -- ^ whether column formulas apply (False for averages)
+  , rowRequired  :: [String]                              -- ^ columns that must be answered in this row
   }
 
 data MatrixCol = MatrixCol
@@ -81,7 +88,16 @@ data MatrixRule = MatrixRule
 
 -- | Entered integer row present in all columns
 matrixRow :: String -> String -> MatrixRow
-matrixRow key lbl = MatrixRow key lbl Nothing QInteger Nothing Nothing
+matrixRow key lbl = MatrixRow key lbl Nothing QInteger Nothing Nothing True []
+
+-- | (row key, column key) of every cell present in a matrix
+matrixCells :: Matrix -> [(String, String)]
+matrixCells m =
+  [ (rowKey r, colKey c)
+  | r <- matrixRows m
+  , c <- matrixCols m
+  , maybe True (colKey c `elem`) (rowCols r)
+  ]
 
 -- | Entered column
 matrixCol :: String -> String -> MatrixCol
@@ -124,10 +140,15 @@ matrix m = (questions, calcs, rules)
     present = [ cellId prefix (rowKey r) (colKey c) | (r, c) <- cells ]
     ref r c = Field (cellId prefix r c)
 
-    formulaFor r c = case (colFormula c, rowFormula r) of
-      (Just f, _)       -> Just (f (ref (rowKey r)))
-      (Nothing, Just f) | colSummable c -> Just (f (\rk -> ref rk (colKey c)))
-      _                 -> Nothing
+    formulaFor r c = case lookup (rowKey r, colKey c) (matrixCellFormulas m) of
+      Just e -> Just e
+      Nothing -> case (colFormula c, rowFormula r) of
+        (Just f, _) | rowSummable r, complete (f (ref (rowKey r)))        -> Just (f (ref (rowKey r)))
+        (_, Just f) | colSummable c, complete (f (\rk -> ref rk (colKey c))) -> Just (f (\rk -> ref rk (colKey c)))
+        _                                                                -> Nothing
+
+    -- Column and row formulas only apply where all their cells exist
+    complete e = all (`elem` present) (exprFields e)
 
     gridXs = max 2 (12 `div` max 1 (length cols))
 
@@ -136,11 +157,13 @@ matrix m = (questions, calcs, rules)
           { fieldId      = cellId prefix (rowKey r) (colKey c)
           , prompt       = Prompt (rowLabel r ++ ": " ++ colLabel c) Nothing
           , questionType = rowType r
-          , required     = False
-          , condition    = fmap ($ ref) (rowCondition r)
+          , required     = colKey c `elem` rowRequired r
+          , condition    = fmap (\f -> f ref (colKey c)) (rowCondition r)
           , annotations  = Just (KM.fromList
               ([ ("gridXs", Number (fromIntegral gridXs))
-               , ("matrix", object [ "id" .= prefix, "row" .= rowKey r, "col" .= colKey c ])
+               , ("matrix", object
+                   [ "id" .= prefix, "row" .= rowKey r, "col" .= colKey c
+                   , "rowLabel" .= rowLabel r, "colLabel" .= colLabel c ])
                ] ++ [ ("readOnly", Bool True) | Just _ <- [formulaFor r c] ]))
           }
       | (r, c) <- cells

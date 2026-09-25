@@ -155,6 +155,21 @@
     .rule-msg { margin-top: 0.75rem; padding: 0.6rem 0.8rem; border-radius: 4px; font-size: 0.9rem; border-left: 4px solid; }
     .rule-msg.error { background: #FDECEA; border-color: var(--danger); color: #8A1C1C; }
     .rule-msg.warning { background: #FFF6E0; border-color: #C98A00; color: #6B4A00; }
+    .matrix-wrap { overflow-x: auto; margin: 0.5rem 0 1.25rem; border: 1px solid var(--border-color); border-radius: 4px; }
+    table.matrix { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+    table.matrix th, table.matrix td { border: 1px solid var(--border-color); padding: 0.35rem; vertical-align: top; }
+    table.matrix th[scope="col"] { background: var(--bg-page); font-weight: 600; text-align: left; min-width: 6.5rem; }
+    table.matrix th[scope="row"] { text-align: left; font-weight: 500; min-width: 14rem; max-width: 22rem; }
+    table.matrix td input { width: 100%; min-width: 5rem; padding: 0.35rem 0.45rem; border: 1.5px solid var(--border-color); border-radius: 3px; font: inherit; text-align: right; }
+    table.matrix td input:focus { outline: none; border-color: var(--altinn-blue); }
+    table.matrix td.calc input { background: #D9DFE3; color: var(--text-main); font-weight: 600; }
+    table.matrix td.closed { background: #EEF1F3; }
+    table.matrix td.closed input { background: #EEF1F3; border-style: dashed; }
+    table.matrix td.absent { background: repeating-linear-gradient(135deg, var(--bg-page), var(--bg-page) 6px, #E6EAED 6px, #E6EAED 12px); }
+    table.matrix td.required input { border-left: 3px solid var(--danger); }
+    table.matrix td.invalid input, .question-block.invalid .text-input { border-color: var(--danger); box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2); }
+    .question-block.invalid { border-left: 3px solid var(--danger); padding-left: 0.75rem; }
+    .msg-link { margin-left: 0.75rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; background: transparent; border: 1px solid currentColor; border-radius: 3px; color: inherit; cursor: pointer; }
     .text-input[readonly] { background: var(--bg-page); color: var(--text-muted); }
     .help-text {
       font-size: 0.85rem;
@@ -304,7 +319,7 @@
       <nav class="bolk-nav-bar" id="bolk-nav-bar" style="display:none;"></nav>
 
       <!-- Step Progress Bar with direct click support -->
-      <div class="step-indicator" id="step-indicators" title="Klikk på en indikator for å hoppe direkte til spørsmålet"></div>
+      <div class="step-indicator" id="step-indicators" title="Klikk på en indikator for å gå direkte til siden"></div>
 
       <form id="simulator-form" onsubmit="event.preventDefault();">
         <div id="step-container"></div>
@@ -336,9 +351,10 @@
       context: { organization: "SSB", surveyCode: "" },
       steps: []
     };
-    let visibleSteps = [];
-    let currentStepIndex = 0;
-    let warnedStepIndex = -1;
+    let pages = [];            // visible pages: one per bolk, loose questions grouped
+    let currentPageIndex = 0;
+    let warnedPageIndex = -1;
+    let pageBindings = [];     // rendered questions on the current page, refreshed in place
     const formData = {};
 
     function flattenSchemaSteps(schema) {
@@ -478,16 +494,20 @@
       return exprFields(calc.expr).flatMap(f => enteredInputs(f, seen));
     }
 
-    // A constraint is checked on the last visible step among the fields it depends on,
+    // A constraint is checked on the last visible page among the fields it depends on,
     // so that e.g. "parts <= total" is not reported before the total has been answered.
-    function violationsAtStep(stepIndex) {
-      const order = new Map(visibleSteps.map((s, i) => [s.fieldId, i]));
+    function violationsAtPage(pageIndex) {
+      const pageOf = new Map();
+      pages.forEach((p, i) => p.questions.forEach(q => pageOf.set(q.fieldId, i)));
       return (activeSchema.constraints || []).filter(c => {
-        const deps = [...exprFields(c.left), ...exprFields(c.right)].flatMap(f => enteredInputs(f))
-          .concat(c.reportOn || [], c.condition ? predicateFields(c.condition) : []);
-        const positions = deps.map(f => order.get(f)).filter(i => i !== undefined);
-        return positions.length > 0 && Math.max(...positions) === stepIndex && !constraintHolds(c);
+        const positions = constraintDeps(c).map(f => pageOf.get(f)).filter(i => i !== undefined);
+        return positions.length > 0 && Math.max(...positions) === pageIndex && !constraintHolds(c);
       });
+    }
+
+    function constraintDeps(c) {
+      return [...exprFields(c.left), ...exprFields(c.right)].flatMap(f => enteredInputs(f))
+        .concat(c.reportOn || [], c.condition ? predicateFields(c.condition) : []);
     }
 
     function predicateFields(p) {
@@ -500,26 +520,6 @@
       return (activeSchema.constraints || []).filter(c => !constraintHolds(c));
     }
 
-    function showRuleMessages(violations) {
-      const qBlock = document.querySelector("#step-container .question-block");
-      if (!qBlock) return;
-      qBlock.querySelectorAll(".rule-msg").forEach(el => el.remove());
-      violations.forEach(c => {
-        const div = document.createElement("div");
-        div.className = "rule-msg " + (c.severity === "warning" ? "warning" : "error");
-        div.textContent = (c.severity === "warning" ? "Advarsel: " : "Feil: ") + c.message;
-        qBlock.appendChild(div);
-      });
-    }
-
-    function recomputeVisibleSteps() {
-      const allSteps = flattenSchemaSteps(activeSchema);
-      visibleSteps = allSteps.filter(s => evaluateCondition(s.condition));
-      if (currentStepIndex >= visibleSteps.length) {
-        currentStepIndex = Math.max(0, visibleSteps.length - 1);
-      }
-    }
-
     function switchSchema(key) {
       activeSchemaKey = key;
       activeSchema = availableSchemas[key];
@@ -530,102 +530,130 @@
       populateSchemaDropdown();
       document.getElementById("survey-title").textContent = activeSchema.title || "Skjema";
       document.getElementById("survey-desc").textContent = `${(activeSchema.context && activeSchema.context.organization) || 'SSB'} • ${(activeSchema.context && activeSchema.context.surveyCode) || ''}`;
-      recomputeVisibleSteps();
-      renderStepIndicators();
-      renderCurrentStep();
+      recomputePages();
+      renderNav();
+      renderCurrentPage();
       updatePreview();
     }
 
-    function renderBolkNavBar() {
-      const nav = document.getElementById("bolk-nav-bar");
-      if (!nav) return;
-
-      // Group visible steps by Bolk
-      const bolker = [];
-      const bolkMap = new Map();
-
-      visibleSteps.forEach((s, idx) => {
-        const bId = (s.bolk && s.bolk.bolkId) || "Generelt";
-        const bTitle = (s.bolk && s.bolk.bolkTitle) || (s.bolk && s.bolk.bolkId) || "Spørsmål";
-        if (!bolkMap.has(bId)) {
-          const entry = { id: bId, title: bTitle, firstStepIdx: idx, stepIndices: [idx] };
-          bolkMap.set(bId, entry);
-          bolker.push(entry);
+    function buildPages(schema) {
+      const result = [];
+      let loose = null;
+      (schema.steps || []).forEach(step => {
+        if (step.type === "bolk" || (step.bolkId && step.questions)) {
+          loose = null;
+          result.push({
+            id: step.bolkId,
+            title: step.title || step.bolkTitle,
+            description: step.description || step.bolkDescription,
+            condition: step.condition || step.bolkCondition,
+            questions: step.questions || []
+          });
         } else {
-          bolkMap.get(bId).stepIndices.push(idx);
+          if (!loose) {
+            loose = { id: "Spørsmål", title: schema.title, description: null, condition: null, questions: [] };
+            result.push(loose);
+          }
+          loose.questions.push(step);
         }
       });
+      return result;
+    }
 
-      if (bolker.length <= 1) {
-        nav.style.display = "none";
-        return;
-      }
+    // Keeps the current page (by id) when pages open or close
+    function recomputePages() {
+      const currentId = pages[currentPageIndex] && pages[currentPageIndex].id;
+      pages = buildPages(activeSchema).filter(p =>
+        evaluateCondition(p.condition) && p.questions.some(q => evaluateCondition(q.condition)));
+      const idx = pages.findIndex(p => p.id === currentId);
+      currentPageIndex = idx >= 0 ? idx : Math.min(currentPageIndex, Math.max(0, pages.length - 1));
+    }
 
-      nav.style.display = "flex";
+    function renderNav() {
+      const nav = document.getElementById("bolk-nav-bar");
+      const pills = document.getElementById("step-indicators");
       nav.innerHTML = "";
-
-      const currentStep = visibleSteps[currentStepIndex];
-      const currentBolkId = (currentStep && currentStep.bolk && currentStep.bolk.bolkId) || "Generelt";
-
-      bolker.forEach(b => {
+      pills.innerHTML = "";
+      nav.style.display = pages.length > 1 ? "flex" : "none";
+      pages.forEach((p, idx) => {
         const btn = document.createElement("button");
         btn.type = "button";
-        btn.className = `bolk-nav-btn ${b.id === currentBolkId ? 'active' : ''}`;
-        btn.title = `Hopp til ${b.title} (${b.stepIndices.length} spørsmål)`;
-        btn.onclick = () => jumpToStep(b.firstStepIdx);
-
-        btn.innerHTML = `
-          <span>${escapeHtml(b.id)}</span>
-          <span class="bolk-nav-count">${b.stepIndices.length}</span>
-        `;
+        btn.className = `bolk-nav-btn ${idx === currentPageIndex ? 'active' : ''}`;
+        btn.title = `Side ${idx + 1}: ${p.title || p.id}`;
+        btn.onclick = () => goToPage(idx);
+        btn.innerHTML = `<span>${escapeHtml(p.id)}</span><span class="bolk-nav-count">${p.questions.length}</span>`;
         nav.appendChild(btn);
-      });
-    }
 
-    function renderStepIndicators() {
-      const container = document.getElementById("step-indicators");
-      container.innerHTML = "";
-      visibleSteps.forEach((s, idx) => {
         const pill = document.createElement("div");
-        pill.className = `step-pill ${idx === currentStepIndex ? 'active' : (idx < currentStepIndex ? 'completed' : '')}`;
-        const label = s.prompt ? s.prompt.label : s.fieldId;
-        const bolkPrefix = s.bolk ? `[${s.bolk.bolkId}] ` : '';
-        pill.title = `Trinn ${idx + 1}: ${bolkPrefix}${label}`;
-        pill.onclick = () => jumpToStep(idx);
-        container.appendChild(pill);
+        pill.className = `step-pill ${idx === currentPageIndex ? 'active' : (idx < currentPageIndex ? 'completed' : '')}`;
+        pill.title = btn.title;
+        pill.onclick = () => goToPage(idx);
+        pills.appendChild(pill);
       });
-      renderBolkNavBar();
     }
 
-    function jumpToStep(idx) {
-      if (idx >= 0 && idx < visibleSteps.length) {
-        currentStepIndex = idx;
-        renderStepIndicators();
-        renderCurrentStep();
-      }
+    function goToPage(idx) {
+      if (idx < 0 || idx >= pages.length) return;
+      currentPageIndex = idx;
+      warnedPageIndex = -1;
+      renderNav();
+      renderCurrentPage();
+      window.scrollTo(0, 0);
     }
 
-    function renderCurrentStep() {
-      recomputeVisibleSteps();
-      const step = visibleSteps[currentStepIndex];
+    function renderCurrentPage() {
+      const page = pages[currentPageIndex];
       const container = document.getElementById("step-container");
       container.innerHTML = "";
+      pageBindings = [];
+      if (!page) return;
 
-      if (!step) return;
+      const header = document.createElement("div");
+      header.className = "bolk-header";
+      header.innerHTML = `
+        <span class="bolk-badge">Side ${currentPageIndex + 1} av ${pages.length} · ${escapeHtml(page.id)}</span>
+        <h3>${escapeHtml(page.title || "")}</h3>
+        ${page.description ? `<p>${escapeHtml(page.description)}</p>` : ''}
+      `;
+      container.appendChild(header);
 
-      if (step.bolk) {
-        const bolkHeader = document.createElement("div");
-        bolkHeader.className = "bolk-header";
-        bolkHeader.innerHTML = `
-          <span class="bolk-badge">${escapeHtml(step.bolk.bolkId || "Bolk")}</span>
-          <h3>${escapeHtml(step.bolk.bolkTitle || "")}</h3>
-          ${step.bolk.bolkDescription ? `<p>${escapeHtml(step.bolk.bolkDescription)}</p>` : ''}
-        `;
-        container.appendChild(bolkHeader);
+      // Consecutive cells of the same matrix are rendered as one table
+      const qs = page.questions;
+      for (let i = 0; i < qs.length; ) {
+        const m = qs[i].annotations && qs[i].annotations.matrix;
+        if (m) {
+          let j = i;
+          while (j < qs.length && qs[j].annotations && qs[j].annotations.matrix && qs[j].annotations.matrix.id === m.id) j++;
+          container.appendChild(renderMatrix(qs.slice(i, j)));
+          i = j;
+        } else {
+          container.appendChild(renderQuestion(qs[i]));
+          i++;
+        }
       }
 
+      const messages = document.createElement("div");
+      messages.id = "page-messages";
+      container.appendChild(messages);
+
+      refreshPage();
+
+      document.getElementById("btn-back").style.visibility = currentPageIndex === 0 ? "hidden" : "visible";
+      const forwardBtn = document.getElementById("btn-forward");
+      if (currentPageIndex === pages.length - 1) {
+        forwardBtn.textContent = "Fullfør & Send inn";
+        forwardBtn.className = "btn-submit";
+      } else {
+        forwardBtn.textContent = "Neste side";
+        forwardBtn.className = "btn-next";
+      }
+    }
+
+    function renderQuestion(step) {
       const qBlock = document.createElement("div");
       qBlock.className = "question-block";
+      qBlock.dataset.field = step.fieldId;
+      let calcInput = null;
 
       const label = document.createElement("label");
       label.className = "question-label";
@@ -653,13 +681,11 @@
           input.type = "text";
           input.value = formData[step.fieldId] || "";
           input.placeholder = "Beregnes automatisk";
+          calcInput = input;
         }
         input.oninput = (e) => {
           formData[step.fieldId] = e.target.value;
-          applyCalculations();
-          warnedStepIndex = -1;
-          showRuleMessages([]);
-          updatePreview();
+          onFieldChanged();
         };
         qBlock.appendChild(input);
       } else if (qtype === "textarea") {
@@ -670,7 +696,7 @@
         textarea.value = formData[step.fieldId] || "";
         textarea.oninput = (e) => {
           formData[step.fieldId] = e.target.value;
-          updatePreview();
+          onFieldChanged();
         };
         qBlock.appendChild(textarea);
       } else if (qtype === "date") {
@@ -680,7 +706,7 @@
         input.value = formData[step.fieldId] || "";
         input.oninput = (e) => {
           formData[step.fieldId] = e.target.value;
-          updatePreview();
+          onFieldChanged();
         };
         qBlock.appendChild(input);
       } else if (qtype === "boolean") {
@@ -696,9 +722,7 @@
           radio.checked = formData[step.fieldId] === opt.val;
           radio.onchange = () => {
             formData[step.fieldId] = opt.val;
-            updatePreview();
-            recomputeVisibleSteps();
-            renderStepIndicators();
+            onFieldChanged();
           };
           optLabel.appendChild(radio);
           optLabel.appendChild(document.createTextNode(opt.label));
@@ -718,9 +742,7 @@
           radio.checked = formData[step.fieldId] === opt;
           radio.onchange = () => {
             formData[step.fieldId] = opt;
-            updatePreview();
-            recomputeVisibleSteps();
-            renderStepIndicators();
+            onFieldChanged();
           };
           optLabel.appendChild(radio);
           optLabel.appendChild(document.createTextNode(opt));
@@ -747,7 +769,7 @@
               current = current.filter(x => x !== opt);
             }
             formData[step.fieldId] = current;
-            updatePreview();
+            onFieldChanged();
           };
           optLabel.appendChild(cb);
           optLabel.appendChild(document.createTextNode(opt));
@@ -756,49 +778,163 @@
         qBlock.appendChild(group);
       }
 
-      container.appendChild(qBlock);
+      pageBindings.push({ q: step, el: qBlock, input: calcInput, cell: false });
+      return qBlock;
+    }
 
-      document.getElementById("btn-back").style.visibility = currentStepIndex === 0 ? "hidden" : "visible";
-      const forwardBtn = document.getElementById("btn-forward");
-      if (currentStepIndex === visibleSteps.length - 1) {
-        forwardBtn.textContent = "Fullfør & Send inn";
-        forwardBtn.className = "btn-submit";
-      } else {
-        forwardBtn.textContent = "Neste";
-        forwardBtn.className = "btn-next";
+    function renderMatrix(cells) {
+      const rows = [], cols = [], byCell = new Map();
+      cells.forEach(q => {
+        const m = q.annotations.matrix;
+        if (!rows.some(r => r.key === m.row)) rows.push({ key: m.row, label: m.rowLabel || m.row });
+        if (!cols.some(c => c.key === m.col)) cols.push({ key: m.col, label: m.colLabel || m.col });
+        byCell.set(m.row + "|" + m.col, q);
+      });
+      const calculated = calculatedFieldIds();
+
+      const wrap = document.createElement("div");
+      wrap.className = "matrix-wrap";
+      const table = document.createElement("table");
+      table.className = "matrix";
+      const head = document.createElement("tr");
+      head.innerHTML = `<th></th>` + cols.map(c => `<th scope="col">${escapeHtml(c.label)}</th>`).join("");
+      table.appendChild(head);
+
+      rows.forEach(r => {
+        const tr = document.createElement("tr");
+        const th = document.createElement("th");
+        th.scope = "row";
+        th.textContent = r.label;
+        tr.appendChild(th);
+        cols.forEach(c => {
+          const td = document.createElement("td");
+          const q = byCell.get(r.key + "|" + c.key);
+          if (!q) {
+            td.className = "absent";
+          } else {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.inputMode = "decimal";
+            input.setAttribute("aria-label", `${r.label}: ${c.label}`);
+            input.value = formData[q.fieldId] || "";
+            const isCalc = calculated.has(q.fieldId);
+            if (isCalc) {
+              input.readOnly = true;
+              td.classList.add("calc");
+              input.title = "Beregnes automatisk";
+            } else {
+              input.oninput = (e) => {
+                formData[q.fieldId] = e.target.value;
+                onFieldChanged();
+              };
+            }
+            if (q.required) td.classList.add("required");
+            td.dataset.field = q.fieldId;
+            td.appendChild(input);
+            pageBindings.push({ q, el: td, input, cell: true, calc: isCalc });
+          }
+          tr.appendChild(td);
+        });
+        table.appendChild(tr);
+      });
+      wrap.appendChild(table);
+      return wrap;
+    }
+
+    // Update calculated values and conditional visibility without re-rendering (keeps focus)
+    function refreshPage() {
+      pageBindings.forEach(b => {
+        const open = evaluateCondition(b.q.condition);
+        if (b.cell) {
+          b.input.disabled = !open;
+          b.el.classList.toggle("closed", !open);
+          if (b.calc) b.input.value = formData[b.q.fieldId] || "";
+        } else {
+          b.el.style.display = open ? "" : "none";
+          if (b.input) b.input.value = formData[b.q.fieldId] || "";
+        }
+      });
+    }
+
+    function onFieldChanged() {
+      applyCalculations();
+      warnedPageIndex = -1;
+      showPageMessages([], []);
+      refreshPage();
+      updatePreview();
+      const before = pages.map(p => p.id).join();
+      recomputePages();
+      if (pages.map(p => p.id).join() !== before) renderNav();
+    }
+
+    function isEmpty(v) {
+      return v === undefined || v === null || v === "" || (Array.isArray(v) && v.length === 0);
+    }
+
+    function missingRequired(page) {
+      const calculated = calculatedFieldIds();
+      return page.questions.filter(q =>
+        q.required && !calculated.has(q.fieldId) && evaluateCondition(q.condition) && isEmpty(formData[q.fieldId]));
+    }
+
+    function showPageMessages(missing, violations) {
+      const box = document.getElementById("page-messages");
+      if (!box) return;
+      box.innerHTML = "";
+      document.querySelectorAll("#step-container .invalid").forEach(el => el.classList.remove("invalid"));
+      const mark = fid => document.querySelectorAll(`#step-container [data-field="${fid}"]`).forEach(el => el.classList.add("invalid"));
+
+      if (missing.length) {
+        const div = document.createElement("div");
+        div.className = "rule-msg error";
+        div.textContent = `Feil: ${missing.length} påkrevde felt er ikke fylt ut.`;
+        box.appendChild(div);
+        missing.forEach(q => mark(q.fieldId));
       }
+      const pageOf = new Map();
+      pages.forEach((p, i) => p.questions.forEach(q => pageOf.set(q.fieldId, i)));
+      violations.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "rule-msg " + (c.severity === "warning" ? "warning" : "error");
+        div.textContent = (c.severity === "warning" ? "Advarsel: " : "Feil: ") + c.message;
+        const targets = (c.reportOn && c.reportOn.length ? c.reportOn : constraintDeps(c)).filter(f => pageOf.has(f));
+        targets.forEach(mark);
+        const target = targets.map(f => pageOf.get(f)).find(i => i !== currentPageIndex);
+        if (target !== undefined) {
+          const link = document.createElement("button");
+          link.type = "button";
+          link.className = "msg-link";
+          link.textContent = `Gå til ${pages[target].id}`;
+          link.onclick = () => goToPage(target);
+          div.appendChild(link);
+        }
+        box.appendChild(div);
+      });
+      if (missing.length || violations.length) box.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
     function navigateStep(direction) {
-      recomputeVisibleSteps();
-      const step = visibleSteps[currentStepIndex];
-      if (direction > 0 && step && step.required && (!formData[step.fieldId] || (Array.isArray(formData[step.fieldId]) && formData[step.fieldId].length === 0))) {
-        alert("Dette feltet er påkrevd.");
-        return;
-      }
-
+      recomputePages();
       if (direction > 0) {
         applyCalculations();
-        const isLast = currentStepIndex === visibleSteps.length - 1;
-        const violations = isLast ? allViolations() : violationsAtStep(currentStepIndex);
+        const page = pages[currentPageIndex];
+        const missing = page ? missingRequired(page) : [];
+        const isLast = currentPageIndex === pages.length - 1;
+        const violations = isLast ? allViolations() : violationsAtPage(currentPageIndex);
         const errors = violations.filter(c => c.severity !== "warning");
         const warnings = violations.filter(c => c.severity === "warning");
-        if (errors.length || (warnings.length && warnedStepIndex !== currentStepIndex)) {
-          showRuleMessages(violations);
-          warnedStepIndex = errors.length ? -1 : currentStepIndex;
+        if (missing.length || errors.length || (warnings.length && warnedPageIndex !== currentPageIndex)) {
+          showPageMessages(missing, violations);
+          warnedPageIndex = (missing.length || errors.length) ? -1 : currentPageIndex;
           return;
         }
-        warnedStepIndex = -1;
+        warnedPageIndex = -1;
+        if (isLast) {
+          alert(`Skjema innsendt!\n\nPayload:\n${JSON.stringify(formData, null, 2)}`);
+          return;
+        }
       }
-
-      if (direction > 0 && currentStepIndex === visibleSteps.length - 1) {
-        alert(`Skjema innsendt!\n\nPayload:\n${JSON.stringify(formData, null, 2)}`);
-        return;
-      }
-
-      currentStepIndex += direction;
-      renderStepIndicators();
-      renderCurrentStep();
+      goToPage(currentPageIndex + direction);
     }
 
     function updatePreview() {
@@ -807,7 +943,8 @@
 
     function resetSimulator() {
       for (const key in formData) delete formData[key];
-      currentStepIndex = 0;
+      currentPageIndex = 0;
+      pages = [];
       init();
     }
 
