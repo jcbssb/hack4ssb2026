@@ -89,7 +89,7 @@ main = do
       injectIntoAltinnApp targetPath helloWorldDialogue
 
     ["--inject-matrix-demo", targetPath] -> do
-      injectIntoAltinnApp targetPath matrixDemoDialogue
+      injectIntoAltinnAppPaged targetPath matrixDemoDialogue
 
     ["--inject-rules", targetPath] -> do
       injectIntoAltinnApp targetPath rulesDemoDialogue
@@ -150,7 +150,7 @@ main = do
 
     ["--inject-trial5", targetPath] -> do
       putStrLn $ "Injecting Trial 5 Byggesak into Altinn app at: " ++ targetPath
-      injectIntoAltinnApp targetPath trial5ByggesakDialogue
+      injectIntoAltinnAppPaged targetPath trial5ByggesakDialogue
       putStrLn "Trial 5 Byggesak successfully injected into Altinn app!"
 
     ["--print-altinn-layout"] -> do
@@ -191,6 +191,8 @@ main = do
       putStrLn "  cabal run schema-dsl-cli -- --update-all            # Write both meta and baseline schemas"
       putStrLn "  cabal run schema-dsl-cli -- --inject-altinn <DIR>   # Compile and inject baseline into Altinn App repo"
       putStrLn "  cabal run schema-dsl-cli -- --inject-synthetic <DIR># Compile and inject comprehensive synthetic schema into Altinn App repo"
+      putStrLn "  cabal run schema-dsl-cli -- --inject-trial5 <DIR>    # Inject Byggesak Trial 5, one Altinn page per bolk"
+      putStrLn "  cabal run schema-dsl-cli -- --inject-matrix-demo <DIR># Inject the matrix demo, one Altinn page per bolk"
       putStrLn "  cabal run schema-dsl-cli -- --reorder-evolution <DIR> # Reorder Altinn pages by schema evolution progression"
       putStrLn "  cabal run schema-dsl-cli -- --print-altinn-layout   # Print compiled Altinn layout JSON"
       putStrLn "  cabal run schema-dsl-cli -- --print-synthetic-layout# Print compiled synthetic Altinn layout JSON"

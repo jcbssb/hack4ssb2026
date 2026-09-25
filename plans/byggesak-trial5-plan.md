@@ -79,7 +79,13 @@ avklares mot veiledningen før den kodes som beregning (ellers kun kontroll).
 
 ## Fase 3 – Implementasjon
 
-Status: steg 1 og 3 ✅ (`Examples/ByggesakTrial5.hs`: 436 felt, 96 beregninger, 195 kontroller). Steg 2 gjenstår.
+Status: steg 1–3 ✅ (`Examples/ByggesakTrial5.hs`: 436 felt, 96 beregninger, 195 kontroller).
+
+Altinn (`--inject-trial5`): én side per bolk (`S05_trial5_byggesak_01`–`_31`, bolkbetingelser blir
+sidens `hidden`), matriser som `Grid`-komponenter, kontroller i `A3_RA-1000_M.validation.json`.
+Injektoren erstatter eksisterende C#-klasse og egne sider/tekster ved ny injeksjon (idempotent).
+Alle genererte layoutfiler validerer mot Altinns layout-skjema, og alle uttrykk er sjekket mot
+funksjonene og aritetene i Altinns uttrykksskjema. Ikke kjørt i Altinn (dotnet mangler lokalt).
 
 1. Ny `trial5ByggesakDialogue` i `Examples/ByggesakTrial5.hs` (`dialogueId` `trial5-byggesak`, side
    `S05_trial5_byggesak`, rang 55), bygget bolk for bolk med matrise-hjelperen. Trial 4 er uendret.

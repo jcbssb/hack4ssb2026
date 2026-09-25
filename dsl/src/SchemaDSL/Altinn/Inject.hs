@@ -2,6 +2,8 @@
 
 module SchemaDSL.Altinn.Inject
   ( injectIntoAltinnApp
+  , injectIntoAltinnAppPaged
+  , isOwnPage
   , updateSettingsPageOrder
   , enforceEvolutionPageOrder
   , mergeTextResources
@@ -23,18 +25,34 @@ import Data.Aeson.Key (fromText, toText)
 import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Vector as V
 import qualified Data.Text as T
-import System.Directory (createDirectoryIfMissing, doesFileExist)
+import System.Directory (createDirectoryIfMissing, doesFileExist, listDirectory, removeFile)
 import System.FilePath ((</>))
 import SchemaDSL.Types
 import SchemaDSL.Altinn.Types
-import SchemaDSL.Altinn.Compile (compileToAltinn)
+import SchemaDSL.Altinn.Compile (compileToAltinn, compileToAltinnPaged)
 import SchemaDSL.Altinn.DataModel (updateJsonSchemaModel, updateCSharpModel)
 
--- | Inject compiled artifacts into target Altinn app checkout
+-- | Inject a dialogue as one Altinn page
 injectIntoAltinnApp :: FilePath -> Dialogue -> IO ()
-injectIntoAltinnApp targetDir d = do
-  let artifacts = compileToAltinn d
-      appDir = targetDir </> "App"
+injectIntoAltinnApp targetDir d = injectArtifacts targetDir d (compileToAltinn d)
+
+-- | Inject a dialogue as one Altinn page per bolk
+injectIntoAltinnAppPaged :: FilePath -> Dialogue -> IO ()
+injectIntoAltinnAppPaged targetDir d = injectArtifacts targetDir d (compileToAltinnPaged d)
+
+-- | Whether a page belongs to the dialogue with base page name `base`:
+-- the base itself or a numbered page <base>_NN
+isOwnPage :: String -> String -> Bool
+isOwnPage base p =
+  p == base || (take (length base + 1) p == base ++ "_" && isNumbered (drop (length base + 1) p))
+  where
+    isNumbered n = not (null n) && all (`elem` ("0123456789" :: String)) n
+
+-- | Inject compiled artifacts into target Altinn app checkout. Pages previously
+-- injected for the same dialogue (single or paged) are replaced.
+injectArtifacts :: FilePath -> Dialogue -> AltinnArtifacts -> IO ()
+injectArtifacts targetDir d artifacts = do
+  let appDir = targetDir </> "App"
       uiDir = appDir </> "ui" </> "mainlayout"
       layoutsDir = uiDir </> "layouts"
       optionsDir = appDir </> "options"
@@ -49,10 +67,22 @@ injectIntoAltinnApp targetDir d = do
   createDirectoryIfMissing True textsDir
   createDirectoryIfMissing True modelsDir
 
-  -- 2. Write Layout File: App/ui/mainlayout/layouts/<PageName>.json
-  let layoutPath = layoutsDir </> (pageName artifacts ++ ".json")
-  BL.writeFile layoutPath (encodePretty (pageLayout artifacts))
-  putStrLn $ "  [+] Wrote layout: " ++ layoutPath
+  -- 2. Write Layout Files: App/ui/mainlayout/layouts/<PageName>.json, removing stale pages
+  let base = "S05_" ++ sanitizeName (dialogueId d)
+      newNames = map fst (pages artifacts)
+  existingLayouts <- listDirectory layoutsDir
+  mapM_ (\f -> do
+    removeFile (layoutsDir </> f)
+    putStrLn $ "  [-] Removed stale layout: " ++ (layoutsDir </> f)
+    ) [ f | f <- existingLayouts
+          , Just n <- [stripJsonSuffix f]
+          , isOwnPage base n
+          , n `notElem` newNames ]
+  mapM_ (\(name, layout) -> do
+    let layoutPath = layoutsDir </> (name ++ ".json")
+    BL.writeFile layoutPath (encodePretty layout)
+    putStrLn $ "  [+] Wrote layout: " ++ layoutPath
+    ) (pages artifacts)
 
   -- 3. Write Options Files: App/options/<OptionsId>.json
   mapM_ (\(fname, val) -> do
@@ -69,7 +99,7 @@ injectIntoAltinnApp targetDir d = do
       content <- BL.readFile settingsPath
       case decode (stripBOM content) of
         Just (Object obj) -> do
-          let updated = updateSettingsPageOrder (pageName artifacts) obj
+          let updated = updateSettingsPages base newNames obj
           BL.writeFile settingsPath (encodePretty (Object updated))
           putStrLn $ "  [+] Updated page order in: " ++ settingsPath
         _ -> putStrLn $ "  [!] Warning: Failed to parse Settings.json at " ++ settingsPath
@@ -116,15 +146,30 @@ injectIntoAltinnApp targetDir d = do
 
   putStrLn "Successfully completed Altinn schema injection!"
 
+stripJsonSuffix :: FilePath -> Maybe String
+stripJsonSuffix f =
+  let n = length f - length (".json" :: String)
+  in if n > 0 && drop n f == ".json" then Just (take n f) else Nothing
+
 -- | Strip UTF-8 Byte Order Mark (EF BB BF) if present
 stripBOM :: BL.ByteString -> BL.ByteString
 stripBOM bs
   | BL.isPrefixOf (BL.pack [0xEF, 0xBB, 0xBF]) bs = BL.drop 3 bs
   | otherwise                                     = bs
 
--- | Canonical schema evolution rank for demoing schema development progress
+-- | Canonical schema evolution rank for demoing schema development progress.
+-- Numbered pages (<base>_NN from paged injection) rank with their base page.
 evolutionRank :: T.Text -> Int
-evolutionRank p
+evolutionRank page = baseRank (stripPageNumber page)
+  where
+    stripPageNumber t =
+      let (pre, num) = T.breakOnEnd "_" t
+      in if not (T.null num) && T.all (`elem` ("0123456789" :: String)) num && T.length pre > 1
+           then T.dropEnd 1 pre
+           else t
+
+baseRank :: T.Text -> Int
+baseRank p
   | p == "S05_hack4ssb_hello"          = 10  -- v1: Minimal Hello World baseline
   | p == "S05_hack4ssb_comprehensive"  = 20  -- v2: Extended synthetic schema with full question types
   | p == "S05_kostra51_kulturminner"   = 30  -- v3: OCR screenshot prototype (B1 Kulturminner)
@@ -138,16 +183,17 @@ evolutionRank p
   | p == "S05_trial2_byggesak"         = 52  -- v5.2: 20Byggesak Trial 2
   | p == "S05_trial3_byggesak"         = 53  -- v5.3: 20Byggesak Trial 3
   | p == "S05_trial4_byggesak"         = 54  -- v5.4: 20Byggesak Trial 4
-  | p == "S05_trial5_byggesak"         = 55  -- v5.5: 20Byggesak Trial 5 (full PDF rebuild with rules)
+  | p == "S05_trial5_byggesak"         = 55  -- v5.5: 20Byggesak Trial 5 (full PDF rebuild with rules, one page per bolk)
+  | p == "S05_hack4ssb_matrix"         = 60  -- Matrix builder demo
   | otherwise                          = 999 -- Other / custom pages
 
 -- | Sort injected pages by schema evolution progression while preserving outer boundary pages
 sortPagesByEvolution :: [T.Text] -> [T.Text]
-sortPagesByEvolution pages =
-  let (before, rest1) = break (== "S01_Forside") pages
+sortPagesByEvolution pageOrder =
+  let (before, rest1) = break (== "S01_Forside") pageOrder
       (prefix, withoutPrefix) = case rest1 of
         (f:rest) -> (before ++ [f], rest)
-        []       -> ([], pages)
+        []       -> ([], pageOrder)
       -- Exclude both the fixed suffix pages AND any injected pages that might have been appended at the end
       fixedSuffix = ["S20_Summary", "S70_Tidsbruk", "S80_Brukeropplevelse", "S90_Kommentarogkontakt"]
       isFixedSuffix p = p `elem` fixedSuffix
@@ -155,6 +201,31 @@ sortPagesByEvolution pages =
       suffixPages   = filter isFixedSuffix withoutPrefix
       sortedInjected = sortBy (comparing evolutionRank) injectedPages
   in prefix ++ sortedInjected ++ suffixPages
+
+-- | Replace a dialogue's pages (base name and numbered pages) in the page order
+-- with new ones, then sort in schema evolution order
+updateSettingsPages :: String -> [String] -> KM.KeyMap Value -> KM.KeyMap Value
+updateSettingsPages base newPages km =
+  case KM.lookup "pages" km of
+    Just (Object pObj) ->
+      case KM.lookup "groups" pObj of
+        Just (Array grps) ->
+          let updatedGrps = V.imap updateGroup grps
+              newPObj = KM.insert "groups" (Array updatedGrps) pObj
+          in KM.insert "pages" (Object newPObj) km
+        _ -> km
+    _ -> km
+  where
+    updateGroup idx (Object gObj) =
+      case KM.lookup "order" gObj of
+        Just (Array ord) ->
+          let listOrd = [ t | String t <- V.toList ord ]
+              kept = filter (not . isOwnPage base . T.unpack) listOrd
+              -- New pages go into the first group only
+              withNew = if idx == 0 then kept ++ map T.pack newPages else kept
+          in Object (KM.insert "order" (Array (V.fromList (map String (sortPagesByEvolution withNew)))) gObj)
+        _ -> Object gObj
+    updateGroup _ other = other
 
 -- | Helper to insert pageName into pages.groups[0].order in schema evolution order
 updateSettingsPageOrder :: String -> KM.KeyMap Value -> KM.KeyMap Value
@@ -202,20 +273,28 @@ enforceEvolutionPageOrder km =
         _ -> Object gObj
     updateGroup other = other
 
--- | Helper to merge text resources without duplicating IDs
+-- | Merge text resources: keys generated by the compiler get their new value,
+-- other resources are kept as they are
 mergeTextResources :: [(String, String)] -> KM.KeyMap Value -> KM.KeyMap Value
 mergeTextResources newRes km =
   case KM.lookup "resources" km of
     Just (Array resArr) ->
-      let existingList = V.toList resArr
+      let newMap = [ (T.pack k, v) | (k, v) <- newRes ]
+          updateEntry (Object o)
+            | Just (String i) <- KM.lookup "id" o, Just v <- lookup i newMap = Object (KM.insert "value" (String (T.pack v)) o)
+          updateEntry e = e
+          existingList = map updateEntry (V.toList resArr)
           existingIds = [i | Object o <- existingList, Just (String i) <- [KM.lookup "id" o]]
           newEntries = [ object ["id" .= k, "value" .= v]
-                       | (k, v) <- newRes
+                       | (k, v) <- nubByKey newRes
                        , T.pack k `notElem` existingIds
                        ]
           allRes = existingList ++ newEntries
       in KM.insert "resources" (Array (V.fromList allRes)) km
     _ -> km
+  where
+    -- Last value wins for keys emitted twice
+    nubByKey = foldr (\(k, v) acc -> if k `elem` map fst acc then acc else (k, v) : acc) [] . reverse
 
 -- | Replace this dialogue's expression validations (keys under dataPrefix), keeping all others
 mergeValidations :: T.Text -> [(String, [Value])] -> KM.KeyMap Value -> KM.KeyMap Value

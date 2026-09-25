@@ -3,6 +3,8 @@
 module SchemaDSL.Altinn.DataModel
   ( updateJsonSchemaModel
   , updateCSharpModel
+  , injectCSharpClass
+  , removeCSharpClass
   ) where
 
 import qualified Data.ByteString.Lazy as BL
@@ -91,12 +93,11 @@ updateCSharpModel modelsDir d = do
           dIdClean = sanitizeName (dialogueId d)
           className = capitalize dIdClean
           propName = dIdClean
-      if ("public " ++ className ++ " " ++ propName) `isInfixOfStr` content
-        then putStrLn $ "  [=] C# model already has " ++ className ++ " definition."
-        else do
-          let updated = injectCSharpClass dIdClean className (allDialogueQuestions d) content
-          TIO.writeFile csPath (T.pack updated)
-          putStrLn $ "  [+] Updated C# data model with class " ++ className ++ " in: " ++ csPath
+          existed = ("public " ++ className ++ " " ++ propName) `isInfixOfStr` content
+          cleaned = removeCSharpClass dIdClean className content
+          updated = injectCSharpClass dIdClean className (allDialogueQuestions d) cleaned
+      TIO.writeFile csPath (T.pack updated)
+      putStrLn $ "  [+] " ++ (if existed then "Replaced" else "Added") ++ " C# data model class " ++ className ++ " in: " ++ csPath
 
 isInfixOfStr :: String -> String -> Bool
 isInfixOfStr needle haystack = any (needle `isPrefixOfStr`) (tailsStr haystack)
@@ -108,13 +109,34 @@ isInfixOfStr needle haystack = any (needle `isPrefixOfStr`) (tailsStr haystack)
     tailsStr [] = [[]]
     tailsStr xxs@(_:xs) = xxs : tailsStr xs
 
+-- | SkjemaData property for a dialogue class, as injected by injectCSharpClass
+skjemaDataProperty :: String -> String -> String
+skjemaDataProperty dIdClean className =
+  "    [XmlElement(\"" ++ dIdClean ++ "\")]\n" ++
+  "    [JsonProperty(\"" ++ dIdClean ++ "\")]\n" ++
+  "    [JsonPropertyName(\"" ++ dIdClean ++ "\")]\n" ++
+  "    public " ++ className ++ " " ++ dIdClean ++ " { get; set; }\n\n"
+
+-- | Undo injectCSharpClass: remove the SkjemaData property and the class definition
+-- (no-op when they are absent), so a dialogue can be re-injected with new fields
+removeCSharpClass :: String -> String -> String -> String
+removeCSharpClass dIdClean className content =
+  let withoutProp = removeFirst ("\n" ++ skjemaDataProperty dIdClean className) content
+      classStart = "\n  public class " ++ className ++ "\n  {\n"
+  in case breakOn classStart withoutProp of
+       (before, rest) | not (null rest) ->
+         case breakOn "\n  }\n" (drop (length classStart) rest) of
+           (_, after) | not (null after) -> before ++ drop (length ("\n  }\n" :: String)) after
+           _ -> withoutProp
+       _ -> withoutProp
+  where
+    removeFirst needle hay = case breakOn needle hay of
+      (before, rest) | not (null rest) -> before ++ drop (length needle) rest
+      _ -> hay
+
 injectCSharpClass :: String -> String -> [Question] -> String -> String
 injectCSharpClass dIdClean className qs content =
-  let propertyInSkjemaData =
-        "    [XmlElement(\"" ++ dIdClean ++ "\")]\n" ++
-        "    [JsonProperty(\"" ++ dIdClean ++ "\")]\n" ++
-        "    [JsonPropertyName(\"" ++ dIdClean ++ "\")]\n" ++
-        "    public " ++ className ++ " " ++ dIdClean ++ " { get; set; }\n\n"
+  let propertyInSkjemaData = skjemaDataProperty dIdClean className
 
       fieldDef (q, idx) =
         let fid = fieldId q

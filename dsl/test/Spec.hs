@@ -9,6 +9,7 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Vector as V
 import qualified Data.Text as T
 import qualified Data.Map.Strict as M
+import Data.List (nub)
 import SchemaDSL
 
 main :: IO ()
@@ -35,6 +36,7 @@ main = do
   testMatrixRowsFromPdf
   testTrial5AgainstPdf
   testMatrixDemo
+  testPagedAltinn
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -136,8 +138,8 @@ testCompileRulesToAltinn = do
       layoutTxt = BLC.unpack (encode (pageLayout artifacts))
       paths = map fst (validations artifacts)
       paths5 = map fst (validations (compileToAltinn trial5ByggesakDialogue))
-  expect ("t4_timerTotalt-number" `T.isInfixOf` T.pack layoutTxt
-          && not ("t4_timerTotalt-input" `T.isInfixOf` T.pack layoutTxt))
+  expect ("t4-timerTotalt-number" `T.isInfixOf` T.pack layoutTxt
+          && not ("t4-timerTotalt-input" `T.isInfixOf` T.pack layoutTxt))
          "Calculated fields compile to display-only Number components."
   expect ("SkjemaData.trial4_byggesak.t4_e1_klagerKommuneAlt" `elem` paths
           && "SkjemaData.trial4_byggesak.t4_c10_delingBehandlet" `elem` paths
@@ -353,6 +355,51 @@ testMatrixDemo = do
   expect (val "utlaan" "iaar" "demo_sml" == Just "130" && val "utlaan" "endring" "demo_sml" == Just "-170"
           && violated == ["demo_innkjop_herav_boker", "demo_sml_fall_utlaan"])
          ("Matrix demo: copied cells, difference and rules. " ++ show violated)
+
+-- | Test 21: Paged Altinn compilation: one page per bolk, page-level hidden, Grid for matrices
+testPagedAltinn :: IO ()
+testPagedAltinn = do
+  let a = compileToAltinnPaged trial5ByggesakDialogue
+      layoutOf v = case v of
+        Object o | Just (Object dat) <- KM.lookup "data" o, Just (Array cs) <- KM.lookup "layout" dat -> V.toList cs
+        _ -> []
+      hiddenOf v = case v of
+        Object o | Just (Object dat) <- KM.lookup "data" o -> KM.lookup "hidden" dat
+        _ -> Nothing
+      field k (Object o) = KM.lookup k o
+      field _ _ = Nothing
+      ids comps = [ t | c <- comps, Just (String t) <- [field "id" c] ]
+      gridRefs comps =
+        [ t | c <- comps, field "type" c == Just (String "Grid")
+            , Just (Array rows) <- [field "rows" c], Object r <- V.toList rows
+            , Just (Array cells) <- [KM.lookup "cells" r], Object cell <- V.toList cells
+            , Just (String t) <- [KM.lookup "component" cell] ]
+      pageNames = map fst (pages a)
+      allIds = concatMap (ids . layoutOf . snd) (pages a)
+      danglingRefs = [ r | (_, l) <- pages a, let cs = layoutOf l, r <- gridRefs cs, r `notElem` ids cs ]
+      hiddenPages = [ n | (n, l) <- pages a, hiddenOf l /= Nothing ]
+      grids = length [ () | (_, l) <- pages a, c <- layoutOf l, field "type" c == Just (String "Grid") ]
+  expect (length (pages a) == length (steps trial5ByggesakDialogue)
+          && take 2 pageNames == ["S05_trial5_byggesak_01", "S05_trial5_byggesak_02"]
+          && pageName (compileToAltinn trial5ByggesakDialogue) == "S05_trial5_byggesak")
+         "Paged Altinn compilation gives one numbered page per bolk."
+  expect (length hiddenPages == 10 && "S05_trial5_byggesak_18" `elem` hiddenPages)
+         ("Bolk conditions hide whole pages. " ++ show hiddenPages)
+  expect (grids == 22 && null danglingRefs && length allIds == length (nub allIds))
+         ("Matrices compile to Grid components referring to components on the same page. " ++ show (take 3 danglingRefs))
+  let settings = KM.fromList
+        [ ("pages", Object $ KM.fromList
+            [ ("groups", Array $ V.fromList
+                [ Object $ KM.fromList [ ("order", Array $ V.fromList
+                    (map String ["S01_Forside", "S05_trial5_byggesak", "S05_trial5_byggesak_07", "S05_hack4ssb_matrix_01", "S05_trial4_byggesak", "S20_Summary"])) ] ]) ]) ]
+      reordered = enforceEvolutionPageOrder settings
+      orderOf km = case KM.lookup "pages" km of
+        Just (Object p) | Just (Array g) <- KM.lookup "groups" p, Object g0 <- V.head g, Just (Array o) <- KM.lookup "order" g0 -> [ T.unpack t | String t <- V.toList o ]
+        _ -> []
+  expect (orderOf reordered == ["S01_Forside", "S05_trial4_byggesak", "S05_trial5_byggesak", "S05_trial5_byggesak_07", "S05_hack4ssb_matrix_01", "S20_Summary"]
+          && isOwnPage "S05_trial5_byggesak" "S05_trial5_byggesak_12"
+          && not (isOwnPage "S05_trial5_byggesak" "S05_trial5_byggesak_x1"))
+         ("Numbered pages rank with their dialogue in the evolution order. " ++ show (orderOf reordered))
 
 -- | Test 10: Verify enforceEvolutionPageOrder orders pages chronologically by schema evolution
 testEvolutionPageOrdering :: IO ()

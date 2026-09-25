@@ -4,6 +4,7 @@
 
 module SchemaDSL.Altinn.Compile
   ( compileToAltinn
+  , compileToAltinnPaged
   , compileSteps
   , compileStepItems
   , compilePredicateToHidden
@@ -24,9 +25,18 @@ import Data.List (nub)
 import SchemaDSL.Eval (constraintTargets, enteredInputs)
 import SchemaDSL.Altinn.Types
 
--- | Compile generic Dialogue to Altinn artifacts using model binding helper strategy
+-- | Compile generic Dialogue to one Altinn page using model binding helper strategy
 compileToAltinn :: Dialogue -> AltinnArtifacts
-compileToAltinn d@Dialogue{ dialogueId = did, title = dTitle, context = dCtx, calculations = dCalcs, steps = dSteps } =
+compileToAltinn = compileWith False
+
+-- | Compile a Dialogue to one Altinn page per bolk (consecutive standalone questions
+-- share a page). Pages are named <base>_01, <base>_02, ... and a bolk condition hides
+-- its whole page.
+compileToAltinnPaged :: Dialogue -> AltinnArtifacts
+compileToAltinnPaged = compileWith True
+
+compileWith :: Bool -> Dialogue -> AltinnArtifacts
+compileWith paged d@Dialogue{ dialogueId = did, title = dTitle, context = dCtx, calculations = dCalcs, steps = dSteps } =
   let dIdClean = sanitizeName did
       pgName = "S05_" ++ dIdClean
       headerId = dIdClean ++ "-header"
@@ -52,13 +62,9 @@ compileToAltinn d@Dialogue{ dialogueId = did, title = dTitle, context = dCtx, ca
         , "grid"                 .= object [ "xs" .= (12 :: Int) ]
         ]
 
-      -- Compile steps (both standalone questions and grouped bolker)
-      (stepComps, stepOpts, stepTexts) = compileStepItems dIdClean dCalcs dSteps
-      (validationRules, constraintTexts) = compileConstraints d
-
-      -- Navigation buttons at the end of the page
-      navComp = object
-        [ "id"                   .= (dIdClean ++ "-nav-buttons")
+      -- Navigation buttons at the end of each page
+      navComp suffix = object
+        [ "id"                   .= (dIdClean ++ "-nav-buttons" ++ suffix)
         , "type"                 .= ("NavigationButtons" :: String)
         , "textResourceBindings" .= object
             [ "next" .= ("lang.tittel.navigation.neste" :: String)
@@ -71,25 +77,83 @@ compileToAltinn d@Dialogue{ dialogueId = did, title = dTitle, context = dCtx, ca
             ]
         ]
 
-      fullLayout = object
+      layoutFile :: Maybe Value -> [Value] -> Value
+      layoutFile hidden comps = object
         [ "$schema" .= ("https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json" :: String)
-        , "data"    .= object [ "layout" .= ([headerComp, panelComp] ++ stepComps ++ [navComp]) ]
+        , "data"    .= object ([ "layout" .= map altinnComponentIds comps ] ++ [ "hidden" .= h | Just h <- [hidden] ])
         ]
 
+      (validationRules, constraintTexts) = compileConstraints d
+
       baseTexts =
-        [ (pgName, dTitle)
-        , ("lang." ++ dIdClean ++ ".tittel", dTitle)
+        [ ("lang." ++ dIdClean ++ ".tittel", dTitle)
         , ("lang." ++ dIdClean ++ ".panel.title", "Om registreringen")
         , ("lang." ++ dIdClean ++ ".panel.body", maybe "Dette skjemaet samler inn opplysninger." (maybe "" id . legalNotice) dCtx)
         ]
 
+      -- Single page: everything on S05_<id>
+      singlePage =
+        let (stepComps, stepOpts, stepTexts) = compileStepItems dIdClean dCalcs dSteps
+        in ( [ (pgName, layoutFile Nothing ([headerComp, panelComp] ++ stepComps ++ [navComp ""])) ]
+           , stepOpts
+           , (pgName, dTitle) : stepTexts )
+
+      -- Paged: one page per bolk, loose questions grouped
+      pageGroups = groupSteps dSteps
+      pagedPages =
+        [ let name = pgName ++ "_" ++ pad2 i
+              (comps, opts, texts) = compileStepItems dIdClean dCalcs grp
+              intro = if i == 1 then [headerComp, panelComp] else []
+              hidden = case grp of
+                [BolkStep b] -> fmap (compilePredicateToHidden dIdClean dCalcs) (bolkCondition b)
+                _            -> Nothing
+              pageTitle = case grp of
+                [BolkStep b] -> bolkTitle b
+                _            -> dTitle
+          in ((name, layoutFile hidden (intro ++ comps ++ [navComp ("-p" ++ pad2 i)])), opts, (name, pageTitle) : texts)
+        | (i, grp) <- zip [1 :: Int ..] pageGroups
+        ]
+
+      (pageList, allOpts, stepTextsAll) =
+        if paged
+          then (map (\(p, _, _) -> p) pagedPages, concatMap (\(_, o, _) -> o) pagedPages, concatMap (\(_, _, t) -> t) pagedPages)
+          else singlePage
+
   in AltinnArtifacts
-      { pageName      = pgName
-      , pageLayout    = fullLayout
-      , optionsLists  = stepOpts
-      , textResources = baseTexts ++ stepTexts ++ constraintTexts
+      { pages         = pageList
+      , optionsLists  = allOpts
+      , textResources = baseTexts ++ stepTextsAll ++ constraintTexts
       , validations   = validationRules
       }
+  where
+    pad2 n = if n < 10 then '0' : show n else show n
+
+-- | Altinn component ids must match ^[0-9a-zA-Z][0-9a-zA-Z-]*...: replace underscores
+-- in a component's id and in the component references of a Grid
+altinnComponentIds :: Value -> Value
+altinnComponentIds (Object o) =
+  let fixId = adjustKey fixStr "id"
+      fixRows = adjustKey (mapArray fixRow) "rows"
+      fixRow (Object r) = Object (adjustKey (mapArray fixCell) "cells" r)
+      fixRow v = v
+      fixCell (Object c) = Object (adjustKey fixStr "component" c)
+      fixCell v = v
+      mapArray f (Array a) = Array (V.map f a)
+      mapArray _ v = v
+      fixStr (String t) = String (T.replace "_" "-" t)
+      fixStr v = v
+  in Object (fixRows (fixId o))
+altinnComponentIds v = v
+
+adjustKey :: (Value -> Value) -> KM.Key -> KM.KeyMap Value -> KM.KeyMap Value
+adjustKey f k m = maybe m (\v -> KM.insert k (f v) m) (KM.lookup k m)
+
+-- | Each bolk is its own group; consecutive standalone questions form one group
+groupSteps :: [Step] -> [[Step]]
+groupSteps = foldr add []
+  where
+    add s@(QuestionStep _) ((q@(QuestionStep _) : qs) : rest) = (s : q : qs) : rest
+    add s acc = [s] : acc
 
 -- | Convert DSL Predicate to Altinn Frontend v4 hidden rule expression
 compilePredicateToHidden :: String -> [Calculation] -> Predicate -> Value
@@ -335,8 +399,67 @@ compileStepItems dIdClean calcs stepList = goItems stepList
             Nothing -> ([], [])
 
           bBaseTexts = (bTitleKey, bolkTitle b) : bDescTexts
-          (qComps, qOpts, qTexts) = compileSteps dIdClean calcs (bolkQuestions b)
+          (qComps, qOpts, qTexts) = compileQuestionsWithMatrices dIdClean calcs (bolkQuestions b)
       in ([bHeaderComp] ++ bDescCompList ++ qComps, qOpts, bBaseTexts ++ qTexts)
+
+-- | Compile questions, rendering consecutive cells of the same matrix (questions with a
+-- "matrix" annotation) as a Grid table that places the cell components
+compileQuestionsWithMatrices :: String -> [Calculation] -> [Question] -> ([Value], [(String, Value)], [(String, String)])
+compileQuestionsWithMatrices dIdClean calcs = go
+  where
+    go [] = ([], [], [])
+    go qs@(q : _) = case matrixInfo q of
+      Just (mid, _, _, _, _) ->
+        let (cells, rest) = span (\x -> fmap (\(m, _, _, _, _) -> m) (matrixInfo x) == Just mid) qs
+            (gridComp, gridTexts) = matrixGrid mid cells
+            (cComps, cOpts, cTexts) = compileSteps dIdClean calcs cells
+            (rComps, rOpts, rTexts) = go rest
+        in (gridComp : cComps ++ rComps, cOpts ++ rOpts, gridTexts ++ cTexts ++ rTexts)
+      Nothing ->
+        let (plain, rest) = break (\x -> matrixInfo x /= Nothing) qs
+            (pComps, pOpts, pTexts) = compileSteps dIdClean calcs plain
+            (rComps, rOpts, rTexts) = go rest
+        in (pComps ++ rComps, pOpts ++ rOpts, pTexts ++ rTexts)
+
+    calculated = map calcTarget calcs
+
+    matrixGrid mid cells =
+      let infos = [ (r, c, rl, cl, q) | q <- cells, Just (_, r, c, rl, cl) <- [matrixInfo q] ]
+          rows = nubBy' [ (r, rl) | (r, _, rl, _, _) <- infos ]
+          cols = nubBy' [ (c, cl) | (_, c, _, cl, _) <- infos ]
+          key kind k = "lang." ++ dIdClean ++ ".matrix." ++ mid ++ "." ++ kind ++ "." ++ k
+          compId q = dIdClean ++ "-" ++ fieldId q ++ (if fieldId q `elem` calculated then "-number" else "-input")
+          cellFor r c = case [ q | (r', c', _, _, q) <- infos, r' == r, c' == c ] of
+            (q : _) -> object [ "component" .= compId q ]
+            []      -> Null
+          header = object
+            [ "header" .= True
+            , "cells"  .= (object [ "text" .= ("" :: String) ] : [ object [ "text" .= key "col" c ] | (c, _) <- cols ])
+            ]
+          body (r, _) = object
+            [ "cells" .= (object [ "text" .= key "row" r ] : [ cellFor r c | (c, _) <- cols ]) ]
+          grid = object
+            [ "id"   .= (dIdClean ++ "-matrix-" ++ mid)
+            , "type" .= ("Grid" :: String)
+            , "rows" .= (header : map body rows)
+            ]
+      in (grid, [ (key "col" c, l) | (c, l) <- cols ] ++ [ (key "row" r, l) | (r, l) <- rows ])
+
+    -- Keys in order of first appearance
+    nubBy' = foldl (\acc x -> if fst x `elem` map fst acc then acc else acc ++ [x]) []
+
+-- | (matrix id, row key, column key, row label, column label) from a question's "matrix" annotation
+matrixInfo :: Question -> Maybe (String, String, String, String, String)
+matrixInfo q = do
+  anns <- annotations q
+  Object m <- KM.lookup "matrix" anns
+  String mid <- KM.lookup "id" m
+  String r <- KM.lookup "row" m
+  String c <- KM.lookup "col" m
+  let label k fallback = case KM.lookup k m of
+        Just (String t) -> T.unpack t
+        _               -> fallback
+  pure (T.unpack mid, T.unpack r, T.unpack c, label "rowLabel" (T.unpack r), label "colLabel" (T.unpack c))
 
 -- | Data model path for a field in this dialogue
 fieldPath :: String -> FieldId -> String
