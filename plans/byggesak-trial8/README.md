@@ -96,3 +96,7 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 - Findings F-002…F-008 (soft-required, DSL stricter required, conditional on calculated cells, missing gating, DSL-only constraints, source-only checks, calc-input differences). All status `proposed`; 432 items, 0 untriaged.
 - Mapped E0 (Section1), E1 (Seksjon_F1), E2 (Seksjon_F2): 2/40/40 fields matched 1:1 (colKey now accepts `e2a`-style headers). 19 of 19 mapped bolks align fully.
 - Output `.derived/20Byggesak.findings.json` is ready for the Skjemakart findings layer (not yet wired).
+
+### Progress: Skjemakart findings layer, D bolks
+- Skjemakart: `/api/findings`, "F" cell badge, "has finding" filter, Findings block in the detail pane. Tip: use `http://127.0.0.1:8765/` (a Python server shadows `localhost` on IPv6).
+- Mapped D1 (Section_E1, 51 fields) and D2 (Section11, 11) 1:1; `numKey` now splits `4.Antall` glued row labels. Section13 (2 radios) has no DSL bolk. 563 audit items, 0 untriaged.

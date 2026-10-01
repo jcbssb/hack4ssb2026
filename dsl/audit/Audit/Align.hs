@@ -56,7 +56,10 @@ numKey t0 = do
   let t = case T.unpack (T.take 2 t0) of
             [c, '.'] | c `elem` ['A' .. 'Z'] -> T.drop 2 t0
             _ -> t0
-  w <- listToMaybe (T.words t)
+  w0 <- listToMaybe (T.words t)
+  let w = case T.breakOn "." w0 of
+            (a, r) | not (T.null r), T.length r > 1, T.any isDigit a, T.all (\c -> isDigit c || isLower c) a, T.any isAlphaNum (T.drop 1 r), not (isDigit (T.index r 1)) -> a
+            _ -> w0
   let k = T.dropWhileEnd (== '.') w
   if validRow (T.unpack k) then Just k else Nothing
   where
