@@ -33,17 +33,17 @@ code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 <br><b>Has relation</b> <small>(click: only with ✓ → only without ✗ → off)</small>:
 <span class=hf data-h=calcIn>is calculated from others</span><span class=hf data-h=calcOut>feeds a calculation</span><span class=hf data-h=chk>has a constraint/check</span><span class=hf data-h=gates>controls other cells</span><span class=hf data-h=gated>is conditional (opened by another)</span><span class=hf data-h=isolated>no relations at all</span>
 <br><b>Audit vs DSL</b> <small>(from <code>align-json</code>; unaudited = bolk not yet mapped)</small>:
-<span class=hf data-h=aligned title="XML cell matched to a DSL field, no differences"><span class="au aligned">✔</span> aligned</span><span class=hf data-h=diff title="Matched, but required/checks/type/conditional differ"><span class="au diff">⚠</span> differs</span><span class=hf data-h=xmlOnly title="XML cell with no DSL field"><span class="au xml-only">✖</span> XML only</span><span class=hf data-h=explained title="Deliberately without DSL field (see config)"><span class="au explained">ⓘ</span> explained</span><span class=hf data-h=unaudited>not yet audited</span>
+<span class=hf data-h=aligned title="XML cell matched to a DSL field, no differences"><span class="au aligned">✔</span> aligned</span><span class=hf data-h=diff title="Matched, but required/checks/type/conditional differ"><span class="au diff">⚠</span> differs</span><span class=hf data-h=xmlOnly title="XML cell with no DSL field"><span class="au xml-only">✖</span> XML only</span><span class=hf data-h=explained title="Deliberately without DSL field (see config)"><span class="au explained">ⓘ</span> explained</span><span class=hf data-h=unaudited>not yet audited</span><span class=hf data-h=finding title="Cell is evidence for a triaged finding (F-NNN)"><span class="au diff">F</span> has finding</span>
 <br>chain depth <input id=depth type=number value=3 min=1 max=10 style="width:50px;display:inline"></div><div id=grid></div></main>
 <section id=detail>Select a cell.</section>
 <script type=module>
 import {buildIndex,relationsOf,label} from "/relations.mjs";
-const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);const AL=await (await fetch("/api/align")).json();const au=k=>AL.cells[k];
+const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);const AL=await (await fetch("/api/align")).json();const au=k=>AL.cells[k];const FD=await (await fetch("/api/findings")).json();const FM=Object.fromEntries(FD.cellFindings||[]);const FI=Object.fromEntries((FD.findings||[]).map(f=>[f.id,f]));const fnd=k=>FM[k]||[];
 let cur=facts.sections[0].id,sel=null,rev=-1;const F=new Set();
 const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 const K=new Set(),H=new Map();
 const has={calcIn:c=>idx.calcIn.has(c.key),calcOut:c=>idx.calcOut.has(c.key),chk:c=>idx.checkRefs.has(c.key)||idx.checkBy.has(c.key),gates:c=>idx.gates.has(c.key),gated:c=>idx.gatedByRev.has(c.key)};
-const st=c=>au(c.key)?.status;has.aligned=c=>st(c)==="aligned";has.diff=c=>st(c)==="diff";has.xmlOnly=c=>st(c)==="xml-only";has.explained=c=>st(c)==="explained";has.unaudited=c=>!st(c)&&c.kind!=="label";
+const st=c=>au(c.key)?.status;has.aligned=c=>st(c)==="aligned";has.diff=c=>st(c)==="diff";has.xmlOnly=c=>st(c)==="xml-only";has.explained=c=>st(c)==="explained";has.finding=c=>fnd(c.key).length>0;has.unaudited=c=>!st(c)&&c.kind!=="label";
 has.isolated=c=>!(has.calcIn(c)||has.calcOut(c)||has.chk(c)||has.gates(c)||has.gated(c));
 const kmatch={calc:c=>c.kind==="calculated"||c.kind==="prefilled",cond:c=>c.gatedBy.length>0,input:c=>c.kind==="input"||c.kind==="radio",label:c=>c.kind==="label",req:c=>c.required};
 const rel=(R,k)=>[...F].some(f=>f==="up"?R.up.has(k):f==="down"?R.down.has(k):R[f].has(k));
@@ -60,7 +60,7 @@ document.querySelectorAll(".hf").forEach(t=>t.onclick=()=>{const h=t.dataset.h,v
 $("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();H.clear();document.querySelectorAll(".hf").forEach(t=>t.className="hf");document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid();commit()};$("#depth").onchange=()=>{grid();detail()};
 const secAu=id=>{const o={};for(const c of facts.cells)if(c.set===id){const a=au(c.key);if(a)o[a.status]=(o[a.status]||0)+1}return o};
 const secBadge=id=>{const o=secAu(id),e=Object.entries(o);return e.length?e.map(([k,n])=>`<span class="au ${k}">${BADGE[k]}${n}</span>`).join(""):'<span class="au none" title="no audit data for this section">∅ not audited</span>'};
-const BADGE={aligned:"✔",diff:"⚠","xml-only":"✖",explained:"ⓘ"};const badge=c=>{const a=au(c.key);return a?`<span class="au ${a.status}">${BADGE[a.status]}</span>`:""};
+const BADGE={aligned:"✔",diff:"⚠","xml-only":"✖",explained:"ⓘ"};const badge=c=>{const a=au(c.key);const f=fnd(c.key);return (a?`<span class="au ${a.status}">${BADGE[a.status]}</span>`:"")+(f.length?`<span class="au diff" title="${f.join(", ")}">F${f.length>1?f.length:""}</span>`:"")};
 function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cells=facts.cells.filter(c=>c.set===cur&&pass(R,c));
  const rows=[...new Set(cells.map(c=>c.row))].sort((a,b)=>a-b);
  const tag=k=>!R?"":[R.up.has(k)&&"up",R.down.has(k)&&"down",R.chk.has(k)&&"chk",R.gate.has(k)&&"gate",k===sel&&"sel"].filter(Boolean).join(" ");
@@ -71,13 +71,14 @@ $("#grid").onclick=e=>{const t=e.target.closest("[data-k]");if(t)pick(t.dataset.
 document.addEventListener("keydown",e=>{if(e.key==="Escape")pick(null,true)});
 function pick(k,fromUi){sel=k;const c=k&&idx.byKey.get(k);if(c)cur=c.set;tree();grid();detail();if(fromUi)commit();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
 const refs=(title,set)=>set&&(set.size??set.length)?`<h4>${title}</h4>`+[...(set.keys?set.keys():set)].map(k=>`<span class=ref data-j="${k}">${esc(label(idx.byKey.get(k)))} <small>${k}</small></span>`).join(""):"";
+function findingsBlock(c){const f=fnd(c.key);if(!f.length)return "";return "<h4>Findings</h4>"+[...new Set(f)].map(id=>{const x=FI[id]||{};const its=(x.items||[]).filter(i=>i.where===c.key).map(i=>esc(i.text)).join("<br>");return `<div><b>${esc(id)}</b> <small>[${esc(x.status)}/${esc(x.severity)}/${esc(x.fixKind)}]</small> ${esc(x.title)}<br><small>${its}</small><br><small>Proposed: ${esc(x.proposedFix)}</small></div>`}).join("")}
 function auditBlock(c){const a=au(c.key);if(!a)return "<h4>Audit</h4><small>not audited (no bolk mapped)</small>";
  return `<h4>Audit <span class="au ${a.status}">${BADGE[a.status]} ${a.status}</span></h4><small>${esc(a.bolk)}</small>`+(a.field?`<div>DSL field <code>${esc(a.field)}</code> via ${esc(a.how)}<br>${esc(a.label)}</div>`:"")+(a.reason?`<div>${esc(a.class)}: ${esc(a.reason)}</div>`:"")+(a.diffs||[]).map(d=>`<div class=req>≠ ${esc(d)}</div>`).join("")}
 function detail(){if(!sel){$("#detail").innerHTML="Nothing selected – showing everything. Click a cell (click it again or press Esc to deselect).";return}const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
  const hs=c.handlers.map(h=>{const H=facts.handlers[h];return `<h4>${h} ${H.type||"check"}</h4><code>${esc(H.eval)}</code>`+H.actions.map(a=>`<div>when ${a.when}: ${a.effects.map(e=>esc(e.setState?`${e.setState} → ${e.targets.join(", ")}`:e.msgBox?e.msgBox.join(" "):"error "+e.setError)).join("; ")}</div>`).join("")}).join("");
  $("#detail").innerHTML=`<b>${esc(c.key)}</b> <small>${c.kind}${c.required?" · <span class=req>required</span>":""} · row ${c.row} col ${c.col}</small>
  <p>${esc(c.text.join(" | "))}</p><small>row: ${esc(c.rowLabel.join(" / "))}<br>col: ${esc(c.header.join(" / "))}</small>`
- +auditBlock(c)
+ +auditBlock(c)+findingsBlock(c)
  +(c.gatedBy.length?`<h4>Opened by</h4>`+c.gatedBy.map(g=>`<div>${esc(g.controller)} when ${esc(g.when)}</div>`).join(""):"")
  +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
 document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});

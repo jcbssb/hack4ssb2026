@@ -29,6 +29,7 @@ async function startServer(state) {
             if (url.pathname === "/relations.mjs") return send(res, "text/javascript", await readFile(join(here, "relations.mjs")));
             if (url.pathname === "/api/facts") return send(res, "application/json", await readFile(state.factsPath));
             if (url.pathname === "/api/align") return send(res, "application/json", await readFile(state.factsPath.replace(/\.facts\.json$/, ".align.json")).catch(() => '{"cells":{},"dslOnly":[]}'));
+            if (url.pathname === "/api/findings") return send(res, "application/json", await readFile(state.factsPath.replace(/\.facts\.json$/, ".findings.json")).catch(() => '{"findings":[],"cellFindings":[]}'));
             if (url.pathname === "/api/state") return send(res, "application/json", JSON.stringify({ selected: state.selected, rev: state.rev }));
             if (url.pathname === "/api/select" && req.method === "POST") {
                 let body = ""; for await (const ch of req) body += ch;

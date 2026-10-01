@@ -18,6 +18,7 @@ createServer(async (req, res) => {
         if (p === "/relations.mjs") return send(res, "text/javascript", await readFile(join(here, "relations.mjs")));
         if (p === "/api/facts") return send(res, "application/json", await readFile(facts));
         if (p === "/api/align") return send(res, "application/json", await readFile(align).catch(() => '{"cells":{},"dslOnly":[]}'));
+        if (p === "/api/findings") return send(res, "application/json", await readFile(facts.replace(/\.facts\.json$/, ".findings.json")).catch(() => '{"findings":[],"cellFindings":[]}'));
         if (p === "/api/state") return send(res, "application/json", JSON.stringify(state));
         if (p === "/api/select" && req.method === "POST") {
             let b = ""; for await (const c of req) b += c;
