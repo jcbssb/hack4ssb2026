@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><title>XML4DR explorer</title>
+<style>
+body{margin:0;font:13px var(--font-sans,system-ui);background:var(--background-color-default,#fff);color:var(--text-color-default,#222);display:grid;grid-template-columns:340px 1fr 380px;height:100vh}
+aside,main,section{overflow:auto;padding:8px}
+aside{border-right:1px solid #8884}section{border-left:1px solid #8884}
+input{width:100%;box-sizing:border-box;padding:4px;margin-bottom:6px}
+.sec{font-weight:600;cursor:pointer;padding:3px 4px;border-radius:4px}.sec:hover,.sec.on{background:#8883}
+.legend{line-height:1.9}.legend span{display:inline-block;padding:1px 6px;margin:2px;border-radius:3px;border:2px solid;font-size:11px}
+table{border-collapse:collapse}td{border:1px solid #8886;padding:3px 5px;min-width:70px;max-width:160px;vertical-align:top;font-size:11px;cursor:pointer;overflow:hidden}
+td.label{font-weight:600;background:#8881;cursor:default}
+td.calculated,td.prefilled{background:#78787855}td.input{background:#0000}
+td.gatedlight{background:#d1d1d155}
+td.sel{outline:3px solid #e6a700;outline-offset:-3px}
+td.up{box-shadow:inset 0 0 0 3px #1a7f37}td.down{box-shadow:inset 0 0 0 3px #0969da}
+td.chk{box-shadow:inset 0 0 0 3px #cf222e}td.gate{box-shadow:inset 0 0 0 3px #8250df}
+td.row{background-image:linear-gradient(#e6a70022,#e6a70022)}td.dim{opacity:.35}
+.up-c{border-color:#1a7f37}.down-c{border-color:#0969da}.chk-c{border-color:#cf222e}.gate-c{border-color:#8250df}
+code{background:#8882;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
+.ref{cursor:pointer;color:#0969da;display:block}.req{color:#cf222e}
+</style></head><body>
+<aside><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
+<main><div class=legend><b>Relations</b> (border on cell):
+<span class=up-c>feeds selected (upstream calc)</span><span class=down-c>fed by selected (downstream calc)</span><span class=chk-c>constraint / check partner</span><span class=gate-c>gating (opens / opened by)</span><span style="border-color:#e6a700">selected cell</span><span style="border-color:#e6a70055">same row</span> <small>faded = unrelated</small>
+<br><b>Cell fill</b>:
+<span style="background:#78787855;border-color:#7878">dark grey: calculated / prefilled</span><span style="background:#d1d1d155;border-color:#d1d1d1">light grey: conditional (opened by a guidance rule)</span><span style="border-color:#8886">white: input</span><span style="background:#8881;border-color:#8886"><b>bold</b>: label</span><span style="border-color:#cf222e"><b class=req>*</b> required</span>
+<br>chain depth <input id=depth type=number value=3 min=1 max=10 style="width:50px;display:inline"></div><div id=grid></div></main>
+<section id=detail>Select a cell.</section>
+<script type=module>
+import {buildIndex,relationsOf,label} from "/relations.mjs";
+const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);
+let cur=facts.sections[0].id,sel=null,rev=-1;
+const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function tree(){const q=$("#q").value.toLowerCase();
+ $("#tree").innerHTML=facts.sections.filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}</small></div>`).join("")}
+$("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid()}};
+$("#q").oninput=tree;$("#depth").onchange=()=>{grid();detail()};
+function grid(){const cells=facts.cells.filter(c=>c.set===cur);const R=relationsOf(idx,sel,+$("#depth").value)||null;
+ const rows=[...new Set(cells.map(c=>c.row))].sort((a,b)=>a-b);
+ const tag=k=>!R?"":[R.up.has(k)&&"up",R.down.has(k)&&"down",R.chk.has(k)&&"chk",R.gate.has(k)&&"gate",k===sel&&"sel"].filter(Boolean).join(" ");
+ $("#grid").innerHTML="<table>"+rows.map(r=>"<tr>"+cells.filter(c=>c.row===r).sort((a,b)=>a.col-b.col).map(c=>{
+  const t=tag(c.key);const dim=R&&!t&&!(R.row.has(c.key))?"dim":"";const gl=c.gatedBy.length?"gatedlight":"";
+  return `<td class="${c.kind==="label"?"label":c.kind} ${gl} ${t} ${dim}" data-k="${c.key}" title="${c.key}">${esc(label(c))}${c.required?'<b class=req>*</b>':""}</td>`}).join("")+"</tr>").join("")+"</table>"}
+$("#grid").onclick=e=>{const t=e.target.closest("[data-k]");if(t)pick(t.dataset.k,true)};
+function pick(k,fromUi){sel=k;const c=idx.byKey.get(k);if(c){cur=c.set;tree()}grid();detail();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
+const refs=(title,set)=>set&&(set.size??set.length)?`<h4>${title}</h4>`+[...(set.keys?set.keys():set)].map(k=>`<span class=ref data-j="${k}">${esc(label(idx.byKey.get(k)))} <small>${k}</small></span>`).join(""):"";
+function detail(){if(!sel)return;const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
+ const hs=c.handlers.map(h=>{const H=facts.handlers[h];return `<h4>${h} ${H.type||"check"}</h4><code>${esc(H.eval)}</code>`+H.actions.map(a=>`<div>when ${a.when}: ${a.effects.map(e=>esc(e.setState?`${e.setState} → ${e.targets.join(", ")}`:e.msgBox?e.msgBox.join(" "):"error "+e.setError)).join("; ")}</div>`).join("")}).join("");
+ $("#detail").innerHTML=`<b>${esc(c.key)}</b> <small>${c.kind}${c.required?" · <span class=req>required</span>":""} · row ${c.row} col ${c.col}</small>
+ <p>${esc(c.text.join(" | "))}</p><small>row: ${esc(c.rowLabel.join(" / "))}<br>col: ${esc(c.header.join(" / "))}</small>`
+ +(c.gatedBy.length?`<h4>Opened by</h4>`+c.gatedBy.map(g=>`<div>${esc(g.controller)} when ${esc(g.when)}</div>`).join(""):"")
+ +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
+document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});
+tree();grid();
+setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected&&s.selected!==sel)pick(s.selected,false)}},1000);
+</script></body></html>
