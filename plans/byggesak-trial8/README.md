@@ -53,6 +53,7 @@ the `Handler`/`SetState` data should answer exactly that.
 | [09-corpus-and-generalization.md](09-corpus-and-generalization.md) | `Forms/` corpus stats, XML4DR → draft DSL | 02 (parallel) |
 | [10-risks.md](10-risks.md) | Risks and open questions | – |
 | [11-skjemakart-improvements.md](11-skjemakart-improvements.md) | Skjemakart (explorer) v1 done; next improvements | 03, 04 |
+| [12-trial8-remaining-work.md](12-trial8-remaining-work.md) | Decisions, status and remaining slices to a full Trial 8 (**start here to resume**) | 06 |
 
 Hard rule (repo instruction): `altinn-skjema-hacking/` is never edited by hand. Altinn is reached
 only through the compiler/injector (`schema-dsl-cli`), and not until the full DSL is audited
@@ -117,3 +118,4 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 - Findings decided (2026-10-01): F-002 accepted (soft-required level), F-003 relax, F-004 drop conditions on calculated cells, F-005 add gating, F-007 add checks, F-008 follow source, F-009 add Strandsone context flag; F-006 deferred to Trial 9.
 - `ByggesakTrial8.hs` patches the frozen Trial 7 dialogue slice by slice (`onBolk`/`onQuestions`), keeping `t7_` field ids; DSL is **not** regenerated from sources. T8a: bolk A relaxed per F-003 (F-003 items 28 -> 24).
 - Skjemakart can flip between audits of trial7/trial8/future trials; `tools/skjemakart/refresh.sh` builds per-trial audit files.
+- T8b done: calculated cells unconditional (F-004 49 -> 10). Remaining work: see `12-trial8-remaining-work.md`.

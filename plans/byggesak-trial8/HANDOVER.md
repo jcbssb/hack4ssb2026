@@ -1,5 +1,7 @@
 # Trial 8 handover (as of 2026-10-01)
 
+> Update: findings are decided and Trial 8 has started (T8a, T8b). Resume with `12-trial8-remaining-work.md`; the "Next steps" below are partly superseded.
+
 Resume point for a fresh session. Read this, then `README.md` (plan, freeze policy, progress log).
 
 ## Goal

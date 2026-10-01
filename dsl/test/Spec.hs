@@ -45,6 +45,7 @@ main = do
   testAppTitle
   testTrial7AuditFixes
   testTrial8SliceA
+  testTrial8SliceB
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -709,3 +710,10 @@ testTrial8SliceA = do
   expect (reqIn trial8ByggesakDialogue == [ ("t7_kommunenummer", False), ("t7_kommunensNavn", False), ("t7_navnSkjemaansvarlig", False)
                                           , ("t7_telefonnummer", True), ("t7_epostSkjemaansvarlig", False) ])
          "Trial 8 T8a: only telefonnummer stays required in bolk A."
+
+-- | Test 26: Trial 8 slice T8b (F-004) shows calculated cells unconditionally
+testTrial8SliceB :: IO ()
+testTrial8SliceB = do
+  let gatedCalc d = [ fieldId q | BolkStep b <- steps d, q <- bolkQuestions b, fieldId q `elem` map calcTarget (calculations d), condition q /= Nothing ]
+  expect (not (null (gatedCalc trial7ByggesakDialogue))) "Trial 7 has conditional calculated cells (frozen baseline)."
+  expect (gatedCalc trial8ByggesakDialogue == ["t7_c3_2_1_c"]) "Trial 8 T8b: only the source-gated t7_c3_2_1_c stays conditional."

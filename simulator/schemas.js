@@ -9738,18 +9738,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c11_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c11_2_1_c",
                     "prompt": {
                         "helpText": null,
@@ -9770,18 +9758,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c11_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c11_2_2_a",
                     "prompt": {
@@ -10275,18 +10251,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_b2",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c12_2_1_b2",
                     "prompt": {
                         "helpText": null,
@@ -10307,18 +10271,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c12_2_1_c",
                     "prompt": {
@@ -10341,18 +10293,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c12_2_1_d",
                     "prompt": {
                         "helpText": null,
@@ -10374,18 +10314,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c12_2_2_a",
                     "prompt": {
                         "helpText": null,
@@ -10406,18 +10334,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_b",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c12_2_2_b",
                     "prompt": {
@@ -10535,18 +10451,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c12_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c12_2_2_d",
                     "prompt": {
@@ -11000,18 +10904,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_b2",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c13_2_1_b2",
                     "prompt": {
                         "helpText": null,
@@ -11032,18 +10924,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c13_2_1_c",
                     "prompt": {
@@ -11066,18 +10946,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c13_2_1_d",
                     "prompt": {
                         "helpText": null,
@@ -11099,18 +10967,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c13_2_2_a",
                     "prompt": {
                         "helpText": null,
@@ -11131,18 +10987,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_b",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c13_2_2_b",
                     "prompt": {
@@ -11260,18 +11104,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c13_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c13_2_2_d",
                     "prompt": {
@@ -11428,18 +11260,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_1_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_1_1_a",
                     "prompt": {
                         "helpText": null,
@@ -11587,18 +11407,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_1_a",
                     "prompt": {
                         "helpText": null,
@@ -11619,18 +11427,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_1_b",
                     "prompt": {
@@ -11653,18 +11449,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b1",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_1_b1",
                     "prompt": {
                         "helpText": null,
@@ -11685,18 +11469,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b2",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_1_b2",
                     "prompt": {
@@ -11719,18 +11491,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_1_c",
                     "prompt": {
                         "helpText": null,
@@ -11751,18 +11511,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_1_d",
                     "prompt": {
@@ -11785,18 +11533,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_2_a",
                     "prompt": {
                         "helpText": null,
@@ -11817,18 +11553,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_2_b",
                     "prompt": {
@@ -11851,18 +11575,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b1",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_2_b1",
                     "prompt": {
                         "helpText": null,
@@ -11883,18 +11595,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_b2",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_2_b2",
                     "prompt": {
@@ -11917,18 +11617,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c14_2_2_c",
                     "prompt": {
                         "helpText": null,
@@ -11949,18 +11637,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c14_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c14_2_2_d",
                     "prompt": {
@@ -12234,18 +11910,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c15_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c15_2_1_c",
                     "prompt": {
                         "helpText": null,
@@ -12266,18 +11930,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c15_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c15_2_2_a",
                     "prompt": {
@@ -12958,18 +12610,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_b2",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c2_2_1_b2",
                     "prompt": {
                         "helpText": null,
@@ -12990,18 +12630,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.1 Herav antall søknader med saksbehandlingstid over lovpålagt frist"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_c",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c2_2_1_c",
                     "prompt": {
@@ -13024,18 +12652,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c2_2_1_d",
                     "prompt": {
                         "helpText": null,
@@ -13057,18 +12673,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c2_2_2_a",
                     "prompt": {
                         "helpText": null,
@@ -13089,18 +12693,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_b",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c2_2_2_b",
                     "prompt": {
@@ -13218,18 +12810,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c2_2_d",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c2_2_2_d",
                     "prompt": {
@@ -13567,18 +13147,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c3_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c3_2_2_a",
                     "prompt": {
                         "helpText": null,
@@ -13751,18 +13319,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1.1 Herav antall mangelfulle søknader mottatt hvor det ble bedt om tilleggsinformasjon"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c4_1_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c4_1_1_a",
                     "prompt": {
@@ -13962,18 +13518,6 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c4_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_c4_2_1_a",
                     "prompt": {
                         "helpText": null,
@@ -14090,18 +13634,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2.2 Gjennomsnittlig saksbehandlingstid, kalenderdager"
                         },
                         "readOnly": true
-                    },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_c4_2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
                     },
                     "fieldId": "t7_c4_2_2_a",
                     "prompt": {
