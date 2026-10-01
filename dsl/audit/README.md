@@ -21,3 +21,9 @@ Cell keys are `<setId>/<dataId>` (opaque ids from the XML, e.g. `Section7/V1648`
 `guidance` handler elsewhere sets its state (`normal`/`readonly`); that is the source of the
 "light grey opens when …" rules. Modules: `Audit.Xml4dr` (loader), `Audit.Index` (derived relations),
 `Audit.Eval` (JavaScript-subset parser for `<Eval>`), `Audit.Export` (JSON facts).
+
+## align (P3)
+
+    cabal run -v0 schema-audit -- align <xml> <dsl.json> audit/alignment/byggesak.json [bolk_a ...]
+
+Aligns DSL fields to XML4DR cells per bolk (override → matrix key → number key → label → fuzzy → singleton) and prints matched / dsl-only / xml-only / explained buckets with diffs (required, prefilled, calculated, conditional, type, checks). Config: `audit/alignment/byggesak.json`.

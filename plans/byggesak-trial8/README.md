@@ -77,3 +77,5 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
   `FieldFilled(obThis)GetFieldValue(...)` has no operator between the calls. Classify as source-ambiguity; ask SSB.
 - Cell ids are opaque (`Cell117`), so alignment (P3) must rely on row/column labels and position. Row labels
   sit in label cells of the same row, column headers in earlier rows of the same column (both implemented).
+
+- **P3 / T8a (started):** `align` command + `audit/alignment/byggesak.json` for bolk A, B, H, I. All 15 DSL fields matched 1:1, 0 dsl-only / xml-only (2 explained demo cells). Candidate findings to triage: DSL marks A fields (4 of 5) and I.20–24 required where XML has no FieldFilled check; B1 `VB2021_*` required only as soft warning in XML plus >50000 warning missing in DSL; EPOSTADR isEmail and TELEFONNR >20999999 checks missing in DSL. Next: confirm in simulator, record as F-NNN, extend to T8b.

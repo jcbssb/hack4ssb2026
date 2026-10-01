@@ -3,6 +3,8 @@ module Main (main) where
 
 import Audit.Export (encodeFacts)
 import qualified Data.ByteString.Lazy as BL
+import Audit.Align
+import Audit.Dsl
 import Audit.Eval
 import Audit.Index
 import Audit.Xml4dr
@@ -20,11 +22,24 @@ main = do
     ["outline", p]            -> loadForm p >>= outline
     ["cell", p, q]            -> loadForm p >>= \f -> mapM_ (cellView f) (take 5 (lookupCells f (T.toLower (T.pack q))))
     ["extract", p, o]         -> loadForm p >>= \f -> BL.writeFile o (encodeFacts f) >> out ("wrote " <> T.pack o)
+    ["dsl", d]                -> loadDsl d >>= \fs -> mapM_ (out . T.pack . show) (take 20 fs) >> out ("fields: " <> T.pack (show (length fs)))
+    ("align" : p : d : cfgP : bolks) -> do
+      f <- loadForm p
+      dsl <- loadDsl d
+      cfg <- loadConfig cfgP
+      let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
+      mapM_ (\b -> mapM_ out (renderReport f (align f cfg dsl b))) bs
+    ("align-json" : p : d : cfgP : o : bolks) -> do
+      f <- loadForm p
+      dsl <- loadDsl d
+      cfg <- loadConfig cfgP
+      let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
+      BL.writeFile o (encodeAlign [ align f cfg dsl b | b <- bs ])
     ["evals", p]              -> loadForm p >>= evals
     ["trace", p, q]           -> loadForm p >>= \f -> mapM_ (trace f) (take 1 (lookupCells f (T.toLower (T.pack q))))
     ["grep-eval", p, q]       -> loadForm p >>= \f -> grepEval f (T.pack q)
     ["around", p, q]          -> loadForm p >>= \f -> mapM_ (around f) (take 1 (lookupCells f (T.toLower (T.pack q))))
-    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|trace|grep-eval|extract|evals) <xml4dr.xml> [cell-key|text]" >> exitFailure
+    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|trace|grep-eval|extract|evals) <xml4dr.xml> [cell-key|text] | dsl <dsl.json> | align <xml4dr.xml> <dsl.json> <config.json> [bolk...]" >> exitFailure
 
 out :: T.Text -> IO ()
 out = TIO.putStrLn

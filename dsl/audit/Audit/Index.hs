@@ -2,7 +2,7 @@
 -- | Derived relations over a Form: kinds, controllers, data-flow.
 module Audit.Index
   ( Kind(..), kindOf, ownCalc, ownChecks, ownGuidance, controllersOf, refsOut, refsIn
-  , isRequired, headerOf, rowLabelOf, kindName, lookupCells, short, T.Text
+  , isRequired, requiredSeverity, headerOf, rowLabelOf, kindName, lookupCells, short, T.Text
   ) where
 
 import Audit.Xml4dr
@@ -31,6 +31,12 @@ ownChecks f = filter ((== Nothing) . hType) . hs f
 
 isRequired :: Form -> Cell -> Bool
 isRequired f c = any (\h -> "FieldFilled(obThis)" `T.isInfixOf` hEval h) (ownChecks f c)
+
+-- | Severity (critical/warning) of the plain "field must be filled" check, if the cell has one.
+requiredSeverity :: Form -> Cell -> Maybe T.Text
+requiredSeverity f c = case [ sev | h <- ownChecks f c, T.strip (hEval h) == "FieldFilled(obThis)", a <- hActions h, SetError sev <- aEffects a ] of
+  (s : _) -> Just s
+  [] -> if isRequired f c then Just "unknown" else Nothing
 
 kindOf :: Form -> Cell -> Kind
 kindOf f c
