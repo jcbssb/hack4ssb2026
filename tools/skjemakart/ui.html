@@ -48,10 +48,11 @@ function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cell
  $("#grid").innerHTML="<table>"+rows.map(r=>"<tr>"+cells.filter(c=>c.row===r).sort((a,b)=>a.col-b.col).map(c=>{
   const t=tag(c.key);const dim=R&&!t&&!(R.row.has(c.key))?"dim":"";const gl=c.gatedBy.length?"gatedlight":"";
   return `<td class="${c.kind==="label"?"label":c.kind} ${gl} ${t} ${dim}" data-k="${c.key}" title="${c.key}">${esc(label(c))}${c.required?'<b class=req>*</b>':""}</td>`}).join("")+"</tr>").join("")+"</table>"}
-$("#grid").onclick=e=>{const t=e.target.closest("[data-k]");if(t)pick(t.dataset.k,true)};
-function pick(k,fromUi){sel=k;const c=idx.byKey.get(k);if(c){cur=c.set;tree()}grid();detail();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
+$("#grid").onclick=e=>{const t=e.target.closest("[data-k]");if(t)pick(t.dataset.k===sel?null:t.dataset.k,true)};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")pick(null,true)});
+function pick(k,fromUi){sel=k;const c=k&&idx.byKey.get(k);if(c)cur=c.set;tree();grid();detail();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
 const refs=(title,set)=>set&&(set.size??set.length)?`<h4>${title}</h4>`+[...(set.keys?set.keys():set)].map(k=>`<span class=ref data-j="${k}">${esc(label(idx.byKey.get(k)))} <small>${k}</small></span>`).join(""):"";
-function detail(){if(!sel)return;const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
+function detail(){if(!sel){$("#detail").innerHTML="Nothing selected – showing everything. Click a cell (click it again or press Esc to deselect).";return}const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
  const hs=c.handlers.map(h=>{const H=facts.handlers[h];return `<h4>${h} ${H.type||"check"}</h4><code>${esc(H.eval)}</code>`+H.actions.map(a=>`<div>when ${a.when}: ${a.effects.map(e=>esc(e.setState?`${e.setState} → ${e.targets.join(", ")}`:e.msgBox?e.msgBox.join(" "):"error "+e.setError)).join("; ")}</div>`).join("")}).join("");
  $("#detail").innerHTML=`<b>${esc(c.key)}</b> <small>${c.kind}${c.required?" · <span class=req>required</span>":""} · row ${c.row} col ${c.col}</small>
  <p>${esc(c.text.join(" | "))}</p><small>row: ${esc(c.rowLabel.join(" / "))}<br>col: ${esc(c.header.join(" / "))}</small>`
@@ -59,5 +60,5 @@ function detail(){if(!sel)return;const c=idx.byKey.get(sel),R=relationsOf(idx,se
  +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
 document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});
 tree();grid();
-setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected&&s.selected!==sel)pick(s.selected,false)}},1000);
+setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected!==sel)pick(s.selected,false)}},1000);
 </script></body></html>
