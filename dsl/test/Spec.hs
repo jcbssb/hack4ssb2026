@@ -9,7 +9,7 @@ import qualified Data.Aeson.KeyMap as KM
 import qualified Data.Vector as V
 import qualified Data.Text as T
 import qualified Data.Map.Strict as M
-import Data.List (nub)
+import Data.List (nub, isInfixOf)
 import SchemaDSL
 import SchemaDSL.Altinn.DataModel (injectCSharpClass, removeCSharpClass)
 
@@ -39,6 +39,7 @@ main = do
   testTrialAgainstPdf "Trial 6" "t6" trial6ByggesakDialogue
   testTrialAgainstPdf "Trial 7" "t7" trial7ByggesakDialogue
   testTrialAgainstPdf "Trial 8" "t7" trial8ByggesakDialogue
+  testTrialAgainstPdf "Trial 9" "t7" trial9ByggesakDialogue
   testMatrixDemo
   testPagedAltinn
   testCSharpClassRemoval
@@ -49,6 +50,7 @@ main = do
   testTrial8SliceC
   testTrial8SliceD
   testTrial8SliceE
+  testTrial9
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -136,7 +138,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, trial7ByggesakDialogue, trial8ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, trial7ByggesakDialogue, trial8ByggesakDialogue, trial9ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -807,4 +809,31 @@ testTrial8SliceE = do
              "Trial 8 T8e: ReqWarn survives JSON round-trip."
       expect (all (\fid -> questionRequiredLevel (qOf d8 fid) == ReqNone) f003Sample)
              "Trial 8 T8e: ReqNone survives JSON round-trip."
+
+testTrial9 :: IO ()
+testTrial9 = do
+  let qOf d fid = case [ q | BolkStep b <- steps d, q <- bolkQuestions b, fieldId q == fid ] of
+        (q:_) -> q
+        []    -> error ("question not found: " ++ fid)
+
+  -- Trial 8 baseline: t7_d1_3_a was unconditional
+  expect (condition (qOf trial8ByggesakDialogue "t7_d1_3_a") == Nothing)
+         "Trial 8: D1 row 3 was unconditional."
+
+  -- Trial 9 T9a: D1 row 3 is gated on coastal municipality context (F-009 resolved)
+  expect (condition (qOf trial9ByggesakDialogue "t7_d1_3_a") /= Nothing)
+         "Trial 9 T9a: D1 row 3 is conditional (F-009 resolved)."
+
+  -- Trial 9 T9b: plausibility constraints softened to SeverityWarn
+  let overFristConstraints = [ c | c <- constraints trial9ByggesakDialogue, "overFrist" `isInfixOf` constraintId c ]
+  expect (not (null overFristConstraints) && all (\c -> severity c == SevWarning) overFristConstraints)
+         "Trial 9 T9b: overFrist constraints have SevWarning."
+
+  -- JSON round-trip of Trial 9
+  let encoded = encodeDialogue trial9ByggesakDialogue
+  case decodeDialogue encoded of
+    Left err -> error ("decode failed: " ++ err)
+    Right d9 -> do
+      expect (dialogueId d9 == "trial9-byggesak")
+             "Trial 9: dialogueId round-trip."
 

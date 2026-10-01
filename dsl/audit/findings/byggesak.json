@@ -77,13 +77,119 @@
       ]
     },
     {
-      "id": "F-006",
-      "title": "DSL-only cross-field constraints (own invariants)",
+      "id": "F-006a",
+      "title": "DSL deadline compliance cross-checks (overFrist <= behandlet)",
       "fixKind": "dsl-content",
       "severity": "info",
-      "status": "needs-split",
-      "description": "DSL adds behandlet<=mottatt, ikkeNegativ, overFrist, samsvar, treUker, mangelfulle constraints with error severity that have no XML4DR check of the same shape.",
-      "proposedFix": "Decide per family: keep as deliberate improvements (document), downgrade to warning to match the source, or remove.",
+      "status": "accepted",
+      "description": "DSL checks that applications processed beyond deadline (row 2.1) do not exceed total processed applications (row 2) across case categories.",
+      "proposedFix": "Keep as deliberate domain consistency checks in DSL; downgrade or retain warning severity where appropriate.",
+      "rules": [
+        {
+          "kind": "dsl-constraint",
+          "contains": "overFrist"
+        },
+        {
+          "kind": "cell-diff",
+          "prefix": "check partners: dsl-only {t7",
+          "bolks": ["bolk_c11", "bolk_c12", "bolk_c13", "bolk_c15", "bolk_c2", "bolk_c3"]
+        }
+      ]
+    },
+    {
+      "id": "F-006b",
+      "title": "DSL non-negative sub-part constraints (ikkeNegativ)",
+      "fixKind": "dsl-content",
+      "severity": "info",
+      "status": "accepted",
+      "description": "DSL checks that sub-parts (such as plan-compliant cases) do not exceed totals, preventing negative remainders.",
+      "proposedFix": "Keep as deliberate domain invariant in DSL.",
+      "rules": [
+        {
+          "kind": "dsl-constraint",
+          "contains": "ikkeNegativ"
+        }
+      ]
+    },
+    {
+      "id": "F-006c",
+      "title": "DSL outcome consistency constraints (utfall, innvilget, konklusjon)",
+      "fixKind": "dsl-content",
+      "severity": "info",
+      "status": "accepted",
+      "description": "DSL validates that outcome sums (approved, rejected, conclusions) do not exceed processed applications.",
+      "proposedFix": "Keep as deliberate domain sanity cross-checks in DSL.",
+      "rules": [
+        {
+          "kind": "dsl-constraint",
+          "contains": "utfall"
+        },
+        {
+          "kind": "dsl-constraint",
+          "contains": "innvilget"
+        },
+        {
+          "kind": "dsl-constraint",
+          "contains": "konklusjon"
+        },
+        {
+          "kind": "cell-diff",
+          "prefix": "check partners: dsl-only {t7",
+          "bolks": ["bolk_e1", "bolk_e2", "bolk_f2", "bolk_f4"]
+        }
+      ]
+    },
+    {
+      "id": "F-006d",
+      "title": "DSL processed vs received plausibility warning (behandlet <= mottatt)",
+      "fixKind": "dsl-content",
+      "severity": "info",
+      "status": "accepted",
+      "description": "DSL issues a soft warning in C10 if processed cases exceed received cases.",
+      "proposedFix": "Keep as warning severity (non-blocking) since cases from previous years may be processed.",
+      "rules": [
+        {
+          "kind": "dsl-constraint",
+          "contains": "behandlet"
+        },
+        {
+          "kind": "cell-diff",
+          "prefix": "check partners: dsl-only {t7",
+          "bolks": ["bolk_c10"]
+        }
+      ]
+    },
+    {
+      "id": "F-006e",
+      "title": "DSL plan and 3-week deadline breakdown constraints (samsvar, treUker, mangelfulle)",
+      "fixKind": "dsl-content",
+      "severity": "info",
+      "status": "accepted",
+      "description": "DSL ensures 3-week deadline cases do not exceed plan-compliant totals and defective cases do not exceed received totals.",
+      "proposedFix": "Keep as deliberate domain consistency checks in DSL.",
+      "rules": [
+        {
+          "kind": "dsl-constraint",
+          "contains": "samsvar"
+        },
+        {
+          "kind": "dsl-constraint",
+          "contains": "treUker"
+        },
+        {
+          "kind": "dsl-constraint",
+          "contains": "mangelfulle"
+        }
+      ]
+    },
+    {
+      "id": "F-006f",
+      "title": "DSL domain-specific breakdown cross-checks (herav, typer, universell, etc.)",
+      "fixKind": "dsl-content",
+      "severity": "info",
+      "status": "accepted",
+      "description": "DSL checks matrix-internal breakdown relationships (herav <= total, supervision types, sanction types, building parts).",
+      "proposedFix": "Keep as deliberate domain sanity cross-checks in DSL.",
       "rules": [
         {
           "kind": "dsl-constraint"

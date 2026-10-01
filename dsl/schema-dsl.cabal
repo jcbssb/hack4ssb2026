@@ -26,6 +26,7 @@ library
         SchemaDSL.Examples.ByggesakTrial6
         SchemaDSL.Examples.ByggesakTrial7
         SchemaDSL.Examples.ByggesakTrial8
+        SchemaDSL.Examples.ByggesakTrial9
         SchemaDSL.Examples.MatrixDemo
         SchemaDSL.JSON
         SchemaDSL.MetaSchema

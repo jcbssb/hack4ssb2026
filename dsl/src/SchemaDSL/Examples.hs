@@ -8,6 +8,7 @@ module SchemaDSL.Examples
   , module SchemaDSL.Examples.ByggesakTrial6
   , module SchemaDSL.Examples.ByggesakTrial7
   , module SchemaDSL.Examples.ByggesakTrial8
+  , module SchemaDSL.Examples.ByggesakTrial9
   , module SchemaDSL.Examples.MatrixDemo
   ) where
 
@@ -18,4 +19,5 @@ import SchemaDSL.Examples.ByggesakTrial5
 import SchemaDSL.Examples.ByggesakTrial6
 import SchemaDSL.Examples.ByggesakTrial7
 import SchemaDSL.Examples.ByggesakTrial8
+import SchemaDSL.Examples.ByggesakTrial9
 import SchemaDSL.Examples.MatrixDemo
