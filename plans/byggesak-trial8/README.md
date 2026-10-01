@@ -15,6 +15,14 @@ Hard rule (repo instruction): `altinn-skjema-hacking/` is never edited by hand. 
 Altinn only through the compiler/injector (`schema-dsl-cli`), and **not until the full DSL is audited**
 (see Step 7: incremental slices tested in the skjemantikk-simulator first).
 
+## DSL freeze policy
+
+1. `dsl/schemas/trial7-byggesak.json` and `Examples/ByggesakTrial7.hs` are **frozen** as the audit baseline; all audit tools run against them and never modify them.
+2. Findings are recorded as F-NNN (class + proposed fix) without applying fixes during triage.
+3. Fixes go into a new `Examples/ByggesakTrial8.hs` compiling to `trial8-byggesak.json`, built slice by slice (T8a–T8g) and tested in the simulator.
+4. Re-run the audit on Trial 8 and diff against the Trial 7 baseline (regression baseline, see `05-audit-checks.md`).
+5. No Altinn deployment until the full DSL is audited (P9, via the compiler/injector only).
+
 ## What we have (measured, not read into context)
 
 | Artifact | Size | What it is |
