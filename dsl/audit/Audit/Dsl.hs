@@ -13,7 +13,7 @@ import qualified Data.Text as T
 
 data DField = DField
   { dId :: Text, dBolk :: Text, dLabel :: Text, dType :: Text
-  , dRequired :: Bool, dPrefilled :: Bool, dReadOnly :: Bool, dConditional :: Bool
+  , dRequired :: Text, dPrefilled :: Bool, dReadOnly :: Bool, dConditional :: Bool
   , dRow :: Maybe Text, dCol :: Maybe Text, dRowLabel :: Maybe Text, dColLabel :: Maybe Text
   , dCalc :: Bool, dChecks :: Int, dCalcRefs :: [Text], dCopyOf :: Maybe Text, dPartners :: [Text]
   } deriving Show
@@ -50,7 +50,12 @@ fields o =
       { dId = fid, dBolk = fromMaybe "" (str "bolkId" st)
       , dLabel = fromMaybe "" (key "prompt" q >>= str "label")
       , dType = fromMaybe "" (key "questionType" q >>= str "type")
-      , dRequired = bool "required" q
+      , dRequired = case key "required" q of
+          Just (Bool True)        -> "error"
+          Just (String "error")   -> "error"
+          Just (String "warn")    -> "warn"
+          Just (String "warning") -> "warn"
+          _                       -> "none"
       , dPrefilled = ann "prefilled", dReadOnly = ann "readOnly"
       , dConditional = maybe False (/= Null) (key "condition" q)
       , dRow = mx "row", dCol = mx "col", dRowLabel = mx "rowLabel", dColLabel = mx "colLabel"

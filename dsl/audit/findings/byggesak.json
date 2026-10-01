@@ -46,6 +46,22 @@
       ]
     },
     {
+      "id": "F-009",
+      "title": "Strandsone (coastal municipality) flag gates D1 question 3 in the source",
+      "fixKind": "dsl-feature",
+      "severity": "medium",
+      "status": "accepted",
+      "description": "Section13/VB2019_2 (Strandsone, 1=ja/0=nei) is prefilled per municipality. Source: D1 row 3 (Section_E1/V2012_7 and its row) is readonly when 0, and a warning asks for a number when 1. DSL has no municipality flag, so row 3 is always open and never nudged.",
+      "proposedFix": "Add a prefilled/context flag (e.g. coastal municipality) usable in conditions, then gate D1 q3 and add the fill-in warning for coastal municipalities.",
+      "rules": [
+        {
+          "kind": "cell-diff",
+          "prefix": "conditional: dsl=no xml=yes",
+          "contains": "Section_E1/V2012_7"
+        }
+      ]
+    },
+    {
       "id": "F-005",
       "title": "Conditional gating present in source but missing in DSL",
       "fixKind": "dsl-content",
@@ -110,16 +126,6 @@
           "prefix": "calc inputs"
         }
       ]
-    },
-    {
-      "id": "F-009",
-      "title": "Strandsone (coastal municipality) flag gates D1 question 3 in the source",
-      "fixKind": "dsl-feature",
-      "severity": "medium",
-      "status": "accepted",
-      "description": "Section13/VB2019_2 (Strandsone, 1=ja/0=nei) is prefilled per municipality. Source: D1 row 3 (Section_E1/V2012_7 and its row) is readonly when 0, and a warning asks for a number when 1. DSL has no municipality flag, so row 3 is always open and never nudged.",
-      "proposedFix": "Add a prefilled/context flag (e.g. coastal municipality) usable in conditions, then gate D1 q3 and add the fill-in warning for coastal municipalities.",
-      "rules": []
     }
   ]
 }

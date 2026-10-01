@@ -46,6 +46,9 @@ main = do
   testTrial7AuditFixes
   testTrial8SliceA
   testTrial8SliceB
+  testTrial8SliceC
+  testTrial8SliceD
+  testTrial8SliceE
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -715,5 +718,93 @@ testTrial8SliceA = do
 testTrial8SliceB :: IO ()
 testTrial8SliceB = do
   let gatedCalc d = [ fieldId q | BolkStep b <- steps d, q <- bolkQuestions b, fieldId q `elem` map calcTarget (calculations d), condition q /= Nothing ]
+      afterB = t8bCalculatedAlwaysVisible (t8aBolkA trial7ByggesakDialogue)
   expect (not (null (gatedCalc trial7ByggesakDialogue))) "Trial 7 has conditional calculated cells (frozen baseline)."
-  expect (gatedCalc trial8ByggesakDialogue == ["t7_c3_2_1_c"]) "Trial 8 T8b: only the source-gated t7_c3_2_1_c stays conditional."
+  expect (gatedCalc afterB == ["t7_c3_2_1_c"]) "Trial 8 T8b: only the source-gated t7_c3_2_1_c stays conditional."
+
+-- | Test 27: Trial 8 slice T8c resolves F-005 and remaining F-004
+testTrial8SliceC :: IO ()
+testTrial8SliceC = do
+  let condOf d fid = case [ condition q | BolkStep b <- steps d, q <- bolkQuestions b, fieldId q == fid ] of
+        (c:_) -> c
+        []    -> Nothing
+      gtZeroF fid = Just (Compare (Field fid) CmpGt (Const 0))
+  -- F-004 rest: G1/G2/G3 cells are unconditional
+  expect (all (\fid -> condOf trial8ByggesakDialogue fid == Nothing)
+              [ "t7_g1_b1_b", "t7_g1_b1_c", "t7_g1_b2_b", "t7_g1_b2_c", "t7_g1_b3_b", "t7_g1_b3_c"
+              , "t7_g2_b1_a", "t7_g2_b2_a", "t7_g2_b3_a", "t7_g3_a_a" ])
+         "Trial 8 T8c: G1, G2, G3 cells are unconditional."
+  -- F-005: missing gating added
+  expect (condOf trial8ByggesakDialogue "t7_c12_1_b" == gtZeroF "t7_c12_1_a")
+         "Trial 8 T8c: C12 row 1 col b gated on row 1 col a."
+  expect (condOf trial8ByggesakDialogue "t7_c12_2_b" == gtZeroF "t7_c12_2_a")
+         "Trial 8 T8c: C12 row 2 col b gated on row 2 col a."
+  expect (condOf trial8ByggesakDialogue "t7_c3_1_c" == gtZeroF "t7_c3_1_a")
+         "Trial 8 T8c: C3 row 1 col c gated on row 1 col a."
+  expect (condOf trial8ByggesakDialogue "t7_c3_2_c" == gtZeroF "t7_c3_2_a")
+         "Trial 8 T8c: C3 row 2 col c gated on row 2 col a."
+  expect (condOf trial8ByggesakDialogue "t7_d2_1_a" == gtZeroF "t7_c10_2_f")
+         "Trial 8 T8c: D2 row 1 gated on C10 row 2 col f."
+  expect (condOf trial8ByggesakDialogue "t7_d2_3_a" == gtZeroF "t7_c4_2_a")
+         "Trial 8 T8c: D2 row 3 gated on C4 row 2 col a."
+  expect (all (\fid -> condOf trial8ByggesakDialogue fid == gtZeroF "t7_f2_a_a")
+              [ "t7_f2_a_b", "t7_f2_a_c", "t7_f2_a_d" ])
+         "Trial 8 T8c: F2 row a cols b, c, d gated on row a col a."
+
+-- | Test 28: Trial 8 slice T8d (F-008) aligns calculation inputs with XML4DR
+testTrial8SliceD :: IO ()
+testTrial8SliceD = do
+  let exprOf d fid = case [ calcExpr c | c <- calculations d, calcTarget c == fid ] of
+        (e:_) -> e
+        []    -> error ("calculation not found: " ++ fid)
+  -- D1 row 1b: area restriction rows 2, 3, 4, 5, 6, 7 (not 2a)
+  expect (exprOf trial8ByggesakDialogue "t7_d1_1b_a" == Add [ Field ("t7_d1_" ++ r ++ "_a") | r <- ["2", "3", "4", "5", "6", "7"] ])
+         "Trial 8 T8d: D1 1b col a sums main rows 2-7."
+  expect (exprOf trial8ByggesakDialogue "t7_d1_1b_b1" == Add [ Field ("t7_d1_" ++ r ++ "_b1") | r <- ["2", "3", "5"] ])
+         "Trial 8 T8d: D1 1b col b1 sums rows 2, 3, 5."
+  -- C14 columns b2 and d read C10, C11, C12, C13 directly
+  expect (exprOf trial8ByggesakDialogue "t7_c14_1_b2" == Add [ Field "t7_c11_1_b", Field "t7_c12_1_b2", Field "t7_c13_1_b2" ])
+         "Trial 8 T8d: C14 row 1 col b2 sums C11, C12, C13."
+  expect (exprOf trial8ByggesakDialogue "t7_c14_1_d" == Add [ Field "t7_c10_1_b", Field "t7_c12_1_d", Field "t7_c13_1_d" ])
+         "Trial 8 T8d: C14 row 1 col d sums C10, C12, C13."
+
+-- | Test 29: Trial 8 slice T8e (F-002, F-003) introduces RequiredLevel:
+-- 1. 106 F-002 soft-required fields have questionRequiredLevel == ReqWarn and required == False.
+-- 2. 24 F-003 fields have questionRequiredLevel == ReqNone and required == False.
+-- 3. In Trial 7, those 24 F-003 fields had required == True and no soft warnings.
+-- 4. In Trial 8, remaining required fields have questionRequiredLevel == ReqError.
+-- 5. JSON serialization round-trips correctly with levels.
+testTrial8SliceE :: IO ()
+testTrial8SliceE = do
+  let qOf d fid = case [ q | q <- allDialogueQuestions d, fieldId q == fid ] of
+        (q:_) -> q
+        []    -> error ("question not found: " ++ fid)
+  -- F-003: C10, Bolk I, radios relaxed to ReqNone
+  let f003Sample = ["t7_c10_1_a", "t7_e0a_klagerMottattEllerBehandlet", "t7_f0a_erUtfoertTilsyn", "t7_elektroniskSakssystemBrukt", "t7_timerUtfylling"]
+  expect (all (\fid -> required (qOf trial7ByggesakDialogue fid)) f003Sample)
+         "Trial 7 baseline: F-003 fields were required."
+  expect (all (\fid -> questionRequiredLevel (qOf trial8ByggesakDialogue fid) == ReqNone && not (required (qOf trial8ByggesakDialogue fid))) f003Sample)
+         "Trial 8 T8e: F-003 fields are ReqNone and not required."
+
+  -- F-002: soft required fields have ReqWarn
+  let f002Sample = ["t7_b_1_a", "t7_c11_2_b", "t7_c12_1_b", "t7_d1_2_a", "t7_d2_1_b", "t7_e1_2_d", "t7_e2_2_e", "t7_f2_a_a"]
+  expect (all (\fid -> questionRequiredLevel (qOf trial7ByggesakDialogue fid) == ReqNone) (filter (/= "t7_f2_a_a") f002Sample))
+         "Trial 7 baseline: F-002 fields had no soft warning level."
+  expect (all (\fid -> questionRequiredLevel (qOf trial8ByggesakDialogue fid) == ReqWarn && not (required (qOf trial8ByggesakDialogue fid))) f002Sample)
+         "Trial 8 T8e: F-002 fields have ReqWarn and required == False."
+
+  -- Regular required fields have ReqError
+  let reqSample = ["t7_telefonnummer"]
+  expect (all (\fid -> questionRequiredLevel (qOf trial8ByggesakDialogue fid) == ReqError && required (qOf trial8ByggesakDialogue fid)) reqSample)
+         "Trial 8 T8e: hard required fields have ReqError and required == True."
+
+  -- JSON round-trip preserves required level
+  let encoded = encodeDialogue trial8ByggesakDialogue
+  case decodeDialogue encoded of
+    Left err -> error ("decode failed: " ++ err)
+    Right d8 -> do
+      expect (all (\fid -> questionRequiredLevel (qOf d8 fid) == ReqWarn) f002Sample)
+             "Trial 8 T8e: ReqWarn survives JSON round-trip."
+      expect (all (\fid -> questionRequiredLevel (qOf d8 fid) == ReqNone) f003Sample)
+             "Trial 8 T8e: ReqNone survives JSON round-trip."
+

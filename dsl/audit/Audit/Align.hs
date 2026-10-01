@@ -198,11 +198,18 @@ diffs gmap copies f d c =
       | M.null gmap = []
       | otherwise = setDiff "check partners" partD partX
     reqDiff = case (dRequired d, requiredSeverity f c) of
-      (True, Nothing) -> [ "required: dsl=yes xml=no" ]
-      (True, Just "warning") -> [ "required: dsl=yes (hard) xml=warning only (soft 'please fill')" ]
-      (False, Just "critical") -> [ "required: dsl=no xml=critical" ]
-      (False, Just s) | s /= "critical" -> [ "required: dsl=no xml=" <> s <> " (soft)" ]
-      _ -> []
+      ("error", Just "critical") -> []
+      ("warn", Just "warning")   -> []
+      ("none", Nothing)          -> []
+      ("error", Nothing)         -> [ "required: dsl=yes xml=no" ]
+      ("error", Just "warning")  -> [ "required: dsl=yes (hard) xml=warning only (soft 'please fill')" ]
+      ("error", Just s)          -> [ "required: dsl=yes (hard) xml=" <> s <> " (soft)" ]
+      ("none", Just "critical")  -> [ "required: dsl=no xml=critical" ]
+      ("none", Just s)           -> [ "required: dsl=no xml=" <> s <> " (soft)" ]
+      ("warn", Nothing)          -> [ "required: dsl=warn xml=no" ]
+      ("warn", Just "critical")  -> [ "required: dsl=warn xml=critical" ]
+      ("warn", Just s)           -> [ "required: dsl=warn xml=" <> s <> " (soft)" ]
+      _                          -> []
     tmis = (dType d == "boolean") /= (cControl c == Just "radioButton")
     yn b = if b then "yes" else "no"
 
