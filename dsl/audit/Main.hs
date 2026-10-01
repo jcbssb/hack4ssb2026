@@ -21,8 +21,10 @@ main = do
     ["cell", p, q]            -> loadForm p >>= \f -> mapM_ (cellView f) (take 5 (lookupCells f (T.toLower (T.pack q))))
     ["extract", p, o]         -> loadForm p >>= \f -> BL.writeFile o (encodeFacts f) >> out ("wrote " <> T.pack o)
     ["evals", p]              -> loadForm p >>= evals
+    ["trace", p, q]           -> loadForm p >>= \f -> mapM_ (trace f) (take 1 (lookupCells f (T.toLower (T.pack q))))
+    ["grep-eval", p, q]       -> loadForm p >>= \f -> grepEval f (T.pack q)
     ["around", p, q]          -> loadForm p >>= \f -> mapM_ (around f) (take 1 (lookupCells f (T.toLower (T.pack q))))
-    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|extract|evals) <xml4dr.xml> [cell-key|text]" >> exitFailure
+    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|trace|grep-eval|extract|evals) <xml4dr.xml> [cell-key|text]" >> exitFailure
 
 out :: T.Text -> IO ()
 out = TIO.putStrLn
@@ -94,3 +96,38 @@ evals f = do
   out ("handlers " <> T.pack (show (length rs)) <> ", parsed " <> T.pack (show (length rs - length bad))
        <> ", unparsed " <> T.pack (show (length bad)))
   mapM_ (\(h, e) -> out ("  " <> hId h <> ": " <> short 90 (hEval h) <> "\n      " <> T.pack (takeWhile (/= '\n') (drop 12 e)))) bad
+
+-- | Upstream (what feeds the cell) and downstream (what it feeds or gates), transitively.
+trace :: Form -> Cell -> IO ()
+trace f c = do
+  out ("== " <> cellKey c <> " " <> label c)
+  out "-- upstream (calc/check inputs, transitive):"
+  walk (\o -> [ x | (a, b) <- refsOut f o, x <- cells f, cSet x == a, cData x == b, cellKey x /= cellKey o ]) 1 [cellKey c] [c]
+  out "-- downstream (read by, transitive):"
+  walk (refsIn f) 1 [cellKey c] [c]
+  out "-- gated by:"
+  mapM_ (\(s, h, _) -> out ("  " <> cellKey s <> "  when " <> short 90 (either (const (hEval h)) pretty (parseEval (hEval h))))) (controllersOf f c)
+  where
+    label o = "[" <> kindName (kindOf f o) <> "] " <> short 50 (T.intercalate " | " (rowLabelOf f o ++ headerOf f o))
+    walk _ _ _ [] = pure ()
+    walk step d seen frontier = do
+      let next = [ x | o <- frontier, x <- step o ]
+          fresh = dedupe seen next
+      mapM_ (\x -> out (T.replicate (2 * d) " " <> cellKey x <> " " <> label x)) fresh
+      if d >= 4 then pure () else walk step (d + 1) (seen ++ map cellKey fresh) fresh
+    dedupe seen xs = go' seen xs
+      where go' _ [] = []
+            go' s (y : ys) | cellKey y `elem` s = go' s ys
+                           | otherwise = y : go' (cellKey y : s) ys
+
+-- | Search rule expressions, texts and messages (case-insensitive substring).
+grepEval :: Form -> T.Text -> IO ()
+grepEval f q = do
+  let ql = T.toLower q
+      msgs h = concat [ ts | a <- hActions h, MsgBox ts <- aEffects a ]
+      hit h = ql `T.isInfixOf` T.toLower (T.unwords (hEval h : msgs h))
+      owners h = [ cellKey c | c <- cells f, hId h `elem` cHandlers c ]
+  mapM_ (\h -> out (hId h <> " " <> T.pack (show (hType h)) <> " on " <> short 60 (T.unwords (owners h)) <> "\n    "
+                    <> short 200 (either (const (hEval h)) pretty (parseEval (hEval h)))
+                    <> (if null (msgs h) then "" else "\n    msg: " <> short 160 (T.unwords (msgs h)))))
+        (take 20 (filter hit (M.elems (handlers f))))

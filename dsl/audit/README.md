@@ -10,6 +10,8 @@ cabal run -v0 schema-audit -- outline $X                 # sections: rows, cells
 cabal run -v0 schema-audit -- cell    $X Section7/V1648  # one cell: texts, calc, checks, gating, reads/read-by
 cabal run -v0 schema-audit -- cell    $X "herav"         # or a text search (up to 5 hits)
 cabal run -v0 schema-audit -- around  $X Section7/V2015_92   # + same row/column, reads-from, read-by
+cabal run -v0 schema-audit -- trace   $X Section7/V2015_92   # upstream/downstream closure + gating
+cabal run -v0 schema-audit -- grep-eval $X "i samsvar med plan"   # search rules and messages
 cabal run -v0 schema-audit -- evals   $X                 # Eval parser coverage and failures
 cabal run -v0 schema-audit -- extract $X ../incoming-skjema-observations/.derived/20Byggesak.facts.json
 ```
