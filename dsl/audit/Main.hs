@@ -4,6 +4,8 @@ module Main (main) where
 import Audit.Export (encodeFacts)
 import qualified Data.ByteString.Lazy as BL
 import Audit.Align
+import Audit.Audit
+import Audit.Findings
 import Audit.Dsl
 import Audit.Eval
 import Audit.Index
@@ -28,13 +30,21 @@ main = do
       dsl <- loadDsl d
       cfg <- loadConfig cfgP
       let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
-      mapM_ (\b -> mapM_ out (renderReport f (align f cfg dsl b))) bs
+      mapM_ (mapM_ out . renderReport f) (alignMany f cfg dsl bs)
     ("align-json" : p : d : cfgP : o : bolks) -> do
       f <- loadForm p
       dsl <- loadDsl d
       cfg <- loadConfig cfgP
       let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
-      BL.writeFile o (encodeAlign [ align f cfg dsl b | b <- bs ])
+      BL.writeFile o (encodeAlign f (alignMany f cfg dsl bs))
+    ("audit" : p : d : cfgP : fnd : o : bolks) -> do
+      f <- loadForm p
+      dsl <- loadDsl d
+      cons <- loadConstraints d
+      cfg <- loadConfig cfgP
+      fs <- loadFindings fnd
+      let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
+      runAudit f cfg dsl cons fs bs o
     ["evals", p]              -> loadForm p >>= evals
     ["trace", p, q]           -> loadForm p >>= \f -> mapM_ (trace f) (take 1 (lookupCells f (T.toLower (T.pack q))))
     ["grep-eval", p, q]       -> loadForm p >>= \f -> grepEval f (T.pack q)

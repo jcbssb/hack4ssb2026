@@ -87,3 +87,12 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
   sit in label cells of the same row, column headers in earlier rows of the same column (both implemented).
 
 - **P3 / T8a (started):** `align` command + `audit/alignment/byggesak.json` for bolk A, B, H, I. All 15 DSL fields matched 1:1, 0 dsl-only / xml-only (2 explained demo cells). Candidate findings to triage: DSL marks A fields (4 of 5) and I.20–24 required where XML has no FieldFilled check; B1 `VB2021_*` required only as soft warning in XML plus >50000 warning missing in DSL; EPOSTADR isEmail and TELEFONNR >20999999 checks missing in DSL. Next: confirm in simulator, record as F-NNN, extend to T8b.
+
+- **T8b (done, alignment):** added bolk C10 (Section12), C11 (Section7), C14 (Section23); 25+13+12 fields matched 1:1 (fixed column keys like `b.1` ↔ `b1`). New diff classes: calc inputs, check partners (cross-bolk). Candidate findings: C10 DSL adds `behandlet ≤ mottatt` checks absent in XML and marks all fields required; C11 conditional (2.1/2.2) opens not found in XML; C14 col d/b2 calc inputs differ (XML references C10/C11 directly, DSL sums C14 columns). To triage in simulator.
+- **T8b+ (all C bolks mapped):** added C12 (Section4), C13 (Section6), C15 (Section9), C16 (Section26), C2 (Section29), C3 (Section31), C4 (Section18), C11–C2 eKOSTRA (Section14), D1–D2 eKOSTRA (Section15). All 16 mapped bolks align 1:1 (0 dsl-only / 0 xml-only). Diff totals: required 70, check partners 93, conditional 43, calc inputs 31. Next: group into F-NNN findings (`audit` command + `dsl/audit/findings/byggesak.json`), then map D/E/F/G bolks.
+
+### Progress: findings grouping and E bolks
+- Added `schema-audit audit <xml> <dsl> <cfg> <findings> <out.json> [bolk…]` (modules `Audit.Findings`, `Audit.Audit`). It collects cell diffs, DSL-only constraints and XML-only checks (set-compared), tags each with a finding via the rules in `dsl/audit/findings/byggesak.json`, and lists untriaged items as NEW.
+- Findings F-002…F-008 (soft-required, DSL stricter required, conditional on calculated cells, missing gating, DSL-only constraints, source-only checks, calc-input differences). All status `proposed`; 432 items, 0 untriaged.
+- Mapped E0 (Section1), E1 (Seksjon_F1), E2 (Seksjon_F2): 2/40/40 fields matched 1:1 (colKey now accepts `e2a`-style headers). 19 of 19 mapped bolks align fully.
+- Output `.derived/20Byggesak.findings.json` is ready for the Skjemakart findings layer (not yet wired).

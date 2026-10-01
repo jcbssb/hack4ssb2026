@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 -- | Align DSL fields with XML4DR cells (P3). Layers: overrides, matrix (row,col) keys, label match,
 --   fuzzy label match, singleton. Reports matched / dsl-only / xml-only plus attribute diffs.
-module Audit.Align (Config (..), loadConfig, align, Report (..), renderReport, encodeAlign) where
+module Audit.Align (Config (..), loadConfig, align, alignMany, Match (..), Report (..), cellLabel, renderReport, encodeAlign) where
 
 import Audit.Dsl
 import Audit.Eval (pretty, parseEval)
@@ -70,6 +70,9 @@ colKey t = do
   let k = T.dropWhileEnd (== '.') w
   case T.unpack k of
     (c : ds) | isLower c, all isDigit ds, T.length w == T.length k + 1 -> Just k
+    (c : d : ds) | isLower c, isDigit d, [l] <- dropWhile isDigit ds, isLower l, T.length w == T.length k + 1 -> Just k
+    [c, d, l] | isLower c, isDigit d, isLower l, T.length w == T.length k + 1 -> Just k
+    [c, '.', d] | isLower c, isDigit d -> Just (T.pack [c, d])
     _ -> Nothing
 
 jaccard :: Text -> Text -> Double
@@ -88,8 +91,19 @@ cellLabel f c = fromMaybe "" (listToMaybe (cText c ++ rowLabelOf f c))
 answerable :: Form -> Cell -> Bool
 answerable f c = kindOf f c /= KLabel
 
+-- | Align several bolks; cross-bolk cell/field links are resolved for calc and check comparison.
+alignMany :: Form -> Config -> [DField] -> [Text] -> [Report]
+alignMany f cfg dsl bs = rs
+  where
+    rs = [ alignWith gmap copies f cfg dsl b | b <- bs ]
+    copies = M.fromList [ (dId x, r) | x <- dsl, Just r <- [dCopyOf x] ]
+    gmap = M.fromList [ (cellKey (mCell m), dId (mField m)) | r <- rs, m <- rMatched r ]
+
 align :: Form -> Config -> [DField] -> Text -> Report
-align f cfg dsl bolk =
+align = alignWith M.empty M.empty
+
+alignWith :: M.Map Text Text -> M.Map Text Text -> Form -> Config -> [DField] -> Text -> Report
+alignWith gmap copies f cfg dsl bolk =
   let secs = fromMaybe [] (M.lookup bolk (cfgBolks cfg))
       fs = [ d | d <- dsl, dBolk d == bolk ]
       cs = [ c | c <- cells f, cSet c `elem` secs, answerable f c ]
@@ -130,7 +144,7 @@ align f cfg dsl bolk =
       (m5, d5, c5) = step m4 "singleton" single d4 c4
       explained = [ (c, cl, rs) | c <- c5, Just (cl, rs) <- [M.lookup (cellKey c) (cfgExplained cfg)] ]
       xmlOnly = [ c | c <- c5, cellKey c `M.notMember` cfgExplained cfg ]
-  in Report bolk [ Match d c h (diffs f d c) | (d, c, h) <- m5 ] d5 xmlOnly explained
+  in Report bolk [ Match d c h (diffs gmap copies f d c) | (d, c, h) <- m5 ] d5 xmlOnly explained
 
 stripLead :: Text -> Text
 stripLead t = case T.words t of
@@ -138,26 +152,38 @@ stripLead t = case T.words t of
   _ -> t
   where isNum w = let k = T.dropWhileEnd (== '.') w in not (T.null k) && T.any isDigit k && T.length k <= 6 && T.all (\c -> isAlphaNum c || c == '.') k && (T.head k `elem` ['A' .. 'Z'] || isDigit (T.head k))
 
-diffs :: Form -> DField -> Cell -> [Text]
-diffs f d c =
+diffs :: M.Map Text Text -> M.Map Text Text -> Form -> DField -> Cell -> [Text]
+diffs gmap copies f d c =
   reqDiff
   ++ [ "prefilled/readonly: dsl=" <> yn dp <> " xml=" <> yn xp | dp /= xp ]
   ++ [ "calculated: dsl=" <> yn (dCalc d) <> " xml=" <> yn xc | dCalc d /= xc ]
   ++ [ "conditional: dsl=" <> yn (dConditional d) <> " xml=" <> yn xg | dConditional d /= xg ]
   ++ [ "type: dsl=" <> dType d <> " xml=" <> fromMaybe "?" (cControl c) | tmis ]
+  ++ calcDiff
   ++ checkDiff
   where
     xp = kindOf f c == KPrefilled
     dp = dPrefilled d
     xc = kindOf f c == KCalculated
     xg = not (null (controllersOf f c))
-    xchecks = [ h | h <- ownChecks f c, T.strip (hEval h) /= "FieldFilled(obThis)" ]
-    sevOf h = T.intercalate "/" [ s | a <- hActions h, SetError s <- aEffects a ]
-    descr h = "xml check " <> T.take 70 (either (const (hEval h)) pretty (parseEval (hEval h))) <> " [" <> sevOf h <> "]"
+    known = S.fromList (M.elems gmap)
+    toF keys = S.fromList [ x | k <- keys, Just x <- [M.lookup k gmap] ]
+    self = cellKey c
+    refKeys h = [ s <> "/" <> dd | (s, dd) <- handlerRefs (hEval h) ]
+    root x = go (10 :: Int) x where go n y = case M.lookup y copies of Just z | n > 0 -> go (n - 1) z; _ -> y
+    calcX = S.map root (toF (filter (/= self) (concatMap refKeys (ownCalc f c))))
+    calcD = S.map root (S.fromList (dCalcRefs d) `S.intersection` known)
+    isCheck h = hType h == Nothing && T.strip (hEval h) /= "FieldFilled(obThis)"
+    onC = [ h | h <- ownChecks f c, isCheck h ]
+    others = [ (o, h) | o <- cells f, cellKey o /= self, h <- ownChecks f o, isCheck h, self `elem` refKeys h ]
+    partnerKeys = concatMap (filter (/= self) . refKeys) onC ++ concat [ cellKey o : filter (/= self) (refKeys h) | (o, h) <- others ]
+    partX = toF partnerKeys
+    partD = S.fromList (dPartners d) `S.intersection` known
+    setDiff nm a b = [ nm <> ": dsl-only {" <> T.intercalate ", " (S.toList (a S.\\ b)) <> "} xml-only {" <> T.intercalate ", " (S.toList (b S.\\ a)) <> "}" | a /= b ]
+    calcDiff = if M.null gmap || not (dCalc d && xc) then [] else setDiff "calc inputs" calcD calcX
     checkDiff
-      | dChecks d == 0 = map descr xchecks
-      | dChecks d /= length xchecks = [ "checks: dsl=" <> T.pack (show (dChecks d)) <> " xml=" <> T.pack (show (length xchecks)) ]
-      | otherwise = []
+      | M.null gmap = []
+      | otherwise = setDiff "check partners" partD partX
     reqDiff = case (dRequired d, requiredSeverity f c) of
       (True, Nothing) -> [ "required: dsl=yes xml=no" ]
       (True, Just "warning") -> [ "required: dsl=yes (hard) xml=warning only (soft 'please fill')" ]
@@ -179,11 +205,11 @@ renderReport f r =
         n = T.pack . show . length
 
 -- | Alignment facts for the Skjemakart canvas: per-cell status plus DSL-only fields.
-encodeAlign :: [Report] -> BL.ByteString
-encodeAlign rs = encode $ object
+encodeAlign :: Form -> [Report] -> BL.ByteString
+encodeAlign f rs = encode $ object
   [ "cells" .= object ([ K.fromText (cellKey (mCell m)) .= object
         [ "status" .= (if null (mDiffs m) then "aligned" else "diff" :: Text), "bolk" .= rBolk r
-        , "field" .= dId (mField m), "label" .= dLabel (mField m), "how" .= mHow m, "diffs" .= mDiffs m ]
+        , "field" .= dId (mField m), "label" .= dLabel (mField m), "how" .= mHow m, "diffs" .= mDiffs m, "xmlKind" .= kindName (kindOf f (mCell m)) ]
       | r <- rs, m <- rMatched r ]
     ++ [ K.fromText (cellKey c) .= object [ "status" .= ("xml-only" :: Text), "bolk" .= rBolk r ] | r <- rs, c <- rXmlOnly r ]
     ++ [ K.fromText (cellKey c) .= object [ "status" .= ("explained" :: Text), "bolk" .= rBolk r, "class" .= cl, "reason" .= why ]

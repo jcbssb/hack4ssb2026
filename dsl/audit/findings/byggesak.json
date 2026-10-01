@@ -1,0 +1,115 @@
+{
+ "findings": [
+  {
+   "id": "F-002",
+   "title": "Soft required (\"please fill in\" warning) not expressible in DSL",
+   "fixKind": "dsl-feature",
+   "severity": "medium",
+   "status": "proposed",
+   "description": "XML4DR marks ~50 input cells with FieldFilled(obThis) severity=warning. The DSL only has required true/false, so these are required:false and the nudge is lost.",
+   "proposedFix": "Add a required level (none|warn|error) to the DSL and compile warn to a non-blocking validation.",
+   "rules": [
+    {
+     "kind": "cell-diff",
+     "prefix": "required: dsl=no xml=warning"
+    }
+   ]
+  },
+  {
+   "id": "F-003",
+   "title": "DSL stricter than source on required",
+   "fixKind": "dsl-content",
+   "severity": "medium",
+   "status": "proposed",
+   "description": "DSL has required:true where XML4DR has no required check (A contact fields, I, C10 and two radios).",
+   "proposedFix": "Relax to the source behaviour (or soft-required once F-002 exists) unless SSB confirms the stricter rule.",
+   "rules": [
+    {
+     "kind": "cell-diff",
+     "prefix": "required: dsl=yes"
+    }
+   ]
+  },
+  {
+   "id": "F-004",
+   "title": "Conditional visibility on cells that are always visible calculated cells in the source",
+   "fixKind": "dsl-content",
+   "severity": "low",
+   "status": "proposed",
+   "description": "DSL hides row 2.1/2.2 cells behind a 'row-2 total > 0' condition; in XML4DR these cells are dark-grey calculated and always visible.",
+   "proposedFix": "Drop the condition on calculated cells; keep it only where XML guidance handlers gate input cells.",
+   "rules": [
+    {
+     "kind": "cell-diff",
+     "prefix": "conditional: dsl=yes xml=no"
+    }
+   ]
+  },
+  {
+   "id": "F-005",
+   "title": "Conditional gating present in source but missing in DSL",
+   "fixKind": "dsl-content",
+   "severity": "medium",
+   "status": "proposed",
+   "description": "XML guidance handlers gate a few cells (C3 VB2021_4/6, C12 V2016_36/37) that are always shown in the DSL.",
+   "proposedFix": "Add the matching visibility conditions in the DSL.",
+   "rules": [
+    {
+     "kind": "cell-diff",
+     "prefix": "conditional: dsl=no xml=yes"
+    }
+   ]
+  },
+  {
+   "id": "F-006",
+   "title": "DSL-only cross-field constraints (own invariants)",
+   "fixKind": "dsl-content",
+   "severity": "info",
+   "status": "proposed",
+   "description": "DSL adds behandlet<=mottatt, ikkeNegativ, overFrist, samsvar, treUker, mangelfulle constraints with error severity that have no XML4DR check of the same shape.",
+   "proposedFix": "Decide per family: keep as deliberate improvements (document), downgrade to warning to match the source, or remove.",
+   "rules": [
+    {
+     "kind": "dsl-constraint"
+    },
+    {
+     "kind": "cell-diff",
+     "prefix": "check partners: dsl-only {t7"
+    }
+   ]
+  },
+  {
+   "id": "F-007",
+   "title": "Source-only plausibility and format checks missing in DSL",
+   "fixKind": "dsl-feature",
+   "severity": "medium",
+   "status": "proposed",
+   "description": "XML4DR warns on telephone range, e-mail format, B1 > 50000, herav > total, and cross-section comparisons (C10 vs C2), plus empty-vs-zero warnings in C4.",
+   "proposedFix": "Add format constraint types (email, phone) and warning-level herav<=total and cross-bolk constraints.",
+   "rules": [
+    {
+     "kind": "xml-check"
+    },
+    {
+     "kind": "cell-diff",
+     "prefix": "check partners: dsl-only {} xml-only"
+    }
+   ]
+  },
+  {
+   "id": "F-008",
+   "title": "Calculation inputs differ (copy chains and C14 totals)",
+   "fixKind": "dsl-content",
+   "severity": "medium",
+   "status": "proposed",
+   "description": "XML calculations read other bolks directly (C14 from C10/C11/C12/C13, row totals from sub-rows) while the DSL sums its own columns.",
+   "proposedFix": "Re-express the DSL calculations from the source inputs; verify numerically in the simulator.",
+   "rules": [
+    {
+     "kind": "cell-diff",
+     "prefix": "calc inputs"
+    }
+   ]
+  }
+ ]
+}

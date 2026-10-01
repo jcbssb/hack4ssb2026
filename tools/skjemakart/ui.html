@@ -25,7 +25,7 @@ td.row{background-image:linear-gradient(#ffb00055,#ffb00055)}td.dim{opacity:.3}
 code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
 .ref{cursor:pointer;color:var(--down);display:block}.req{color:var(--chk)}
 </style></head><body>
-<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><div id=asum style="font-size:11px;margin-bottom:6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
+<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><div id=asum style="font-size:11px;margin-bottom:6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell; relative to the selected cell – click to filter, needs a selected cell):
 <span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span class=sel-c>selected cell</span><span class="tog" data-f=row style="border-color:#ffb00099">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
@@ -53,11 +53,11 @@ const active=()=>F.size||K.size||H.size;
 const relR=()=>sel&&F.size?relationsOf(idx,sel,+$("#depth").value):null;
 function tree(){const q=$("#q").value.toLowerCase();const R=relR();
  $("#tree").innerHTML=facts.sections.filter(s=>!active()||cnt(R,s.id)).filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}${active()?` · ${cnt(R,s.id)}`:""}</small> ${secBadge(s.id)}</div>`).join("")}
-$("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid()}};
+$("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid();commit()}};
 $("#q").oninput=tree;
-document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const S=t.dataset.f?F:K,f=t.dataset.f||t.dataset.k;S.has(f)?S.delete(f):S.add(f);t.classList.toggle("on",S.has(f));const R=relR();if(active()&&!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}tree();grid()});
-document.querySelectorAll(".hf").forEach(t=>t.onclick=()=>{const h=t.dataset.h,v=H.get(h);if(!v)H.set(h,1);else if(v>0)H.set(h,-1);else H.delete(h);const n=H.get(h);t.className="hf"+(n>0?" pos":n<0?" neg":"");const R=relR();if(active()&&!cnt(R,cur)){const x=facts.sections.find(x=>cnt(R,x.id));if(x)cur=x.id}tree();grid()});
-$("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();H.clear();document.querySelectorAll(".hf").forEach(t=>t.className="hf");document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid()};$("#depth").onchange=()=>{grid();detail()};
+document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const S=t.dataset.f?F:K,f=t.dataset.f||t.dataset.k;S.has(f)?S.delete(f):S.add(f);t.classList.toggle("on",S.has(f));const R=relR();if(active()&&!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}tree();grid();commit()});
+document.querySelectorAll(".hf").forEach(t=>t.onclick=()=>{const h=t.dataset.h,v=H.get(h);if(!v)H.set(h,1);else if(v>0)H.set(h,-1);else H.delete(h);const n=H.get(h);t.className="hf"+(n>0?" pos":n<0?" neg":"");const R=relR();if(active()&&!cnt(R,cur)){const x=facts.sections.find(x=>cnt(R,x.id));if(x)cur=x.id}tree();grid();commit()});
+$("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();H.clear();document.querySelectorAll(".hf").forEach(t=>t.className="hf");document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid();commit()};$("#depth").onchange=()=>{grid();detail()};
 const secAu=id=>{const o={};for(const c of facts.cells)if(c.set===id){const a=au(c.key);if(a)o[a.status]=(o[a.status]||0)+1}return o};
 const secBadge=id=>{const o=secAu(id),e=Object.entries(o);return e.length?e.map(([k,n])=>`<span class="au ${k}">${BADGE[k]}${n}</span>`).join(""):'<span class="au none" title="no audit data for this section">∅ not audited</span>'};
 const BADGE={aligned:"✔",diff:"⚠","xml-only":"✖",explained:"ⓘ"};const badge=c=>{const a=au(c.key);return a?`<span class="au ${a.status}">${BADGE[a.status]}</span>`:""};
@@ -69,7 +69,7 @@ function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cell
   return `<td class="${c.kind==="label"?"label":c.kind} ${gl} ${t} ${dim}" data-k="${c.key}" title="${c.key}">${esc(label(c))}${c.required?'<b class=req>*</b>':""}${badge(c)}</td>`}).join("")+"</tr>").join("")+"</table>"}
 $("#grid").onclick=e=>{const t=e.target.closest("[data-k]");if(t)pick(t.dataset.k===sel?null:t.dataset.k,true)};
 document.addEventListener("keydown",e=>{if(e.key==="Escape")pick(null,true)});
-function pick(k,fromUi){sel=k;const c=k&&idx.byKey.get(k);if(c)cur=c.set;tree();grid();detail();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
+function pick(k,fromUi){sel=k;const c=k&&idx.byKey.get(k);if(c)cur=c.set;tree();grid();detail();if(fromUi)commit();if(fromUi)fetch("/api/select",{method:"POST",body:JSON.stringify({key:k})})}
 const refs=(title,set)=>set&&(set.size??set.length)?`<h4>${title}</h4>`+[...(set.keys?set.keys():set)].map(k=>`<span class=ref data-j="${k}">${esc(label(idx.byKey.get(k)))} <small>${k}</small></span>`).join(""):"";
 function auditBlock(c){const a=au(c.key);if(!a)return "<h4>Audit</h4><small>not audited (no bolk mapped)</small>";
  return `<h4>Audit <span class="au ${a.status}">${BADGE[a.status]} ${a.status}</span></h4><small>${esc(a.bolk)}</small>`+(a.field?`<div>DSL field <code>${esc(a.field)}</code> via ${esc(a.how)}<br>${esc(a.label)}</div>`:"")+(a.reason?`<div>${esc(a.class)}: ${esc(a.reason)}</div>`:"")+(a.diffs||[]).map(d=>`<div class=req>≠ ${esc(d)}</div>`).join("")}
@@ -82,6 +82,15 @@ function detail(){if(!sel){$("#detail").innerHTML="Nothing selected – showing 
  +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
 document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});
 $("#ftitle").textContent=facts.title||"";const nA=facts.sections.filter(s=>Object.keys(secAu(s.id)).length).length;$("#asum").textContent=`Audit data: ${nA} of ${facts.sections.length} sections`;
-tree();grid();
+const snap=()=>new URLSearchParams({s:cur,k:sel||"",f:[...F].join(","),c:[...K].join(","),h:[...H].map(([h,v])=>(v>0?"+":"-")+h).join(","),q:$("#q").value}).toString();
+function commit(){const h="#"+snap();if(h!==location.hash)history.pushState(null,"",h)}
+function syncChips(){document.querySelectorAll(".tog").forEach(t=>t.classList.toggle("on",(t.dataset.f?F:K).has(t.dataset.f||t.dataset.k)));document.querySelectorAll(".hf").forEach(t=>{const n=H.get(t.dataset.h);t.className="hf"+(n>0?" pos":n<0?" neg":"")})}
+function restore(){const p=new URLSearchParams(location.hash.slice(1));F.clear();K.clear();H.clear();
+ (p.get("f")||"").split(",").filter(Boolean).forEach(x=>F.add(x));(p.get("c")||"").split(",").filter(Boolean).forEach(x=>K.add(x));(p.get("h")||"").split(",").filter(Boolean).forEach(x=>H.set(x.slice(1),x[0]==="+"?1:-1));
+ $("#q").value=p.get("q")||"";sel=p.get("k")&&idx.byKey.has(p.get("k"))?p.get("k"):null;cur=p.get("s")&&facts.sections.some(x=>x.id===p.get("s"))?p.get("s"):facts.sections[0].id;
+ syncChips();tree();grid();detail()}
+window.addEventListener("popstate",restore);
+$("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};
+if(location.hash.length>1)restore();else tree(),grid();
 setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected!==sel)pick(s.selected,false)}},1000);
 </script></body></html>
