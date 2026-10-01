@@ -100,3 +100,6 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 ### Progress: Skjemakart findings layer, D bolks
 - Skjemakart: `/api/findings`, "F" cell badge, "has finding" filter, Findings block in the detail pane. Tip: use `http://127.0.0.1:8765/` (a Python server shadows `localhost` on IPv6).
 - Mapped D1 (Section_E1, 51 fields) and D2 (Section11, 11) 1:1; `numKey` now splits `4.Antall` glued row labels. Section13 (2 radios) has no DSL bolk. 563 audit items, 0 untriaged.
+
+### Progress: F bolks
+- Mapped F0 (Section2), F1 (Section_G3), F2 (Seksjon_G1), F3 (Seksjon_G2), F4 (Section16). Letter-led matrix rows (`a.`, `a2b.`) now key rows; F3 `a12`/`a21` single-cell rows are overrides. 617 audit items, 0 untriaged.

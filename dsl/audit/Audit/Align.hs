@@ -85,7 +85,17 @@ jaccard a b =
   in if u == 0 then 0 else fromIntegral i / fromIntegral u
 
 cellRowKey, cellColKey :: Form -> Cell -> Maybe Text
-cellRowKey f c = listToMaybe (mapMaybe numKey (rowLabelOf f c ++ cText c))
+cellRowKey f c = listToMaybe (mapMaybe (\t -> numKey t `orElse` letterKey t) (rowLabelOf f c ++ cText c))
+  where orElse a b = maybe b Just a
+
+-- | Letter-led row keys such as "a.", "a1.", "a2b." (matrix rows keyed by letter).
+letterKey :: Text -> Maybe Text
+letterKey t = do
+  w <- listToMaybe (T.words t)
+  k <- T.stripSuffix "." w
+  case T.unpack k of
+    (c : r) | isLower c, length r <= 3, all (\x -> isDigit x || isLower x) r -> Just k
+    _ -> Nothing
 cellColKey f c = listToMaybe (mapMaybe colKey (headerOf f c))
 
 cellLabel :: Form -> Cell -> Text

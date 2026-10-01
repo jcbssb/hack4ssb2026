@@ -1,11 +1,36 @@
 {
   "_note": "Alignment config for 20Byggesak. bolks: DSL bolkId -> XML4DR section ids (add per slice once verified with `outline`). overrides: DSL field -> XML cell with a reason. explained: XML cells deliberately without a DSL field.",
   "bolks": {
-    "bolk_e0": ["Section1"],
-    "bolk_e1": ["Seksjon_F1"],
-    "bolk_e2": ["Seksjon_F2"],
-    "bolk_d1": ["Section_E1"],
-    "bolk_d2": ["Section11"],
+    "bolk_e0": [
+      "Section1"
+    ],
+    "bolk_e1": [
+      "Seksjon_F1"
+    ],
+    "bolk_e2": [
+      "Seksjon_F2"
+    ],
+    "bolk_d1": [
+      "Section_E1"
+    ],
+    "bolk_d2": [
+      "Section11"
+    ],
+    "bolk_f0": [
+      "Section2"
+    ],
+    "bolk_f1": [
+      "Section_G3"
+    ],
+    "bolk_f2": [
+      "Seksjon_G1"
+    ],
+    "bolk_f3": [
+      "Seksjon_G2"
+    ],
+    "bolk_f4": [
+      "Section16"
+    ],
     "bolk_a": [
       "setKID"
     ],
@@ -55,7 +80,18 @@
       "Section15"
     ]
   },
-  "overrides": [],
+  "overrides": [
+    {
+      "field": "t7_f3_a12_antall",
+      "cell": "Seksjon_G2/V1632",
+      "reason": "row a12 is a single-cell row; label-only match failed"
+    },
+    {
+      "field": "t7_f3_a21_antall",
+      "cell": "Seksjon_G2/V1651",
+      "reason": "row a21 is a single-cell row; label-only match failed"
+    }
+  ],
   "explained": [
     {
       "cell": "setKID/dummy_v2015_1",
