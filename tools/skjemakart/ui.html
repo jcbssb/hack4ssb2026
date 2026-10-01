@@ -1,28 +1,34 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Skjemakart</title>
 <style>
-body{margin:0;font:13px var(--font-sans,system-ui);background:var(--background-color-default,#fff);color:var(--text-color-default,#222);display:grid;grid-template-columns:340px 1fr 380px;height:100vh}
+:root{color-scheme:dark;--bg:var(--background-color-default,#0d1117);--fg:var(--text-color-default,#e6edf3);
+--up:#3fb950;--down:#58a6ff;--chk:#ff5c5c;--gate:#c297ff;--sel:#ffb000;--calc:#5a5f69;--cond:#c9ced6}
+body{margin:0;font:13px var(--font-sans,system-ui);background:var(--bg);color:var(--fg);display:grid;grid-template-columns:340px 1fr 380px;height:100vh}
 aside,main,section{overflow:auto;padding:8px}
-aside{border-right:1px solid #8884}section{border-left:1px solid #8884}
-input{width:100%;box-sizing:border-box;padding:4px;margin-bottom:6px}
-.sec{font-weight:600;cursor:pointer;padding:3px 4px;border-radius:4px}.sec:hover,.sec.on{background:#8883}
-.hf{cursor:pointer;user-select:none;border-color:#8886}.hf.pos{background:#1a7f3733;border-color:#1a7f37}.hf.neg{background:#cf222e22;border-color:#cf222e;text-decoration:line-through}.tog{cursor:pointer;user-select:none}.tog.on{background:#e6a70033;font-weight:600}.legend{line-height:1.9}.legend span{display:inline-block;padding:1px 6px;margin:2px;border-radius:3px;border:2px solid;font-size:11px}
+aside{border-right:1px solid #8886}section{border-left:1px solid #8886}
+input{width:100%;box-sizing:border-box;padding:4px;margin-bottom:6px;background:#161b22;color:var(--fg);border:1px solid #8886;border-radius:4px}
+a{color:var(--down)}
+.sec{font-weight:600;cursor:pointer;padding:3px 4px;border-radius:4px}.sec:hover{background:#8884}.sec.on{background:#388bfd44}
+.legend{line-height:2}.legend span{display:inline-block;padding:1px 7px;margin:2px;border-radius:4px;border:3px solid #8888;font-size:11px}
+.tog,.hf{cursor:pointer;user-select:none}.tog.on{background:#ffb00044;font-weight:700}
+.hf.pos{background:#3fb95044;border-color:var(--up);font-weight:700}.hf.neg{background:#ff5c5c33;border-color:var(--chk);text-decoration:line-through}
+.up-c{border-color:var(--up)!important}.down-c{border-color:var(--down)!important}.chk-c{border-color:var(--chk)!important}.gate-c{border-color:var(--gate)!important}.sel-c{border-color:var(--sel)!important}
+.f-calc{background:var(--calc);border-color:var(--calc)!important}.f-cond{background:var(--cond);color:#111;border-color:var(--cond)!important}.f-input{background:#0d1117;border-color:#aaa!important}.f-label{background:#30363d;font-weight:700}
 table{border-collapse:collapse}td{border:1px solid #8886;padding:3px 5px;min-width:70px;max-width:160px;vertical-align:top;font-size:11px;cursor:pointer;overflow:hidden}
-td.label{font-weight:600;background:#8881;cursor:default}
-td.calculated,td.prefilled{background:#78787855}td.input{background:#0000}
-td.gatedlight{background:#d1d1d155}
-td.sel{outline:3px solid #e6a700;outline-offset:-3px}
-td.up{box-shadow:inset 0 0 0 3px #1a7f37}td.down{box-shadow:inset 0 0 0 3px #0969da}
-td.chk{box-shadow:inset 0 0 0 3px #cf222e}td.gate{box-shadow:inset 0 0 0 3px #8250df}
-td.row{background-image:linear-gradient(#e6a70022,#e6a70022)}td.dim{opacity:.35}
-.up-c{border-color:#1a7f37}.down-c{border-color:#0969da}.chk-c{border-color:#cf222e}.gate-c{border-color:#8250df}
-code{background:#8882;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
-.ref{cursor:pointer;color:#0969da;display:block}.req{color:#cf222e}
+td.label{font-weight:700;background:#30363d;cursor:default}
+td.calculated,td.prefilled{background:var(--calc)}td.input{background:#0d1117}
+td.gatedlight{background:var(--cond);color:#111}
+td.sel{outline:4px solid var(--sel);outline-offset:-4px}
+td.up{box-shadow:inset 0 0 0 4px var(--up)}td.down{box-shadow:inset 0 0 0 4px var(--down)}
+td.chk{box-shadow:inset 0 0 0 4px var(--chk)}td.gate{box-shadow:inset 0 0 0 4px var(--gate)}
+td.row{background-image:linear-gradient(#ffb00055,#ffb00055)}td.dim{opacity:.3}
+code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
+.ref{cursor:pointer;color:var(--down);display:block}.req{color:var(--chk)}
 </style></head><body>
 <aside><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell; relative to the selected cell – click to filter, needs a selected cell):
-<span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span style="border-color:#e6a700">selected cell</span><span class=tog data-f=row style="border-color:#e6a70055">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
+<span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span class=sel-c>selected cell</span><span class="tog" data-f=row style="border-color:#ffb00099">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
-<span class=tog data-k=calc style="background:#78787855;border-color:#7878">dark grey: calculated / prefilled</span><span class=tog data-k=cond style="background:#d1d1d155;border-color:#d1d1d1">light grey: conditional (opened by a guidance rule)</span><span class=tog data-k=input style="border-color:#8886">white: input</span><span class=tog data-k=label style="background:#8881;border-color:#8886"><b>bold</b>: label</span><span class=tog data-k=req style="border-color:#cf222e"><b class=req>*</b> required</span>
+<span class="tog f-calc" data-k=calc>dark grey: calculated / prefilled</span><span class="tog f-cond" data-k=cond>light grey: conditional (opened by a guidance rule)</span><span class="tog f-input" data-k=input>white: input</span><span class="tog f-label" data-k=label><b>bold</b>: label</span><span class="tog" data-k=req><b class=req>*</b> required</span>
 <br><b>Has relation</b> <small>(click: only with ✓ → only without ✗ → off)</small>:
 <span class=hf data-h=calcIn>is calculated from others</span><span class=hf data-h=calcOut>feeds a calculation</span><span class=hf data-h=chk>has a constraint/check</span><span class=hf data-h=gates>controls other cells</span><span class=hf data-h=gated>is conditional (opened by another)</span><span class=hf data-h=isolated>no relations at all</span>
 <br>chain depth <input id=depth type=number value=3 min=1 max=10 style="width:50px;display:inline"></div><div id=grid></div></main>
