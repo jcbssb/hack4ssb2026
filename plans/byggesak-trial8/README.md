@@ -54,8 +54,8 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 | Phase | Deliverable | Done when |
 |---|---|---|
 | P0 ✅ | Folder renamed, references updated (done) | `grep -r "screenshots/"` clean; build/tests still pass |
-| P1 | `extract xml4dr` + `outline` | 20Byggesak: all 1204 cells in facts; unparsed Evals counted (target < 5 %); slice order confirmed |
-| P2 | `cell` / `around` / `trace` / `grep-eval` | Can answer "what opens C12 1.1 b1 and what does it feed" in one call, < 40 lines |
+| P1 ✅ | `extract xml4dr` + `outline` | 20Byggesak: all 1204 cells in facts; unparsed Evals counted (target < 5 %); slice order confirmed |
+| P2 (partly: `cell`, `around` done; `trace`, `grep-eval` open) | `cell` / `around` / `trace` / `grep-eval` | Can answer "what opens C12 1.1 b1 and what does it feed" in one call, < 40 lines |
 | P3 | `extract dsl`, `extract pdf`, `align` | ≥ 95 % cells aligned **for the T8a–T8b slices** first, then widened per slice |
 | P4 | `audit` + generated report | Reproduces known Trial 6/7 findings in the pilot slices (sanity check) and adds new ones from XML4DR |
 | P5 | T8a, T8b slices (pilot) | Slices audited clean/classified; simulator walkthrough accepted by user; tool/DSL fixes landed |
@@ -63,3 +63,15 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 | P7 | `corpus` stats on `Forms/` | Idiom histogram + feature backlog doc (can run in parallel from P1 on) |
 | P8 | Full `ByggesakTrial8` composed + whole-form audit | Only documented source ambiguities remain; user acceptance in simulator |
 | P9 | Altinn injection + Studio/tt02 testing (**gated, after P8**) | Injected via CLI only; generator issues fixed in `SchemaDSL.Altinn` |
+
+## Progress log
+
+- **P1 done** (`dsl/audit/`, usage in `dsl/audit/README.md`): `outline`, `cell`, `around`, `evals`, `extract`.
+  20Byggesak: 44 sections, 1204 cells, 518 handlers; **517/518 Evals parse** (target < 5 % unparsed).
+  Cell identity is `setId/dataId`; rules attach via Data → Format → InputControl → CatchEvent, in three
+  handler kinds: `calculation` (own value), `guidance` (`SetState` normal/readonly on other cells = what
+  opens light-grey cells), untyped checks (`SetError` warning/critical + message).
+- **Finding F-001 (source defect):** `handler445` (Section_H3 / Cell585) is malformed in the source:
+  `FieldFilled(obThis)GetFieldValue(...)` has no operator between the calls. Classify as source-ambiguity; ask SSB.
+- Cell ids are opaque (`Cell117`), so alignment (P3) must rely on row/column labels and position. Row labels
+  sit in label cells of the same row, column headers in earlier rows of the same column (both implemented).

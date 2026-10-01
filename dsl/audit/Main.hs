@@ -3,6 +3,7 @@ module Main (main) where
 
 import Audit.Export (encodeFacts)
 import qualified Data.ByteString.Lazy as BL
+import Audit.Eval
 import Audit.Index
 import Audit.Xml4dr
 import qualified Data.Map.Strict as M
@@ -19,8 +20,9 @@ main = do
     ["outline", p]            -> loadForm p >>= outline
     ["cell", p, q]            -> loadForm p >>= \f -> mapM_ (cellView f) (take 5 (lookupCells f (T.toLower (T.pack q))))
     ["extract", p, o]         -> loadForm p >>= \f -> BL.writeFile o (encodeFacts f) >> out ("wrote " <> T.pack o)
+    ["evals", p]              -> loadForm p >>= evals
     ["around", p, q]          -> loadForm p >>= \f -> mapM_ (around f) (take 1 (lookupCells f (T.toLower (T.pack q))))
-    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|extract) <xml4dr.xml> [cell-key|text]" >> exitFailure
+    _ -> hPutStrLn stderr "usage: schema-audit (outline|cell|around|extract|evals) <xml4dr.xml> [cell-key|text]" >> exitFailure
 
 out :: T.Text -> IO ()
 out = TIO.putStrLn
@@ -53,13 +55,14 @@ cellView f c = do
   out ("  text nn  : " <> short 140 (T.intercalate " | " (cNn c)))
   out ("  control  : " <> T.pack (show (cControl c)) <> " size " <> T.pack (show (cSize c)) <> " value " <> T.pack (show (cValue c))
        <> " styles " <> T.pack (show (cStyles c)))
-  mapM_ (\h -> out ("  calc     : " <> short 220 (hEval h))) (ownCalc f c)
-  mapM_ (\h -> out ("  check    : " <> short 140 (hEval h) <> "  => " <> short 100 (T.intercalate "; " [ describe e | a <- hActions h, e <- aEffects a ]))) (ownChecks f c)
-  mapM_ (\h -> out ("  controls : " <> short 100 (hEval h) <> "  -> " <> T.pack (show (length (concat [ ps | a <- hActions h, SetState _ ps <- aEffects a ]))) <> " cells")) (ownGuidance f c)
+  mapM_ (\h -> out ("  calc     : " <> short 240 (parsed h))) (ownCalc f c)
+  mapM_ (\h -> out ("  check    : " <> short 160 (parsed h) <> "  => " <> short 100 (T.intercalate "; " [ describe e | a <- hActions h, e <- aEffects a ]))) (ownChecks f c)
+  mapM_ (\h -> out ("  controls : " <> short 100 (parsed h) <> "  -> " <> T.pack (show (length (concat [ ps | a <- hActions h, SetState _ ps <- aEffects a ]))) <> " cells")) (ownGuidance f c)
   mapM_ (\(src, h, ws) -> out ("  gated by : " <> cellKey src <> "  when " <> short 100 (hEval h) <> "  " <> T.pack (show ws))) (controllersOf f c)
   out ("  reads    : " <> T.intercalate ", " [ a <> "/" <> b | (a, b) <- refsOut f c ])
   out ("  read by  : " <> T.intercalate ", " (map cellKey (refsIn f c)))
   where
+    parsed h = either (const (hEval h)) pretty (parseEval (hEval h))
     describe (MsgBox ts) = "msg: " <> T.unwords ts
     describe (SetError e) = e
     describe _ = ""
@@ -82,3 +85,12 @@ around f c = do
 
 _u :: M.Map Int Int
 _u = M.empty
+
+-- | Parse every handler Eval; report coverage and the failures.
+evals :: Form -> IO ()
+evals f = do
+  let rs = [ (h, parseEval (hEval h)) | h <- M.elems (handlers f) ]
+      bad = [ (h, e) | (h, Left e) <- rs ]
+  out ("handlers " <> T.pack (show (length rs)) <> ", parsed " <> T.pack (show (length rs - length bad))
+       <> ", unparsed " <> T.pack (show (length bad)))
+  mapM_ (\(h, e) -> out ("  " <> hId h <> ": " <> short 90 (hEval h) <> "\n      " <> T.pack (takeWhile (/= '\n') (drop 12 e)))) bad
