@@ -342,7 +342,7 @@
     </section>
   </main>
 
-  <script src="schemas.js?v=b34992d3"></script>
+  <script src="schemas.js"></script>
   <script>
     // Schemas loaded dynamically from dsl single source of truth (schemas.js)
     const availableSchemas = window.SSB_SCHEMAS || {};
@@ -387,7 +387,15 @@
     function populateSchemaDropdown() {
       const select = document.getElementById("schema-select");
       select.innerHTML = "";
-      for (const [key, schema] of Object.entries(availableSchemas)) {
+      const entries = Object.entries(availableSchemas);
+      if (entries.length === 0) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "Ingen skjemaer funnet (kjør 'cabal run schema-dsl-cli -- --update-all')";
+        select.appendChild(opt);
+        return;
+      }
+      for (const [key, schema] of entries) {
         const opt = document.createElement("option");
         opt.value = key;
         const flatCount = flattenSchemaSteps(schema).length;
@@ -532,6 +540,11 @@
 
     function init() {
       populateSchemaDropdown();
+      if (Object.keys(availableSchemas).length === 0) {
+        document.getElementById("survey-title").textContent = "Ingen skjemaer lastet";
+        document.getElementById("survey-desc").textContent = "Kjør 'cabal run schema-dsl-cli -- --update-all' i dsl/ for å generere simulator/schemas.js";
+        return;
+      }
       document.getElementById("survey-title").textContent = activeSchema.title || "Skjema";
       document.getElementById("survey-desc").textContent = `${(activeSchema.context && activeSchema.context.organization) || 'SSB'} • ${(activeSchema.context && activeSchema.context.surveyCode) || ''}`;
       recomputePages();

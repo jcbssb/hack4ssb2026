@@ -31,3 +31,7 @@ venv/
 incoming-skjema-observations/xml4dr/
 incoming-skjema-observations/byggesak-20/*.xml
 incoming-skjema-observations/.derived/
+
+# Generated schema bundles and artifacts (rebuilt via `cabal run schema-dsl-cli -- --update-all`)
+simulator/schemas.js
+dsl/schemas/*.json
