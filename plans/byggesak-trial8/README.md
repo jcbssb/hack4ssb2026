@@ -112,3 +112,8 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 - 34 of 44 sections now carry audit data; the other 10 are cell-less containers (`Section8`, `Section3`, `Seksjon_B/_E/_F/_G/_H/_M/_N`, `Section_D1`). Mapped the last three cell-bearing sections as explained XML-only cells: `setSID` (platform metadata, 7 cells) and `Section13` (platform prefill: `Kommune_nr2`, `Strandsone`) under bolk_a, `Section10` (6 dark-grey helper totals of C10) under bolk_c10.
 - Candidate finding: `Section13/VB2019_2` (Strandsone) gates D1 row 3 (`Section_E1/V2012_7`: readonly when 0, "fill in" warning when 1); the DSL has no such flag.
 - The 2 skipped XML checks are `Section_E1/V2012_7` -> Strandsone (explained cell) and `Seksjon_G1/V2014_1` -> `Section_H3/Cell585` (F-001 malformed handler).
+
+### Progress: Trial 8 started, audits per trial
+- Findings decided (2026-10-01): F-002 accepted (soft-required level), F-003 relax, F-004 drop conditions on calculated cells, F-005 add gating, F-007 add checks, F-008 follow source, F-009 add Strandsone context flag; F-006 deferred to Trial 9.
+- `ByggesakTrial8.hs` patches the frozen Trial 7 dialogue slice by slice (`onBolk`/`onQuestions`), keeping `t7_` field ids; DSL is **not** regenerated from sources. T8a: bolk A relaxed per F-003 (F-003 items 28 -> 24).
+- Skjemakart can flip between audits of trial7/trial8/future trials; `tools/skjemakart/refresh.sh` builds per-trial audit files.

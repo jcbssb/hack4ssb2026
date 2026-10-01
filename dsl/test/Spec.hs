@@ -38,11 +38,13 @@ main = do
   testTrialAgainstPdf "Trial 5" "t5" trial5ByggesakDialogue
   testTrialAgainstPdf "Trial 6" "t6" trial6ByggesakDialogue
   testTrialAgainstPdf "Trial 7" "t7" trial7ByggesakDialogue
+  testTrialAgainstPdf "Trial 8" "t7" trial8ByggesakDialogue
   testMatrixDemo
   testPagedAltinn
   testCSharpClassRemoval
   testAppTitle
   testTrial7AuditFixes
+  testTrial8SliceA
   putStrLn "All SchemaDSL tests passed successfully!"
   exitSuccess
 
@@ -130,7 +132,7 @@ testValidateRules :: IO ()
 testValidateRules = do
   let examples = [ helloWorldDialogue, syntheticHackDialogue, kostra51KulturminneDialogue
                  , kostra51FullDialogue, trial1ByggesakDialogue, trial2ByggesakDialogue
-                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, trial7ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
+                 , trial3ByggesakDialogue, trial4ByggesakDialogue, trial5ByggesakDialogue, trial6ByggesakDialogue, trial7ByggesakDialogue, trial8ByggesakDialogue, budgetDialogue, rulesDemoDialogue, matrixDemoDialogue ]
       problems = concatMap validateRules examples
       broken = budgetDialogue
         { calculations = calculations budgetDialogue ++ [Calculation "delA" (Field "rest"), Calculation "nope" (Const 1)] }
@@ -698,3 +700,12 @@ testInvalidJSONHandling = do
     Right _ -> do
       putStrLn "[FAIL] Invalid JSON unexpectedly decoded successfully."
       exitFailure
+
+-- | Test 25: Trial 8 slice T8a relaxes bolk A (F-003) and leaves frozen Trial 7 untouched
+testTrial8SliceA :: IO ()
+testTrial8SliceA = do
+  let reqIn d = [ (fieldId q, required q) | BolkStep b <- steps d, bolkId b == "bolk_a", q <- bolkQuestions b ]
+  expect (all snd (reqIn trial7ByggesakDialogue)) "Trial 7 keeps all bolk A fields required (frozen baseline)."
+  expect (reqIn trial8ByggesakDialogue == [ ("t7_kommunenummer", False), ("t7_kommunensNavn", False), ("t7_navnSkjemaansvarlig", False)
+                                          , ("t7_telefonnummer", True), ("t7_epostSkjemaansvarlig", False) ])
+         "Trial 8 T8a: only telefonnummer stays required in bolk A."

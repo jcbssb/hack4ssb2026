@@ -26,7 +26,7 @@ code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 .ref{cursor:pointer;color:var(--down);display:block}.req{color:var(--chk)}
 </style></head><body>
 <div id=newdata hidden style="position:fixed;top:0;left:0;right:0;z-index:9;background:#ffb000;color:#000;padding:4px 10px;font-size:12px;text-align:center;cursor:pointer">New audit data available — click to reload</div>
-<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><div id=asum style="font-size:11px;margin-bottom:6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
+<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><label style="font-size:11px">Audit of DSL <select id=audit style="background:#161b22;color:inherit;border:1px solid #8886;border-radius:4px;padding:2px"></select></label><div id=asum style="font-size:11px;margin:4px 0 6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell; relative to the selected cell – click to filter, needs a selected cell):
 <span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span class=sel-c>selected cell</span><span class="tog" data-f=row style="border-color:#ffb00099">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
@@ -39,7 +39,8 @@ code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 <section id=detail>Select a cell.</section>
 <script type=module>
 import {buildIndex,relationsOf,label} from "/relations.mjs";
-const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);const AL=await (await fetch("/api/align")).json();const au=k=>AL.cells[k];const FD=await (await fetch("/api/findings")).json();const FM=Object.fromEntries(FD.cellFindings||[]);const FI=Object.fromEntries((FD.findings||[]).map(f=>[f.id,f]));const fnd=k=>FM[k]||[];
+const AUDITS=await (await fetch("/api/audits")).json();const AU=new URLSearchParams(location.search).get("audit")||AUDITS.at(-1)?.tag||"";const AQ="?audit="+encodeURIComponent(AU);
+const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);const AL=await (await fetch("/api/align"+AQ)).json();const au=k=>AL.cells[k];const FD=await (await fetch("/api/findings"+AQ)).json();const FM=Object.fromEntries(FD.cellFindings||[]);const FI=Object.fromEntries((FD.findings||[]).map(f=>[f.id,f]));const fnd=k=>FM[k]||[];
 let cur=facts.sections[0].id,sel=null,rev=-1;const F=new Set();
 const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 const K=new Set(),H=new Map();
@@ -83,7 +84,9 @@ function detail(){if(!sel){$("#detail").innerHTML="Nothing selected – showing 
  +(c.gatedBy.length?`<h4>Opened by</h4>`+c.gatedBy.map(g=>`<div>${esc(g.controller)} when ${esc(g.when)}</div>`).join(""):"")
  +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
 document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});
-$("#ftitle").textContent=facts.title||"";const nA=facts.sections.filter(s=>Object.keys(secAu(s.id)).length).length;$("#asum").textContent=`Audit data: ${nA} of ${facts.sections.length} sections`;
+$("#ftitle").textContent=facts.title||"";const nA=facts.sections.filter(s=>Object.keys(secAu(s.id)).length).length;const A=AUDITS.find(a=>a.tag===AU),P=AUDITS[AUDITS.indexOf(A)-1];const sumA=a=>a?`⚠ ${a.cells.diff||0} · ✖ ${a.cells["xml-only"]||0} · DSL-only ${a.dslOnly} · NEW ${a.untriaged}`:"";const itemsA=a=>Object.values(a?.items||{}).reduce((x,y)=>x+y,0);
+$("#audit").innerHTML=AUDITS.map(a=>`<option value="${a.tag}" ${a.tag===AU?"selected":""}>${a.tag}</option>`).join("")||"<option>none</option>";$("#audit").onchange=e=>{location.href=location.pathname+"?audit="+e.target.value+location.hash};
+$("#asum").innerHTML=`Audit data: ${nA} of ${facts.sections.length} sections`+(A?`<br>${sumA(A)} · ${itemsA(A)} items`+(P?`<br><span title="items per finding vs ${P.tag}">vs ${P.tag}: ${itemsA(A)-itemsA(P)>=0?"+":""}${itemsA(A)-itemsA(P)} items (${Object.keys(A.items).map(k=>k+" "+(A.items[k]-(P.items[k]||0)>=0?"+":"")+(A.items[k]-(P.items[k]||0))).join(", ")})`:""):"");
 const snap=()=>new URLSearchParams({s:cur,k:sel||"",f:[...F].join(","),c:[...K].join(","),h:[...H].map(([h,v])=>(v>0?"+":"-")+h).join(","),q:$("#q").value}).toString();
 function commit(){const h="#"+snap();if(h!==location.hash)history.pushState(null,"",h)}
 function syncChips(){document.querySelectorAll(".tog").forEach(t=>t.classList.toggle("on",(t.dataset.f?F:K).has(t.dataset.f||t.dataset.k)));document.querySelectorAll(".hf").forEach(t=>{const n=H.get(t.dataset.h);t.className="hf"+(n>0?" pos":n<0?" neg":"")})}
@@ -92,7 +95,7 @@ function restore(){const p=new URLSearchParams(location.hash.slice(1));F.clear()
  $("#q").value=p.get("q")||"";sel=p.get("k")&&idx.byKey.has(p.get("k"))?p.get("k"):null;cur=p.get("s")&&facts.sections.some(x=>x.id===p.get("s"))?p.get("s"):facts.sections[0].id;
  syncChips();tree();grid();detail()}
 window.addEventListener("popstate",restore);
-$("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();{let r0;const poll=async()=>{try{const r=await (await fetch("/api/rev")).text();if(r0===undefined)r0=r;else if(r!==r0)$("#newdata").hidden=false}catch{}};poll();setInterval(poll,5000);$("#newdata").onclick=()=>location.reload()}detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};
+$("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();{let r0;const poll=async()=>{try{const r=await (await fetch("/api/rev"+AQ)).text();if(r0===undefined)r0=r;else if(r!==r0)$("#newdata").hidden=false}catch{}};poll();setInterval(poll,5000);$("#newdata").onclick=()=>location.reload()}detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};
 if(location.hash.length>1)restore();else tree(),grid();
 setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected!==sel)pick(s.selected,false)}},1000);
 </script></body></html>

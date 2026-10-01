@@ -33,7 +33,7 @@ loadConfig p = do
     Left e -> fail ("config: " <> e)
     Right v -> pure Config
       { cfgBolks = M.fromList [ (K.toText k, [ t | String t <- F.toList a ]) | Just (Object o) <- [lk "bolks" v], (k, Array a) <- KM.toList o ]
-      , cfgOverrides = M.fromList [ (f, (c, rs)) | e <- arr "overrides" v, Just f <- [s "field" e], Just c <- [s "cell" e], let rs = fromMaybe "" (s "reason" e) ]
+      , cfgOverrides = M.fromList [ (stripTrial f, (c, rs)) | e <- arr "overrides" v, Just f <- [s "field" e], Just c <- [s "cell" e], let rs = fromMaybe "" (s "reason" e) ]
       , cfgExplained = M.fromList [ (c, (cl, rs)) | e <- arr "explained" v, Just c <- [s "cell" e], let cl = fromMaybe "" (s "class" e), let rs = fromMaybe "" (s "reason" e) ]
       }
   where
@@ -122,7 +122,7 @@ alignWith gmap copies f cfg dsl bolk =
       cs = [ c | c <- cells f, cSet c `elem` secs, answerable f c ]
       byKey = M.fromList [ (cellKey c, c) | c <- cs ]
       -- layer 0: overrides
-      ov = [ (d, c, "override") | d <- fs, Just (ck, _) <- [M.lookup (dId d) (cfgOverrides cfg)], Just c <- [M.lookup ck byKey] ]
+      ov = [ (d, c, "override") | d <- fs, Just (ck, _) <- [M.lookup (stripTrial (dId d)) (cfgOverrides cfg)], Just c <- [M.lookup ck byKey] ]
       step ms how pick remainingD remainingC =
         let new = [ (d, c, how) | d <- remainingD, Just c <- [pick d remainingC] ]
             -- keep only one DSL field per cell (first wins)
@@ -229,3 +229,9 @@ encodeAlign f rs = encode $ object
       | r <- rs, (c, cl, why) <- rExplained r ])
   , "dslOnly" .= [ object [ "bolk" .= rBolk r, "field" .= dId d, "label" .= dLabel d ] | r <- rs, d <- rDslOnly r ]
   ]
+
+-- | Field ids carry a per-trial prefix (t7_, t8_, ...); overrides apply to every trial.
+stripTrial :: Text -> Text
+stripTrial f = case T.uncons f of
+  Just ('t', r) | (_:_, '_':rest) <- span isDigit (T.unpack r) -> T.pack rest
+  _ -> f
