@@ -11,7 +11,8 @@ only on the local machine unless backed up. Tracked here: this note and its chec
 ## Provenance / how to reconstruct
 - Origin: **some of the data came from SSB's form site, <https://skjema.ssb.no/User/Form/Form.aspx>** (single form view)
   and the form list at **<https://skjema.ssb.no/User/UserForms.aspx>**
-  (the form PDFs/views). **TODO (owner: jcb): record which files came from there versus received
+  (the form PDFs/views), accessed while logged in as **"Intern SSB-test"** (an internal SSB test
+  user, so access requires that login). **TODO (owner: jcb): record which files came from there versus received
   otherwise (the XML4DR exports by "ojj"), and the date retrieved.**
 - Re-exporting: ask the SSB form-tool owners for a fresh XML4DR export; the XSD is the contract.
 - Everything derived (facts JSON, audit reports) must be reproducible from these files via the
