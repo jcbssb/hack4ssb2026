@@ -9,8 +9,9 @@ only on the local machine unless backed up. Tracked here: this note and its chec
 - `xml4dr/Forms/*.xml` – 46 other SSB forms in XML4DR format
 
 ## Provenance / how to reconstruct
-- Origin: received from SSB colleagues (exports by "ojj"). **TODO (owner: jcb): record the exact
-  source – mail/Teams/share location and date received – here.**
+- Origin: **some of the data came from SSB's form site, <https://skjema.ssb.no/User/Form/Form.aspx>**
+  (the form PDFs/views). **TODO (owner: jcb): record which files came from there versus received
+  otherwise (the XML4DR exports by "ojj"), and the date retrieved.**
 - Re-exporting: ask the SSB form-tool owners for a fresh XML4DR export; the XSD is the contract.
 - Everything derived (facts JSON, audit reports) must be reproducible from these files via the
   `schema-audit` tools (see `plans/byggesak-trial8/`), so the originals are the only irreplaceable part.
