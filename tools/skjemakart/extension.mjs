@@ -1,4 +1,4 @@
-// Extension: xml4dr-explorer
+// Extension: skjemakart
 // Canvas to navigate the XML4DR analysis (sections, cells) and highlight relations:
 // calculation chains, gating (light-grey opens), and constraint partners.
 
@@ -46,8 +46,8 @@ function send(res, type, body) { res.setHeader("Content-Type", type); res.end(bo
 const session = await joinSession({
     canvases: [
         createCanvas({
-            id: "xml4dr-explorer",
-            displayName: "XML4DR explorer",
+            id: "skjemakart",
+            displayName: "Skjemakart",
             description: "Navigate the XML4DR form analysis: pick a cell to highlight calculation chains, gating and constraint relations.",
             inputSchema: { type: "object", properties: { factsPath: { type: "string", description: "Facts JSON from `schema-audit extract` (default: 20Byggesak)" }, select: { type: "string", description: "Initial cell key, e.g. Section7/V2015_92" } } },
             actions: [
@@ -73,7 +73,7 @@ const session = await joinSession({
                     e = { ...(await startServer(state)), state };
                     entries.set(ctx.instanceId, e);
                 }
-                return { title: "XML4DR explorer", url: e.url };
+                return { title: "Skjemakart", url: e.url };
             },
             onClose: async (ctx) => {
                 const e = entries.get(ctx.instanceId);

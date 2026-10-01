@@ -19,7 +19,7 @@ ssb-skjemantikk/
 ├─ schemas/             # generated JSON (checked in only for examples)
 ├─ apps/
 │  ├─ simulator/        # Vite + Designsystemet viewer (from skjemantikk-simulator)
-│  └─ xml4dr-explorer/  # canvas/web explorer (from tools/xml4dr-explorer), standalone web mode too
+│  └─ skjemakart/  # canvas/web explorer (from tools/skjemakart), standalone web mode too
 ├─ workspace/           # gitignored: incoming/, .derived/, altinn-app/ (user data lives here)
 │  └─ README.md         # how to lay out a new case; data-handling rules
 └─ scripts/             # setup.sh, check.sh, new-case.sh

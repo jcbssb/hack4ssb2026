@@ -7,7 +7,7 @@
 | `dsl/src/SchemaDSL/Altinn*` | `dsl/src/…/Altinn` | Primary compile target; keep the "never hand-edit output" rule |
 | `dsl/app`, `dsl/test`, `schema-dsl.cabal` | same | Rename package `ssb-skjemantikk` |
 | `dsl/audit/**` | same | Audit CLI = key differentiator |
-| `tools/xml4dr-explorer` | `apps/xml4dr-explorer` | Add standalone (non-Copilot) web mode |
+| `tools/skjemakart` | `apps/skjemakart` | Add standalone (non-Copilot) web mode |
 | sibling `skjemantikk-simulator` | `apps/simulator` | Merge in, keep sync script |
 | `research/pdf-audit/pdfgrid.py` | `dsl/audit/pdf/` | Part of PDF→facts step; pin deps in `requirements.txt` |
 | `plans/byggesak-trial8/*` method parts | `docs/methodology/` | Rewrite as generic method; keep Byggesak as case study |
