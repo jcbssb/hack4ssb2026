@@ -44,6 +44,7 @@ the `Handler`/`SetState` data should answer exactly that.
 | [08-deployment-gate.md](08-deployment-gate.md) | No Altinn work until full DSL audited | 06, 07 |
 | [09-corpus-and-generalization.md](09-corpus-and-generalization.md) | `Forms/` corpus stats, XML4DR → draft DSL | 02 (parallel) |
 | [10-risks.md](10-risks.md) | Risks and open questions | – |
+| [11-skjemakart-improvements.md](11-skjemakart-improvements.md) | Skjemakart (explorer) v1 done; next improvements | 03, 04 |
 
 Hard rule (repo instruction): `altinn-skjema-hacking/` is never edited by hand. Altinn is reached
 only through the compiler/injector (`schema-dsl-cli`), and not until the full DSL is audited
