@@ -34,13 +34,29 @@ t9aStrandsoneGating = onBolk "bolk_d1" (onQuestions d1Row3 (\q -> q { condition 
   where
     d1Row3 = [ "t7_d1_3_a", "t7_d1_3_b", "t7_d1_3_b1", "t7_d1_3_b2", "t7_d1_3_c" ]
 
--- | T9b, F-006: Downgrade DSL cross-field plausibility checks (overFrist, utfall, behandlet)
+-- | T9b, F-006: Downgrade DSL cross-field plausibility checks
 -- to soft warning severity (SevWarning) so that in Altinn and the simulator they guide the
 -- respondent with non-blocking nudges instead of submission-blocking errors.
+-- F-006a (overFrist), F-006c (utfall/innvilget/konklusjon), F-006d (behandlet <= mottatt),
+-- F-006e (samsvar/treUker/mangelfulle), F-006f (herav/typer) become SevWarning.
+-- F-006b (ikkeNegativ) remains SevError (negative counts are strictly invalid).
 t9bConstraintSeverities :: Dialogue -> Dialogue
 t9bConstraintSeverities d = d { constraints = map soften (constraints d) }
   where
     soften c
       | shouldSoften (constraintId c) = c { severity = SevWarning }
       | otherwise                    = c
-    shouldSoften cid = any (`isInfixOf` cid) ["overFrist", "behandlet", "utfall", "innvilget"]
+    shouldSoften cid
+      | "ikkeNegativ" `isInfixOf` cid = False
+      | otherwise = any (`isInfixOf` cid)
+          [ "overFrist"
+          , "behandlet"
+          , "utfall"
+          , "innvilget"
+          , "konklusjon"
+          , "samsvar"
+          , "treUker"
+          , "mangelfulle"
+          , "herav"
+          , "typer"
+          ]

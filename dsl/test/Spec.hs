@@ -829,6 +829,14 @@ testTrial9 = do
   expect (not (null overFristConstraints) && all (\c -> severity c == SevWarning) overFristConstraints)
          "Trial 9 T9b: overFrist constraints have SevWarning."
 
+  let heravConstraints = [ c | c <- constraints trial9ByggesakDialogue, "herav" `isInfixOf` constraintId c ]
+  expect (not (null heravConstraints) && all (\c -> severity c == SevWarning) heravConstraints)
+         "Trial 9 T9b: herav breakdown constraints have SevWarning."
+
+  let ikkeNegativConstraints = [ c | c <- constraints trial9ByggesakDialogue, "ikkeNegativ" `isInfixOf` constraintId c ]
+  expect (null ikkeNegativConstraints || all (\c -> severity c == SevError) ikkeNegativConstraints)
+         "Trial 9 T9b: ikkeNegativ constraints retain SevError."
+
   -- JSON round-trip of Trial 9
   let encoded = encodeDialogue trial9ByggesakDialogue
   case decodeDialogue encoded of
