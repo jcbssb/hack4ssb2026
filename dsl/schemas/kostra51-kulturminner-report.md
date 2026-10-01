@@ -1,7 +1,7 @@
 # Extraction Deficit & Findings Report: KOSTRA 51Plan (Kulturminner 2026)
 
 ## 1. Source Image
-- **Path:** `screenshots/bilde.png`
+- **Path:** `incoming-skjema-observations/misc/bilde.png`
 - **Scope:** Bolk B1 fra KOSTRA-skjema `51. Planbehandling, miljø- og kulturminneforvaltning 2026`
 
 ## 2. Extracted Summary

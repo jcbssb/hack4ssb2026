@@ -8,7 +8,7 @@ Dokumentet **`Skjema 51.pdf`** består av 6 sider og representerer **KOSTRA 51Pl
   - Tittel & introduksjon (forklaring av fargekoder: mørk grå = beregnet/forhåndsutfylt, lys grå = betinget utfylling).
   - **Bolk A**: Opplysninger om fylket og skjemaansvarlig (`Fylkesnr`, `Navnet på fylket`, `Navn - skjemaansvarlig`, `Tlf nr`, `E-post - skjemaansvarlig`).
   - **DEL I**: Planarbeid og saksbehandling for kulturminner i fylkeskommunen (B1–F).
-  - **Bolk B1**: Tid brukt til arbeid med kulturminner i fylkeskommunen (1. Totalt årsverk [beregnet sum], 1a–1d delposter, 2a midlertidige årsverk). *(Dette var utsnittet i `screenshots/bilde.png` som vi allerede konverterte!)*
+  - **Bolk B1**: Tid brukt til arbeid med kulturminner i fylkeskommunen (1. Totalt årsverk [beregnet sum], 1a–1d delposter, 2a midlertidige årsverk). *(Dette var utsnittet i `incoming-skjema-observations/misc/bilde.png` som vi allerede konverterte!)*
   - **Bolk C11**: Temaplaner for kulturminner (1a: Ja/Nei, 1b: Årstall hvis ja).
   - **Bolk C12 (start)**: Innsigelser til kommunale planer begrunnet med kulturminnehensyn (Matrise: 3 kolonner x plantyper).
 - **Side 2**:

@@ -10,7 +10,7 @@ unreliable and was checked on page images). Used for research/byggesak-trial6-au
 """
 import pymupdf, json, re, os
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
-doc = pymupdf.open(os.path.join(ROOT, "screenshots", "20Byggesak (utfylt).pdf"))
+doc = pymupdf.open(os.path.join(ROOT, "incoming-skjema-observations", "byggesak-20", "20Byggesak (utfylt).pdf"))
 HEADINGS = ["B Gebyrer", "C10. Antall byggesøknader", "C11. Rammesøknader. Antall", "C12. Ett-trinnssøknader MED", "C13. Ett-trinnssøknader UTEN",
             "C14. TIL SUMMERINGSKONTROLL", "C15. Dispensasjonssøknader. Antall", "C16. Igangsettingstillatelser", "C2. Oppretting og endring",
             "C11 - C2 Byggesøknader", "C3. Oppmålingsforretninger. Antall", "C4. Eierseksjoneringssaker. Antall", "D1. Resultat av byggesaksbehandling",

@@ -26,3 +26,8 @@ __pycache__/
 .venv/
 env/
 venv/
+
+# Incoming SSB form data (XML4DR exports etc.) – not committed, see DATA-SOURCES.md in that folder
+incoming-skjema-observations/xml4dr/
+incoming-skjema-observations/byggesak-20/*.xml
+incoming-skjema-observations/.derived/

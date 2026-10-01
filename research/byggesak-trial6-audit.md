@@ -1,6 +1,6 @@
 # Revisjon: 20Byggesak-PDF mot Trial 6-DSL
 
-Sammenligner `screenshots/20Byggesak (utfylt).pdf` med `trial6ByggesakDialogue`
+Sammenligner `incoming-skjema-observations/byggesak-20/20Byggesak (utfylt).pdf` med `trial6ByggesakDialogue`
 (`dsl/src/SchemaDSL/Examples/ByggesakTrial6.hs`). Dato: 2026-09-25.
 
 ## Metode

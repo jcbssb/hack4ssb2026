@@ -2,7 +2,7 @@
 
 ## Beslutning
 
-Trial 5 bygges på nytt fra `screenshots/20Byggesak (utfylt).pdf` i stedet for å videreføre
+Trial 5 bygges på nytt fra `incoming-skjema-observations/byggesak-20/20Byggesak (utfylt).pdf` i stedet for å videreføre
 Trial 3/4. Trial 4 beholdes uendret for sporbarhet. Begrunnelse:
 
 - Eksisterende trials dekker ca. 15 % av skjemaets ~400 celler (Trial 3: 62 felt, Trial 4: 49).

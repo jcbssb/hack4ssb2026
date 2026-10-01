@@ -49,7 +49,7 @@ Metodikken deler ansvaret i to distinkte, sammenkoblede faser:
 ## 2. Fase 1: Fra Skjermbilder og Metodikk til Figma med AI (MCP)
 
 ### 2.1 Forutsetninger og Inndata
-- **Skjermbilder / PDF-er:** Skanninger eller screenshots av eksisterende skjemaer (f.eks. `screenshots/20Byggesak (utfylt).pdf`, KOSTRA 51 eller eldre Altinn 2-løsninger).
+- **Skjermbilder / PDF-er:** Skanninger eller screenshots av eksisterende skjemaer (f.eks. `incoming-skjema-observations/byggesak-20/20Byggesak (utfylt).pdf`, KOSTRA 51 eller eldre Altinn 2-løsninger).
 - **Metodiske krav:** Definerte prinsipper fra SSB seksjon for spørreundersøkelsesmetodikk:
   - Færrest mulig unødige spørsmål.
   - Tydelige ledetekster og hjelpetekster plassert over inputfelter.

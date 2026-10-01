@@ -1,4 +1,4 @@
-# Tekst ekstrahert fra screenshots/20Byggesak (utfylt).pdf med pypdf (uten OCR), 9 sider.
+# Tekst ekstrahert fra incoming-skjema-observations/byggesak-20/20Byggesak (utfylt).pdf med pypdf (uten OCR), 9 sider.
 # Kilde for Trial 4, se plans/byggesak-trial4-rebuild-plan.md. Tabellstruktur er flatet ut;
 # tallene er eksempelverdier fra det utfylte skjemaet.
 

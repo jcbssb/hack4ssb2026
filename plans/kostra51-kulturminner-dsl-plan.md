@@ -1,6 +1,6 @@
 # Plan: Reversering av SSB KOSTRA 51Plan (Kulturminneforvaltning 2026) til Dialogue DSL og Altinn
 
-## 1. Skjermbildeanalyse (`screenshots/bilde.png`)
+## 1. Skjermbildeanalyse (`incoming-skjema-observations/misc/bilde.png`)
 
 - **Skjematittel:** `51. Planbehandling, miljø- og kulturminneforvaltning 2026`
 - **Kontekst/Enhet:** Fylkeskommune / KOSTRA

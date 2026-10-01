@@ -16,7 +16,7 @@ import Data.Aeson (Value(..))
 import qualified Data.Aeson.KeyMap as KM
 import SchemaDSL.Types
 
--- Reverse engineered from screenshots/bilde.png (Bolk B1)
+-- Reverse engineered from incoming-skjema-observations/misc/bilde.png (Bolk B1)
 kostra51KulturminneDialogue :: Dialogue
 kostra51KulturminneDialogue = Dialogue
   { dialogueId = "kostra51-kulturminner"
