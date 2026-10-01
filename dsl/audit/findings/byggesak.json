@@ -5,7 +5,7 @@
       "title": "Soft required (\"please fill in\" warning) not expressible in DSL",
       "fixKind": "dsl-feature",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "XML4DR marks ~50 input cells with FieldFilled(obThis) severity=warning. The DSL only has required true/false, so these are required:false and the nudge is lost.",
       "proposedFix": "Add a required level (none|warn|error) to the DSL and compile warn to a non-blocking validation.",
       "rules": [
@@ -20,7 +20,7 @@
       "title": "DSL stricter than source on required",
       "fixKind": "dsl-content",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "DSL has required:true where XML4DR has no required check (A contact fields, I, C10 and two radios).",
       "proposedFix": "Relax to the source behaviour (or soft-required once F-002 exists) unless SSB confirms the stricter rule.",
       "rules": [
@@ -35,7 +35,7 @@
       "title": "Conditional visibility on cells that are always visible calculated cells in the source",
       "fixKind": "dsl-content",
       "severity": "low",
-      "status": "proposed",
+      "status": "accepted",
       "description": "DSL hides row 2.1/2.2 cells behind a 'row-2 total > 0' condition; in XML4DR these cells are dark-grey calculated and always visible.",
       "proposedFix": "Drop the condition on calculated cells; keep it only where XML guidance handlers gate input cells.",
       "rules": [
@@ -50,7 +50,7 @@
       "title": "Conditional gating present in source but missing in DSL",
       "fixKind": "dsl-content",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "XML guidance handlers gate a few cells (C3 VB2021_4/6, C12 V2016_36/37) that are always shown in the DSL.",
       "proposedFix": "Add the matching visibility conditions in the DSL.",
       "rules": [
@@ -65,7 +65,7 @@
       "title": "DSL-only cross-field constraints (own invariants)",
       "fixKind": "dsl-content",
       "severity": "info",
-      "status": "proposed",
+      "status": "needs-split",
       "description": "DSL adds behandlet<=mottatt, ikkeNegativ, overFrist, samsvar, treUker, mangelfulle constraints with error severity that have no XML4DR check of the same shape.",
       "proposedFix": "Decide per family: keep as deliberate improvements (document), downgrade to warning to match the source, or remove.",
       "rules": [
@@ -83,7 +83,7 @@
       "title": "Source-only plausibility and format checks missing in DSL",
       "fixKind": "dsl-feature",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "XML4DR warns on telephone range, e-mail format, B1 > 50000, herav > total, and cross-section comparisons (C10 vs C2), plus empty-vs-zero warnings in C4.",
       "proposedFix": "Add format constraint types (email, phone) and warning-level herav<=total and cross-bolk constraints.",
       "rules": [
@@ -101,7 +101,7 @@
       "title": "Calculation inputs differ (copy chains and C14 totals)",
       "fixKind": "dsl-content",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "XML calculations read other bolks directly (C14 from C10/C11/C12/C13, row totals from sub-rows) while the DSL sums its own columns.",
       "proposedFix": "Re-express the DSL calculations from the source inputs; verify numerically in the simulator.",
       "rules": [
@@ -116,7 +116,7 @@
       "title": "Strandsone (coastal municipality) flag gates D1 question 3 in the source",
       "fixKind": "dsl-feature",
       "severity": "medium",
-      "status": "proposed",
+      "status": "accepted",
       "description": "Section13/VB2019_2 (Strandsone, 1=ja/0=nei) is prefilled per municipality. Source: D1 row 3 (Section_E1/V2012_7 and its row) is readonly when 0, and a warning asks for a number when 1. DSL has no municipality flag, so row 3 is always open and never nudged.",
       "proposedFix": "Add a prefilled/context flag (e.g. coastal municipality) usable in conditions, then gate D1 q3 and add the fill-in warning for coastal municipalities.",
       "rules": []
