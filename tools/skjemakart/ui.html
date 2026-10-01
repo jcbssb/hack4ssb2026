@@ -24,9 +24,15 @@ td.chk{box-shadow:inset 0 0 0 4px var(--chk)}td.gate{box-shadow:inset 0 0 0 4px 
 td.row{background-image:linear-gradient(#ffb00055,#ffb00055)}td.dim{opacity:.3}
 code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
 .ref{cursor:pointer;color:var(--down);display:block}.req{color:var(--chk)}
+.sim-jump-card{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:8px 10px;margin-bottom:12px}
+.sim-jump-btn{display:block;box-sizing:border-box;text-align:center;padding:7px 10px;background:#1f6feb;color:#fff!important;text-decoration:none;border-radius:6px;font-weight:600;font-size:12px;transition:background .15s}
+.sim-jump-btn:hover{background:#388bfd;color:#fff!important;text-decoration:none}
+.sim-jump-meta{font-size:11px;color:#8b949e;margin-top:6px;line-height:1.4}
+.sim-top-btn{width:100%;margin-bottom:6px;padding:6px;background:#1f6feb;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600;font-size:12px;transition:background .15s}
+.sim-top-btn:hover{background:#388bfd}
 </style></head><body>
 <div id=newdata hidden style="position:fixed;top:0;left:0;right:0;z-index:9;background:#ffb000;color:#000;padding:4px 10px;font-size:12px;text-align:center;cursor:pointer">New audit data available — click to reload</div>
-<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><label style="font-size:11px">Audit of DSL <select id=audit style="background:#161b22;color:inherit;border:1px solid #8886;border-radius:4px;padding:2px"></select></label><div id=asum style="font-size:11px;margin:4px 0 6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
+<aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=openSim class=sim-top-btn title="Åpne aktiv side/celle i Skjemantikk-simulator">🚀 Åpne i Skjemantikk-simulator ↗</button><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><label style="font-size:11px">Audit of DSL <select id=audit style="background:#161b22;color:inherit;border:1px solid #8886;border-radius:4px;padding:2px"></select></label><div id=asum style="font-size:11px;margin:4px 0 6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell; relative to the selected cell – click to filter, needs a selected cell):
 <span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span class=sel-c>selected cell</span><span class="tog" data-f=row style="border-color:#ffb00099">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
@@ -55,7 +61,7 @@ const active=()=>F.size||K.size||H.size;
 const relR=()=>sel&&F.size?relationsOf(idx,sel,+$("#depth").value):null;
 function tree(){const q=$("#q").value.toLowerCase();const R=relR();
  $("#tree").innerHTML=facts.sections.filter(s=>!active()||cnt(R,s.id)).filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}${active()?` · ${cnt(R,s.id)}`:""}</small> ${secBadge(s.id)}</div>`).join("")}
-$("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid();commit()}};
+$("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;sel=null;tree();grid();detail();commit()}};
 $("#q").oninput=tree;
 document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const S=t.dataset.f?F:K,f=t.dataset.f||t.dataset.k;S.has(f)?S.delete(f):S.add(f);t.classList.toggle("on",S.has(f));const R=relR();if(active()&&!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}tree();grid();commit()});
 document.querySelectorAll(".hf").forEach(t=>t.onclick=()=>{const h=t.dataset.h,v=H.get(h);if(!v)H.set(h,1);else if(v>0)H.set(h,-1);else H.delete(h);const n=H.get(h);t.className="hf"+(n>0?" pos":n<0?" neg":"");const R=relR();if(active()&&!cnt(R,cur)){const x=facts.sections.find(x=>cnt(R,x.id));if(x)cur=x.id}tree();grid();commit()});
@@ -63,6 +69,73 @@ $("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();H.clear();document.
 const secAu=id=>{const o={};for(const c of facts.cells)if(c.set===id){const a=au(c.key);if(a)o[a.status]=(o[a.status]||0)+1}return o};
 const secBadge=id=>{const o=secAu(id),e=Object.entries(o);return e.length?e.map(([k,n])=>`<span class="au ${k}">${BADGE[k]}${n}</span>`).join(""):'<span class="au none" title="no audit data for this section">∅ not audited</span>'};
 const BADGE={aligned:"✔",diff:"⚠","xml-only":"✖",explained:"ⓘ"};const badge=c=>{const a=au(c.key);const f=fnd(c.key);return (a?`<span class="au ${a.status}">${BADGE[a.status]}</span>`:"")+(f.length?`<span class="au diff" title="${f.join(", ")}">F${f.length>1?f.length:""}</span>`:"")};
+
+const secToBolk = {};
+if (AL.bolks) {
+  for (const [bolk, secs] of Object.entries(AL.bolks)) {
+    for (const s of secs) secToBolk[s] = bolk;
+  }
+}
+for (const [k, v] of Object.entries(AL.cells || {})) {
+  const sec = k.split("/")[0];
+  if (sec && v?.bolk && !secToBolk[sec]) secToBolk[sec] = v.bolk;
+}
+
+function getBolkForSection(secId) {
+  if (!secId) return "";
+  if (secToBolk[secId]) return secToBolk[secId];
+  const s = facts.sections.find(x => x.id === secId);
+  if (s?.path) {
+    for (const p of s.path) {
+      if (secToBolk[p]) return secToBolk[p];
+    }
+  }
+  return "";
+}
+
+function findFirstFieldFor(secId, bolkId) {
+  if (secId) {
+    for (const [k, v] of Object.entries(AL.cells || {})) {
+      if (k.startsWith(secId + "/") && v?.field) return v.field;
+    }
+  }
+  if (bolkId) {
+    for (const [_, v] of Object.entries(AL.cells || {})) {
+      if (v?.bolk === bolkId && v?.field) return v.field;
+    }
+  }
+  return null;
+}
+
+function simulatorUrlFor(cellKey, secId) {
+  const sec = secId || (cellKey ? cellKey.split("/")[0] : cur);
+  const keySec = cellKey ? cellKey.split("/")[0] : null;
+  const validCell = (cellKey && (!sec || keySec === sec)) ? cellKey : null;
+  const a = validCell ? au(validCell) : null;
+  const bolk = a?.bolk || getBolkForSection(sec) || "";
+  const field = a?.field || (validCell ? null : findFirstFieldFor(sec, bolk));
+  const simSchema = AU.startsWith("trial") ? `${AU}-byggesak` : "trial9-byggesak";
+
+  const u = new URL("http://localhost:5173/");
+  u.searchParams.set("schema", simSchema);
+  if (bolk) u.searchParams.set("page", bolk);
+  if (field) {
+    u.searchParams.set("field", field);
+    u.hash = field;
+  }
+  return { url: u.toString(), schema: simSchema, bolk, field, sec, isCell: Boolean(validCell) };
+}
+
+function simJumpCard(dest, isCell) {
+  return `<div class="sim-jump-card">
+    <a class="sim-jump-btn" href="${dest.url}" target="skjemantikk-simulator" title="Åpne ${isCell ? 'dette feltet' : 'denne bolken'} i Skjemantikk-simulator">
+      🚀 Åpne ${isCell ? 'felt' : 'bolk'} i Skjemantikk-simulator ↗
+    </a>
+    <div class="sim-jump-meta">
+      Skjema: <code>${esc(dest.schema)}</code> · Side: <b>${esc(dest.bolk || dest.sec)}</b>${dest.field ? ` · Felt: <code>${esc(dest.field)}</code>` : ""}
+    </div>
+  </div>`;
+}
 function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cells=facts.cells.filter(c=>c.set===cur&&pass(R,c));
  const rows=[...new Set(cells.map(c=>c.row))].sort((a,b)=>a-b);
  const tag=k=>!R?"":[R.up.has(k)&&"up",R.down.has(k)&&"down",R.chk.has(k)&&"chk",R.gate.has(k)&&"gate",k===sel&&"sel"].filter(Boolean).join(" ");
@@ -76,14 +149,89 @@ const refs=(title,set)=>set&&(set.size??set.length)?`<h4>${title}</h4>`+[...(set
 function findingsBlock(c){const f=fnd(c.key);if(!f.length)return "";return "<h4>Findings</h4>"+[...new Set(f)].map(id=>{const x=FI[id]||{};const its=(x.items||[]).filter(i=>i.where===c.key).map(i=>esc(i.text)).join("<br>");return `<div><b>${esc(id)}</b> <small>[${esc(x.status)}/${esc(x.severity)}/${esc(x.fixKind)}]</small> ${esc(x.title)}<br><small>${its}</small><br><small>Proposed: ${esc(x.proposedFix)}</small></div>`}).join("")}
 function auditBlock(c){const a=au(c.key);if(!a)return "<h4>Audit</h4><small>not audited (no bolk mapped)</small>";
  return `<h4>Audit <span class="au ${a.status}">${BADGE[a.status]} ${a.status}</span></h4><small>${esc(a.bolk)}</small>`+(a.field?`<div>DSL field <code>${esc(a.field)}</code> via ${esc(a.how)}<br>${esc(a.label)}</div>`:"")+(a.reason?`<div>${esc(a.class)}: ${esc(a.reason)}</div>`:"")+(a.diffs||[]).map(d=>`<div class=req>≠ ${esc(d)}</div>`).join("")}
-function detail(){if(!sel){$("#detail").innerHTML="Nothing selected – showing everything. Click a cell (click it again or press Esc to deselect).";return}const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
+function getSectionTitle(secId) {
+  const s = facts.sections.find(x => x.id === secId);
+  if (!s) return secId;
+  if (s.title && s.title.length > 0) return s.title.join(" ");
+  if (s.path) {
+    for (const p of [...s.path].reverse()) {
+      const parent = facts.sections.find(x => x.id === p);
+      if (parent?.title?.length) return parent.title.join(" ");
+    }
+  }
+  return s.id;
+}
+
+function sectionDetail(secId) {
+  const dest = simulatorUrlFor(null, secId);
+  const s = facts.sections.find(x => x.id === secId);
+  const title = getSectionTitle(secId);
+  const bolk = getBolkForSection(secId);
+  const secCells = facts.cells.filter(c => c.set === secId);
+  const auStats = secAu(secId);
+  const auEntries = Object.entries(auStats);
+
+  const secFindings = new Set();
+  for (const c of secCells) {
+    for (const f of fnd(c.key)) secFindings.add(f);
+  }
+
+  const mapped = [];
+  for (const c of secCells) {
+    const a = au(c.key);
+    if (a?.field) mapped.push({ cell: c, au: a });
+  }
+
+  let html = simJumpCard(dest, false);
+  html += `<h3 style="margin:8px 0 3px">${esc(title)}</h3>`;
+  html += `<div style="font-size:11px;color:#8b949e;margin-bottom:10px">Seksjon: <code>${esc(secId)}</code>${s?.path?.length > 1 ? ` · Sti: ${esc(s.path.join(" › "))}` : ""}</div>`;
+
+  html += `<div style="background:#161b22;border:1px solid #30363d;border-radius:6px;padding:8px 10px;margin-bottom:12px">
+    <div style="font-size:13px"><b>DSL Bolk:</b> ${bolk ? `<code style="font-weight:700;color:var(--down);font-size:13px">${esc(bolk)}</code>` : '<span style="color:#ff5c5c">Ikke mappet til bolk</span>'}</div>
+    <div style="margin-top:6px;font-size:11px;color:#c9d1d9"><b>Celler:</b> ${secCells.length} totalt (${secCells.filter(c=>c.kind==="input").length} input, ${secCells.filter(c=>c.kind==="calculated"||c.kind==="prefilled").length} beregnet, ${secCells.filter(c=>c.kind==="label").length} ledetekst)</div>
+  </div>`;
+
+  html += `<h4>Audit status for seksjonen</h4>`;
+  if (auEntries.length) {
+    html += `<div style="margin:4px 0 10px">` + auEntries.map(([k, n]) => `<span class="au ${k}" style="font-size:11px;margin-right:8px;padding:2px 6px;border-radius:3px;background:#21262d">${BADGE[k]} ${n} ${k}</span>`).join("") + `</div>`;
+  } else {
+    html += `<div style="color:#8b949e;font-size:12px;margin-bottom:10px">∅ Ingen auditdata for denne seksjonen</div>`;
+  }
+
+  if (secFindings.size) {
+    html += `<h4>Findings i denne seksjonen (${secFindings.size})</h4>`;
+    for (const id of secFindings) {
+      const x = FI[id] || {};
+      html += `<div style="background:#21262d;border-left:3px solid var(--chk);padding:6px 8px;margin-bottom:8px;border-radius:3px">
+        <b>${esc(id)}</b> <small>[${esc(x.status)}/${esc(x.severity)}/${esc(x.fixKind)}]</small> ${esc(x.title)}<br>
+        <small style="color:#8b949e">Proposed: ${esc(x.proposedFix)}</small>
+      </div>`;
+    }
+  }
+
+  if (mapped.length) {
+    html += `<h4>Mappede DSL felter (${mapped.length})</h4>
+    <p style="font-size:11px;color:#8b949e;margin:2px 0 6px">Klikk et felt for å inspisere eller hoppe:</p>
+    <div style="max-height:260px;overflow:auto;display:flex;flex-direction:column;gap:3px">`;
+    for (const m of mapped) {
+      html += `<span class=ref data-j="${esc(m.cell.key)}" style="padding:2px 4px;border-radius:3px;background:#161b22"><code>${esc(m.au.field)}</code> <span class="au ${m.au.status}">${BADGE[m.au.status]}</span> <small>${esc(label(m.cell))}</small></span>`;
+    }
+    html += `</div>`;
+  }
+
+  return html;
+}
+
+function detail(){if(!sel){$("#detail").innerHTML=sectionDetail(cur);return}const dest=simulatorUrlFor(sel,cur);const c=idx.byKey.get(sel),R=relationsOf(idx,sel,+$("#depth").value);
  const hs=c.handlers.map(h=>{const H=facts.handlers[h];return `<h4>${h} ${H.type||"check"}</h4><code>${esc(H.eval)}</code>`+H.actions.map(a=>`<div>when ${a.when}: ${a.effects.map(e=>esc(e.setState?`${e.setState} → ${e.targets.join(", ")}`:e.msgBox?e.msgBox.join(" "):"error "+e.setError)).join("; ")}</div>`).join("")}).join("");
- $("#detail").innerHTML=`<b>${esc(c.key)}</b> <small>${c.kind}${c.required?" · <span class=req>required</span>":""} · row ${c.row} col ${c.col}</small>
+ $("#detail").innerHTML=simJumpCard(dest,true)+`<b>${esc(c.key)}</b> <small>${c.kind}${c.required?" · <span class=req>required</span>":""} · row ${c.row} col ${c.col}</small>
  <p>${esc(c.text.join(" | "))}</p><small>row: ${esc(c.rowLabel.join(" / "))}<br>col: ${esc(c.header.join(" / "))}</small>`
  +auditBlock(c)+findingsBlock(c)
  +(c.gatedBy.length?`<h4>Opened by</h4>`+c.gatedBy.map(g=>`<div>${esc(g.controller)} when ${esc(g.when)}</div>`).join(""):"")
  +refs("Feeds this (upstream)",R.up)+refs("Fed by this (downstream)",R.down)+refs("Constraint partners",R.chk)+refs("Gates",R.gates)+refs("Gated by",R.gatedBy)+hs}
 document.addEventListener("click",e=>{const j=e.target.closest("[data-j]");if(j)pick(j.dataset.j,true)});
+$("#openSim").onclick=()=>{const d=simulatorUrlFor(sel,cur);window.open(d.url,"skjemantikk-simulator")};
+$("#grid").ondblclick=e=>{const t=e.target.closest("[data-k]");if(t){const d=simulatorUrlFor(t.dataset.k,cur);window.open(d.url,"skjemantikk-simulator")}};
 $("#ftitle").textContent=facts.title||"";const nA=facts.sections.filter(s=>Object.keys(secAu(s.id)).length).length;const A=AUDITS.find(a=>a.tag===AU),P=AUDITS[AUDITS.indexOf(A)-1];const sumA=a=>a?`⚠ ${a.cells.diff||0} · ✖ ${a.cells["xml-only"]||0} · DSL-only ${a.dslOnly} · NEW ${a.untriaged}`:"";const itemsA=a=>Object.values(a?.items||{}).reduce((x,y)=>x+y,0);
 $("#audit").innerHTML=AUDITS.map(a=>`<option value="${a.tag}" ${a.tag===AU?"selected":""}>${a.tag}</option>`).join("")||"<option>none</option>";$("#audit").onchange=e=>{location.href=location.pathname+"?audit="+e.target.value+location.hash};
 $("#asum").innerHTML=`Audit data: ${nA} of ${facts.sections.length} sections`+(A?`<br>${sumA(A)} · ${itemsA(A)} items`+(P?`<br><span title="items per finding vs ${P.tag}">vs ${P.tag}: ${itemsA(A)-itemsA(P)>=0?"+":""}${itemsA(A)-itemsA(P)} items (${Object.keys(A.items).map(k=>k+" "+(A.items[k]-(P.items[k]||0)>=0?"+":"")+(A.items[k]-(P.items[k]||0))).join(", ")})`:""):"");
@@ -92,7 +240,8 @@ function commit(){const h="#"+snap();if(h!==location.hash)history.pushState(null
 function syncChips(){document.querySelectorAll(".tog").forEach(t=>t.classList.toggle("on",(t.dataset.f?F:K).has(t.dataset.f||t.dataset.k)));document.querySelectorAll(".hf").forEach(t=>{const n=H.get(t.dataset.h);t.className="hf"+(n>0?" pos":n<0?" neg":"")})}
 function restore(){const p=new URLSearchParams(location.hash.slice(1));F.clear();K.clear();H.clear();
  (p.get("f")||"").split(",").filter(Boolean).forEach(x=>F.add(x));(p.get("c")||"").split(",").filter(Boolean).forEach(x=>K.add(x));(p.get("h")||"").split(",").filter(Boolean).forEach(x=>H.set(x.slice(1),x[0]==="+"?1:-1));
- $("#q").value=p.get("q")||"";sel=p.get("k")&&idx.byKey.has(p.get("k"))?p.get("k"):null;cur=p.get("s")&&facts.sections.some(x=>x.id===p.get("s"))?p.get("s"):facts.sections[0].id;
+ $("#q").value=p.get("q")||"";cur=p.get("s")&&facts.sections.some(x=>x.id===p.get("s"))?p.get("s"):facts.sections[0].id;
+ const k=p.get("k");sel=k&&idx.byKey.has(k)&&k.split("/")[0]===cur?k:null;
  syncChips();tree();grid();detail()}
 window.addEventListener("popstate",restore);
 $("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();{let r0;const poll=async()=>{try{const r=await (await fetch("/api/rev"+AQ)).text();if(r0===undefined)r0=r;else if(r!==r0)$("#newdata").hidden=false}catch{}};poll();setInterval(poll,5000);$("#newdata").onclick=()=>location.reload()}detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};

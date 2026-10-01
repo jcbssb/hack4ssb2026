@@ -224,10 +224,11 @@ renderReport f r =
   where n :: [a] -> Text
         n = T.pack . show . length
 
--- | Alignment facts for the Skjemakart canvas: per-cell status plus DSL-only fields.
-encodeAlign :: Form -> [Report] -> BL.ByteString
-encodeAlign f rs = encode $ object
-  [ "cells" .= object ([ K.fromText (cellKey (mCell m)) .= object
+-- | Alignment facts for the Skjemakart canvas: per-cell status plus DSL-only fields and bolk section mapping.
+encodeAlign :: Form -> Config -> [Report] -> BL.ByteString
+encodeAlign f cfg rs = encode $ object
+  [ "bolks" .= cfgBolks cfg
+  , "cells" .= object ([ K.fromText (cellKey (mCell m)) .= object
         [ "status" .= (if null (mDiffs m) then "aligned" else "diff" :: Text), "bolk" .= rBolk r
         , "field" .= dId (mField m), "label" .= dLabel (mField m), "how" .= mHow m, "diffs" .= mDiffs m, "xmlKind" .= kindName (kindOf f (mCell m)) ]
       | r <- rs, m <- rMatched r ]

@@ -205,7 +205,7 @@
       "title": "Source-only plausibility and format checks missing in DSL",
       "fixKind": "dsl-feature",
       "severity": "medium",
-      "status": "accepted",
+      "status": "open",
       "description": "XML4DR warns on telephone range, e-mail format, B1 > 50000, herav > total, and cross-section comparisons (C10 vs C2), plus empty-vs-zero warnings in C4.",
       "proposedFix": "Add format constraint types (email, phone) and warning-level herav<=total and cross-bolk constraints.",
       "rules": [
@@ -223,7 +223,7 @@
       "title": "Calculation inputs differ (copy chains and C14 totals)",
       "fixKind": "dsl-content",
       "severity": "medium",
-      "status": "accepted",
+      "status": "open",
       "description": "XML calculations read other bolks directly (C14 from C10/C11/C12/C13, row totals from sub-rows) while the DSL sums its own columns.",
       "proposedFix": "Re-express the DSL calculations from the source inputs; verify numerically in the simulator.",
       "rules": [

@@ -36,7 +36,7 @@ main = do
       dsl <- loadDsl d
       cfg <- loadConfig cfgP
       let bs = if null bolks then M.keys (cfgBolks cfg) else map T.pack bolks
-      BL.writeFile o (encodeAlign f (alignMany f cfg dsl bs))
+      BL.writeFile o (encodeAlign f cfg (alignMany f cfg dsl bs))
     ("audit" : p : d : cfgP : fnd : o : bolks) -> do
       f <- loadForm p
       dsl <- loadDsl d
