@@ -20,25 +20,29 @@ code{background:#8882;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 </style></head><body>
 <aside><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell):
-<span class="up-c tog" data-f=up>feeds selected (upstream calc)</span><span class="down-c tog" data-f=down>fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span style="border-color:#e6a700">selected cell</span><span class=tog data-f=row style="border-color:#e6a70055">same row</span> <small>faded = unrelated · <b>click a relation to show only cells with it</b> <a href=# id=clr>clear filter</a></small>
+<span class="up-c tog" data-f=up>feeds selected (upstream calc)</span><span class="down-c tog" data-f=down>fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span style="border-color:#e6a700">selected cell</span><span class=tog data-f=row style="border-color:#e6a70055">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
-<span style="background:#78787855;border-color:#7878">dark grey: calculated / prefilled</span><span style="background:#d1d1d155;border-color:#d1d1d1">light grey: conditional (opened by a guidance rule)</span><span style="border-color:#8886">white: input</span><span style="background:#8881;border-color:#8886"><b>bold</b>: label</span><span style="border-color:#cf222e"><b class=req>*</b> required</span>
+<span class=tog data-k=calc style="background:#78787855;border-color:#7878">dark grey: calculated / prefilled</span><span class=tog data-k=cond style="background:#d1d1d155;border-color:#d1d1d1">light grey: conditional (opened by a guidance rule)</span><span class=tog data-k=input style="border-color:#8886">white: input</span><span class=tog data-k=label style="background:#8881;border-color:#8886"><b>bold</b>: label</span><span class=tog data-k=req style="border-color:#cf222e"><b class=req>*</b> required</span>
 <br>chain depth <input id=depth type=number value=3 min=1 max=10 style="width:50px;display:inline"></div><div id=grid></div></main>
 <section id=detail>Select a cell.</section>
 <script type=module>
 import {buildIndex,relationsOf,label} from "/relations.mjs";
 const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);
 let cur=facts.sections[0].id,sel=null,rev=-1;const F=new Set();
-const hit=(R,k)=>[...F].some(f=>f==="up"?R.up.has(k):f==="down"?R.down.has(k):R[f].has(k));
-const cnt=(R,set)=>facts.cells.filter(c=>c.set===set&&hit(R,c.key)).length;
-const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-function tree(){const q=$("#q").value.toLowerCase();const R=sel&&F.size?relationsOf(idx,sel,+$("#depth").value):null;
- $("#tree").innerHTML=facts.sections.filter(s=>!R||cnt(R,s.id)).filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}${R?` · ${cnt(R,s.id)}`:""}</small></div>`).join("")}
+const K=new Set();
+const kmatch={calc:c=>c.kind==="calculated"||c.kind==="prefilled",cond:c=>c.gatedBy.length>0,input:c=>c.kind==="input"||c.kind==="radio",label:c=>c.kind==="label",req:c=>c.required};
+const rel=(R,k)=>[...F].some(f=>f==="up"?R.up.has(k):f==="down"?R.down.has(k):R[f].has(k));
+const pass=(R,c)=>(!K.size||[...K].some(f=>kmatch[f](c)))&&(!F.size||!R||c.key===sel||rel(R,c.key));
+const cnt=(R,set)=>facts.cells.filter(c=>c.set===set&&pass(R,c)).length;
+const active=()=>F.size||K.size;
+const relR=()=>sel&&F.size?relationsOf(idx,sel,+$("#depth").value):null;
+function tree(){const q=$("#q").value.toLowerCase();const R=relR();
+ $("#tree").innerHTML=facts.sections.filter(s=>!active()||cnt(R,s.id)).filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}${active()?` · ${cnt(R,s.id)}`:""}</small></div>`).join("")}
 $("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid()}};
 $("#q").oninput=tree;
-document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const f=t.dataset.f;F.has(f)?F.delete(f):F.add(f);t.classList.toggle("on",F.has(f));if(sel&&F.size){const R=relationsOf(idx,sel,+$("#depth").value);if(!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}}tree();grid()});
-$("#clr").onclick=e=>{e.preventDefault();F.clear();document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid()};$("#depth").onchange=()=>{grid();detail()};
-function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cells=facts.cells.filter(c=>c.set===cur&&(!R||!F.size||c.key===sel||hit(R,c.key)));
+document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const S=t.dataset.f?F:K,f=t.dataset.f||t.dataset.k;S.has(f)?S.delete(f):S.add(f);t.classList.toggle("on",S.has(f));const R=relR();if(active()&&!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}tree();grid()});
+$("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid()};$("#depth").onchange=()=>{grid();detail()};
+function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cells=facts.cells.filter(c=>c.set===cur&&pass(R,c));
  const rows=[...new Set(cells.map(c=>c.row))].sort((a,b)=>a-b);
  const tag=k=>!R?"":[R.up.has(k)&&"up",R.down.has(k)&&"down",R.chk.has(k)&&"chk",R.gate.has(k)&&"gate",k===sel&&"sel"].filter(Boolean).join(" ");
  $("#grid").innerHTML="<table>"+rows.map(r=>"<tr>"+cells.filter(c=>c.row===r).sort((a,b)=>a.col-b.col).map(c=>{
