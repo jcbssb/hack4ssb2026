@@ -31,6 +31,11 @@
     "bolk_f4": [
       "Section16"
     ],
+    "bolk_g0": ["Section5"],
+    "bolk_g1": ["Seksjon_H1"],
+    "bolk_g2": ["Seksjon_H2"],
+    "bolk_g3": ["Section_H3"],
+    "bolk_g4": ["Section_H4"],
     "bolk_a": [
       "setKID"
     ],
