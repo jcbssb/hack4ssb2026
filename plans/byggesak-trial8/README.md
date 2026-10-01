@@ -118,4 +118,6 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 - Findings decided (2026-10-01): F-002 accepted (soft-required level), F-003 relax, F-004 drop conditions on calculated cells, F-005 add gating, F-007 add checks, F-008 follow source, F-009 add Strandsone context flag; F-006 deferred to Trial 9.
 - `ByggesakTrial8.hs` patches the frozen Trial 7 dialogue slice by slice (`onBolk`/`onQuestions`), keeping `t7_` field ids; DSL is **not** regenerated from sources. T8a: bolk A relaxed per F-003 (F-003 items 28 -> 24).
 - Skjemakart can flip between audits of trial7/trial8/future trials; `tools/skjemakart/refresh.sh` builds per-trial audit files.
-- T8b done: calculated cells unconditional (F-004 49 -> 10). Remaining work: see `12-trial8-remaining-work.md`.
+- T8b done: calculated cells unconditional (F-004 49 -> 10).
+- T8c done: F-004 rest (10 G1/G2/G3 cells unconditional; F-004 10 -> 0) and F-005 (added missing gating on C12, C3, D2, F2; F-005 9 -> 0). F-009 matches D1 q3 (1 item for T8f). Untriaged: 0. Remaining work: see `12-trial8-remaining-work.md`.
+- T8d done: F-008 calculation inputs. D1 1b sums area restriction main rows 2-7; C14 columns b2 and d read C10/C11/C12/C13 directly; C14 row 2.2 includes C11 in weighted averages. All 11 dsl-only diffs resolved; F-008 41 -> 30 (remaining 30 are guard-only xml references); untriaged: 0. All 65 Haskell tests and 17 simulator vitest tests pass.
