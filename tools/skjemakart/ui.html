@@ -5,7 +5,7 @@ aside,main,section{overflow:auto;padding:8px}
 aside{border-right:1px solid #8884}section{border-left:1px solid #8884}
 input{width:100%;box-sizing:border-box;padding:4px;margin-bottom:6px}
 .sec{font-weight:600;cursor:pointer;padding:3px 4px;border-radius:4px}.sec:hover,.sec.on{background:#8883}
-.tog{cursor:pointer;user-select:none}.tog.on{background:#e6a70033;font-weight:600}.legend{line-height:1.9}.legend span{display:inline-block;padding:1px 6px;margin:2px;border-radius:3px;border:2px solid;font-size:11px}
+.hf{cursor:pointer;user-select:none;border-color:#8886}.hf.pos{background:#1a7f3733;border-color:#1a7f37}.hf.neg{background:#cf222e22;border-color:#cf222e;text-decoration:line-through}.tog{cursor:pointer;user-select:none}.tog.on{background:#e6a70033;font-weight:600}.legend{line-height:1.9}.legend span{display:inline-block;padding:1px 6px;margin:2px;border-radius:3px;border:2px solid;font-size:11px}
 table{border-collapse:collapse}td{border:1px solid #8886;padding:3px 5px;min-width:70px;max-width:160px;vertical-align:top;font-size:11px;cursor:pointer;overflow:hidden}
 td.label{font-weight:600;background:#8881;cursor:default}
 td.calculated,td.prefilled{background:#78787855}td.input{background:#0000}
@@ -23,6 +23,8 @@ code{background:#8882;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 <span class="up-c tog" data-f=up>feeds selected (upstream calc)</span><span class="down-c tog" data-f=down>fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span style="border-color:#e6a700">selected cell</span><span class=tog data-f=row style="border-color:#e6a70055">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
 <br><b>Cell fill</b>:
 <span class=tog data-k=calc style="background:#78787855;border-color:#7878">dark grey: calculated / prefilled</span><span class=tog data-k=cond style="background:#d1d1d155;border-color:#d1d1d1">light grey: conditional (opened by a guidance rule)</span><span class=tog data-k=input style="border-color:#8886">white: input</span><span class=tog data-k=label style="background:#8881;border-color:#8886"><b>bold</b>: label</span><span class=tog data-k=req style="border-color:#cf222e"><b class=req>*</b> required</span>
+<br><b>Has relation</b> <small>(click: only with ✓ → only without ✗ → off)</small>:
+<span class=hf data-h=calcIn>is calculated from others</span><span class=hf data-h=calcOut>feeds a calculation</span><span class=hf data-h=chk>has a constraint/check</span><span class=hf data-h=gates>controls other cells</span><span class=hf data-h=gated>is conditional (opened by another)</span><span class=hf data-h=isolated>no relations at all</span>
 <br>chain depth <input id=depth type=number value=3 min=1 max=10 style="width:50px;display:inline"></div><div id=grid></div></main>
 <section id=detail>Select a cell.</section>
 <script type=module>
@@ -30,19 +32,22 @@ import {buildIndex,relationsOf,label} from "/relations.mjs";
 const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);
 let cur=facts.sections[0].id,sel=null,rev=-1;const F=new Set();
 const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
-const K=new Set();
+const K=new Set(),H=new Map();
+const has={calcIn:c=>idx.calcIn.has(c.key),calcOut:c=>idx.calcOut.has(c.key),chk:c=>idx.checkRefs.has(c.key)||idx.checkBy.has(c.key),gates:c=>idx.gates.has(c.key),gated:c=>idx.gatedByRev.has(c.key)};
+has.isolated=c=>!(has.calcIn(c)||has.calcOut(c)||has.chk(c)||has.gates(c)||has.gated(c));
 const kmatch={calc:c=>c.kind==="calculated"||c.kind==="prefilled",cond:c=>c.gatedBy.length>0,input:c=>c.kind==="input"||c.kind==="radio",label:c=>c.kind==="label",req:c=>c.required};
 const rel=(R,k)=>[...F].some(f=>f==="up"?R.up.has(k):f==="down"?R.down.has(k):R[f].has(k));
-const pass=(R,c)=>(!K.size||[...K].some(f=>kmatch[f](c)))&&(!F.size||!R||c.key===sel||rel(R,c.key));
+const pass=(R,c)=>[...H].every(([h,v])=>has[h](c)===(v>0))&&(!K.size||[...K].some(f=>kmatch[f](c)))&&(!F.size||!R||c.key===sel||rel(R,c.key));
 const cnt=(R,set)=>facts.cells.filter(c=>c.set===set&&pass(R,c)).length;
-const active=()=>F.size||K.size;
+const active=()=>F.size||K.size||H.size;
 const relR=()=>sel&&F.size?relationsOf(idx,sel,+$("#depth").value):null;
 function tree(){const q=$("#q").value.toLowerCase();const R=relR();
  $("#tree").innerHTML=facts.sections.filter(s=>!active()||cnt(R,s.id)).filter(s=>!q||s.title?.toLowerCase().includes(q)||s.id.toLowerCase().includes(q)||facts.cells.some(c=>c.set===s.id&&(c.key.toLowerCase().includes(q)||c.text.join(" ").toLowerCase().includes(q)))).map(s=>`<div class="sec ${s.id===cur?"on":""}" data-s="${s.id}" style="padding-left:${4+(s.path?.length||0)*10}px">${esc(s.title||s.id)} <small>${s.id}${active()?` · ${cnt(R,s.id)}`:""}</small></div>`).join("")}
 $("#tree").onclick=e=>{const s=e.target.closest("[data-s]");if(s){cur=s.dataset.s;tree();grid()}};
 $("#q").oninput=tree;
 document.querySelectorAll(".tog").forEach(t=>t.onclick=()=>{const S=t.dataset.f?F:K,f=t.dataset.f||t.dataset.k;S.has(f)?S.delete(f):S.add(f);t.classList.toggle("on",S.has(f));const R=relR();if(active()&&!cnt(R,cur)){const n=facts.sections.find(x=>cnt(R,x.id));if(n)cur=n.id}tree();grid()});
-$("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid()};$("#depth").onchange=()=>{grid();detail()};
+document.querySelectorAll(".hf").forEach(t=>t.onclick=()=>{const h=t.dataset.h,v=H.get(h);if(!v)H.set(h,1);else if(v>0)H.set(h,-1);else H.delete(h);const n=H.get(h);t.className="hf"+(n>0?" pos":n<0?" neg":"");const R=relR();if(active()&&!cnt(R,cur)){const x=facts.sections.find(x=>cnt(R,x.id));if(x)cur=x.id}tree();grid()});
+$("#clr").onclick=e=>{e.preventDefault();F.clear();K.clear();H.clear();document.querySelectorAll(".hf").forEach(t=>t.className="hf");document.querySelectorAll(".tog").forEach(t=>t.classList.remove("on"));tree();grid()};$("#depth").onchange=()=>{grid();detail()};
 function grid(){const R=relationsOf(idx,sel,+$("#depth").value)||null;const cells=facts.cells.filter(c=>c.set===cur&&pass(R,c));
  const rows=[...new Set(cells.map(c=>c.row))].sort((a,b)=>a-b);
  const tag=k=>!R?"":[R.up.has(k)&&"up",R.down.has(k)&&"down",R.chk.has(k)&&"chk",R.gate.has(k)&&"gate",k===sel&&"sel"].filter(Boolean).join(" ");
