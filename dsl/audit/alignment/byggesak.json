@@ -31,13 +31,25 @@
     "bolk_f4": [
       "Section16"
     ],
-    "bolk_g0": ["Section5"],
-    "bolk_g1": ["Seksjon_H1"],
-    "bolk_g2": ["Seksjon_H2"],
-    "bolk_g3": ["Section_H3"],
-    "bolk_g4": ["Section_H4"],
+    "bolk_g0": [
+      "Section5"
+    ],
+    "bolk_g1": [
+      "Seksjon_H1"
+    ],
+    "bolk_g2": [
+      "Seksjon_H2"
+    ],
+    "bolk_g3": [
+      "Section_H3"
+    ],
+    "bolk_g4": [
+      "Section_H4"
+    ],
     "bolk_a": [
-      "setKID"
+      "setKID",
+      "setSID",
+      "Section13"
     ],
     "bolk_b": [
       "Seksjon_B1"
@@ -49,7 +61,8 @@
       "Section_N1"
     ],
     "bolk_c10": [
-      "Section12"
+      "Section12",
+      "Section10"
     ],
     "bolk_c11": [
       "Section7"
@@ -107,6 +120,81 @@
       "cell": "setKID/HOM2017",
       "class": "guide-demo",
       "reason": "Example cell in the guidance table (shows what a conditional cell looks like)"
+    },
+    {
+      "cell": "setSID/SKJEMA_NR",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/GYLDIGFOM",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/UTF_DATO",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/UTF_KL",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/VERSION",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/AVGIVER_ID",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "setSID/INSTANCE_ID",
+      "class": "system-metadata",
+      "reason": "Technical form/instance metadata set by the SSB platform (header set setSID); not a respondent field"
+    },
+    {
+      "cell": "Section10/VB2018_8",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section10/VB2018_9",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section10/VB2018_10",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section10/VB2018_11",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section10/VB2018_12",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section10/VB2018_13",
+      "class": "hidden-helper",
+      "reason": "Dark-grey summary of mottatte/behandlede byggesøknader from C10 (>0 gates follow-up checks); no respondent input, no DSL field"
+    },
+    {
+      "cell": "Section13/VB2019_1",
+      "class": "platform-prefill",
+      "reason": "Kommune_nr2: municipality number prefilled by the platform; not a respondent field"
+    },
+    {
+      "cell": "Section13/VB2019_2",
+      "class": "platform-prefill",
+      "reason": "Strandsone flag (1=coastal, 0=not) prefilled per municipality. Source gates D1 row 3 (Section_E1/V2012_7 and its row): readonly when 0, warning to fill in when 1. DSL has no such flag; candidate gating finding for D1 q3"
     }
   ]
 }

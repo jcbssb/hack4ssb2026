@@ -107,3 +107,8 @@ only through the compiler/injector (`schema-dsl-cli`), and not until the full DS
 ### Progress: G bolks — all DSL bolks mapped
 - Mapped G0 (Section5), G1 (Seksjon_H1), G2 (Seksjon_H2), G3 (Section_H3), G4 (Section_H4) 1:1. All 31 mapped bolks align fully (no DSL-only/XML-only); 710 audit items, 0 untriaged. Remaining unmapped XML: Section13 (2 radios), a few cross-bolk checks (2 skipped).
 - Next: review/confirm findings F-002…F-008 with the user, then PDF extraction and simulator verification.
+
+### Progress: remaining sections
+- 34 of 44 sections now carry audit data; the other 10 are cell-less containers (`Section8`, `Section3`, `Seksjon_B/_E/_F/_G/_H/_M/_N`, `Section_D1`). Mapped the last three cell-bearing sections as explained XML-only cells: `setSID` (platform metadata, 7 cells) and `Section13` (platform prefill: `Kommune_nr2`, `Strandsone`) under bolk_a, `Section10` (6 dark-grey helper totals of C10) under bolk_c10.
+- Candidate finding: `Section13/VB2019_2` (Strandsone) gates D1 row 3 (`Section_E1/V2012_7`: readonly when 0, "fill in" warning when 1); the DSL has no such flag.
+- The 2 skipped XML checks are `Section_E1/V2012_7` -> Strandsone (explained cell) and `Seksjon_G1/V2014_1` -> `Section_H3/Cell585` (F-001 malformed handler).
