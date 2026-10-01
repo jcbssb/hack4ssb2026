@@ -8,6 +8,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { joinSession, createCanvas, CanvasError } from "@github/copilot-sdk/extension";
 import { buildIndex, summarize } from "./relations.mjs";
+async function derivedRev(facts){const {stat}=await import("node:fs/promises");const b=facts.replace(/\.facts\.json$/,"");const o={};for(const e of ["facts","align","findings"]){o[e]=(await stat(e==="facts"?facts:`${b}.${e}.json`).catch(()=>null))?.mtimeMs??0}return JSON.stringify(o)}
 
 const here = dirname(fileURLToPath(import.meta.url));
 const FACTS_REL = "incoming-skjema-observations/.derived/20Byggesak.facts.json";
@@ -30,6 +31,7 @@ async function startServer(state) {
             if (url.pathname === "/api/facts") return send(res, "application/json", await readFile(state.factsPath));
             if (url.pathname === "/api/align") return send(res, "application/json", await readFile(state.factsPath.replace(/\.facts\.json$/, ".align.json")).catch(() => '{"cells":{},"dslOnly":[]}'));
             if (url.pathname === "/api/findings") return send(res, "application/json", await readFile(state.factsPath.replace(/\.facts\.json$/, ".findings.json")).catch(() => '{"findings":[],"cellFindings":[]}'));
+            if (url.pathname === "/api/rev") return send(res, "application/json", await derivedRev(state.factsPath));
             if (url.pathname === "/api/state") return send(res, "application/json", JSON.stringify({ selected: state.selected, rev: state.rev }));
             if (url.pathname === "/api/select" && req.method === "POST") {
                 let body = ""; for await (const ch of req) body += ch;

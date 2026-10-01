@@ -25,6 +25,7 @@ td.row{background-image:linear-gradient(#ffb00055,#ffb00055)}td.dim{opacity:.3}
 code{background:#8884;padding:0 3px;border-radius:3px;word-break:break-all}h4{margin:10px 0 3px}
 .ref{cursor:pointer;color:var(--down);display:block}.req{color:var(--chk)}
 </style></head><body>
+<div id=newdata hidden style="position:fixed;top:0;left:0;right:0;z-index:9;background:#ffb000;color:#000;padding:4px 10px;font-size:12px;text-align:center;cursor:pointer">New audit data available — click to reload</div>
 <aside><h3 style="margin:2px 0 6px">Skjemakart <small id=ftitle style="font-weight:400"></small></h3><button id=reset title="Clear all filters, search and selection (Back also works)" style="width:100%;margin-bottom:6px;padding:5px;background:#238636;color:#fff;border:0;border-radius:4px;cursor:pointer;font-weight:600">⟲ Show everything</button><div id=asum style="font-size:11px;margin-bottom:6px"></div><input id=q placeholder="Search text / key…"><div id=tree></div></aside>
 <main><div class=legend><b>Relations</b> (border on cell; relative to the selected cell – click to filter, needs a selected cell):
 <span class="up-c tog" data-f=up title="Green border = cells the selected cell's calculation reads (upstream)">feeds selected (upstream calc)</span><span class="down-c tog" data-f=down title="Blue border = cells whose calculation uses the selected cell (downstream)">fed by selected (downstream calc)</span><span class="chk-c tog" data-f=chk>constraint / check partner</span><span class="gate-c tog" data-f=gate>gating (opens / opened by)</span><span class=sel-c>selected cell</span><span class="tog" data-f=row style="border-color:#ffb00099">same row</span> <small>faded = unrelated · <b>click a relation or fill to show only matching cells</b> <a href=# id=clr>clear filter</a></small>
@@ -91,7 +92,7 @@ function restore(){const p=new URLSearchParams(location.hash.slice(1));F.clear()
  $("#q").value=p.get("q")||"";sel=p.get("k")&&idx.byKey.has(p.get("k"))?p.get("k"):null;cur=p.get("s")&&facts.sections.some(x=>x.id===p.get("s"))?p.get("s"):facts.sections[0].id;
  syncChips();tree();grid();detail()}
 window.addEventListener("popstate",restore);
-$("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};
+$("#reset").onclick=()=>{F.clear();K.clear();H.clear();$("#q").value="";sel=null;cur=facts.sections[0].id;syncChips();tree();grid();{let r0;const poll=async()=>{try{const r=await (await fetch("/api/rev")).text();if(r0===undefined)r0=r;else if(r!==r0)$("#newdata").hidden=false}catch{}};poll();setInterval(poll,5000);$("#newdata").onclick=()=>location.reload()}detail();commit();fetch("/api/select",{method:"POST",body:JSON.stringify({key:null})})};
 if(location.hash.length>1)restore();else tree(),grid();
 setInterval(async()=>{const s=await (await fetch("/api/state")).json();if(s.rev!==rev){rev=s.rev;if(s.selected!==sel)pick(s.selected,false)}},1000);
 </script></body></html>
