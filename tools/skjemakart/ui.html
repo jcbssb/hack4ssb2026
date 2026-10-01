@@ -29,6 +29,7 @@ code{background:#8882;padding:0 3px;border-radius:3px;word-break:break-all}h4{ma
 import {buildIndex,relationsOf,label} from "/relations.mjs";
 const facts=await (await fetch("/api/facts")).json();const idx=buildIndex(facts);
 let cur=facts.sections[0].id,sel=null,rev=-1;const F=new Set();
+const $=s=>document.querySelector(s);const esc=s=>String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
 const K=new Set();
 const kmatch={calc:c=>c.kind==="calculated"||c.kind==="prefilled",cond:c=>c.gatedBy.length>0,input:c=>c.kind==="input"||c.kind==="radio",label:c=>c.kind==="label",req:c=>c.required};
 const rel=(R,k)=>[...F].some(f=>f==="up"?R.up.has(k):f==="down"?R.down.has(k):R[f].has(k));
