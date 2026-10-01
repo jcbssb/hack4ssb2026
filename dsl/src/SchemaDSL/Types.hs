@@ -10,6 +10,10 @@ module SchemaDSL.Types
   , Expr(..)
   , Comparison(..)
   , Severity(..)
+  , RequiredLevel(..)
+  , questionRequiredLevel
+  , setRequiredLevel
+  , setRequired
   , Calculation(..)
   , Constraint(..)
   , sumOf
@@ -235,6 +239,49 @@ instance FromJSON Severity where
       "warning" -> pure SevWarning
       other     -> fail $ "Unknown severity: " ++ other
 
+-- | Severity of requirement for a question:
+-- ReqNone: optional
+-- ReqWarn: soft required ("please fill in" warning / non-blocking nudge)
+-- ReqError: hard required (blocks submission)
+data RequiredLevel = ReqNone | ReqWarn | ReqError
+  deriving (Show, Eq, Generic)
+
+instance ToJSON RequiredLevel where
+  toJSON ReqNone  = String "none"
+  toJSON ReqWarn  = String "warn"
+  toJSON ReqError = String "error"
+
+instance FromJSON RequiredLevel where
+  parseJSON (Bool True)        = pure ReqError
+  parseJSON (Bool False)       = pure ReqNone
+  parseJSON (String "none")    = pure ReqNone
+  parseJSON (String "warn")    = pure ReqWarn
+  parseJSON (String "warning") = pure ReqWarn
+  parseJSON (String "error")   = pure ReqError
+  parseJSON other              = fail $ "Unknown required level: " ++ show other
+
+-- | Query the effective requirement level of a question.
+questionRequiredLevel :: Question -> RequiredLevel
+questionRequiredLevel q = case annotations q >>= KM.lookup "requiredLevel" of
+  Just (String "warn")    -> ReqWarn
+  Just (String "warning") -> ReqWarn
+  Just (String "error")   -> ReqError
+  Just (String "none")    -> ReqNone
+  _                       -> if required q then ReqError else ReqNone
+
+-- | Set the requirement level of a question in its annotations.
+setRequiredLevel :: RequiredLevel -> Question -> Question
+setRequiredLevel lvl q =
+  let km = maybe KM.empty id (annotations q)
+      km' = KM.insert "requiredLevel" (toJSON lvl) km
+  in q { annotations = Just km' }
+
+-- | Set both the required boolean and the required level.
+setRequired :: RequiredLevel -> Question -> Question
+setRequired lvl q =
+  let q' = setRequiredLevel lvl q
+  in q' { required = (lvl == ReqError) }
+
 -- | Derived field: the value of calcTarget is always calcExpr (e.g. a total or a remainder)
 data Calculation = Calculation
   { calcTarget :: FieldId
@@ -296,23 +343,41 @@ data Question = Question
 
 instance ToJSON Question where
   toJSON (Question fid prmpt qtype req cond anns) =
-    object $
+    let mExplicitLvl = anns >>= KM.lookup "requiredLevel"
+        reqVal = case mExplicitLvl of
+          Just v  -> v
+          Nothing -> toJSON req
+        cleanAnns = fmap (KM.delete "requiredLevel") anns
+    in object $
       [ "fieldId"      .= fid
       , "prompt"       .= prmpt
       , "questionType" .= qtype
-      , "required"     .= req
+      , "required"     .= reqVal
       ]
       ++ maybe [] (\c -> ["condition" .= c]) cond
-      ++ maybe [] (\a -> ["annotations" .= Object a]) anns
+      ++ maybe [] (\a -> if KM.null a then [] else ["annotations" .= Object a]) cleanAnns
 
 instance FromJSON Question where
-  parseJSON = withObject "Question" $ \o ->
-    Question <$> o .: "fieldId"
-             <*> o .: "prompt"
-             <*> o .: "questionType"
-             <*> o .: "required"
-             <*> o .:? "condition"
-             <*> (fmap unObject <$> (o .:? "annotations"))
+  parseJSON = withObject "Question" $ \o -> do
+    fid <- o .: "fieldId"
+    prmpt <- o .: "prompt"
+    qtype <- o .: "questionType"
+    reqVal <- o .: "required"
+    cond <- o .:? "condition"
+    mAnns <- fmap unObject <$> (o .:? "annotations")
+    let (reqBool, mLevel) = case (reqVal :: Value) of
+          Bool b                  -> (b, Nothing)
+          String "none"           -> (False, Just ReqNone)
+          String "warn"           -> (False, Just ReqWarn)
+          String "warning"        -> (False, Just ReqWarn)
+          String "error"          -> (True, Just ReqError)
+          _                       -> (False, Nothing)
+        anns' = case mLevel of
+          Just lvl ->
+            let km = maybe KM.empty id mAnns
+            in Just (KM.insert "requiredLevel" (toJSON lvl) km)
+          Nothing -> mAnns
+    pure $ Question fid prmpt qtype reqBool cond anns'
     where
       unObject (Object km) = km
       unObject _           = KM.empty

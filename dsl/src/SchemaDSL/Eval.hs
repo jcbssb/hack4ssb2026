@@ -150,6 +150,11 @@ validateRules d =
   , Just q <- [lookup (calcTarget c) questionsById]
   , not (isNumeric (questionType q)) ]
   ++
+  [ "Calculated field is marked required: " ++ calcTarget c
+  | c <- calculations d
+  , Just q <- [lookup (calcTarget c) questionsById]
+  , questionRequiredLevel q == ReqError ]
+  ++
   [ "Field calculated more than once: " ++ t
   | t <- nub targets, length (filter (== t) targets) > 1 ]
   ++

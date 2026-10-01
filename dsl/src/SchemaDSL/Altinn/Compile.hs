@@ -239,126 +239,128 @@ compileSteps dIdClean calcs qs =
                 in (c, [])
               _ -> compileInput
 
-            compileInput = case questionType q of
-              QText ->
-                let c = object $
-                      [ "id"                   .= (prefix ++ "-input")
-                      , "type"                 .= ("Input" :: String)
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "required"             .= required q
-                      , "grid"                 .= gridProp
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp ++ readOnlyProp
-                in (c, [])
+            compileInput =
+              let isHardReq = questionRequiredLevel q == ReqError
+              in case questionType q of
+                QText ->
+                  let c = object $
+                        [ "id"                   .= (prefix ++ "-input")
+                        , "type"                 .= ("Input" :: String)
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "required"             .= isHardReq
+                        , "grid"                 .= gridProp
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp ++ readOnlyProp
+                  in (c, [])
 
-              QTextArea ->
-                let c = object $
-                      [ "id"                   .= (prefix ++ "-textarea")
-                      , "type"                 .= ("TextArea" :: String)
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "required"             .= required q
-                      , "grid"                 .= gridProp
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp ++ readOnlyProp
-                in (c, [])
+                QTextArea ->
+                  let c = object $
+                        [ "id"                   .= (prefix ++ "-textarea")
+                        , "type"                 .= ("TextArea" :: String)
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "required"             .= isHardReq
+                        , "grid"                 .= gridProp
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp ++ readOnlyProp
+                  in (c, [])
 
-              QInteger ->
-                let c = object $
-                      [ "id"                   .= (prefix ++ "-input")
-                      , "type"                 .= ("Input" :: String)
-                      , "formatting"           .= object
-                          [ "number" .= object
-                              [ "allowNegative" .= False
-                              ]
-                          ]
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "required"             .= required q
-                      , "grid"                 .= numberGrid
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp ++ readOnlyProp
-                in (c, [])
+                QInteger ->
+                  let c = object $
+                        [ "id"                   .= (prefix ++ "-input")
+                        , "type"                 .= ("Input" :: String)
+                        , "formatting"           .= object
+                            [ "number" .= object
+                                [ "allowNegative" .= False
+                                ]
+                            ]
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "required"             .= isHardReq
+                        , "grid"                 .= numberGrid
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp ++ readOnlyProp
+                  in (c, [])
 
-              QDecimal ->
-                let c = object $
-                      [ "id"                   .= (prefix ++ "-input")
-                      , "type"                 .= ("Input" :: String)
-                      , "formatting"           .= object
-                          [ "number" .= object
-                              [ "decimalScale"  .= decimalScaleVal
-                              , "allowNegative" .= False
-                              ]
-                          ]
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "required"             .= required q
-                      , "grid"                 .= numberGrid
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp ++ readOnlyProp
-                in (c, [])
+                QDecimal ->
+                  let c = object $
+                        [ "id"                   .= (prefix ++ "-input")
+                        , "type"                 .= ("Input" :: String)
+                        , "formatting"           .= object
+                            [ "number" .= object
+                                [ "decimalScale"  .= decimalScaleVal
+                                , "allowNegative" .= False
+                                ]
+                            ]
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "required"             .= isHardReq
+                        , "grid"                 .= numberGrid
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp ++ readOnlyProp
+                  in (c, [])
 
-              QDate ->
-                let c = object $
-                      [ "id"                   .= (prefix ++ "-datepicker")
-                      , "type"                 .= ("Datepicker" :: String)
-                      , "timeStamp"            .= False
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (6 :: Int) ] ]
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp
-                in (c, [])
+                QDate ->
+                  let c = object $
+                        [ "id"                   .= (prefix ++ "-datepicker")
+                        , "type"                 .= ("Datepicker" :: String)
+                        , "timeStamp"            .= False
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "required"             .= isHardReq
+                        , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "md" .= (6 :: Int) ] ]
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp
+                  in (c, [])
 
-              QBoolean ->
-                let optionsName = capitalize fid ++ "Valg"
-                    optArray = V.fromList
-                      [ object [ "label" .= ("Ja" :: String), "value" .= ("true" :: String) ]
-                      , object [ "label" .= ("Nei" :: String), "value" .= ("false" :: String) ]
-                      ]
-                    c = object $
-                      [ "id"                   .= (prefix ++ "-radio")
-                      , "type"                 .= ("RadioButtons" :: String)
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "optionsId"            .= optionsName
-                      , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp
-                in (c, [(optionsName ++ ".json", Array optArray)])
+                QBoolean ->
+                  let optionsName = capitalize fid ++ "Valg"
+                      optArray = V.fromList
+                        [ object [ "label" .= ("Ja" :: String), "value" .= ("true" :: String) ]
+                        , object [ "label" .= ("Nei" :: String), "value" .= ("false" :: String) ]
+                        ]
+                      c = object $
+                        [ "id"                   .= (prefix ++ "-radio")
+                        , "type"                 .= ("RadioButtons" :: String)
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "optionsId"            .= optionsName
+                        , "required"             .= isHardReq
+                        , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp
+                  in (c, [(optionsName ++ ".json", Array optArray)])
 
-              QChoice optStrings ->
-                let optionsName = capitalize fid ++ "Valg"
-                    optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
-                    c = object $
-                      [ "id"                   .= (prefix ++ "-radio")
-                      , "type"                 .= ("RadioButtons" :: String)
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "optionsId"            .= optionsName
-                      , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp
-                in (c, [(optionsName ++ ".json", Array optArray)])
+                QChoice optStrings ->
+                  let optionsName = capitalize fid ++ "Valg"
+                      optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
+                      c = object $
+                        [ "id"                   .= (prefix ++ "-radio")
+                        , "type"                 .= ("RadioButtons" :: String)
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "optionsId"            .= optionsName
+                        , "required"             .= isHardReq
+                        , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp
+                  in (c, [(optionsName ++ ".json", Array optArray)])
 
-              QMultiChoice optStrings ->
-                let optionsName = capitalize fid ++ "Valg"
-                    optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
-                    c = object $
-                      [ "id"                   .= (prefix ++ "-checkboxes")
-                      , "type"                 .= ("Checkboxes" :: String)
-                      , "textResourceBindings" .= object trbBindings
-                      , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
-                      , "optionsId"            .= optionsName
-                      , "required"             .= required q
-                      , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
-                      , "labelSettings"        .= object [ "optionalIndicator" .= False ]
-                      ] ++ hiddenProp
-                in (c, [(optionsName ++ ".json", Array optArray)])
+                QMultiChoice optStrings ->
+                  let optionsName = capitalize fid ++ "Valg"
+                      optArray = V.fromList (map (\o -> object [ "label" .= o, "value" .= o ]) optStrings)
+                      c = object $
+                        [ "id"                   .= (prefix ++ "-checkboxes")
+                        , "type"                 .= ("Checkboxes" :: String)
+                        , "textResourceBindings" .= object trbBindings
+                        , "dataModelBindings"    .= object [ "simpleBinding" .= modelBinding ]
+                        , "optionsId"            .= optionsName
+                        , "required"             .= isHardReq
+                        , "grid"                 .= object [ "xs" .= (12 :: Int), "innerGrid" .= object [ "xs" .= (12 :: Int) ] ]
+                        , "labelSettings"        .= object [ "optionalIndicator" .= False ]
+                        ] ++ hiddenProp
+                  in (c, [(optionsName ++ ".json", Array optArray)])
 
             (nextComps, nextOpts, nextTexts) = go rest
         in (comp : nextComps, opts ++ nextOpts, curTexts ++ nextTexts)

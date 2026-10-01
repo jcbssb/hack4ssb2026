@@ -270,8 +270,22 @@
                     "type": "object"
                 },
                 "required": {
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "enum": [
+                                "none",
+                                "warn",
+                                "warning",
+                                "error"
+                            ],
+                            "type": "string"
+                        }
+                    ],
                     "default": false,
-                    "type": "boolean"
+                    "description": "Requirement level: boolean (legacy) or level (none|warn|error)"
                 }
             },
             "required": [

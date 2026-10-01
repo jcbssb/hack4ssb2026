@@ -113,7 +113,14 @@ baselineMetaSchema = object
                   , "required" .= (["type"] :: [String])
                   ]
               , "required" .= object
-                  [ "type" .= ("boolean" :: String)
+                  [ "anyOf" .=
+                      [ object [ "type" .= ("boolean" :: String) ]
+                      , object
+                          [ "type" .= ("string" :: String)
+                          , "enum" .= (["none", "warn", "warning", "error"] :: [String])
+                          ]
+                      ]
+                  , "description" .= ("Requirement level: boolean (legacy) or level (none|warn|error)" :: String)
                   , "default" .= False
                   ]
               , "condition" .= object
