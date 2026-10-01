@@ -2515,15 +2515,21 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "fieldId": "t7_c14_1_b",
-                    "op": "field"
-                },
-                "op": "sub",
-                "right": {
-                    "fieldId": "t7_c14_1_b1",
-                    "op": "field"
-                }
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_1_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_b2",
+                        "op": "field"
+                    }
+                ]
             },
             "fieldId": "t7_c14_1_b2"
         },
@@ -2552,11 +2558,15 @@ window.SSB_SCHEMAS = {
                 "op": "add",
                 "terms": [
                     {
-                        "fieldId": "t7_c14_1_c",
+                        "fieldId": "t7_c10_1_b",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_c14_1_b2",
+                        "fieldId": "t7_c12_1_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_1_d",
                         "op": "field"
                     }
                 ]
@@ -2628,15 +2638,21 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "fieldId": "t7_c14_2_b",
-                    "op": "field"
-                },
-                "op": "sub",
-                "right": {
-                    "fieldId": "t7_c14_2_b1",
-                    "op": "field"
-                }
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_b2",
+                        "op": "field"
+                    }
+                ]
             },
             "fieldId": "t7_c14_2_b2"
         },
@@ -2665,11 +2681,15 @@ window.SSB_SCHEMAS = {
                 "op": "add",
                 "terms": [
                     {
-                        "fieldId": "t7_c14_2_c",
+                        "fieldId": "t7_c10_2_b",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_c14_2_b2",
+                        "fieldId": "t7_c12_2_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_d",
                         "op": "field"
                     }
                 ]
@@ -2734,15 +2754,21 @@ window.SSB_SCHEMAS = {
         },
         {
             "expr": {
-                "left": {
-                    "fieldId": "t7_c14_2_1_b",
-                    "op": "field"
-                },
-                "op": "sub",
-                "right": {
-                    "fieldId": "t7_c14_2_1_b1",
-                    "op": "field"
-                }
+                "op": "add",
+                "terms": [
+                    {
+                        "fieldId": "t7_c11_2_1_b",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c12_2_1_b2",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_b2",
+                        "op": "field"
+                    }
+                ]
             },
             "fieldId": "t7_c14_2_1_b2"
         },
@@ -2771,11 +2797,15 @@ window.SSB_SCHEMAS = {
                 "op": "add",
                 "terms": [
                     {
-                        "fieldId": "t7_c14_2_1_c",
+                        "fieldId": "t7_c11_2_1_a",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_c14_2_1_b2",
+                        "fieldId": "t7_c12_2_1_d",
+                        "op": "field"
+                    },
+                    {
+                        "fieldId": "t7_c13_2_1_d",
                         "op": "field"
                     }
                 ]
@@ -2985,6 +3015,19 @@ window.SSB_SCHEMAS = {
                                 "op": "mul",
                                 "terms": [
                                     {
+                                        "fieldId": "t7_c11_2_2_b",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c11_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
                                         "fieldId": "t7_c12_2_2_b2",
                                         "op": "field"
                                     },
@@ -3013,6 +3056,10 @@ window.SSB_SCHEMAS = {
                     "right": {
                         "op": "add",
                         "terms": [
+                            {
+                                "fieldId": "t7_c11_2_b",
+                                "op": "field"
+                            },
                             {
                                 "fieldId": "t7_c12_2_b2",
                                 "op": "field"
@@ -3108,6 +3155,19 @@ window.SSB_SCHEMAS = {
                                 "op": "mul",
                                 "terms": [
                                     {
+                                        "fieldId": "t7_c11_2_2_c",
+                                        "op": "field"
+                                    },
+                                    {
+                                        "fieldId": "t7_c10_2_b",
+                                        "op": "field"
+                                    }
+                                ]
+                            },
+                            {
+                                "op": "mul",
+                                "terms": [
+                                    {
                                         "fieldId": "t7_c12_2_2_d",
                                         "op": "field"
                                     },
@@ -3136,6 +3196,10 @@ window.SSB_SCHEMAS = {
                     "right": {
                         "op": "add",
                         "terms": [
+                            {
+                                "fieldId": "t7_c10_2_b",
+                                "op": "field"
+                            },
                             {
                                 "fieldId": "t7_c12_2_d",
                                 "op": "field"
@@ -3826,11 +3890,11 @@ window.SSB_SCHEMAS = {
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_2a_a",
+                        "fieldId": "t7_d1_3_a",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_3_a",
+                        "fieldId": "t7_d1_4_a",
                         "op": "field"
                     },
                     {
@@ -3858,11 +3922,11 @@ window.SSB_SCHEMAS = {
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_2a_b",
+                        "fieldId": "t7_d1_3_b",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_3_b",
+                        "fieldId": "t7_d1_4_b",
                         "op": "field"
                     },
                     {
@@ -3896,14 +3960,6 @@ window.SSB_SCHEMAS = {
                     {
                         "fieldId": "t7_d1_5_b1",
                         "op": "field"
-                    },
-                    {
-                        "fieldId": "t7_d1_6_b1",
-                        "op": "field"
-                    },
-                    {
-                        "fieldId": "t7_d1_7_b1",
-                        "op": "field"
                     }
                 ]
             },
@@ -3918,23 +3974,15 @@ window.SSB_SCHEMAS = {
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_2a_b2",
-                        "op": "field"
-                    },
-                    {
                         "fieldId": "t7_d1_3_b2",
                         "op": "field"
                     },
                     {
+                        "fieldId": "t7_d1_4_b",
+                        "op": "field"
+                    },
+                    {
                         "fieldId": "t7_d1_5_b2",
-                        "op": "field"
-                    },
-                    {
-                        "fieldId": "t7_d1_6_b2",
-                        "op": "field"
-                    },
-                    {
-                        "fieldId": "t7_d1_7_b2",
                         "op": "field"
                     }
                 ]
@@ -3950,11 +3998,11 @@ window.SSB_SCHEMAS = {
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_2a_c",
+                        "fieldId": "t7_d1_3_c",
                         "op": "field"
                     },
                     {
-                        "fieldId": "t7_d1_3_c",
+                        "fieldId": "t7_d1_4_c",
                         "op": "field"
                     },
                     {
@@ -9003,7 +9051,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "text"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9018,7 +9066,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "text"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9032,7 +9080,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "text"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9047,7 +9095,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "text"
                     },
-                    "required": true
+                    "required": "error"
                 },
                 {
                     "annotations": {
@@ -9062,7 +9110,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "text"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "A. Opplysninger om skjema og kontaktinformasjon",
@@ -9090,7 +9138,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9112,7 +9160,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9132,7 +9180,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9154,7 +9202,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "B. Gebyrer",
@@ -9182,7 +9230,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9214,7 +9262,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9246,7 +9294,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9278,7 +9326,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9298,7 +9346,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9318,7 +9366,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9338,7 +9386,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9370,7 +9418,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9402,7 +9450,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9434,7 +9482,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9454,7 +9502,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9474,7 +9522,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 }
             ],
             "title": "C10. Antall byggesøknader, dispensasjonssøknader og søknader om opprettelse og endring av grunneiendom. Hovedtall",
@@ -9502,7 +9550,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9534,7 +9582,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9555,7 +9603,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9587,7 +9635,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9608,7 +9656,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9640,7 +9688,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9661,7 +9709,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9693,7 +9741,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9725,7 +9773,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9746,7 +9794,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9767,7 +9815,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9799,7 +9847,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9831,7 +9879,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "C11. Rammesøknader. Antall og saksbehandlingstid",
@@ -9859,7 +9907,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9871,6 +9919,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "1. Antall søknader mottatt i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c12_1_b",
                     "prompt": {
                         "helpText": null,
@@ -9879,7 +9939,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9911,7 +9971,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -9932,7 +9992,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9953,7 +10013,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -9974,7 +10034,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10006,7 +10066,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10027,7 +10087,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10039,6 +10099,18 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "2. Antall søknader behandlet i rapporteringsåret"
                         }
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c12_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c12_2_b",
                     "prompt": {
                         "helpText": null,
@@ -10047,7 +10119,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10079,7 +10151,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10100,7 +10172,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10121,7 +10193,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10142,7 +10214,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10174,7 +10246,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10206,7 +10278,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10238,7 +10310,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10259,7 +10331,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10280,7 +10352,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10301,7 +10373,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10322,7 +10394,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10343,7 +10415,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10375,7 +10447,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10407,7 +10479,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10439,7 +10511,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10460,7 +10532,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C12. Ett-trinnssøknader MED ansvarsrett. Antall og saksbehandlingstid",
@@ -10488,7 +10560,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10520,7 +10592,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10552,7 +10624,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10573,7 +10645,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10594,7 +10666,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10615,7 +10687,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10647,7 +10719,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10668,7 +10740,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10700,7 +10772,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10732,7 +10804,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10753,7 +10825,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10774,7 +10846,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10795,7 +10867,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10827,7 +10899,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -10859,7 +10931,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10891,7 +10963,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10912,7 +10984,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10933,7 +11005,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10954,7 +11026,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10975,7 +11047,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -10996,7 +11068,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11028,7 +11100,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11060,7 +11132,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11092,7 +11164,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11113,7 +11185,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C13. Ett-trinnssøknader UTEN ansvarsrett. Antall og saksbehandlingstid",
@@ -11142,7 +11214,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11163,7 +11235,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11184,7 +11256,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11205,7 +11277,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11226,7 +11298,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11247,7 +11319,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11268,7 +11340,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11289,7 +11361,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11310,7 +11382,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11331,7 +11403,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11352,7 +11424,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11373,7 +11445,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11394,7 +11466,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11415,7 +11487,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11436,7 +11508,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11457,7 +11529,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11478,7 +11550,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11499,7 +11571,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11520,7 +11592,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11541,7 +11613,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11562,7 +11634,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11583,7 +11655,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11604,7 +11676,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11625,7 +11697,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11646,7 +11718,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C14. Til summeringskontroll: Byggesøknader i alt og fordelt på 3- og 12-ukers frister",
@@ -11674,7 +11746,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11706,7 +11778,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11727,7 +11799,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11759,7 +11831,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11780,7 +11852,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11812,7 +11884,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11833,7 +11905,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11865,7 +11937,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -11897,7 +11969,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11918,7 +11990,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11939,7 +12011,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -11971,7 +12043,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12003,7 +12075,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "C15. Dispensasjonssøknader. Antall og saksbehandlingstid",
@@ -12030,7 +12102,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12050,7 +12122,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12070,7 +12142,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12102,7 +12174,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12134,7 +12206,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12166,7 +12238,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "C16. Igangsettingstillatelser, midlertidige brukstillatelser og ferdigattester. Antall og saksbehandlingstid",
@@ -12194,7 +12266,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12226,7 +12298,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12258,7 +12330,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12279,7 +12351,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12300,7 +12372,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12321,7 +12393,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12353,7 +12425,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12374,7 +12446,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12406,7 +12478,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12438,7 +12510,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12459,7 +12531,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12480,7 +12552,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12501,7 +12573,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12533,7 +12605,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12565,7 +12637,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12597,7 +12669,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12618,7 +12690,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12639,7 +12711,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12660,7 +12732,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12681,7 +12753,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12702,7 +12774,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12734,7 +12806,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12766,7 +12838,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12798,7 +12870,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12819,7 +12891,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C2. Oppretting og endring av eiendom (deling)",
@@ -12838,7 +12910,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12852,7 +12924,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "textarea"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C11-C2. Om eKOSTRA",
@@ -12879,7 +12951,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -12911,7 +12983,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12924,6 +12996,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_1_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c3_1_c",
                     "prompt": {
                         "helpText": null,
@@ -12932,7 +13016,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12964,7 +13048,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -12984,7 +13068,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13016,7 +13100,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13029,6 +13113,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c3_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_c3_2_c",
                     "prompt": {
                         "helpText": null,
@@ -13037,7 +13133,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13069,7 +13165,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13101,7 +13197,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13134,7 +13230,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13155,7 +13251,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13187,7 +13283,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13219,7 +13315,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "C3. Oppmålingsforretninger. Antall og saksbehandlingstid",
@@ -13247,7 +13343,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13267,7 +13363,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13287,7 +13383,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13307,7 +13403,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13328,7 +13424,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13360,7 +13456,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13392,7 +13488,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13424,7 +13520,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13445,7 +13541,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13465,7 +13561,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13485,7 +13581,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13505,7 +13601,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13526,7 +13622,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13558,7 +13654,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13590,7 +13686,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13622,7 +13718,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13643,7 +13739,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13675,7 +13771,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13707,7 +13803,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13739,7 +13835,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "C4. Eierseksjoneringssaker. Antall og saksbehandlingstid",
@@ -13768,7 +13864,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13800,7 +13896,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13832,7 +13928,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13864,7 +13960,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13896,7 +13992,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -13917,7 +14013,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13938,7 +14034,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13959,7 +14055,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -13980,7 +14076,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14001,7 +14097,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14021,7 +14117,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14053,7 +14149,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14085,7 +14181,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14117,7 +14213,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14149,7 +14245,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14181,7 +14277,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14213,7 +14309,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14234,7 +14330,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14266,7 +14362,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14286,7 +14382,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14318,7 +14414,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14350,7 +14446,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14382,7 +14478,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14414,7 +14510,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14434,7 +14530,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14466,7 +14562,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14487,7 +14583,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14519,7 +14615,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14551,7 +14647,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14583,7 +14679,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14604,7 +14700,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14636,7 +14732,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14668,7 +14764,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14700,7 +14796,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14721,7 +14817,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -14753,7 +14849,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14773,7 +14869,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14805,7 +14901,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14837,7 +14933,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14869,7 +14965,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14901,7 +14997,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14921,7 +15017,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14953,7 +15049,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -14985,7 +15081,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15017,7 +15113,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15049,7 +15145,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15069,7 +15165,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15101,7 +15197,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15133,7 +15229,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15165,7 +15261,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15197,7 +15293,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "D1. Resultat av byggesaksbehandling i alt og i særskilt område",
@@ -15218,6 +15314,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c10_2_f",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_1_a",
                     "prompt": {
                         "helpText": null,
@@ -15226,7 +15334,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15258,7 +15366,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15290,7 +15398,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15322,7 +15430,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15354,7 +15462,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15374,7 +15482,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15406,7 +15514,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15438,7 +15546,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15451,6 +15559,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_c4_2_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_d2_3_a",
                     "prompt": {
                         "helpText": null,
@@ -15459,7 +15579,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15491,7 +15611,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15523,7 +15643,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 }
             ],
             "title": "D2. Resultat av behandling av søknader om opprettelse og endring av eiendom, matrikuleringer uten fullført oppmålingsforretning (MUF) og seksjoneringer",
@@ -15541,7 +15661,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15555,7 +15675,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "textarea"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "D1-D2. Om eKOSTRA",
@@ -15573,7 +15693,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "fieldId": "t7_e0b_statsforvalterBehandlet",
@@ -15584,7 +15704,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 }
             ],
             "title": "E. Klagesaksbehandling: Omfang, resultat og saksbehandlingstid",
@@ -15616,7 +15736,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15637,7 +15757,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15658,7 +15778,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15679,7 +15799,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15700,7 +15820,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15720,7 +15840,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15752,7 +15872,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15784,7 +15904,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15816,7 +15936,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15848,7 +15968,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -15869,7 +15989,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15890,7 +16010,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15911,7 +16031,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15932,7 +16052,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15953,7 +16073,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -15973,7 +16093,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16005,7 +16125,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16037,7 +16157,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16069,7 +16189,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16101,7 +16221,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -16121,7 +16241,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -16153,7 +16273,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16185,7 +16305,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16217,7 +16337,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16249,7 +16369,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -16269,7 +16389,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16301,7 +16421,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16333,7 +16453,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16365,7 +16485,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16397,7 +16517,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16417,7 +16537,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16449,7 +16569,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16481,7 +16601,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16513,7 +16633,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16545,7 +16665,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -16565,7 +16685,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16597,7 +16717,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16629,7 +16749,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16661,7 +16781,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16693,7 +16813,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "E1. Antall klagesaker behandlet i kommunen",
@@ -16725,7 +16845,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16746,7 +16866,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16767,7 +16887,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16788,7 +16908,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16809,7 +16929,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16829,7 +16949,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -16861,7 +16981,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16882,7 +17002,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16914,7 +17034,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16946,7 +17066,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16967,7 +17087,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -16988,7 +17108,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17009,7 +17129,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17030,7 +17150,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17051,7 +17171,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17071,7 +17191,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -17103,7 +17223,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17124,7 +17244,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17156,7 +17276,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17188,7 +17308,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17208,7 +17328,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -17240,7 +17360,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17261,7 +17381,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17293,7 +17413,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17325,7 +17445,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17345,7 +17465,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -17377,7 +17497,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17398,7 +17518,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17430,7 +17550,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17462,7 +17582,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17482,7 +17602,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -17514,7 +17634,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17535,7 +17655,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17567,7 +17687,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17599,7 +17719,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17619,7 +17739,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -17651,7 +17771,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17672,7 +17792,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17704,7 +17824,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17736,7 +17856,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "E2. Klagesaker oversendt fra kommunen og behandlet av Statsforvalteren",
@@ -17754,7 +17874,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 }
             ],
             "title": "F. Utøvelse av tilsyn ved tiltak (i byggesaker)",
@@ -17785,7 +17905,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17817,7 +17937,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17849,7 +17969,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17881,7 +18001,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17901,7 +18021,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17933,7 +18053,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17965,7 +18085,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -17997,7 +18117,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18017,7 +18137,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "F1. Antall tiltak som det er ført tilsyn med",
@@ -18048,7 +18168,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "warn"
                 },
                 {
                     "annotations": {
@@ -18061,6 +18181,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a_b",
                     "prompt": {
                         "helpText": null,
@@ -18069,7 +18201,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18082,6 +18214,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a_c",
                     "prompt": {
                         "helpText": null,
@@ -18090,7 +18234,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18103,6 +18247,18 @@ window.SSB_SCHEMAS = {
                         },
                         "readOnly": true
                     },
+                    "condition": {
+                        "comparison": "gt",
+                        "left": {
+                            "fieldId": "t7_f2_a_a",
+                            "op": "field"
+                        },
+                        "op": "compare",
+                        "right": {
+                            "op": "const",
+                            "value": 0
+                        }
+                    },
                     "fieldId": "t7_f2_a_d",
                     "prompt": {
                         "helpText": null,
@@ -18111,7 +18267,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18143,7 +18299,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18175,7 +18331,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18207,7 +18363,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18239,7 +18395,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18271,7 +18427,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18292,7 +18448,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18313,7 +18469,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18334,7 +18490,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18366,7 +18522,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18398,7 +18554,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18430,7 +18586,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18462,7 +18618,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18494,7 +18650,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18526,7 +18682,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18558,7 +18714,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18590,7 +18746,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "F2. Antall tilsyn og ulovlighetsoppfølginger",
@@ -18622,7 +18778,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18642,7 +18798,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18662,7 +18818,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18682,7 +18838,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18702,7 +18858,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18722,7 +18878,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18742,7 +18898,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18762,7 +18918,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18782,7 +18938,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18802,7 +18958,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18822,7 +18978,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18842,7 +18998,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18862,7 +19018,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18882,7 +19038,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18902,7 +19058,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18922,7 +19078,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18942,7 +19098,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18962,7 +19118,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -18982,7 +19138,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19002,7 +19158,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19022,7 +19178,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19042,7 +19198,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "F3. Antall utførte tilsyn fordelt på tema",
@@ -19067,7 +19223,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19081,7 +19237,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "F4. Konklusjon av tilsynet",
@@ -19099,7 +19255,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 }
             ],
             "title": "G. Pålegg, sanksjoner og andre virkemidler etter tilsyn og ulovlighetsoppfølging",
@@ -19130,7 +19286,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19162,7 +19318,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19194,7 +19350,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19214,7 +19370,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19226,18 +19382,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b1_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b1_b",
                     "prompt": {
                         "helpText": null,
@@ -19246,7 +19390,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19258,18 +19402,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b1. Pålegg om retting (pbl § 32-3)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b1_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b1_c",
                     "prompt": {
                         "helpText": null,
@@ -19278,7 +19410,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19298,7 +19430,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19310,18 +19442,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b2_b",
                     "prompt": {
                         "helpText": null,
@@ -19330,7 +19450,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19342,18 +19462,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Pålegg om opphør av bruk (pbl § 32-3 og § 32-4)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b2_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b2_c",
                     "prompt": {
                         "helpText": null,
@@ -19362,7 +19470,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19382,7 +19490,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19394,18 +19502,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b3_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b3_b",
                     "prompt": {
                         "helpText": null,
@@ -19414,7 +19510,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19426,18 +19522,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b3. Pålegg om stans (pbl § 32-3 og § 32-4)"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g1_b3_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g1_b3_c",
                     "prompt": {
                         "helpText": null,
@@ -19446,7 +19530,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "G1. Antall pålegg gitt i rapporteringsåret",
@@ -19477,7 +19561,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19498,7 +19582,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19519,7 +19603,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19551,7 +19635,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19583,7 +19667,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19615,7 +19699,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19647,7 +19731,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19679,7 +19763,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19711,7 +19795,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19743,7 +19827,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19775,7 +19859,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19807,7 +19891,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19819,18 +19903,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b1. Oppfølging av pålegg: Forelegg"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g2_a_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g2_b1_a",
                     "prompt": {
                         "helpText": null,
@@ -19839,7 +19911,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19871,7 +19943,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19903,7 +19975,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19915,18 +19987,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b2. Oppfølging av pålegg: Tvangsmulkt"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g2_a_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g2_b2_a",
                     "prompt": {
                         "helpText": null,
@@ -19935,7 +19995,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19967,7 +20027,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -19999,7 +20059,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20011,18 +20071,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "b3. Oppfølging av pålegg: Tvangsfullbyrdelse"
                         }
                     },
-                    "condition": {
-                        "comparison": "gt",
-                        "left": {
-                            "fieldId": "t7_g2_a_a",
-                            "op": "field"
-                        },
-                        "op": "compare",
-                        "right": {
-                            "op": "const",
-                            "value": 0
-                        }
-                    },
                     "fieldId": "t7_g2_b3_a",
                     "prompt": {
                         "helpText": null,
@@ -20031,7 +20079,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20063,7 +20111,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20095,7 +20143,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "G2. Antall oppfølginger av gitte pålegg",
@@ -20118,10 +20166,6 @@ window.SSB_SCHEMAS = {
                             "rowLabel": "a. Antall sanksjoner brukt i rapporteringsåret, i alt"
                         }
                     },
-                    "condition": {
-                        "fieldId": "t7_g0_erGittPaaleggEllerSanksjoner",
-                        "op": "isTrue"
-                    },
                     "fieldId": "t7_g3_a_a",
                     "prompt": {
                         "helpText": null,
@@ -20130,7 +20174,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20151,7 +20195,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20172,7 +20216,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20204,7 +20248,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20236,7 +20280,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20268,7 +20312,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "G3. Antall sanksjoner brukt",
@@ -20299,7 +20343,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20320,7 +20364,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20341,7 +20385,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20373,7 +20417,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20405,7 +20449,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20437,7 +20481,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20469,7 +20513,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20501,7 +20545,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20533,7 +20577,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20565,7 +20609,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20597,7 +20641,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20629,7 +20673,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20661,7 +20705,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20693,7 +20737,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20725,7 +20769,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20757,7 +20801,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20789,7 +20833,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20821,7 +20865,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "G4. Antall andre virkemidler nyttet ved manglende overholdelse av plan- og bygningslovgivningen",
@@ -20844,7 +20888,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "textarea"
                     },
-                    "required": false
+                    "required": "none"
                 }
             ],
             "title": "H. Kommentarer og merknader til skjemaet",
@@ -20865,7 +20909,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20883,7 +20927,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "boolean"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20899,7 +20943,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": false
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20914,7 +20958,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 },
                 {
                     "annotations": {
@@ -20929,7 +20973,7 @@ window.SSB_SCHEMAS = {
                     "questionType": {
                         "type": "integer"
                     },
-                    "required": true
+                    "required": "none"
                 }
             ],
             "title": "I. Grunnlag for rapportering og tid for utfylling av skjemaet",

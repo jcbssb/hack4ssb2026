@@ -151,7 +151,8 @@
       margin-bottom: 0.4rem;
       display: block;
     }
-    .req-mark { color: var(--danger); margin-left: 0.25rem; }
+    .req-mark { color: var(--danger); margin-left: 0.25rem; font-weight: bold; }
+    .req-mark.req-warn { color: #C98A00; }
     .rule-msg { margin-top: 0.75rem; padding: 0.6rem 0.8rem; border-radius: 4px; font-size: 0.9rem; border-left: 4px solid; }
     .rule-msg.error { background: #FDECEA; border-color: var(--danger); color: #8A1C1C; }
     .rule-msg.warning { background: #FFF6E0; border-color: #C98A00; color: #6B4A00; }
@@ -167,6 +168,7 @@
     table.matrix td.closed input { background: #EEF1F3; border-style: dashed; }
     table.matrix td.absent { background: repeating-linear-gradient(135deg, var(--bg-page), var(--bg-page) 6px, #E6EAED 6px, #E6EAED 12px); }
     table.matrix td.required input { border-left: 3px solid var(--danger); }
+    table.matrix td.soft-required input { border-left: 3px solid #C98A00; }
     table.matrix td.invalid input, .question-block.invalid .text-input { border-color: var(--danger); box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2); }
     .question-block.invalid { border-left: 3px solid var(--danger); padding-left: 0.75rem; }
     .msg-link { margin-left: 0.75rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; background: transparent; border: 1px solid currentColor; border-radius: 3px; color: inherit; cursor: pointer; }
@@ -340,7 +342,7 @@
     </section>
   </main>
 
-  <script src="schemas.js?v=3d71ee6e"></script>
+  <script src="schemas.js?v=b34992d3"></script>
   <script>
     // Schemas loaded dynamically from dsl single source of truth (schemas.js)
     const availableSchemas = window.SSB_SCHEMAS || {};
@@ -651,6 +653,21 @@
       }
     }
 
+    function requiredLevel(q) {
+      const r = q && q.required;
+      if (r === true || r === "error") return "error";
+      if (r === "warn" || r === "warning") return "warn";
+      return "none";
+    }
+
+    function isHardRequired(q) {
+      return requiredLevel(q) === "error";
+    }
+
+    function isSoftRequired(q) {
+      return requiredLevel(q) === "warn";
+    }
+
     function renderQuestion(step) {
       const qBlock = document.createElement("div");
       qBlock.className = "question-block";
@@ -659,7 +676,9 @@
 
       const label = document.createElement("label");
       label.className = "question-label";
-      label.innerHTML = `${step.prompt.label} ${step.required ? '<span class="req-mark">*</span>' : ''}`;
+      const req = requiredLevel(step);
+      const reqMark = req === "error" ? '<span class="req-mark" title="Påkrevd">*</span>' : (req === "warn" ? '<span class="req-mark req-warn" title="Bør fylles ut">?</span>' : '');
+      label.innerHTML = `${step.prompt.label} ${reqMark}`;
       qBlock.appendChild(label);
 
       if (step.prompt.helpText) {
@@ -831,7 +850,8 @@
                 onFieldChanged();
               };
             }
-            if (q.required) td.classList.add("required");
+            if (isHardRequired(q)) td.classList.add("required");
+            else if (isSoftRequired(q)) td.classList.add("soft-required");
             td.dataset.field = q.fieldId;
             td.appendChild(input);
             pageBindings.push({ q, el: td, input, cell: true, calc: isCalc });
@@ -877,7 +897,7 @@
     function missingRequired(page) {
       const calculated = calculatedFieldIds();
       return page.questions.filter(q =>
-        q.required && !calculated.has(q.fieldId) && evaluateCondition(q.condition) && isEmpty(formData[q.fieldId]));
+        isHardRequired(q) && !calculated.has(q.fieldId) && evaluateCondition(q.condition) && isEmpty(formData[q.fieldId]));
     }
 
     function showPageMessages(missing, violations) {

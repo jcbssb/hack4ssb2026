@@ -357,7 +357,7 @@
     </aside>
   </div>
 
-  <script src="schemas.js?v=3d71ee6e"></script>
+  <script src="schemas.js?v=b34992d3"></script>
   <script>
     let currentSchema = null;
     let nodeDataMap = {};
@@ -519,7 +519,11 @@ pageFrame.paddingBottom = 40;`
         stepNode.onclick = () => selectNode(stepKey);
 
         const qTypeStr = formatType(question.questionType);
-        const reqStr = question.required ? '<span style="color:#F87171">True</span>' : '<span style="color:#34D399">False</span>';
+        const reqStr = (question.required === true || question.required === 'error')
+          ? '<span style="color:#F87171">error</span>'
+          : (question.required === 'warn' || question.required === 'warning')
+            ? '<span style="color:#FBBF24">warn</span>'
+            : '<span style="color:#34D399">none</span>';
         const condStr = question.condition ? `<div class="field-row"><span class="field-key">condition:</span><span class="field-val" style="color:var(--accent-cyan)">${escapeHtml(JSON.stringify(question.condition))}</span></div>` : '';
         const hint = (question.annotations && question.annotations.componentHint) ? question.annotations.componentHint : 'Default';
 
@@ -551,11 +555,12 @@ pageFrame.paddingBottom = 40;`
         else if (rawType === 'multichoice' || rawType === 'QMultiChoice') altinnType = "Checkboxes";
         else if (rawType === 'boolean' || rawType === 'QBoolean') altinnType = "RadioButtons";
 
+        const isReq = question.required === true || question.required === 'error';
         const altinnComponent = {
           id: `${schema.dialogueId}-${question.fieldId}-input`,
           type: altinnType,
           ...(isDate ? { timeStamp: false } : {}),
-          required: question.required,
+          required: isReq,
           dataModelBindings: { simpleBinding: `SkjemaData.${schema.dialogueId}.${question.fieldId}` },
           textResourceBindings: {
             title: `lang.${schema.dialogueId}.${question.fieldId}.label`,
@@ -569,7 +574,7 @@ pageFrame.paddingBottom = 40;`
   { fieldId      = "${question.fieldId}"
   , prompt       = Prompt "${question.prompt ? question.prompt.label : ''}" ${question.prompt && question.prompt.helpText ? `(Just "${question.prompt.helpText}")` : 'Nothing'}
   , questionType = ${JSON.stringify(question.questionType)}
-  , required     = ${question.required ? 'True' : 'False'}
+  , required     = ${isReq ? 'True' : 'False'}
   , condition    = ${question.condition ? `Just (${JSON.stringify(question.condition)})` : 'Nothing'}
   , annotations  = ${question.annotations ? `Just ${JSON.stringify(question.annotations)}` : 'Nothing'}
   }`,
@@ -579,7 +584,7 @@ ${JSON.stringify(altinnComponent, null, 2)}`,
 const comp = figma.createComponent();
 comp.name = "${altinnType}: ${question.fieldId}";
 comp.setPluginData("binding", "${question.fieldId}");
-comp.setPluginData("required", "${question.required}");
+comp.setPluginData("required", "${isReq}");
 pageFrame.appendChild(comp);`
         };
       }
