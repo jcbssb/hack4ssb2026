@@ -25,6 +25,7 @@ incoming/ (read-only) ──► schema-audit (extract/align/audit) ──► DSL
 | [04-build-and-dependencies.md](04-build-and-dependencies.md) | One-command setup, CI, sibling repos |
 | [05-public-and-international.md](05-public-and-international.md) | Making it useful for other statistical organisations |
 | [06-migration-steps.md](06-migration-steps.md) | Ordered steps, with gates |
+| [07-multi-repo-architecture.md](07-multi-repo-architecture.md) | Decoupled multi-repo ecosystem, independent compilers, shared contracts, and consumer slices |
 
 ## Decisions needed from the owner
 1. Licence (suggest EUPL-1.2 or MIT/Apache-2.0; check SSB policy).
